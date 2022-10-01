@@ -168,9 +168,16 @@
     margin: auto;
   }
   
-  .background-img{
+  .background-img-en{
     min-height: 76vh !important;
     background-image: url("assets/img/home/background.jpg");
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .background-img-es{
+    min-height: 30vh !important;
+    background-image: url("assets/img/home/BANNER-WEB.jpg");
     background-position: center center;
     background-size: cover;
   }
@@ -250,6 +257,10 @@
       padding-left: 0 !important;
       padding-right: 0 !important;
     }
+
+    .hidepanellg{
+      display: none;
+    }
     
   }
 
@@ -257,6 +268,12 @@
     .element-option{
       margin-bottom: 2.25rem !important;
       margin-top: 2.25rem !important;
+    }
+    .elementor-column {
+      width: 100%;
+    }
+    .hidepanelmd{
+      display: none;
     }
   }
 
@@ -275,5 +292,8 @@
       }
       p {
         font-size: 1rem !important;
+      }
+      .hidepanelsm{
+        display: none;
       }
    }
