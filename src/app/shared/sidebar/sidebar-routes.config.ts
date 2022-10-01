@@ -31,7 +31,7 @@ export const ROUTESADMINGTP: RouteInfo[] = [
 
 //Sidebar menu Routes and data
 export const ROUTESHOMEDX: RouteInfo[] = [
-    { path: '/.', title: 'menu.Dashboard', icon: 'icon-home', class: '', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: false, submenu: [] },
+    { path: 'home', title: 'menu.Dashboard', icon: 'icon-home', class: '', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: false, submenu: [] },
     { path: 'thefoundation', title: 'f29.The Foundation', icon: 'fa fa-building-o', class: '', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: true, submenu: [] },
     { path: 'ecosystem', title: 'f29.Ecosystem', icon: 'fa fa-globe', class: '', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: true, submenu: [] },
     { path: '/news', title: 'f29.News', icon: 'fa fa-newspaper', class: '', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: false, submenu: [] },
