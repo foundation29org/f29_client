@@ -7,8 +7,6 @@ import { Subscription } from 'rxjs/Subscription';
 import { ToastrService } from 'ngx-toastr';
 import { EventsService } from 'app/shared/services/events.service';
 import { NgbModal, NgbModalRef, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
-import { TermsConditionsPageComponent } from "../../pages/content-pages/terms-conditions/terms-conditions-page.component";
-
 
 @Component({
     selector: 'app-footer-land',
@@ -102,16 +100,6 @@ export class FooterLandComponent implements OnDestroy, OnInit{
         if (this.modalReference != undefined) {
             this.modalReference.close()
         }
-    }
-
-    openTerms() {
-        let ngbModalOptions: NgbModalOptions = {
-          backdrop: 'static',
-          keyboard: false,
-          windowClass: 'ModalClass-sm'
-        };
-        this.modalReference = this.modalService.open(TermsConditionsPageComponent, ngbModalOptions);
-      }
-  
+    }  
 
 }

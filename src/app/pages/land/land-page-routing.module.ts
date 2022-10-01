@@ -13,28 +13,28 @@ const routes: Routes = [
         path: '.',
         component: LandPageComponent,
         data: {
-          title: 'Rare Diseases Hub Ukraine'
+          title: 'Foundation 29'
         },
       },
       {
         path: 'donate',
         component: DonatePageComponent,
         data: {
-          title: 'Donate'
+          title: 'f29.Donate'
         }
       },
       {
         path: 'news',
         component: NewsPageComponent,
         data: {
-          title: 'News'
+          title: 'f29.News'
         }
       },
       {
         path: 'news/:id',
         component: OneNewPageComponent,
         data: {
-          title: 'News'
+          title: 'f29.News'
         }
       }
     ]

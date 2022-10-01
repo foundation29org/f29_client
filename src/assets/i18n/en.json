@@ -1,5 +1,124 @@
 {
-  "menu":{
+  "f29": {
+    "Initiatives": "Initiatives",
+    "The Foundation": "The Foundation",
+    "Ecosystem": "Ecosystem",
+    "News": "News",
+    "Awards": "Awards",
+    "Contact": "Contact",
+    "Donate": "Donate",
+    "t1.1": "It’s time for patients to take control of their health, through their data, to work alongside their doctors and drive research",
+    "t1.2": "At Foundation 29 we work with all those who share this vision creating the necessary tools and initiatives to achieve it",
+    "t2.1": "Our",
+    "t2.2": "initiatives",
+    "t2.3": "Tools that unleash the power of collaboration around data",
+    "t2.4.1.1": "The power to drive the diagnosis",
+    "t2.4.1.2": "Help diagnosis for doctors and patients",
+    "t2.4.1.3": "Dx29 is a free application that allows patients and doctors to speed up the rare disease diagnosis process.",
+    "t2.4.1.4": "We apply artificial intelligence to help patients and professionals identify symptoms and predict accurate diagnoses.",
+    "t2.4.2.1": "The power to share the knowledge",
+    "t2.4.2.2": "Sharing medical data for research",
+    "t2.4.2.3": "HealthData29 makes it easy to share health data sets with researchers for use in medical research in a simple and secure way.",
+    "t2.4.2.4": "The initiative includes a guide to good practices in the sharing and processing of this data and has been awarded by the Spanish Agency for Data Protection.",
+    "t2.4.3.1": "The power to get the information",
+    "t2.4.3.2": "Free diagnosis support program",
+    "t2.4.3.3": "Together towards diagnosis is a program in which we guide patients, who meet certain criteria, with more data to shorten their odyssey.",
+    "t2.4.3.4": "The initiative, totally free for patients, provides them with a complete sequencing genetic test, thus obtaining highly valuable information.",
+    "Know more": "Know more",
+    "t3.1.1": "The",
+    "t3.1.2": "Foundation",
+    "t3.1.3": "An NGO of doers, not talkers, fighting hard for a real change",
+    "t3.2.1": "We are",
+    "t3.2.2": "Foundation 29",
+    "t3.2.3": "Open standard activists, data-driven scientists, patient-empowering advocates, enabling-technology creators and healthcare system changemakers.",
+    "t3.3.1": "We work",
+    "t3.3.2": "from the patient, with the patient and for the patient",
+    "t3.4.1": "We want",
+    "t3.4.2": "a new medicine model around patients",
+    "t3.4.3": "Working with their physicians for their health and the health of others in an ecosystem that openly shares its data to advance medical knowledge together.",
+    "t4.1": "We are a non-profit foundation. We work for a medicine in which empowered patients take control of their health through their data and work with doctors and institutions to improve their well-being and that of others.",
+    "t4.2": "We create technologies that allow a radical change in your capabilities as users and in the entire medical ecosystem.",
+    "t4.3": "The activism of patients, their families and associations are at our core. We put special focus on rare diseases. They are in our origin and in our name: February 29, world day of rare diseases.",
+    "t5.1": "Donate",
+    "t5.2": "We want there to be no undiagnosed patients,",
+    "t5.3": "Can you help us to get it?",
+    "t5.4": "Make a donation",
+    "t6.1": "Latest",
+    "t6.2": "news",
+    "t6.3": "Read more",
+    "t7.1": "Ecosystem",
+    "t7.2": "Those who share our vision and help us make it come true",
+    "t7.3": "Institutions",
+    "t7.4": "Patient associations",
+    "t7.5": "Other allies",
+    "t8.1": "Awards",
+    "t8.2": "We break barriers",
+    "t8.3": "We get awards",
+    "t9.1.1": "Spanish Data Protection Agency",
+    "t9.1.2": "Personal Data Protection Award 2020",
+    "f1": "Contact us",
+    "f2": "All rights reserved",
+    "d1": "Make a",
+    "d2": "donation",
+    "d3": "We envision a time when patients become full and valued partners in collaborative",
+    "d4": "relationships with health professionals to achieve better health and wellbeing."
+  },
+  "policy": {
+    "CONTENT": "INFORMACIÓN BÁSICA SOBRE PROTECCIÓN DE DATOS",
+    "t1.1": "Responsable del tratamiento (responsable del tratamiento):",
+    "t1.2": "FUNDACIÓN 29",
+    "t2.1": "Dirección del responsable del tratamiento:",
+    "t2.2": "CALLE ABREGO Nº 31, 4º B,",
+    "t2.3": "28223 POZUELO DE ALARCÓN (Madrid – España)",
+    "t3.1": "Contacto:",
+    "t3.2": "DPO designado: privacy@foundation29.org",
+    "t4.1": "Propósito",
+    "t4.2": "Los datos facilitados por el interesado serán tratados por la Fundación con la finalidad de llevar a cabo la gestión administrativa, económica y fiscal de los donantes, además de informarles por cualquier medio, incluido el electrónico, de cualquier asunto relacionado con la suerte de las donaciones y las actividades de la entidad.",
+    "t5.1": "Publicidad",
+    "t5.2": "No le enviaremos publicidad.",
+    "t6.1": "Legitimación",
+    "t6.2": "Solo trataremos tus datos con tu consentimiento previo, que podrás facilitarnos a través de la casilla correspondiente establecida a tal efecto.",
+    "t7.1": "Destinatarios",
+    "t7.2": "En general, solo el personal de nuestra entidad que esté debidamente autorizado podrá tener conocimiento de la información que le solicitamos.",
+    "t8.1": "Derechos",
+    "t8.2.1": "En cualquier momento puedes ponerte en contacto con nosotros para saber qué información tenemos sobre ti, rectificarla si es incorrecta y eliminarla una vez finalice nuestra relación, en caso de que esto sea legalmente posible.",
+    "t8.2.2": "También tiene derecho a solicitar la transferencia de su información a otra entidad. Este derecho se denomina “portabilidad” y puede resultar útil en determinadas situaciones.",
+    "t8.2.3": "Para solicitar cualquiera de estos derechos, debe realizar una solicitud por escrito a nuestro domicilio, junto con una fotocopia de su DNI, para poder identificarlo.",
+    "t9.1": "El Patronato de FUNDACIÓN 29 DE FEBRERO (en adelante, el responsable del tratamiento), asume la máxima responsabilidad y compromiso con el establecimiento, implementación y mantenimiento de esta Política de Protección de Datos, asegurando la mejora continua del responsable del tratamiento con el objetivo de conseguir la excelencia en relación con cumplimiento del Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo de 27 de abril de 2016 sobre la protección de las personas físicas en lo que respecta al tratamiento de datos personales y la libre circulación de estos datos y por el que se deroga la Directiva 95/46 / CE (Reglamento General de Protección de Datos) (DOUE L 119 / 1.04-05-2016), y Legislación Española de Protección de Datos de Carácter Personal (Ley Orgánica, legislación sectorial específica y su normativa de desarrollo).",
+    "t9.2": "La Política de Protección de Datos de FUNDACIÓN 29 DE FEBRERO se apoya en el principio de responsabilidad proactiva, según el cual el responsable del tratamiento es responsable del cumplimiento del marco normativo y jurisprudencial que rige dicha Política, pudiendo demostrarlo ante las autoridades competentes.",
+    "t9.3": "En este sentido, el responsable del tratamiento se regirá por los siguientes principios que deben servir a todo el personal como guía y marco de referencia en el tratamiento de datos personales:",
+    "p1": "<strong>1. Protección de datos desde el diseño:</strong> el responsable del tratamiento aplicará, tanto en el momento de determinar el medio de tratamiento como en el momento del propio tratamiento, medidas técnicas y organizativas adecuadas, como la seudonimización, destinadas a aplicar de forma eficaz los principios de protección de datos, como la minimización de datos, e integrar las garantías necesarias en el tratamiento.",
+    "p2": "<strong>2. Protección de datos por defecto:</strong> el responsable del tratamiento aplicará las medidas técnicas y organizativas oportunas con el fin de garantizar que, por defecto, solo se tratarán los datos personales necesarios para cada una de las finalidades específicas del tratamiento.",
+    "p3": "<strong>3. Protección de datos en el ciclo de vida de la información:</strong> las medidas que garantizan la protección de los datos personales serán de aplicación durante todo el ciclo de vida de la información.",
+    "p4": "<strong>4. Licitud, lealtad y transparencia:</strong> los datos personales serán tratados de manera lícita, leal y transparente en relación con el interesado.",
+    "p5": "<strong>5. Limitación de la finalidad:</strong> los datos personales se recopilarán para finalidades específicas, explícitas y legítimas, y no se seguirán procesando de forma incompatible con dichas finalidades.",
+    "p6": "<strong>6. Minimización de datos:</strong> los datos personales serán adecuados, pertinentes y limitados a lo necesario en relación con las finalidades para las que son tratados.",
+    "p7": "<strong>7. Exactitud:</strong> los datos personales serán precisos y, si es necesario, actualizados; Se tomarán todas las medidas razonables para que los datos personales que sean inexactos con respecto a los fines para los que son tratados sean eliminados o rectificados sin demora.",
+    "p8": "<strong>8. Limitación del plazo de conservación:</strong> los datos personales se conservarán de forma que permita la identificación de los interesados ​​durante un tiempo no superior al necesario para las finalidades del tratamiento de los datos personales.",
+    "p9": "<strong>9. Integridad y confidencialidad:</strong> los datos personales serán tratados de tal forma que se garantice la adecuada seguridad de los datos personales, incluida la protección contra el tratamiento no autorizado o ilegal y contra la pérdida, destrucción o daño accidental, mediante la aplicación de las medidas técnicas u organizativas adecuadas.",
+    "p10": "<strong>10. Información y formación:</strong> una de las claves para garantizar la protección de los datos personales es la formación e información que se facilita al personal implicado en el tratamiento de los mismos. Durante el ciclo de vida de la información, todo el personal con acceso a los datos será debidamente formado e informado sobre sus obligaciones en relación con el cumplimiento de la normativa de protección de datos.",
+    "p11": "La Política de Protección de Datos de FUNDACIÓN 29 DE FEBRERO se comunica a todo el personal del responsable del tratamiento y se pone a disposición de todos los interesados.",
+    "p12": "En consecuencia, esta Política de Protección de Datos involucra a todo el personal del responsable del tratamiento, quien debe conocerla y asumirla, considerándola como propia, siendo cada miembro responsable de aplicarla y verificar las normas de protección de datos aplicables a su actividad."
+  },
+  "terms": {
+    "title": "Términos y condiciones",
+    "p1": "El acceso al sitio web de Fundación 29 de Febrero implica la aceptación por parte del usuario de las reglas de uso establecidas para el mismo.",
+    "t2": "Descargo de responsabilidad",
+    "p2.1": "El acceso al sitio es gratuito y no genera ninguna relación comercial, contractual o profesional entre sus usuarios y Fundación 29 de Febrero.",
+    "p2.2": "El sitio puede contener acceso a otros sitios que presentan opiniones personales y otras expresiones de quienes participan en ellos. Ni el contenido de estos sitios, ni los enlaces que se incluyen desde ellos a otros sitios son revisados ​​o monitoreados por la Fundación 29 de Febrero. El texto y cualquier otro material publicado por ellos expresan la opinión de su autor específico y no corresponden a la posición funcionario de la Fundación 29 de Febrero.",
+    "t3": "Permiso para el uso de materiales",
+    "p3.1": "El usuario acepta las reglas de uso del sitio, de acuerdo con las leyes vigentes. El material protegido por las leyes de Propiedad Intelectual, o por cualquier otro derecho legal (software, texto, gráficos, ilustraciones, fotografías, sonidos, video y música) no podrá ser utilizado sin la autorización expresa del titular de dicho material.",
+    "t4": "Limitaciones de uso",
+    "p4.1": "El usuario se compromete a utilizar el sitio solo para fines legales. Fundación 29 de Febrero tiene el derecho de eliminar material del sitio, bloquear el acceso o tomar cualquier otra acción con respecto al material publicado a su discreción. El usuario no podrá utilizar los recursos informáticos de Fundación 29 de Febrero para distribuir publicidad que no haya sido solicitada o material promocional de ningún tipo.",
+    "t5": "Uso de marcas",
+    "p5.1": "A ella pertenecen el logo, nombre y todos los gráficos contenidos en la página web de la Fundación 29 de Febrero. Queda prohibido su uso, reproducción, copia o redistribución sin el permiso por escrito de la Fundación. Todas las demás marcas comerciales que aparecen en el sitio pertenecen a sus respectivos propietarios.",
+    "t6": "Contáctenos",
+    "p6.1": "Para cualquier pregunta adicional sobre nuestros términos y condiciones de uso de nuestro sitio web, comuníquese con nosotros. Hemos nombrado un DPO con el que puede contactar en: privacy@foundation29.org",
+    "t7": "POLÍTICA DE DONACIONES",
+    "p7.1": "La cantidad total de donaciones se utiliza para fines sociales sin fines de lucro. Las donaciones realizadas a Fundación 29 de Febrero están actualmente sujetas a deducción fiscal en España, en virtud de lo dispuesto en la Ley 49/2002, de 23 de diciembre, de régimen fiscal de las entidades sin ánimo de lucro e incentivo fiscal al mecenazgo.",
+    "p7.2": "Si reside fuera de España, consulte las retenciones vigentes para donaciones a ONGs."
+  },
+  "menu": {
     "Dashboard": "Home",
     "Dashboard Super Admin": "Dashboard superAdmin",
     "User Profile": "User profile",
@@ -12,7 +131,7 @@
     "Languages": "Languages",
     "About us": "About us"
   },
-  "profile":{
+  "profile": {
     "Save the changes": "Save the changes, so that in future sessions it appears in the selected language",
     "General": "General",
     "Current password": "Current password",
@@ -20,7 +139,7 @@
     "The current password is incorrect": "The current password is incorrect",
     "Settings": "Settings"
   },
-  "login":{
+  "login": {
     "Login": "Login",
     "Remember Me": "Remember me",
     "Recover Password": "Recover password",
@@ -40,7 +159,7 @@
     "First time here": "First time here?",
     "Create an account clicking here": "Create an account clicking here:"
   },
-  "registration":{
+  "registration": {
     "Registration": "Registration",
     "Data protection users": "DATA PROTECTION: your data will be the responsibility of SJD Barcelona Children's Hospital to provide you with the specialized medical support you request; and you can transfer them to third parties if you expressly consent to it and to obtain the purpose of the treatment. If you wish to exercise your rights or for more information, please visit",
     "Data protection prof": "DATA PROTECTION: your data will be the responsibility of SJD Barcelona Children's Hospital to provide you with the specialized medical support you request and may be transferred to third parties if you expressly consent to it and to obtain the purpose of the treatment. As a professional you have the express authorization of the patient to communicate to the SJD Barcelona Children's Hospital the data that corresponds to him. If you wish to exercise your rights or for more information, please visit",
@@ -59,7 +178,7 @@
     "Please select a code": "Phone country code",
     "Enter your phone number": "Enter your phone number"
   },
-  "recoverpass":{
+  "recoverpass": {
     "Account recovery email sent": "Account recovery email sent",
     "no account": "There is no account with this email.",
     "Password changed": "Password changed successfully",
@@ -69,12 +188,12 @@
     "Password must have": "Password must have lowercase and uppercase letters, numbers, and special characters",
     "Password is required": "Password is required"
   },
-  "generics":{
+  "generics": {
     "Password": "Password",
     "Repeat password": "Repeat password",
     "Email": "Email",
     "Name": "Name",
-    "Phone number":"Phone number",
+    "Phone number": "Phone number",
     "Lang": "Language",
     "Cancel": "Cancel",
     "Save": "Save",
@@ -142,7 +261,7 @@
     "Account data": "Account data",
     "Save changes": "Save changes"
   },
-  "navbar":{
+  "navbar": {
     "Logout": "Logout",
     "My Profile": "User profile",
     "Patient profile": "Patient profile",
@@ -150,66 +269,33 @@
     "Toggle navigation": "Toggle navigation",
     "Exit": "Exit"
   },
-  "personalinfo":{
+  "personalinfo": {
     "First Name": "First name",
     "Last Name": "Last name",
     "Birth Date": "Date of birth",
     "Phone": "Phone",
     "Country": "Country"
   },
-  "errors":{
+  "errors": {
     "The user does not exist": "The user does not exist",
     "The session has been closed": "The session has been closed"
   },
-  "medication":{
+  "medication": {
     "Drug": "Drug"
   },
-  "wizard":{
+  "wizard": {
     "btn": "Continue"
   },
-  "topnavbar":{
+  "topnavbar": {
     "Notifications": "My notifications"
-  },
-  "policy": {
-    "CONTENT": "CONTENT",
-    "step1": "Who is the data controller?",
-    "step2": "With what purpose will your personal data be processed?",
-    "step3": "What is the legitimation of the treatment of data?",
-    "step4": "What rights does the user have?",
-    "step5": "Assignment of data",
-    "step1-1": "In accordance with current regulations, the user is informed that the data controller of the information provided through Rare Diseases Hub Ukraine (hereinafter referred to as Application) will be Hospital Sant Joan de Déu (hereinafter, 'HSJD'), whose contact information is as follows",
-    "step1-2": "Address",
-    "step2-1": "When users provide personal data through the forms on the Application, their personal data will be processed for the following purposes",
-    "step2-2": "If you are a patient, caregiver or healthcare professional: to manage the registration and administration of the user account registered in the Application. This processing of personal data will be carried out on the legal basis of Article .2. h) of the GDPR. If there is a transfer to third parties it is under the legal basis of art. 9.2. a) of the RGPD:",
-    "step2-2.1": "If you are a patient, we will only process your health data if you have given your consent by ticking the relevant box.",
-    "step2-2.2": "If you are a caregiver, we will process the health data of the person whose data you provide to us if you expressly consent to this by ticking the relevant box. As a caregiver, you guarantee that you have the patient's consent to provide us with their personal data and health data.",
-    "step2-2.3": "If you are a healthcare professional, you agree to provide health data of your patients that would allow us to identify these patients.",
-    "step2-3": "To submit your request to the entity that will try to give you support:",
-    "step2-3.1": "This data describing an individual user will be shared with a third-party Entity (hereinafter will be referred to simply as Entity) involved in helping manage the case. The Entity will receive the information of your case and will manage the case and try to help.",
-    "step2-3.2": "Entity can be either a patient group, the federation of the patient group or a non-government organization (NGO) with professionals or volunteers involved in operations to give service.",
-    "step2-3.3": "This transfer of data will be carried out on the legal basis of the provision of the services you request in your application. If health data is transferred to the Entity, it will be processed on the legal basis of the consent given by ticking the corresponding box.",
-    "step3-1": "These are extraordinary circumstances. Your data will be treated based on the execution of the contract in the cases of user registration: without the processing of these data, we could not carry out the aforementioned services.",
-    "step3-2": "This can is based on Article 9.2. i) of the GDPR: ",
-    "step3-3": "The processing is necessary for reasons of public interest in the field of public health, such as protection against serious cross-border threats to health, or to ensure high standards of quality and safety of healthcare and medicinal products or medical devices, on the basis of Union or Member State law providing for appropriate and specific measures to protect the rights and freedoms of the data subject, in particular professional secrecy.",
-    "step4-1": "The user has the right to",
-    "step4-2": "Get confirmation about whether personal data concerning you is being processed by HSJD.",
-    "step4-3": "Access your personal data.",
-    "step4-4": "Rectify inaccurate or incomplete data.",
-    "step4-5": "Request the cancellation of your data when, among other reasons, the data is no longer necessary for the purposes for which it was collected.",
-    "step4-6": "To the portability of your data.",
-    "step4-6.1": "Withdraw your consent.",
-    "step4-7": "The exercise of these rights must be done through the email dpd@sjdhospitalbarcelona.org",
-    "step5-1": "The personal data provided will not be transferred to third parties without prior authorization by the owner of the same.",
-    "other1": "Notwithstanding the foregoing, the interested party may contact HSJD through dpd@sjdhospitalbarcelona.org",
-    "other2": "If the user considers that the exercise of their rights has not been effective, they may file a complaint with the Spanish Data Protection Agency."
   },
   "others": {
     "browsers not supported": "Currently we are not compatible with old browsers like Internet explorer. We recommend using modern browsers like  Microsoft Edge Insider, Chrome or Firefox."
   },
   "support": {
     "support": "Support",
-    "Messages":"Messages",
-    "No messages":"No messages",
+    "Messages": "Messages",
+    "No messages": "No messages",
     "New message": "New message",
     "Subject": "Subject",
     "Message": "Message",
@@ -228,18 +314,18 @@
     "I have a question": "I have a question",
     "Another type": "Another type"
   },
-  "footer":{
+  "footer": {
     "Dx29info": "Rare Diseases Hub Ukraine is a search and reference tool provided for informational purposes and not intended to replace the clinician’s judgement or experience. It should not be used to diagnose or treat medical conditions."
   },
-  "InfoSystem":{
+  "InfoSystem": {
     "titleReload": "A new version of Rare Diseases Hub Ukraine is available",
     "bodyReload": "The page will be reloaded automatically to keep you updated"
   },
-  "land":{
+  "land": {
     "Disease": "Disease",
     "or": "or"
   },
-  "landraito":{
+  "landraito": {
     "title": "This application connects patients from Ukraine with a rare disease with organizations and hospitals, members of the European Reference Network (ERN), with the aim to provide the specialized medical support they may need during this emergency.",
     "Contact us if": "Contact us",
     "t1.1": "If you are a patient",
@@ -272,7 +358,7 @@
     "t6.title": "Team",
     "button": "Make a request"
   },
-  "homeraito":{
+  "homeraito": {
     "t1": "Do you belong to a patient organization?",
     "t1.1": "Thanks, joining a patient organization lets you boost research by aggregating your data with the data of other patients. We will ask you later to see whether you have joined.",
     "t2": "Patient's condition",
@@ -285,11 +371,11 @@
     "p1": "This application let's you engage with organizations and hospitals, members of the European Reference Network (ERN), in order to provide the specialized medical support or any other aid you may need related to a rare disease.",
     "p1.1": "Given the situation, there is no guarantee that your needs can be attended, but communicating them is the first step towards getting the aid you require."
   },
-  "charts":{
+  "charts": {
     "noti1a": "Welcome! This is your notification area to see your case status and pending actions.",
     "noti2a": "The team is working hard to coordinate with other entities in order to solve your request."
   },
-  "mydata":{
+  "mydata": {
     "title": "My data",
     "Password is incorrect": "Password is incorrect",
     "we will close your session": "For your security, we will close your session.",
@@ -297,7 +383,7 @@
     "Write your password here": "Write your password here",
     "Deletedata": "Delete my data"
   },
-  "prereg":{
+  "prereg": {
     "title": "This is how we manage data",
     "t1": "Which data is collected?",
     "a0": "Application collects the following data:",
@@ -316,7 +402,7 @@
     "a6": "Your personal data will be processed until you inform HSJD of your wish to cancel your status as a registered user of the Application or 24 months have passed since your last interaction with the Application.",
     "a6.1": "It is your responsibility to keep your personal updated, since they will be used to make communications about the additions, deletions or modifications of accounts registered."
   },
-  "war":{
+  "war": {
     "statussubtitle": "Change the status so that the user knows the evolution of their needs",
     "notessubtitle": "Notes are for internal use, just for you",
     "status.opt1": "New",
@@ -384,7 +470,7 @@
     "needAssistance": "Write the type of assistance you need",
     "Create new": "Create new"
   },
-  "physicians":{
+  "physicians": {
     "I am a physician who treats patients with": "Patient's condition",
     "Write what kind of patients you treat": "Write what kind of patients you treat",
     "Location": "Location",
@@ -393,14 +479,14 @@
     "No needs": "You haven't added any needs yet, click 'New Need' to get started.",
     "Others needs": "Others needs"
   },
-  "sampleDrug":{
+  "sampleDrug": {
     "id1": "What is the active compound?",
     "id2": "The active compound is a substance in a medication that does the intended pharmacological activity of the drug. Different commercial products may have the same purposes and active compund. Communicating the active compund makes it easier to organize help.",
     "id3": "How can I find it?",
     "id4": "You can find it by searching on the internet or on the product box. For instance, in the image below, the drug name is Pretendmed and the active compound is fauxpharmoide. The active compound is also called the generic name.",
     "id5": "Image from https://www.registerednursern.com/how-to-read-a-medication-drug-label-for-nurses/."
   },
-  "adminRole":{
+  "adminRole": {
     "title": "Administration view for",
     "subtitle": "This admin let's you locate and communicate with patients and physicians (users) in need of aid. You can export the data for easier collaboration with other entities.",
     "t1": "Locations",
@@ -410,7 +496,7 @@
     "noti1": "Notify me by email when a new user signs up",
     "noti2": "Notify me by email when a user changes their request"
   },
-  "legal":{
+  "legal": {
     "title": "Legal Notice",
     "t1": "Purpose of this legal notice",
     "p1.1": "For the effects of Article 10 of Law 34/2002, of 11th July, on Information Society and Electronic Commerce Services (LSSICE), the user is informed that the website owner is SJD Barcelona Children’s Hospital, with registered office at Passeig Sant Joan de Déu no. 2., 08950, Esplugues de Llobregat (Barcelona province); holder of VAT no. R-5800645-C and with e-mail address info@sjdhospitalbarcelona.org. It is registered in the Register of Religious Entities of the Ministry of Justice under number 1188-C/1-SE/B.",
@@ -438,7 +524,7 @@
     "t7": "Applicable law and jurisdiction",
     "p7.1": "For the settlement of any controversies or other matters relating to the website or to the activities carried out on it, Spanish law will be applicable and the parties expressly submit themselves to it. The courts and tribunals of Barcelona, Spain, are competent for the resolution of all conflicts deriving from or relating to the use of the website."
   },
-  "cookies":{
+  "cookies": {
     "title": "Cookies policy",
     "t1": "1. Object",
     "p1.1": "The SJD Barcelona Children’s Hospital (hereinafter HSJD) recognises the importance of the applicable legislation and regulations pertaining to privacy and data protection. In this sense, the protection of the safety, integrity and confidentiality of our clients' and users' information is very important to us and we therefore strive to act responsibly in this regard. This page describes our application’s (hereinafter, the Application) cookies policy <a href='http://www.rarediseaseshub4ua.org' target='_blank'>http://www.rarediseaseshub4ua.org</a> (hereinafter the Application).",
@@ -450,7 +536,7 @@
     "t4": "4. Definition of cookie",
     "p4.1": "All websites (regardless of the service they provide) currently use cookies, i.e. they save minimal information about the User’s activity on the website. A cookie can therefore be defined as a small text file or generalised device downloaded onto the User’s device or machine when they are browsing websites with the aim of storing data that may be updated and retrieved by the organisation responsible for their installation.",
     "t5": "5. Purposes, management of cookies and type of cookies",
-    "p5.1": "<strong>Technical cookies:</strong> These cookies allow the User to browse a web page, platform or application and to use the different options or services provided, such as monitoring traffic and data reporting, identification of session, access to restricted sections, using safety features during browsing, storing content for the streaming of videos or sound or sharing content via the social media." ,
+    "p5.1": "<strong>Technical cookies:</strong> These cookies allow the User to browse a web page, platform or application and to use the different options or services provided, such as monitoring traffic and data reporting, identification of session, access to restricted sections, using safety features during browsing, storing content for the streaming of videos or sound or sharing content via the social media.",
     "p5.2": "<strong>Analytical cookies:</strong> These cookies allow the person responsible for them to monitor and analyse the behaviour of users on the websites to which they are linked. The information collected through this type of cookies is used to measure the activity of the websites, application or platform and to generate browsing profiles of the users of these sites, applications and platforms in order to make improvements based on the analysis of the usage data of the users of the service.",
     "p5.2.1": "Google Analytics: it used to distinguish users.",
     "p5.2.2": "Hotjar: it is used to record the user's navigation through the elements of the Application.",
@@ -468,4 +554,3 @@
     "policy": "Cookie Policy"
   }
 }
-

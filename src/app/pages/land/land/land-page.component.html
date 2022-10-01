@@ -1,15 +1,15 @@
 <section>
-    <div class="row auth-height full-height-vh m-0 grid-hover background-img">
+    <div class="row auth-height full-height-vh m-0 grid-hover" [ngClass]="(lang=='en')?'background-img-en':'background-img-es'">
         <div class="container mt-5">
             <div class="row">
                 <div class="col d-flex justify-content-center">
-                    <img src="assets/img/home/patients2.png" alt="" class="img-fluid">
+                    <img *ngIf="lang=='en'" src="assets/img/home/patients2.png" alt="" class="img-fluid">
                 </div>
             </div>
         </div>
     </div>
 </section>
-<div style="position: relative;">
+<div style="position: relative;" class="hidepanelmd">
     <div class="" style="left:150px;width: auto;max-width: auto;top: -138px;position: absolute;">
         <img src="assets/img/home/puntos1.png" alt="" class="">
     </div>
@@ -22,12 +22,10 @@
         <div class="row pt-5 pb-5">
             <div class="row offset-lg-4 col-lg-4 margin-0 mb-4 mt-4 text-center">
                 <div class='col-md-12 pb-3'>
-                    <h4 class="text-bold-500 mt-4"><strong>It’s time for patients to take control of their health,
-                            through their data, to work alongside their doctors and drive research</strong></h4>
+                    <h4 class="text-bold-500 mt-4"><strong>{{'f29.t1.1' | translate }}</strong></h4>
                 </div>
                 <div class="col-md-12">
-                    <h4 class="m-2">At Foundation 29 we work with all those who share this vision creating the necessary
-                        tools and initiatives to achieve it</h4>
+                    <h4 class="m-2">{{'f29.t1.2' | translate }}</h4>
                 </div>
             </div>
             <div class="row col-md-12 mt-5 mb-5 text-center">
@@ -37,59 +35,50 @@
 
             </div>
         </div>
-        <div style="position: relative;">
-            <div class="" style="right:70px;width: auto;max-width: auto;top: -95px;position: absolute;">
+        <div style="position: relative;" class="hidepanelmd">
+            <div class="" style="right:70px;width: auto;max-width: auto;top: -95px;position: absolute;z-index: 1">
                 <img src="assets/img/home/puntos2.png" alt="" class="">
             </div>
         </div>
         <div class="row pt-5 pb-5"
-            style="background: #FBF6FC; transform:rotate(2deg);z-index: -1 !important;position: relative;">
+            style="background: #FBF6FC; transform:rotate(2deg);position: relative;">
             <div class="row offset-lg-2 col-lg-8 mb-4 margin-0 text-center" style="transform:rotate(-2deg);">
                 <div class="col-lg-12">
-                    <h1 class="text-bold-500 mt-4 pb-3">Our <span class="primary"
-                            style="font-size: inherit !important;"><strong>initiatives</strong></span></h1>
-                    <h4 class="text-bold-500 mt-4 pb-3"><strong>Tools that unleash the power of collaboration around
-                            data</strong></h4>
+                    <h1 class="text-bold-500 mt-4 pb-3">{{'f29.t2.1' | translate }} <span class="primary"
+                            style="font-size: inherit !important;"><strong>{{'f29.t2.2' | translate }}</strong></span></h1>
+                    <h4 class="text-bold-500 mt-4 pb-3"><strong>{{'f29.t2.3' | translate }}</strong></h4>
                     <div class="row mt-3">
 
                         <div class="col-md-4 mt-2">
-                            <span class="">The power to drive the diagnosis</span>
+                            <span class="">{{'f29.t2.4.1.1' | translate }}</span>
                             <div class="card p-3">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <img class="mt-3 mb-3" src="assets/img/home/Logo_DX29.png" alt=""
                                             style="max-width: 40%;">
-                                        <h5 class="text-bold-500 mt-2">Help diagnosis for doctors and patients</h5>
-                                        <p class="font-size-sm">Dx29 is a free application that allows patients and
-                                            doctors to speed up the rare disease diagnosis process.</p>
-                                        <p class="font-size-sm">We apply artificial intelligence to help patients and
-                                            professionals identify symptoms and predict accurate diagnoses.</p>
+                                        <h5 class="text-bold-500 mt-2">{{'f29.t2.4.1.2' | translate }}</h5>
+                                        <p class="font-size-sm">{{'f29.t2.4.1.3' | translate }}</p>
+                                        <p class="font-size-sm">{{'f29.t2.4.1.4' | translate }}</p>
 
-                                        <a href="https://dx29.ai/" target="_blank" class="btn btn-dark round mt-3"
-                                            style="min-width: 220px;" title="Know more">
-                                            <strong class="menu-title">Know more</strong>
+                                        <a href="https://dx29.ai/" target="_blank" class="btn btn-dark round mt-3" title="{{'f29.Know more' | translate }}">
+                                            <strong class="menu-title">{{'f29.Know more' | translate }}</strong>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4 mt-2">
-                            <span class="">The power to share the knowledge</span>
+                            <span class="">{{'f29.t2.4.2.1' | translate }}</span>
                             <div class="card p-3">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <img class="mt-4 mb-3" src="assets/img/home/healthdata29.png" alt="">
-                                        <h5 class="text-bold-500 mt-2">Sharing medical data for research</h5>
-                                        <p class="font-size-sm">HealthData29 makes it easy to share health data sets
-                                            with researchers for use in medical research in a simple and secure way.</p>
-                                        <p class="font-size-sm">The initiative includes a guide to good practices in the
-                                            sharing and processing of this data and has been awarded by the Spanish
-                                            Agency for Data Protection.</p>
-                                        <a href="https://www.healthdata29.org/" target="_blank"
-                                            class="btn btn-dark round mt-3"
-                                            style="min-width: 220px;background-color: #F84239;border-color: #F84239;"
-                                            title="Know more">
-                                            <strong class="menu-title">Know more</strong>
+                                        <img class="mt-4 mb-3" src="assets/img/home/healthdata29.png" alt="" style="width: inherit;">
+                                        <h5 class="text-bold-500 mt-2">{{'f29.t2.4.2.2' | translate }}</h5>
+                                        <p class="font-size-sm">{{'f29.t2.4.2.3' | translate }}</p>
+                                        <p class="font-size-sm">{{'f29.t2.4.2.4' | translate }}</p>
+                                        <a href="https://www.healthdata29.org/" target="_blank" style="background-color: #4942FE;border-color: #4942FE;"
+                                            class="btn btn-dark round mt-3" title="{{'f29.Know more' | translate }}">
+                                            <strong class="menu-title">{{'f29.Know more' | translate }}</strong>
                                         </a>
                                     </div>
                                 </div>
@@ -97,22 +86,18 @@
                             </div>
                         </div>
                         <div class="col-md-4 mt-2">
-                            <span class="">The power to get the information</span>
+                            <span class="">{{'f29.t2.4.3.1' | translate }}</span>
                             <div class="card p-3">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <img class="mt-3 mb-3" src="assets/img/home/Logo-JHED.png" alt=""
                                             style="max-width: 80%;">
-                                        <h5 class="text-bold-500 mt-2">Free diagnosis support program</h5>
-                                        <p class="font-size-sm">Together towards diagnosis is a program in which we
-                                            guide patients, who meet certain criteria, with more data to shorten their
-                                            odyssey.</p>
-                                        <p class="font-size-sm">The initiative, totally free for patients, provides them
-                                            with a complete sequencing genetic test, thus obtaining highly valuable
-                                            information.</p>
+                                        <h5 class="text-bold-500 mt-2">{{'f29.t2.4.3.2' | translate }}</h5>
+                                        <p class="font-size-sm">{{'f29.t2.4.3.3' | translate }}</p>
+                                        <p class="font-size-sm">{{'f29.t2.4.3.4' | translate }}</p>
                                         <a href="https://dx29.ai/juntoshaciaeldiagnostico" target="_blank"
-                                            class="btn btn-dark round mt-3" style="min-width: 220px;" title="Know more">
-                                            <strong class="menu-title">Know more</strong>
+                                            class="btn btn-dark round mt-3" title="{{'f29.Know more' | translate }}">
+                                            <strong class="menu-title">{{'f29.Know more' | translate }}</strong>
                                         </a>
                                     </div>
                                 </div>
@@ -123,14 +108,12 @@
                 </div>
             </div>
         </div>
-        <a id="stepfundation" class="akey"></a>
-        <a id="waysoptions" class="akey"></a>
+        <a id="thefoundation" class="akey"></a>
         <div class="row pt-5 offset-lg-1 col-lg-10 mb-4 margin-0 text-center">
             <div class="col-md-12 pt-5 pb-5 img-cubo">
-                <h1 class="text-bold-500 mt-4 pb-3">The <span class="primary"
-                        style="font-size: inherit !important;"><strong>Foundation</strong></span></h1>
-                <h4 class="text-bold-500 mt-4 pb-3"><strong>An NGO of doers, not talkers, fighting hard for a real
-                        change</strong></h4>
+                <h1 class="text-bold-500 mt-4 pb-3">{{'f29.t3.1.1' | translate }} <span class="primary"
+                        style="font-size: inherit !important;"><strong>{{'f29.t3.1.2' | translate }}</strong></span></h1>
+                <h4 class="text-bold-500 mt-4 pb-3"><strong>{{'f29.t3.1.3' | translate }}</strong></h4>
             </div>
 
 
@@ -141,11 +124,9 @@
             </div>
             <div class="col-md-7">
                 <div class="text-left mt-5">
-                    <h2 class="mb-0">Somos /</h2>
-                    <h2 style="color: #FF02FF;"><strong>Foundation 29</strong></h2>
-                    <p>Activistas de los estandares abiertos, científicos obsesionados con el dato, defensores del poder
-                        del paciente, creadores de tecnologías habilitadoras y transformadores del sistema sanitario.
-                    </p>
+                    <h2 class="mb-0">{{'f29.t3.2.1' | translate }} /</h2>
+                    <h2 style="color: #FF02FF;"><strong>{{'f29.t3.2.2' | translate }}</strong></h2>
+                    <p>{{'f29.t3.2.3' | translate }}</p>
                     <div style="border-top: 5px solid #F84239;width: 50px;"></div>
                 </div>
             </div>
@@ -153,8 +134,8 @@
         <div class="row pb-3 offset-lg-1 col-lg-10 mb-4 margin-0 text-center">
             <div class="offset-md-1 col-md-7">
                 <div class="text-left mt-5">
-                    <h2 class="mb-0">Trabajamos /</h2>
-                    <h2 style="color: #2EF87C;"><strong>desde el paciente, con el paciente y para el paciente</strong>
+                    <h2 class="mb-0">{{'f29.t3.3.1' | translate }} /</h2>
+                    <h2 style="color: #2EF87C;"><strong>{{'f29.t3.3.2' | translate }}</strong>
                     </h2>
                     <div style="border-top: 5px solid #F84239;width: 50px;"></div>
                 </div>
@@ -169,11 +150,9 @@
             </div>
             <div class="col-md-7">
                 <div class="text-left mt-5">
-                    <h2 class="mb-0">Queremos /</h2>
-                    <h2 style="color: #05E7E7;"><strong>un nuevo modelo</strong></h2>
-                    <p>En el que los pacientes trabajan con sus médicos por su salud y la salud de otros, en un
-                        ecosistema que comparte abiertamente sus datos para avanzar juntos en el conocimiento médico.
-                    </p>
+                    <h2 class="mb-0">{{'f29.t3.4.1' | translate }} /</h2>
+                    <h2 style="color: #05E7E7;"><strong>{{'f29.t3.4.2' | translate }}</strong></h2>
+                    <p>{{'f29.t3.4.3' | translate }}</p>
                     <div style="border-top: 5px solid #F84239;width: 50px;"></div>
                 </div>
             </div>
@@ -191,22 +170,18 @@
                 </svg>
             </div>
             <div class="elementor-container">
-                <div class="col-lg-6 elementor-column">
+                <div class="col-lg-6 elementor-column hidepanellg">
                     <div class="elementor-background-overlay"></div>
                     <div class="img-nino"></div>
                 </div>
                 <div class="col-lg-6">
                     <div class="mt-5 mb-5 pb-5 pt-5 center-elements">
-                        <img class="" style="width: 70%;" src="assets/img/home/quelos.png" alt="">
+                        <img *ngIf="lang=='es'" class="" style="width: 70%;" src="assets/img/home/quelos.png" alt="">
+                        <img *ngIf="lang!='es'" class="" style="width: 70%;" src="assets/img/home/let-1.png" alt="">
                         <div class="mt-5 text-left offset-md-2 col-md-8">
-                            <p>Somos una fundación sin ánimo de lucro. Trabajamos por una medicina en la que pacientes
-                                empoderados toman el control de su salud a través de sus datos y trabajan con médicos e
-                                instituciones para mejorar su bienestar y el de los demás.</p>
-                            <p>Creamos tecnologías que permiten un cambio radical en sus capacidades como usuarios y en todo
-                                el ecosistema médico.</p>
-                            <p>El activismo de los pacientes, sus familias y las asociaciones están en nuestra esencia.
-                                Ponemos especial foco en las enfermedades raras. Están en nuestro origen y en nuestro
-                                nombre: 29 de febrero, día mundial de las enfermedades raras.</p>
+                            <p>{{'f29.t4.1' | translate }}</p>
+                            <p>{{'f29.t4.2' | translate }}</p>
+                            <p>{{'f29.t4.3' | translate }}</p>
                         </div>
                     </div>
                     
@@ -224,13 +199,13 @@
                 <div class="col-lg-6" style="background-color: #E9453F;border-radius: 0px 10px 10px 0px;">
                     <div class="mt-5 mb-5 pb-5 pt-5 center-elements white">
                         <div class="text-left offset-md-2 col-md-8">
-                            <h2 class="text-bold-500">Dona</h2>
+                            <h2 class="text-bold-500">{{'f29.t5.1' | translate }}</h2>
                         </div>
                         <div class="mt-3 text-left offset-md-2 col-md-8">
-                            <h4>Queremos que no haya pacientes sin diágnostico,</h4>
-                            <h4 class="text-bold-500">¿nos ayudas a coseguirlo?</h4>
+                            <h4>{{'f29.t5.2' | translate }}</h4>
+                            <h4 class="text-bold-500">{{'f29.t5.3' | translate }}</h4>
                             <p><a class="nav-link btn btn-white round text-bold-500 mt-3" style="width: 220px;" routerLink="/donate">
-                                <span>Haz una donación</span>
+                                <span>{{'f29.t5.4' | translate }}</span>
                               </a>
                             </p>
                         </div>
@@ -241,7 +216,7 @@
         </div>
         <a id="stepnews" class="akey"></a>
         <div class="row mb-5">
-            <div class="col-md-12">
+            <div class="col-md-12 pr-0 pl-0">
                 <div class="img-noticias">
                     <div class="center-elements">
                         <div id="outer" class="container">
@@ -249,8 +224,8 @@
                                 <div class="" style="left: 125px;position: absolute;">
                                     <img src="assets/img/home/icon2.png" alt="" class="">
                                   </div>
-                                <h2 class="text-bold-500">Últimas</h2>
-                                <h2 class="text-bold-500"><strong>noticias</strong></h2>
+                                <h2 class="text-bold-500">{{'f29.t6.1' | translate }}</h2>
+                                <h2 class="text-bold-500"><strong>{{'f29.t6.2' | translate }}</strong></h2>
                             </div>
                           </div>
                         
@@ -258,30 +233,30 @@
                 </div>
             </div>
             <div class="col-md-12" style="margin-top: -137px;margin-bottom: 0px;">
-                <div class="offset-lg-1 col-lg-10 elementor-container center-elements">
-                    <div class="col-md-4 text-left" *ngFor="let new of news; let i=index">
+                <div class="row offset-lg-1 col-lg-10 center-elements">
+                    <div class="col-md-4 text-left mb-4" *ngFor="let new of news; let i=index">
                         <img [src]="new.img"  alt="" class="imageclass pointer" [routerLink]="['/news/' + new.id]">
                         <p class="text-bold-500 mt-2"><strong>{{new.title}}</strong></p>
                         <p class="text-muted">{{new.date}}</p>
                         <p>{{new.resume}}</p>
-                        <a [routerLink]="['/news/' + new.id]">Leer más » </a>
+                        <a [routerLink]="['/news/' + new.id]">{{'f29.t6.3' | translate }} » </a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <a id="stepecosystem" class="akey"></a>
+        <a id="ecosystem" class="akey"></a>
         <div class="row pt-5 pb-5"
             style="background: #FBF6FC; transform:rotate(2deg);position: relative;">
             <div class="row offset-lg-1 col-lg-10 mb-4 margin-0 text-center" style="transform:rotate(-2deg);">
                 <div class="col-md-12 pt-5 pb-5 img-cubo">
                     <h1 class="text-bold-500 mt-4 pb-3"><span class="primary"
-                            style="font-size: inherit !important;"><strong>Ecosystem</strong></span></h1>
-                    <h4 class="text-bold-500 mt-4 pb-3"><strong>Those who share our vision and help us make it come true</strong></h4>
+                            style="font-size: inherit !important;"><strong>{{'f29.t7.1' | translate }}</strong></span></h1>
+                    <h4 class="text-bold-500 mt-4 pb-3"><strong>{{'f29.t7.2' | translate }}</strong></h4>
                 </div>
 
                 <div class="col-12 justify-content-center center-elements col-md-12 mt-5">
-                    <h4 class="text-bold-500 mt-4 pb-3"><strong>Institutions</strong></h4>
+                    <h4 class="text-bold-500 mt-4 pb-3"><strong>{{'f29.t7.3' | translate }}</strong></h4>
                     <div class="row center-elements pad-logos">
                       <div class="col-6 col-sm-3 mb-3 p-4">
                         <img class="img-responsive" src='assets/img/home/institutions/header-logo.png'>
@@ -324,7 +299,7 @@
                       </div>
                     </div>
 
-                    <h4 class="text-bold-500 mt-5 pb-3"><strong>Patient associations</strong></h4>
+                    <h4 class="text-bold-500 mt-5 pb-3"><strong>{{'f29.t7.4' | translate }}</strong></h4>
                     <div class="row center-elements pad-logos">
                         <div class="col-6 col-sm-4 mb-3 p-4">
                           <img class="img-responsive" src='assets/img/home/associations/parent.jpg'>
@@ -337,7 +312,7 @@
                         </div>
                       </div>
 
-                      <h4 class="text-bold-500 mt-5 pb-3"><strong>Other allies</strong></h4>
+                      <h4 class="text-bold-500 mt-5 pb-3"><strong>{{'f29.t7.5' | translate }}</strong></h4>
                       <div class="row center-elements pad-logos">
                           <div class="col-6 col-sm-3 mb-3 p-4">
                             <img class="img-responsive" src='assets/img/home/allies/Microsoft-Logo.png'>
@@ -375,20 +350,20 @@
             </div>
         </div>
 
-        <a id="stepawards" class="akey"></a>
+        <a id="awards" class="akey"></a>
         <div class="row pt-5 offset-lg-1 col-lg-10 mb-4 margin-0 text-center">
             <div class="col-md-12 pt-5 pb-5 img-cubo">
                 <h1 class="text-bold-500 mt-4 pb-3"><span class="primary"
-                        style="font-size: inherit !important;"><strong>Premios</strong></span></h1>
-                <h4 class="text-bold-500 mt-4 pb-3"><strong>Rompemos barreras <span class="d-block">Ganamos premios</span></strong></h4>
+                        style="font-size: inherit !important;"><strong>{{'f29.t8.1' | translate }}</strong></span></h1>
+                <h4 class="text-bold-500 mt-4 pb-3"><strong>{{'f29.t8.2' | translate }} <span class="d-block">{{'f29.t8.3' | translate }}</span></strong></h4>
             </div>
             <div class="col-12 justify-content-center center-elements col-md-12">
                 <div class="row center-elements pad-logos">
                   <div class="col-6 col-sm-6 mb-3 p-4">
                     <img class="" style="max-height: 230px;" src='assets/img/home/awards/premio-AEPD_transparente.png'>
                     <h3 class="text-bold-500 mt-3 mb-0">AEPD</h3>
-                    <p class="text-bold-500 mb-0"><strong>Spanish Data Protection Agency</strong></p>
-                    <p>Personal Data Protection Award 2020</p>
+                    <p class="text-bold-500 mb-0"><strong>{{'f29.t9.1.1' | translate }}</strong></p>
+                    <p>{{'f29.t9.1.2' | translate }}</p>
                   </div>
                   <div class="col-6 col-sm-6 mb-3 p-4">
                     <img class="" style="max-height: 230px;" src='assets/img/home/awards/Premio-AMETIC-transparente.png'>

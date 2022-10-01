@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter, OnDestroy, OnInit, AfterViewInit } from '@angular/core';
+import {Location} from '@angular/common'
 import { environment } from 'environments/environment';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -40,7 +41,7 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
   subrole: string = 'null';
   private subscription: Subscription = new Subscription();
 
-  constructor(public translate: TranslateService, private layoutService: LayoutService, private configService: ConfigService, private langService: LangService, private router: Router, private route: ActivatedRoute, private inj: Injector) {
+  constructor(public translate: TranslateService, private layoutService: LayoutService, private configService: ConfigService, private langService: LangService, private router: Router, private route: ActivatedRoute, private inj: Injector, private location: Location) {
 
     this.loadLanguages();
 
@@ -240,7 +241,12 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
   }
 
   goTo(step) {
-    document.getElementById(step).scrollIntoView(true);
+    if( document.getElementById(step)==null){
+      this.router.navigate(['/'], { fragment: step});
+    }else{
+      document.getElementById(step).scrollIntoView(true);
+    }
+    
   }
 
 }

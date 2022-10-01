@@ -20,37 +20,37 @@
             <ul class="navbar-nav m-r-0">
                 <li class="nav-item mr-2">
                     <a class="nav-link" [ngClass]="(!isHomePage)?'black':'black text-bold-500'" routerLink="/.">
-                      <span>Initiatives</span>
+                      <span>{{'f29.Initiatives' | translate }}</span>
                     </a>
                 </li>
                 <li class="nav-item mr-2">
-                  <a class="nav-link" [ngClass]="(!isAboutPage)?'black':'black text-bold-500'" (click)="goTo('stepfundation');">
-                    <span>The Foundation</span>
+                  <a class="nav-link" [ngClass]="(!isAboutPage)?'black':'black text-bold-500'" (click)="goTo('thefoundation');">
+                    <span>{{'f29.The Foundation' | translate }}</span>
                   </a>
                 </li>
                 <li class="nav-item mr-2">
-                    <a class="nav-link" [ngClass]="(!isUndiagnosedPatientPage)?'black':'black text-bold-500'" (click)="goTo('stepecosystem');">
-                      <span>Ecosystem</span>
+                    <a class="nav-link" [ngClass]="(!isUndiagnosedPatientPage)?'black':'black text-bold-500'" (click)="goTo('ecosystem');">
+                      <span>{{'f29.Ecosystem' | translate }}</span>
                     </a>
                 </li>
                 <li class="nav-item mr-2">
                     <a class="nav-link" [ngClass]="(!isNewsPage)?'black':'black text-bold-500'" routerLink="/news">
-                      <span>News</span>
+                      <span>{{'f29.News' | translate }}</span>
                     </a>
                 </li>
                 <li class="nav-item mr-2">
-                    <a class="nav-link" [ngClass]="(!isAboutPage)?'black':'black text-bold-500'" (click)="goTo('stepawards');">
-                      <span>Awards</span>
+                    <a class="nav-link" [ngClass]="(!isAboutPage)?'black':'black text-bold-500'" (click)="goTo('awards');">
+                      <span>{{'f29.Awards' | translate }}</span>
                     </a>
                 </li>
                 <li class="nav-item mr-2">
-                    <a class="nav-link" [ngClass]="(!isAboutPage)?'black':'black text-bold-500'" (click)="goTo('stepfooter');">
-                      <span>Contact</span>
+                    <a class="nav-link" [ngClass]="(!isAboutPage)?'black':'black text-bold-500'" (click)="goTo('contact');">
+                      <span>{{'f29.Contact' | translate }}</span>
                     </a>
                 </li>
                 <li class="nav-item mr-2">
                     <a class="nav-link btn btn-dark round" style="width: 120px;" [ngClass]="(!isAboutPage)?'white':'white text-bold-500'" routerLink="/donate">
-                      <span>Donate <em class="fa fa-heart"></em></span>
+                      <span>{{'f29.Donate' | translate }} <em class="ml-1 fa fa-heart"></em></span>
                     </a>
                 </li>
               </ul>

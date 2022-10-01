@@ -151,10 +151,11 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   goTo(step) {
-    document.getElementById(step).scrollIntoView(true);
-    console.log(this.isHomePage);
-    /*var $sidebar = $('.app-sidebar');
-    $sidebar.addClass('hide-sidebar');*/
+    if( document.getElementById(step)==null){
+      this.router.navigate(['/'], { fragment: step });
+    }else{
+      document.getElementById(step).scrollIntoView(true);
+    }
   }
 
 }
