@@ -1,0 +1,6 @@
+
+    export const environment = {
+    production: true,
+    api: undefined,  //Server URL: 'http://<direction>:<port>'
+    hotjarSiteId:undefined // Horjar ID
+    };

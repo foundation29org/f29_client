@@ -1,0 +1,44 @@
+<section>
+  <div class="row background-img">
+    <div class="container mt-5" style="min-height: 250px;">
+      <div class="row">
+        <div class="col-md-12 mt-3">
+          <div style="position: relative;">
+            <div class="" style="left: 25px;width: auto;max-width: auto;top: 20px;position: absolute;">
+              <img src="assets/img/home/icon2.png" alt="" class="">
+            </div>
+          </div>
+          <div class="center-elements">
+            <h1 class="text-bold-300">Latest</h1>
+          </div>
+          <div class="center-elements">
+            <h1 class="text-bold-500"><strong>news</strong></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="mt-3">
+  <div class="row offset-lg-1 col-lg-10 pt-5 pb-5">
+    <!--*ngFor="let country of countries; let i=index"-->
+    <span class="col-md-4 text-left mb-5" *ngFor="let new of news; let i=index">
+        <img [src]="new.img"  alt="" class="imageclass pointer" [routerLink]="['/news/' + new.id]">
+        <p class="text-bold-500 mt-2"><strong>{{new.title}}</strong></p>
+        <p class="text-muted">{{new.date}}</p>
+        <p>{{new.resume}}</p>
+        <a [routerLink]="['/news/' + new.id]">Leer más » </a>
+    </span>
+  </div>
+</section>
+<section class="row pt-5 pb-5">
+  <div class="col-md-12 mt-5 text-center">
+    <img src="assets/img/home/stripes.jpg" alt="" class="">
+  </div>
+
+</section>
+<section style="padding-bottom: 70px !important;">
+  <div class="col-12 d-flex justify-content-center">
+
+  </div>
+</section>
