@@ -15,6 +15,6 @@ export class PrivacyPolicyPageComponent {
   }
 
   goTo(url){
-    document.getElementById(url).scrollIntoView(true);
+    document.getElementById(url).scrollIntoView({behavior: "smooth"});
   }
 }

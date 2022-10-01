@@ -244,9 +244,8 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
     if( document.getElementById(step)==null){
       this.router.navigate(['/'], { fragment: step});
     }else{
-      document.getElementById(step).scrollIntoView(true);
+      document.getElementById(step).scrollIntoView({behavior: "smooth"});
     }
-    
   }
 
 }

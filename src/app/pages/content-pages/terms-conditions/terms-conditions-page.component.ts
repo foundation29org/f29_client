@@ -26,7 +26,7 @@ export class TermsConditionsPageComponent implements OnInit{
   }
 
   goTo(url){
-    document.getElementById(url).scrollIntoView(true);
+    document.getElementById(url).scrollIntoView({behavior: "smooth"});
   }
 
   openSecurity() {
