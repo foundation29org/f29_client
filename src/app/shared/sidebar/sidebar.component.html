@@ -1,7 +1,7 @@
 <!-- Sidebar Header starts -->
 <div class="sidebar-header">
     <div class="logo clearfix">
-        <a [routerLink]="redirectUrl" class="logo-text float-left">
+        <a (click)="goTo('home');" class="logo-text float-left">
             <div class="logo-img" style="display:none;">
                 <img [src]=urlLogo style="height: 48px;" />
             </div>
@@ -24,7 +24,7 @@
     <div class="nav-container">
         <ul class="navigation" appSidebarList>
             <!-- First level menu -->
-             <li appSidebarlink level="{{depth + 1}}" (toggleEmit)="handleToggle($event)" (click)="toggleSlideInOut()" [routePath]="menuItem.path" [classes]="menuItem.class" [title]="menuItem.title"  [parent]="" *ngFor="let menuItem of menuItems"   [ngClass]="{'has-sub': menuItem.class === 'has-sub' ? true: false, 'open': activeTitles.includes(menuItem.title) && !nav_collapsed_open ? true : false, 'nav-collapsed-open': nav_collapsed_open && activeTitles.includes(menuItem.title)}" [routerLinkActive]="menuItem.submenu.length != 0 ? '' : 'active'"
+             <li class="active" appSidebarlink level="{{depth + 1}}" (toggleEmit)="handleToggle($event)" (click)="toggleSlideInOut()" [routePath]="menuItem.path" [classes]="menuItem.class" [title]="menuItem.title"  [parent]="" *ngFor="let menuItem of menuItems"   [ngClass]="{'active': (tempUrl2==menuItem.path) ? true: false, 'has-sub': menuItem.class === 'has-sub' ? true: false, 'open': activeTitles.includes(menuItem.title) && !nav_collapsed_open ? true : false, 'nav-collapsed-open': nav_collapsed_open && activeTitles.includes(menuItem.title)}" [routerLinkActive]="menuItem.submenu.length != 0 ? '' : 'active'"
                 [routerLinkActiveOptions]="{exact: true}">
                 <a appSidebarAnchorToggle [routerLink]="menuItem.class === '' ? [menuItem.path] : null" *ngIf="!menuItem.isExternalLink; else externalLinkBlock">
                     <i [ngClass]="[menuItem.icon]"></i>

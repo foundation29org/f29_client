@@ -32,8 +32,15 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
   layoutSub: Subscription;
   urlLogo: string = 'assets/img/logo-f29.png';
   urlLogo2: string = 'assets/img/logo-f29.png';
-  redirectUrl: string = '/.';
   isHomePage: boolean = false;
+  isthefoundationPage: boolean = false;
+  isNewsPage: boolean = false;
+  isEcosystemPage: boolean = false;
+  isAwardsPage: boolean = false;
+  isContactPage: boolean = false;
+  isDonatePage: boolean = false;
+  tempUrl1: string = '/';
+  tempUrl2: string = 'home';
   private subscription: Subscription = new Subscription();
 
   constructor(
@@ -85,15 +92,83 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
       event => {
         var tempUrl= (event.url).toString().split('?');
         var actualUrl = tempUrl[0];
-        var tempUrl1 = (actualUrl).toString();
-        if(tempUrl1.indexOf('/.')!=-1 || tempUrl1.indexOf('/')!=-1){
-          this.isHomePage = true;
-        }else{
-          this.isHomePage = false;
+        this.tempUrl1 = (actualUrl).toString();
+        console.log(this.tempUrl1);
+        if(this.tempUrl1!='/'){
+          this.tempUrl2= this.tempUrl1.split('#')[1];
         }
+        this.checkRoute(this.tempUrl1);
         this.menuItems = ROUTESHOMEDX.filter(menuItem => menuItem);
       }
     );
+  }
+
+  checkRoute(tempUrl){
+    if (tempUrl.indexOf('/.') != -1 || tempUrl == '/' || tempUrl == '/#home') {
+      this.isHomePage = true;
+      this.isthefoundationPage = false;
+      this.isNewsPage = false;
+      this.isAwardsPage = false;
+      this.isContactPage = false;
+      this.isDonatePage = false;
+      this.isEcosystemPage = false;
+    } else if (tempUrl.indexOf('#thefoundation') != -1) {
+      this.isHomePage = false;
+      this.isthefoundationPage = true;
+      this.isNewsPage = false;
+      this.isAwardsPage = false;
+      this.isContactPage = false;
+      this.isDonatePage = false;
+      this.isEcosystemPage = false;
+    } else if (tempUrl.indexOf('/news') != -1) {
+      this.isHomePage = false;
+      this.isNewsPage = true;
+      this.isthefoundationPage = false;
+      this.isAwardsPage = false;
+      this.isContactPage = false;
+      this.isDonatePage = false;
+      this.isEcosystemPage = false;
+    } else if (tempUrl.indexOf('#ecosystem') != -1) {
+      this.isHomePage = false;
+      this.isNewsPage = false;
+      this.isthefoundationPage = false;
+      this.isAwardsPage = false;
+      this.isContactPage = false;
+      this.isDonatePage = false;
+      this.isEcosystemPage = true;
+    } else if (tempUrl.indexOf('#awards') != -1) {
+      this.isHomePage = false;
+      this.isNewsPage = false;
+      this.isthefoundationPage = false;
+      this.isAwardsPage = true;
+      this.isContactPage = false;
+      this.isDonatePage = false;
+      this.isEcosystemPage = false;
+    } else if (tempUrl.indexOf('#contact') != -1) {
+      this.isHomePage = false;
+      this.isNewsPage = false;
+      this.isthefoundationPage = false;
+      this.isAwardsPage = false;
+      this.isContactPage = true;
+      this.isDonatePage = false;
+      this.isEcosystemPage = false;
+    } else if (tempUrl.indexOf('/donate') != -1) {
+      this.isHomePage = false;
+      this.isNewsPage = false;
+      this.isthefoundationPage = false;
+      this.isAwardsPage = false;
+      this.isContactPage = false;
+      this.isDonatePage = true;
+      this.isEcosystemPage = false;
+    } else {
+      this.isHomePage = false;
+      this.isthefoundationPage = false;
+      this.isNewsPage = false;
+      this.isAwardsPage = false;
+      this.isContactPage = false;
+      this.isDonatePage = false;
+      this.isEcosystemPage = false;
+    }
   }
 
 

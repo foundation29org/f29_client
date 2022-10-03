@@ -15,6 +15,10 @@
   background-color: #33b0b3 !important;
 }*/
 
+.text-bold-500 {
+  font-weight: 500 !important;
+}
+
 h1, .h1 {
   font-size: 3.5rem !important;
 }
