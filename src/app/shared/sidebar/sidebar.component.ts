@@ -152,10 +152,12 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
 
   goTo(step) {
     if( document.getElementById(step)==null){
-      this.router.navigate(['/'], { fragment: step });
+      this.router.navigate(['/'], { fragment: step});
     }else{
+      this.router.navigate(['/'], { fragment: step});
       document.getElementById(step).scrollIntoView({behavior: "smooth"});
     }
+    //this.checkRoute(this.router.url);
   }
 
 }
