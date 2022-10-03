@@ -41,9 +41,9 @@
                 <img src="assets/img/home/puntos2.png" alt="" class="">
             </div>
         </div>
-        <div class="row pt-5 pb-5"
+        <div class="row pt-5 pb-5 m--50"
             style="background: #FBF6FC; transform:rotate(2deg);position: relative;">
-            <div class="row offset-lg-2 col-lg-8 mb-4 margin-0 text-center" style="transform:rotate(-2deg);">
+            <div class="row offset-lg-2 col-lg-8 mb-4 margin-0 text-center m-50" style="transform:rotate(-2deg);">
                 <div class="col-lg-12">
                     <h1 class="text-bold-500 mt-4 pb-3">{{'f29.t2.1' | translate }} <span class="primary"
                             style="font-size: inherit !important;"><strong>{{'f29.t2.2' | translate }}</strong></span></h1>
@@ -222,7 +222,7 @@
                     <div class="center-elements">
                         <div id="outer" class="container">
                             <div id="inner">
-                                <div class="" style="left: 125px;position: absolute;">
+                                <div class="" style="left: 125px;position: absolute;" class="hidepanelmd">
                                     <img src="assets/img/home/icon2.png" alt="" class="">
                                   </div>
                                 <h2 class="text-bold-500">{{'f29.t6.1' | translate }}</h2>
@@ -234,22 +234,28 @@
                 </div>
             </div>
             <div class="col-md-12" style="margin-top: -137px;margin-bottom: 0px;">
-                <div class="row offset-lg-1 col-lg-10 center-elements">
-                    <div class="col-md-4 text-left mb-4" *ngFor="let new of news; let i=index">
-                        <img [src]="new.img"  alt="" class="imageclass pointer" [routerLink]="['/news/' + new.id]">
-                        <p class="text-bold-500 mt-2"><strong>{{new.title}}</strong></p>
-                        <p class="text-muted">{{new.date}}</p>
-                        <p>{{new.resume}}</p>
-                        <a [routerLink]="['/news/' + new.id]">{{'f29.t6.3' | translate }} » </a>
+                <div class="row center-elements">
+                    <div class="offset-lg-1 col-lg-10">
+                        <div class="row">
+                            <div class="col-md-4 text-left mb-5" *ngFor="let new of news; let i=index">
+                                <img [src]="new.img"  alt="" class="imageclass pointer" [routerLink]="['/news/' + new.title, new.id]">
+                                <p class="text-bold-500 mt-2 pointer" [routerLink]="['/news/' + new.title, new.id]"><strong>{{new.title}}</strong></p>
+                                <p class="text-muted">{{new.date}}</p>
+                                <p>{{new.resume}}</p>
+                                <a [routerLink]="['/news/' + new.title, new.id]">{{'f29.t6.3' | translate }} » </a>
+                            </div>
+                        </div>
+                        
                     </div>
+                    
                 </div>
             </div>
         </div>
 
         <a id="ecosystem" class="akey"></a>
-        <div class="row pt-5 pb-5"
+        <div class="row pt-5 pb-5 m--70"
             style="background: #FBF6FC; transform:rotate(2deg);position: relative;">
-            <div class="row offset-lg-1 col-lg-10 mb-4 margin-0 text-center" style="transform:rotate(-2deg);">
+            <div class="m-70 row offset-lg-1 col-lg-10 mb-4 text-center" style="transform:rotate(-2deg);">
                 <div class="col-md-12 pt-5 pb-5 img-cubo">
                     <h1 class="text-bold-500 mt-4 pb-3"><span class="primary"
                             style="font-size: inherit !important;"><strong>{{'f29.t7.1' | translate }}</strong></span></h1>
@@ -358,21 +364,22 @@
                         style="font-size: inherit !important;"><strong>{{'f29.t8.1' | translate }}</strong></span></h1>
                 <h4 class="text-bold-500 mt-4 pb-3"><strong>{{'f29.t8.2' | translate }} <span class="d-block">{{'f29.t8.3' | translate }}</span></strong></h4>
             </div>
-            <div class="col-12 justify-content-center center-elements col-md-12">
-                <div class="row center-elements pad-logos">
-                  <div class="col-6 col-sm-6 mb-3 p-4">
-                    <img class="" style="max-height: 230px;" src='assets/img/home/awards/premio-AEPD_transparente.png'>
-                    <h3 class="text-bold-500 mt-3 mb-0">AEPD</h3>
-                    <p class="text-bold-500 mb-0"><strong>{{'f29.t9.1.1' | translate }}</strong></p>
-                    <p>{{'f29.t9.1.2' | translate }}</p>
-                  </div>
-                  <div class="col-6 col-sm-6 mb-3 p-4">
-                    <img class="" style="max-height: 230px;" src='assets/img/home/awards/Premio-AMETIC-transparente.png'>
-                    <h3 class="text-bold-500 mt-3 mb-0">Ametic</h3>
-                    <p class="text-bold-500 mb-0"><strong>Artificial Intelligence Summit</strong></p>
-                    <p>R+D+I Ametic IA Award 2021</p>
-                  </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6 mb-3 p-4">
+                        <img class="" style="max-width: 200px;" src='assets/img/home/awards/premio-AEPD_transparente.png'>
+                        <h3 class="text-bold-500 mt-3 mb-0">AEPD</h3>
+                        <p class="text-bold-500 mb-0"><strong>{{'f29.t9.1.1' | translate }}</strong></p>
+                        <p>{{'f29.t9.1.2' | translate }}</p>
+                      </div>
+                      <div class="col-md-6 mb-3 p-4">
+                        <img class="" style="max-width: 200px;" src='assets/img/home/awards/Premio-AMETIC-transparente.png'>
+                        <h3 class="text-bold-500 mt-3 mb-0">Ametic</h3>
+                        <p class="text-bold-500 mb-0"><strong>Artificial Intelligence Summit</strong></p>
+                        <p>R+D+I Ametic IA Award 2021</p>
+                      </div>
                 </div>
+                
 
               </div>
 

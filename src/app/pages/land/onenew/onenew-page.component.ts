@@ -18,6 +18,7 @@ export class OneNewPageComponent {
     private subscription: Subscription = new Subscription();
     lang = 'en';
     oneNew: any = {};
+    public title: string = ''
     public id: string = ''
     loadedNew= false;
     news: any = [];
@@ -38,8 +39,9 @@ export class OneNewPageComponent {
           }.bind(this));
 
         this.route.params.subscribe((params) => {
+            this.title = params?.title
             this.id = params?.id
-            console.log(this.id);
+            document.getElementById('init').scrollIntoView({behavior: "smooth"});
             this.loadNew();
         })
 
@@ -56,6 +58,7 @@ export class OneNewPageComponent {
               this.oneNew = this.news[foundElementIndex];
               this.oneNew.full = this.sanitizer.bypassSecurityTrustHtml(this.oneNew.full);
               console.log(this.oneNew);
+              document.getElementById('init').scrollIntoView({behavior: "smooth"});
             }
           }));
     }
