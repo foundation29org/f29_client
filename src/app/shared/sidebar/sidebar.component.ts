@@ -93,7 +93,6 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
         var tempUrl= (event.url).toString().split('?');
         var actualUrl = tempUrl[0];
         this.tempUrl1 = (actualUrl).toString();
-        console.log(this.tempUrl1);
         if(this.tempUrl1!='/'){
           this.tempUrl2= this.tempUrl1.split('#')[1];
         }

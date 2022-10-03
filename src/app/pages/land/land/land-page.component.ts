@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EventsService } from 'app/shared/services/events.service';
 import { HttpClient } from '@angular/common/http';
 import { SortService } from 'app/shared/services/sort.service';
@@ -15,11 +15,32 @@ export class LandPageComponent implements OnInit {
     lang: string = 'en';
     news: any = [];
     fragment: string;
+    currentHash:string = 'home';
     private subscription: Subscription = new Subscription();
 
-    constructor(private eventsService: EventsService, private http: HttpClient, private sortService: SortService, private route: ActivatedRoute) {
+    constructor(private eventsService: EventsService, private http: HttpClient, private sortService: SortService, private route: ActivatedRoute, private router: Router) {
         this.lang = sessionStorage.getItem('lang');
         this.loadNews();
+    }
+
+    @HostListener('window:scroll', ['$event']) // for window scroll events
+    onScroll(event) {
+      let elements = document.getElementsByClassName("anchor_tags");
+      var found =false;
+      var indexFound = 0;
+      for (var i = 0; i < elements.length; i++) {
+        var top = window.pageYOffset;
+        var distance = top - $(elements[i]).offset().top;
+        if(distance>0 && elements[i].id!= this.currentHash){
+          indexFound = i;
+          this.currentHash = elements[indexFound].id;
+          found = true;
+          
+        }
+      }
+      if(found){
+        this.router.navigate(['/'], { fragment: this.currentHash});
+      }
     }
 
     ngOnInit() {
