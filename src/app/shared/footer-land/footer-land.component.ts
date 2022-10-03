@@ -89,8 +89,7 @@ export class FooterLandComponent implements OnDestroy, OnInit{
 
     openModal(panel) {
         let ngbModalOptions: NgbModalOptions = {
-            keyboard: false,
-            backdrop: 'static',
+            keyboard: true,
             windowClass: 'ModalClass-sm'// xl, lg, sm
         };
         this.modalReference = this.modalService.open(panel, ngbModalOptions);

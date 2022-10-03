@@ -30,15 +30,12 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
   public config: any = {};
   langs: any;
   isHomePage: boolean = false;
-  isClinicianPage: boolean = false;
+  isthefoundationPage: boolean = false;
   isNewsPage: boolean = false;
-  isUndiagnosedPatientPage: boolean = false;
-  isEdHubPage: boolean = false;
-  isAboutPage: boolean = false;
-  isGTPPage: boolean = false;
-  isDonaPage: boolean = false;
-  role: string = 'Clinical';
-  subrole: string = 'null';
+  isEcosystemPage: boolean = false;
+  isAwardsPage: boolean = false;
+  isContactPage: boolean = false;
+  isDonatePage: boolean = false;
   private subscription: Subscription = new Subscription();
 
   constructor(public translate: TranslateService, private layoutService: LayoutService, private configService: ConfigService, private langService: LangService, private router: Router, private route: ActivatedRoute, private inj: Injector, private location: Location) {
@@ -49,94 +46,7 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
 
       event => {
         var tempUrl = (event.url).toString();
-        console.log(tempUrl);
-        if (tempUrl.indexOf('/.') != -1 || tempUrl == '/') {
-          this.isHomePage = true;
-          this.isClinicianPage = false;
-          this.isNewsPage = false;
-          this.isEdHubPage = false;
-          this.isAboutPage = false;
-          this.isGTPPage = false;
-          this.isUndiagnosedPatientPage = false;
-          this.role = 'Clinical';
-          this.subrole = 'null';
-        } else if (tempUrl.indexOf('/clinician') != -1) {
-          this.isHomePage = false;
-          this.isClinicianPage = true;
-          this.isNewsPage = false;
-          this.isEdHubPage = false;
-          this.isAboutPage = false;
-          this.isGTPPage = false;
-          this.isUndiagnosedPatientPage = false;
-          this.role = 'Clinical';
-          this.subrole = 'null';
-        } else if (tempUrl.indexOf('/news') != -1) {
-          this.isHomePage = false;
-          this.isNewsPage = true;
-          this.isClinicianPage = false;
-          this.isEdHubPage = false;
-          this.isAboutPage = false;
-          this.isGTPPage = false;
-          this.isUndiagnosedPatientPage = false;
-          this.role = 'User';
-          this.subrole = 'HaveDiagnosis';
-        } else if (tempUrl.indexOf('/undiagnosed') != -1) {
-          this.isHomePage = false;
-          this.isNewsPage = false;
-          this.isClinicianPage = false;
-          this.isEdHubPage = false;
-          this.isAboutPage = false;
-          this.isGTPPage = false;
-          this.isUndiagnosedPatientPage = true;
-          this.role = 'User';
-          this.subrole = 'NoDiagnosis';
-        } else if (tempUrl.indexOf('/education') != -1) {
-          this.isHomePage = false;
-          this.isNewsPage = false;
-          this.isClinicianPage = false;
-          this.isEdHubPage = true;
-          this.isAboutPage = false;
-          this.isGTPPage = false;
-          this.isUndiagnosedPatientPage = false;
-        } else if (tempUrl.indexOf('/aboutus') != -1) {
-          this.isHomePage = false;
-          this.isNewsPage = false;
-          this.isClinicianPage = false;
-          this.isEdHubPage = false;
-          this.isAboutPage = true;
-          this.isGTPPage = false;
-          this.isUndiagnosedPatientPage = false;
-        } else if (tempUrl.indexOf('/juntoshaciaeldiagnostico') != -1) {
-          this.isHomePage = false;
-          this.isNewsPage = false;
-          this.isClinicianPage = false;
-          this.isEdHubPage = false;
-          this.isAboutPage = false;
-          this.isGTPPage = true;
-          this.isUndiagnosedPatientPage = false;
-          if (tempUrl.indexOf('/juntoshaciaeldiagnostico/donar') != -1) {
-            this.isDonaPage = true;
-          } else {
-            this.isDonaPage = false;
-          }
-        } else {
-          this.isHomePage = false;
-          this.isClinicianPage = false;
-          this.isNewsPage = false;
-          this.isEdHubPage = false;
-          this.isAboutPage = false;
-          this.isGTPPage = false;
-          this.isUndiagnosedPatientPage = false;
-        }
-
-        if (tempUrl.indexOf('patient') != -1) {
-          if (tempUrl.indexOf('role=User') != -1) {///patient;role=User;subrole=HaveDiagnosis
-            this.role = 'User'
-          }
-          if (tempUrl.indexOf('subrole=HaveDiagnosis') != -1) {///patient;role=User;subrole=HaveDiagnosis
-            this.subrole = 'HaveDiagnosis'
-          }
-        }
+        this.checkRoute(tempUrl);
       }
     );
 
@@ -150,6 +60,74 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
           this.placement = "bottom-right";
         }
       });
+  }
+
+  checkRoute(tempUrl){
+    if (tempUrl.indexOf('/.') != -1 || tempUrl == '/' || tempUrl == '/#home') {
+      this.isHomePage = true;
+      this.isthefoundationPage = false;
+      this.isNewsPage = false;
+      this.isAwardsPage = false;
+      this.isContactPage = false;
+      this.isDonatePage = false;
+      this.isEcosystemPage = false;
+    } else if (tempUrl.indexOf('#thefoundation') != -1) {
+      this.isHomePage = false;
+      this.isthefoundationPage = true;
+      this.isNewsPage = false;
+      this.isAwardsPage = false;
+      this.isContactPage = false;
+      this.isDonatePage = false;
+      this.isEcosystemPage = false;
+    } else if (tempUrl.indexOf('/news') != -1) {
+      this.isHomePage = false;
+      this.isNewsPage = true;
+      this.isthefoundationPage = false;
+      this.isAwardsPage = false;
+      this.isContactPage = false;
+      this.isDonatePage = false;
+      this.isEcosystemPage = false;
+    } else if (tempUrl.indexOf('#ecosystem') != -1) {
+      this.isHomePage = false;
+      this.isNewsPage = false;
+      this.isthefoundationPage = false;
+      this.isAwardsPage = false;
+      this.isContactPage = false;
+      this.isDonatePage = false;
+      this.isEcosystemPage = true;
+    } else if (tempUrl.indexOf('#awards') != -1) {
+      this.isHomePage = false;
+      this.isNewsPage = false;
+      this.isthefoundationPage = false;
+      this.isAwardsPage = true;
+      this.isContactPage = false;
+      this.isDonatePage = false;
+      this.isEcosystemPage = false;
+    } else if (tempUrl.indexOf('#contact') != -1) {
+      this.isHomePage = false;
+      this.isNewsPage = false;
+      this.isthefoundationPage = false;
+      this.isAwardsPage = false;
+      this.isContactPage = true;
+      this.isDonatePage = false;
+      this.isEcosystemPage = false;
+    } else if (tempUrl.indexOf('/donate') != -1) {
+      this.isHomePage = false;
+      this.isNewsPage = false;
+      this.isthefoundationPage = false;
+      this.isAwardsPage = false;
+      this.isContactPage = false;
+      this.isDonatePage = true;
+      this.isEcosystemPage = false;
+    } else {
+      this.isHomePage = false;
+      this.isthefoundationPage = false;
+      this.isNewsPage = false;
+      this.isAwardsPage = false;
+      this.isContactPage = false;
+      this.isDonatePage = false;
+      this.isEcosystemPage = false;
+    }
   }
 
   ngOnInit() {
@@ -244,8 +222,10 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
     if( document.getElementById(step)==null){
       this.router.navigate(['/'], { fragment: step});
     }else{
+      this.router.navigate(['/'], { fragment: step});
       document.getElementById(step).scrollIntoView({behavior: "smooth"});
     }
+    this.checkRoute(this.router.url);
   }
 
 }

@@ -24,12 +24,12 @@
                     </a>
                 </li>
                 <li class="nav-item mr-2">
-                  <a class="nav-link" [ngClass]="(!isAboutPage)?'black':'black text-bold-500'" (click)="goTo('thefoundation');">
+                  <a class="nav-link" [ngClass]="(!isthefoundationPage)?'black':'black text-bold-500'" (click)="goTo('thefoundation');">
                     <span>{{'f29.The Foundation' | translate }}</span>
                   </a>
                 </li>
                 <li class="nav-item mr-2">
-                    <a class="nav-link" [ngClass]="(!isUndiagnosedPatientPage)?'black':'black text-bold-500'" (click)="goTo('ecosystem');">
+                    <a class="nav-link" [ngClass]="(!isEcosystemPage)?'black':'black text-bold-500'" (click)="goTo('ecosystem');">
                       <span>{{'f29.Ecosystem' | translate }}</span>
                     </a>
                 </li>
@@ -39,17 +39,17 @@
                     </a>
                 </li>
                 <li class="nav-item mr-2">
-                    <a class="nav-link" [ngClass]="(!isAboutPage)?'black':'black text-bold-500'" (click)="goTo('awards');">
+                    <a class="nav-link" [ngClass]="(!isAwardsPage)?'black':'black text-bold-500'" (click)="goTo('awards');">
                       <span>{{'f29.Awards' | translate }}</span>
                     </a>
                 </li>
                 <li class="nav-item mr-2">
-                    <a class="nav-link" [ngClass]="(!isAboutPage)?'black':'black text-bold-500'" (click)="goTo('contact');">
+                    <a class="nav-link" [ngClass]="(!isContactPage)?'black':'black text-bold-500'" (click)="goTo('contact');">
                       <span>{{'f29.Contact' | translate }}</span>
                     </a>
                 </li>
                 <li class="nav-item mr-2">
-                    <a class="nav-link btn btn-dark round" style="width: 120px;" [ngClass]="(!isAboutPage)?'white':'white text-bold-500'" routerLink="/donate">
+                    <a class="nav-link btn btn-dark round" style="width: 120px;" [ngClass]="(!isDonatePage)?'white':'white text-bold-500'" routerLink="/donate">
                       <span>{{'f29.Donate' | translate }} <em class="ml-1 fa fa-heart"></em></span>
                     </a>
                 </li>
