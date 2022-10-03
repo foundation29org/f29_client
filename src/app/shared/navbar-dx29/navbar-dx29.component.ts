@@ -43,7 +43,6 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
     this.loadLanguages();
 
     this.router.events.filter((event: any) => event instanceof NavigationEnd).subscribe(
-
       event => {
         var tempUrl = (event.url).toString();
         this.checkRoute(tempUrl);

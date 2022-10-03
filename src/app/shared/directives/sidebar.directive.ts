@@ -176,7 +176,6 @@ export class SidebarDirective implements OnInit, AfterViewInit {
   }
 
   // check outside click and close sidebar for smaller screen <992
-  // check outside click and close sidebar for smaller screen <992
   @HostListener("document:click", ["$event"])
   onOutsideClick(event) {
     if (this.innerWidth < 992) {
@@ -197,30 +196,6 @@ export class SidebarDirective implements OnInit, AfterViewInit {
         this.toggleHideSidebar.emit(true);
       }
     }
-    /*
-    if(event.target.parentElement.classList.contains("moreThings") || event.target.parentElement.classList.toString().indexOf('swal2')!=-1){
-      console.log('entra');
-    }else{
-      if (this.innerWidth < 992) {
-        let clickedComponent = event.target;
-        let inside = false;
-        do {
-          if (clickedComponent === this.el.nativeElement) {
-            inside = true;
-          }
-          clickedComponent = clickedComponent.parentNode;
-        } while (clickedComponent);
-  
-        if (
-          !this.el.nativeElement.classList.contains("hide-sidebar") &&
-          !inside &&
-          !event.target.classList.contains("navbar-toggle")
-        ) {
-          this.toggleHideSidebar.emit(true);
-        }
-      }
-    }*/
-    
     
   }
 
