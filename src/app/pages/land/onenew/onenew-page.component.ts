@@ -57,7 +57,6 @@ export class OneNewPageComponent {
             if(foundElementIndex!=-1){
               this.oneNew = this.news[foundElementIndex];
               this.oneNew.full = this.sanitizer.bypassSecurityTrustHtml(this.oneNew.full);
-              console.log(this.oneNew);
               document.getElementById('init').scrollIntoView({behavior: "smooth"});
             }
           }));
