@@ -299,6 +299,9 @@
     .hidepanelmd{
       display: none;
     }
+    .full-height-vh{
+      height:initial !important;
+    }
   }
 
     @media (max-width: 575px) {
