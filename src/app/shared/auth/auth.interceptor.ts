@@ -14,7 +14,6 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(private inj: Injector, private router: Router) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log('entra');
     // Clone the request to add the new header.
 
     var isExternalReq = false;
