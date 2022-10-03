@@ -1,3 +1,21 @@
+.m--50{
+  margin-left: -50px !important;
+  margin-right: -50px !important;
+}
+
+.m-50{
+  margin-right: 50px !important;
+}
+
+.m--70{
+  margin-left: -70px !important;
+  margin-right: -70px !important;
+}
+
+.m-70{
+  margin-right: 70px !important;
+}
+
 .font-size-sm{
   font-size: 1rem !important;
 }
@@ -261,6 +279,12 @@
     .hidepanellg{
       display: none;
     }
+    .m-50{
+      margin-left: 50px !important;
+    }
+    .m-70{
+      margin-left: 40px !important;
+    }
     
   }
 
@@ -297,3 +321,9 @@
         display: none;
       }
    }
+
+   @media (max-width: 390px) {
+    .m-70{
+      margin-left: 20px !important;
+    }
+  }

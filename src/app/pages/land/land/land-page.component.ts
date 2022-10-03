@@ -35,7 +35,7 @@ export class LandPageComponent implements OnInit {
         try {
             setTimeout(function () {
                 if (this.fragment != null) {
-                    document.getElementById(this.fragment).scrollIntoView(true);
+                    document.getElementById(this.fragment).scrollIntoView({behavior: "smooth"});
                 }
             }.bind(this), 200);
         } catch (e) { }

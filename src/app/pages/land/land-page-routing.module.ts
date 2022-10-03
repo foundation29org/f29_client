@@ -31,7 +31,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'news/:id',
+        path: 'news/:title/:id',
         component: OneNewPageComponent,
         data: {
           title: 'f29.News'

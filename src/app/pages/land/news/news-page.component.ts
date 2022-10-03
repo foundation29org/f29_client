@@ -41,6 +41,7 @@ export class NewsPageComponent {
           .subscribe((res: any) => {
             res.sort(this.sortService.GetSortOrderNumber("id"));
             this.news= res;
+            document.getElementById('init').scrollIntoView({behavior: "smooth"});
           }));
     }
 
