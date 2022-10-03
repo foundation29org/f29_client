@@ -12,7 +12,10 @@ p {
 
 .imageclass
 {
-  width: 100%;
+  max-width: 100%;
+  max-width: -moz-available;          /* For Mozzila */
+  max-width: -webkit-fill-available;  /* For Chrome */
+  max-width: stretch;
 }
 
 
