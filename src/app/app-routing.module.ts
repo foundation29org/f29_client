@@ -15,7 +15,8 @@ const appRoutes: Routes = [
     pathMatch: 'full',
   },
   { path: '', component: LandPageLayoutComponent, data: { title: 'Land Page' }, children: Land_Pages_ROUTES },
-  { path: '', component: LandPageLayoutComponent, data: { title: 'content Views' }, children: CONTENT_ROUTES }
+  { path: '', component: LandPageLayoutComponent, data: { title: 'content Views' }, children: CONTENT_ROUTES },
+  { path: '**', redirectTo: '.'}
 ];
 
 @NgModule({
