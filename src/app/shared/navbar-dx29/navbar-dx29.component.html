@@ -2,16 +2,14 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-faded damemarger custom-navbar">
     <div class="container-fluid">
       <div>
-        <button type="button" class="mt-2 d-lg-none navbar-toggle float-left" data-toggle="collapse" (click)="toggleSidebar()">
+        <button type="button" class="mt-2 d-lg-none navbar-toggle float-left" id="menu" title="menu" data-toggle="collapse" (click)="toggleSidebar()">
           <span class="sr-only"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
       </button>
           <span class="ml-2 navbar-header-logos">
-            <img class="logo-img pointer" src='assets/img/logo-f29.webp' (click)="goTo('home');"/>
-            <!--<img *ngIf="!isHomePage" class="logo-img" src='assets/img/logo-f29.webp' routerLink="/." style="cursor: pointer;"/>-->
-            
+            <img class="logo-img pointer" alt="logo foundation29" src='assets/img/logo-f29.webp' (click)="goTo('home');"/>            
           </span>
 
       </div>
@@ -59,7 +57,7 @@
         <div class="navbar-container pl-0">
             <div  id="navbarSupportedContent">
                 <ul class="navbar-nav m-r-0">
-                    <li class="nav-item mr-2 d-none d-sm-inline" ngbDropdown display="dynamic" placement="bottom-right">
+                    <li class="nav-item mr-2 d-inline" ngbDropdown display="dynamic" placement="bottom-right">
                         <a class="position-relative colorlink" id="dropdownLang" ngbDropdownToggle>
                             <u>{{currentLang}}</u>
                         </a>
@@ -69,16 +67,6 @@
                             </a>
                         </div>
                     </li>
-                    <li class="nav-item ml-2 d-inline d-sm-none" ngbDropdown display="dynamic" placement="bottom-right">
-                      <a class="position-relative colorlink" id="dropdownLang" ngbDropdownToggle>
-                          <u>{{currentLang}}</u>
-                      </a>
-                      <div ngbDropdownMenu aria-labelledby="dropdownLang" class="dropdownLang">
-                          <a *ngFor="let lang of langs" class="dropdown-item py-1 lang" href="javascript:;" (click)="ChangeLanguage(lang.code)">
-                              <span>{{lang.name}}</span>
-                          </a>
-                      </div>
-                  </li>
                 </ul>
             </div>
         </div>
