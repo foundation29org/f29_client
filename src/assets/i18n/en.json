@@ -552,5 +552,22 @@
     "deny": "Decline",
     "link": "Learn more",
     "policy": "Cookie Policy"
+  },
+  "seo":{
+    "home":{
+      "keywords": "Foundation 29, Rare Diseases, Diagnosis, Decentralization, Web3, patient registries",
+      "description": "We are a non-profit organization. We work in decentralized medicine making sure patient own their data.",
+      "title": "Foundation 29. Open standards activists, data-obsessed scientists, patient empowerment advocates, creating decentralized medicine."
+    },
+    "donate":{
+      "keywords": "donate, donate tax relief, help foundation, Fundación 29",
+      "description": "Make your donation to Foundation 29",
+      "title": "DONATE"
+    },
+    "news":{
+      "keywords": "news, about foundation 29, rare disease news, Fundación 29",
+      "description": "News about Foundation 29",
+      "title": "News"
+    }
   }
 }

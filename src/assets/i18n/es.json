@@ -552,5 +552,22 @@
     "deny": "Rechazar",
     "link": "Más información",
     "policy": "Política de cookies"
+  },
+  "seo":{
+    "home":{
+      "keywords": "Fundación 29, Enfermedades Raras, Diagnóstico, Descentralización, Web3, registros de pacientes",
+      "description": "Somos una organización sin fines de lucro. Trabajamos en medicina descentralizada asegurándonos de que los pacientes sean dueños de sus datos.",
+      "title": "Fundación 29. Activistas de estándares abiertos, científicos obsesionados con los datos, defensores del empoderamiento de los pacientes, creando una medicina descentralizada"
+    },
+    "donate":{
+      "keywords": "dona, donar desgrava, ayuda fundación, Fundación 29",
+      "description": "Haz tu donación a Fundación 29",
+      "title": "DONA"
+    },
+    "news":{
+      "keywords": "noticias, sobre foundation 29, rnoticias de enfermedades raras, Fundación 29",
+      "description": "Noticias de Fundación 29",
+      "title": "Noticias"
+    }
   }
 }
