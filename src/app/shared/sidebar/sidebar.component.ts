@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild, OnDestroy, ElementRef, Renderer2, AfterViewInit } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'environments/environment';
-import { ROUTES, ROUTESSUPERADMIN, ROUTESCLINICAL, ROUTESHOMEDX, ROUTESADMINGTP} from './sidebar-routes.config';
+import { ROUTESHOMEDX} from './sidebar-routes.config';
 import { RouteInfo } from "./sidebar.metadata";
 import { Router, ActivatedRoute, NavigationEnd } from "@angular/router";
 import { TranslateService } from '@ngx-translate/core';
