@@ -1,12 +1,8 @@
 import * as $ from 'jquery';
 import { NgModule ,LOCALE_ID  } from '@angular/core';
 import es from '@angular/common/locales/es'
-import ru from '@angular/common/locales/ru'
-import uk from '@angular/common/locales/uk'
 import { registerLocaleData } from '@angular/common';
 registerLocaleData(es);
-registerLocaleData(ru);
-registerLocaleData(uk);
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -40,11 +36,6 @@ import { EventsService } from 'app/shared/services/events.service';
 import { DialogService } from 'app/shared/services/dialog.service';
 import { Data } from 'app/shared/services/data.service';
 import { environment } from 'environments/environment';
-
-import { Angulartics2Module } from 'angulartics2';
-import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
-import { NgxHotjarModule } from 'ngx-hotjar';
-import {GoogleAnalyticsService} from './shared/services/google-analytics.service';
 import {NgcCookieConsentModule, NgcCookieConsentConfig} from 'ngx-cookieconsent';
 
 
@@ -91,9 +82,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
           deps: [HttpClient]
         }
       }),
-      Angulartics2Module.forRoot(),
       PerfectScrollbarModule,
-      NgxHotjarModule.forRoot(environment.hotjarSiteId),
       NgcCookieConsentModule.forRoot(cookieConfig)
     ],
     providers: [
@@ -118,8 +107,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         provide: PERFECT_SCROLLBAR_CONFIG,
         useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
       },
-      { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG },
-      GoogleAnalyticsService
+      { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG }
     ],
     bootstrap: [AppComponent]
   })
