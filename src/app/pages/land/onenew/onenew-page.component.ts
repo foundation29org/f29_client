@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { EventsService } from 'app/shared/services/events.service';
 import { SearchService } from 'app/shared/services/search.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-onenew-page',
@@ -23,7 +24,7 @@ export class OneNewPageComponent {
     loadedNew= false;
     news: any = [];
 
-    constructor(public translate: TranslateService, private http: HttpClient, private eventsService: EventsService, private route: ActivatedRoute, private searchService: SearchService, protected sanitizer: DomSanitizer) {
+    constructor(public translate: TranslateService, private http: HttpClient, private eventsService: EventsService, private route: ActivatedRoute, private searchService: SearchService, protected sanitizer: DomSanitizer, private meta: Meta) {
         this.lang = sessionStorage.getItem('lang');;
         
     }
@@ -56,6 +57,11 @@ export class OneNewPageComponent {
             var foundElementIndex = this.searchService.searchIndex(this.news, 'id', this.id);
             if(foundElementIndex!=-1){
               this.oneNew = this.news[foundElementIndex];
+              if(this.oneNew.keywords!=''){
+                this.meta.updateTag({ name: 'keywords', content: this.oneNew.keywords });
+                this.meta.updateTag({ name: 'description', content: this.oneNew.resume });
+                this.meta.updateTag({ name: 'title', content: this.oneNew.title });
+              }
               this.oneNew.full = this.sanitizer.bypassSecurityTrustHtml(this.oneNew.full);
               document.getElementById('init').scrollIntoView({behavior: "smooth"});
             }

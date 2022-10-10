@@ -292,7 +292,9 @@ export class AppComponent implements OnInit, OnDestroy {
       this.meta.updateTag({ name: 'keywords', content: this.translate.instant("seo.donate.keywords") });
       this.meta.updateTag({ name: 'description', content: this.translate.instant("seo.donate.description") });
       this.meta.updateTag({ name: 'title', content: this.translate.instant("seo.donate.title") });
-    } else if (URLactual.indexOf("news") != -1) {
+    } else if (URLactual.indexOf("/news/") != -1) {
+     //change meta on onenew-page.component
+    }else if (URLactual.indexOf("news") != -1) {
       this.meta.updateTag({ name: 'keywords', content: this.translate.instant("seo.news.keywords") });
       this.meta.updateTag({ name: 'description', content: this.translate.instant("seo.news.description") });
       this.meta.updateTag({ name: 'title', content: this.translate.instant("seo.news.title") });
