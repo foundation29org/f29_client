@@ -3,6 +3,7 @@ import { RouteInfo } from './sidebar.metadata';
 //Sidebar menu Routes and data
 export const ROUTESHOMEDX: RouteInfo[] = [
     { path: 'home', title: 'menu.Dashboard', icon: 'fa fa-home', class: '', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: true, submenu: [] },
+    { path: 'iniciatives', title: 'f29.Initiatives', icon: 'ft-grid', class: '', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: true, submenu: [] },
     { path: 'thefoundation', title: 'f29.The Foundation', icon: 'fa fa-building-o', class: '', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: true, submenu: [] },
     { path: 'ecosystem', title: 'f29.Ecosystem', icon: 'fa fa-globe', class: '', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: true, submenu: [] },
     { path: '/news', title: 'f29.News', icon: 'fa fa-newspaper', class: '', badge: '', badgeClass: 'badge badge-pill badge-danger float-right mr-1 mt-1', isExternalLink: false, submenu: [] },
