@@ -33,6 +33,7 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
   urlLogo: string = 'assets/img/logo-f29.webp';
   urlLogo2: string = 'assets/img/logo-f29.webp';
   isHomePage: boolean = false;
+  isiniciativesPage: boolean = false;
   isthefoundationPage: boolean = false;
   isNewsPage: boolean = false;
   isEcosystemPage: boolean = false;
@@ -105,14 +106,25 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
   checkRoute(tempUrl){
     if (tempUrl.indexOf('/.') != -1 || tempUrl == '/' || tempUrl == '/#home') {
       this.isHomePage = true;
+      this.isiniciativesPage = false;
       this.isthefoundationPage = false;
       this.isNewsPage = false;
       this.isAwardsPage = false;
       this.isContactPage = false;
       this.isDonatePage = false;
       this.isEcosystemPage = false;
-    } else if (tempUrl.indexOf('#thefoundation') != -1) {
+    } else if (tempUrl.indexOf('#iniciatives') != -1) {
       this.isHomePage = false;
+      this.isiniciativesPage = true;
+      this.isthefoundationPage = false;
+      this.isNewsPage = false;
+      this.isAwardsPage = false;
+      this.isContactPage = false;
+      this.isDonatePage = false;
+      this.isEcosystemPage = false;
+    }else if (tempUrl.indexOf('#thefoundation') != -1) {
+      this.isHomePage = false;
+      this.isiniciativesPage = false;
       this.isthefoundationPage = true;
       this.isNewsPage = false;
       this.isAwardsPage = false;
@@ -121,6 +133,7 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
       this.isEcosystemPage = false;
     } else if (tempUrl.indexOf('/news') != -1) {
       this.isHomePage = false;
+      this.isiniciativesPage = false;
       this.isNewsPage = true;
       this.isthefoundationPage = false;
       this.isAwardsPage = false;
@@ -129,6 +142,7 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
       this.isEcosystemPage = false;
     } else if (tempUrl.indexOf('#ecosystem') != -1) {
       this.isHomePage = false;
+      this.isiniciativesPage = false;
       this.isNewsPage = false;
       this.isthefoundationPage = false;
       this.isAwardsPage = false;
@@ -137,6 +151,7 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
       this.isEcosystemPage = true;
     } else if (tempUrl.indexOf('#awards') != -1) {
       this.isHomePage = false;
+      this.isiniciativesPage = false;
       this.isNewsPage = false;
       this.isthefoundationPage = false;
       this.isAwardsPage = true;
@@ -145,6 +160,7 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
       this.isEcosystemPage = false;
     } else if (tempUrl.indexOf('#contact') != -1) {
       this.isHomePage = false;
+      this.isiniciativesPage = false;
       this.isNewsPage = false;
       this.isthefoundationPage = false;
       this.isAwardsPage = false;
@@ -153,6 +169,7 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
       this.isEcosystemPage = false;
     } else if (tempUrl.indexOf('/donate') != -1) {
       this.isHomePage = false;
+      this.isiniciativesPage = false;
       this.isNewsPage = false;
       this.isthefoundationPage = false;
       this.isAwardsPage = false;
@@ -161,6 +178,7 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
       this.isEcosystemPage = false;
     } else {
       this.isHomePage = false;
+      this.isiniciativesPage = false;
       this.isthefoundationPage = false;
       this.isNewsPage = false;
       this.isAwardsPage = false;
