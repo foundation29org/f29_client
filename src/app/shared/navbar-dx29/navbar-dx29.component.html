@@ -54,6 +54,17 @@
               </ul>
           </div>
       </div>
+      <div class="d-block d-lg-none" *ngIf="!isDonatePage">
+        <div class="navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav m-r-0">
+                <li class="nav-item mr-2">
+                    <a class="nav-link btn btn-dark round mb-0" style="width: 120px;" [ngClass]="(!isDonatePage)?'white':'white text-bold-500'" routerLink="/donate">
+                      <span>{{'f29.Donate' | translate }} <em class="ml-1 fa fa-heart"></em></span>
+                    </a>
+                </li>
+              </ul>
+          </div>
+      </div>
         <div class="navbar-container pl-0">
             <div  id="navbarSupportedContent">
                 <ul class="navbar-nav m-r-0">
