@@ -10,10 +10,10 @@
             </div>
           </div>
           <div class="center-elements">
-            <h1 class="text-bold-300">Latest</h1>
+            <h1 class="text-bold-300">{{'f29.t6.1' | translate }}</h1>
           </div>
           <div class="center-elements">
-            <h1 class="text-bold-500"><strong>news</strong></h1>
+            <h1 class="text-bold-500"><strong>{{'f29.t6.2' | translate }}</strong></h1>
           </div>
         </div>
       </div>
@@ -28,7 +28,7 @@
         <p class="text-bold-500 mt-2 pointer" [routerLink]="['/news/' + new.title, new.id]"><strong>{{new.title}}</strong></p>
         <p class="text-muted">{{new.date}}</p>
         <p>{{new.resume}}</p>
-        <a [routerLink]="['/news/' + new.title, new.id]">Leer más » </a>
+        <a [routerLink]="['/news/' + new.title, new.id]">{{'f29.t6.3' | translate }} » </a>
     </span>
   </div>
 </section>
