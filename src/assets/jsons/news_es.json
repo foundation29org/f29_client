@@ -1,5 +1,14 @@
 [
     {
+        "img": "assets/img/home/news/SERMAS.webp",
+        "title": "El Servicio Madrileño de Salud lidera en el uso de Inteligencia Artificial Generativa para diagnósticos de enfermedades raras",
+        "date": "2023-09-15",
+        "resume": "El Servicio Madrileño de Salud, con la colaboración de Fundación 29 y Microsoft, lanza una app de IA para agilizar el diagnóstico de enfermedades raras.",
+        "keywords": "Servicio Madrileño de Salud, Inteligencia Artificial (IA), Diagnóstico, Enfermedades raras, Fundación 29, Microsoft, OpenAI, GPT-4, DxGPT, Consejería de Digitalización.",
+        "id": "20",
+        "full": "<p>El Servicio Madrileño de Salud se ha aliado con la Consejería de Digitalización, Fundación 29 y Microsoft para lanzar un proyecto pionero: una aplicación basada en Inteligencia Artificial de OpenAI, GPT-4, destinada a mejorar el diagnóstico de enfermedades raras.</p><p>Esta aplicación, que estará disponible en los centros de Atención Primaria de la Comunidad de Madrid a finales de septiembre, busca agilizar y precisar el diagnóstico, reduciendo el tiempo que los pacientes con enfermedades raras esperan, que actualmente es de unos cinco años visitando hasta siete especialistas.</p><p>Miguel López Valverde, consejero de Digitalización, destacó la importancia de la IA en la detección temprana de enfermedades. Julián Isla, director de Fundación 29, ve un gran potencial en esta tecnología para apoyar a los profesionales sanitarios.</p><p>La aplicación actúa como un asistente conversacional, donde los médicos introducen una descripción clínica y, usando GPT-4, se sugieren posibles patologías. Luego, los médicos pueden refinar estos resultados agregando más datos e información clínica.</p><p>Fuente: <a target='_blank' href='https://news.microsoft.com/es-es/2023/09/15/el-servicio-madrileno-de-salud-pionero-en-la-aplicacion-de-inteligencia-artificial-generativa-para-la-mejora-del-diagnostico-en-pacientes-con-enfermedades-raras/'>https://news.microsoft.com</a></p>"
+    },
+    {
         "img": "assets/img/home/news/rare-diseases-hub-f29-ukraine-hospital-sant-joan-deu.webp",
         "title": "Sant Joan de Déu acoge el centro de referencia europeo para pacientes ucranianos con enfermedades raras.",
         "date": "2022-10-07",
