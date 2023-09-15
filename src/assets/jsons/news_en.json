@@ -1,5 +1,14 @@
 [ 
     {
+        "img": "assets/img/home/news/SERMAS.webp",
+        "title": "Madrid Health Service leads in the use of Generative Artificial Intelligence for diagnosis of rare diseases",
+        "date": "2023-09-15",
+        "resume": "The Madrid Health Service, in collaboration with Fundación 29 and Microsoft, launches an AI app to speed up the diagnosis of rare diseases.",
+        "keywords": "Madrid Health Service, Artificial Intelligence (AI), Diagnosis, Rare diseases, Foundation 29, Microsoft, OpenAI, GPT-4, DxGPT, Digitalization Council.",
+        "id": "20",
+        "full": "<p>The Madrid Health Service has joined forces with the Department of Digitalization, Fundación 29 and Microsoft to launch a pioneering project: an application based on OpenAI Artificial Intelligence, GPT-4, aimed at improving the diagnosis of rare diseases.< /p><p>This application, which will be available in the Primary Care centers of the Community of Madrid at the end of September, seeks to speed up and specify the diagnosis, reducing the time that patients with rare diseases wait, which is currently about five years visiting up to seven specialists.</p><p>Miguel López Valverde, Minister of Digitalization, highlighted the importance of AI in the early detection of diseases. Julián Isla, director of Fundación 29, sees great potential in this technology to support healthcare professionals.</p><p>The application acts as a conversational assistant, where doctors enter a clinical description and, using GPT-4 , possible pathologies are suggested. Doctors can then refine these results by adding more data and clinical information.</p><p>Source: <a target='_blank' href='https://news.microsoft.com/es-es/2023/09/15/el-servicio-madrileno-de-salud-pionero-en-la-aplicacion-de-inteligencia-artificial-generativa-para-la-mejora-del-diagnostico-en-pacientes-con-enfermedades-raras/'>https://news.microsoft.com</a></p>"
+    },
+    {
         "img": "assets/img/home/news/rare-diseases-hub-f29-ukraine-hospital-sant-joan-deu.webp",
         "title": "Sant Joan de Déu hosts the European reference center for Ukrainian patients with rare diseases.",
         "date": "2022-10-07",
