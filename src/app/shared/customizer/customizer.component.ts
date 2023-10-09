@@ -42,7 +42,6 @@ export class CustomizerComponent implements OnInit, AfterViewInit, OnDestroy {
   selectedTLBgImage: string = "";
 
   constructor(
-    private elRef: ElementRef,
     private renderer: Renderer2,
     private layoutService: LayoutService,
     private configService: ConfigService

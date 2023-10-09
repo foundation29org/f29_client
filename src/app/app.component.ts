@@ -1,17 +1,14 @@
-import { Component, ViewContainerRef, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { environment } from 'environments/environment';
-import { HttpClient } from "@angular/common/http";
 import { ToastrService } from 'ngx-toastr';
-import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap'
 import { Subscription } from 'rxjs/Subscription';
-import { Router, NavigationEnd, ActivatedRoute, NavigationStart, NavigationCancel } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
-import { LangService } from 'app/shared/services/lang.service';
 import Swal from 'sweetalert2';
 import { EventsService } from 'app/shared/services/events.service';
 
@@ -25,8 +22,7 @@ import {
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  providers: [LangService]
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit, OnDestroy {
 
@@ -47,7 +43,7 @@ export class AppComponent implements OnInit, OnDestroy {
   private statusChangeSubscription: Subscription;
   private revokeChoiceSubscription: Subscription;
   private noCookieLawSubscription: Subscription;
-  constructor(private http: HttpClient, public toastr: ToastrService, private router: Router, private activatedRoute: ActivatedRoute, private titleService: Title, public translate: TranslateService, private langService: LangService, private eventsService: EventsService, private ccService: NgcCookieConsentService, private meta: Meta) {
+  constructor(public toastr: ToastrService, private router: Router, private activatedRoute: ActivatedRoute, private titleService: Title, public translate: TranslateService, private eventsService: EventsService, private ccService: NgcCookieConsentService, private meta: Meta) {
 
     if (sessionStorage.getItem('lang')) {
       this.translate.use(sessionStorage.getItem('lang'));
