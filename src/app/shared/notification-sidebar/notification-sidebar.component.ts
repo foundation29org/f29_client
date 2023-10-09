@@ -18,11 +18,11 @@ export class NotificationSidebarComponent implements OnInit, OnDestroy {
 
   }
 
-  constructor(private elRef: ElementRef,
+  constructor(
     private renderer: Renderer2,
     private layoutService: LayoutService) {
 
-    this.layoutSub = layoutService.notiSidebarChangeEmitted$.subscribe(
+    this.layoutSub = this.layoutService.notiSidebarChangeEmitted$.subscribe(
       value => {
         if (this.isOpen) {
           this.renderer.removeClass(this.sidebar.nativeElement, 'open');
