@@ -5,5 +5,3 @@ interface NodeModule {
 }
 declare module 'quill';
 declare module 'leaflet';
-declare module 'screenfull';
-declare module 'd3-shape';

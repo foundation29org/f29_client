@@ -8,18 +8,11 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ErrorPageComponent } from "./error/error-page.component";
 import { TermsConditionsPageComponent } from "./terms-conditions/terms-conditions-page.component";
 import { PrivacyPolicyPageComponent } from "./privacy-policy/privacy-policy.component";
-import {PasswordValidator} from "app/shared/directives/password-validator.directive"; //imported to modules
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import { MyFilterPipe } from 'app/shared/services/my-filter.pipe';
 
 @NgModule({
     exports: [
-        TranslateModule,
-        MatDatepickerModule,
-        MatNativeDateModule 
+        TranslateModule
     ],
     imports: [
         CommonModule,
@@ -27,17 +20,12 @@ import { MyFilterPipe } from 'app/shared/services/my-filter.pipe';
         FormsModule,
         TranslateModule,
         CustomFormsModule,
-        NgbModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatCheckboxModule
+        NgbModule
     ],
     declarations: [
         ErrorPageComponent,
         TermsConditionsPageComponent,
-        PrivacyPolicyPageComponent,
-        PasswordValidator,
-        MyFilterPipe
+        PrivacyPolicyPageComponent
     ],
     entryComponents:[TermsConditionsPageComponent]
 })
