@@ -24,7 +24,6 @@
               "src/robots.txt"
             ],
             "styles": [
-              "src/assets/css/demo.css",
               "src/assets/sass/app.scss",
               "src/styles.css",
               "node_modules/ngx-toastr/toastr.css",
@@ -33,7 +32,6 @@
             "scripts": [
               "src/assets/vendor/pace/pace.min.js",
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/apexcharts/dist/apexcharts.min.js",
               "node_modules/cookieconsent/build/cookieconsent.min.js"
             ]
           },
@@ -126,7 +124,6 @@
               "node_modules/jquery/dist/jquery.min.js"
             ],
             "styles": [
-              "src/assets/css/demo.css",
               "src/assets/sass/app.scss",
               "src/styles.css"
             ],
