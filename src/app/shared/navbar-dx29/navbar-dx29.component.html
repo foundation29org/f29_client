@@ -32,6 +32,11 @@
                     </a>
                 </li>
                 <li class="nav-item mr-2">
+                  <a class="nav-link" href="javascript:;" [ngClass]="(!isLabPage)?'black':'black text-bold-500'" routerLink="/lab">
+                    <span>Lab</span>
+                  </a>
+                </li>
+                <li class="nav-item mr-2">
                     <a class="nav-link" [ngClass]="(!isNewsPage)?'black':'black text-bold-500'" routerLink="/news">
                       <span>{{'f29.News' | translate }}</span>
                     </a>
