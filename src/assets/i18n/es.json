@@ -1,4 +1,20 @@
 {
+  "book":{
+    "t1": "¿Por qué mi hijo tiene una enfermedad rara?",
+    "t2": "Comprar el libro",
+    "p1": "Pregunta al libro",
+    "p2": "Type a question in the text box",
+    "p3": "Respuesta corta",
+    "p4": "Respuesta larga",
+    "p5": "Buscar en el libro",
+    "p6": "Si no sabes qué preguntar, te proponemos algunas sugerencias:",
+    "p7": "No hemos encontrado nada en el libro, vamos a buscar en OpenAI..",
+    "p8": "Este proyecto ha sido posible gracias a los modelos de lenguaje de OpenAI",
+    "sugg1": "¿Qué es una enfermedad rara?",
+    "sugg2": "¿Cuántas personas con enfermedades raras pueden existir en Madrid?",
+    "sugg3": "¿Existen terapias para las enfermedades raras?",
+    "Write a question to search": "Escribe una pregunta para buscar"
+  },
   "f29": {
     "Initiatives": "Iniciativas",
     "The Foundation": "La Fundación",
@@ -52,6 +68,7 @@
     "t2.4.7.6": "<strong>Accesible y Fácil de Usar:</strong> Diseñado para ser accesible para todos, independientemente de su conocimiento previo sobre el tema. La interfaz intuitiva y las respuestas claras hacen que sea fácil obtener información vital.",
     "t2.4.7.7": "<strong>Apoyo y Orientación:</strong> Más allá de ser una simple fuente de información, este libro interactivo ofrece un sentido de apoyo y comunidad, aliviando la sensación de aislamiento que a menudo acompaña a las enfermedades raras.",
     "t2.4.7.8": "Este libro interactivo es una herramienta esencial para cualquier persona que busque comprender las enfermedades raras, proporcionando respuestas personalizadas y apoyo en un formato innovador y accesible.",
+    "Discover our latest experiments": "Descubre nuestros últimos experimentos",
     "Test it": "Pruébalo",
     "Know more": "Saber más",
     "t3.1.1": "La",

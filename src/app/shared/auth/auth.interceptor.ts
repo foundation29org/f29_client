@@ -12,11 +12,14 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // Clone the request to add the new header.
     var authReq = req.clone({});
-    if (req.url.indexOf('https://bookf29.azurewebsites.net') > -1) {
+    /*if (req.url.indexOf('https://bookf29.azurewebsites.net') > -1) {
       const headers = req.headers
       .set('x-api-key', environment.Server_Key);
       authReq = req.clone({ headers });
-    }
+    }*/
+    const headers = req.headers
+      .set('x-api-key', environment.Server_Key);
+      authReq = req.clone({ headers });
 
     // Pass on the cloned request instead of the original request.
     return next.handle(authReq)
