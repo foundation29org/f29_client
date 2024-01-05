@@ -3,7 +3,7 @@ import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest} from '@angular/co
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/observable/throw'
 import 'rxjs/add/operator/catch';
-
+import { environment } from 'environments/environment';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -11,8 +11,12 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // Clone the request to add the new header.
-
     var authReq = req.clone({});
+    if (req.url.indexOf('https://bookf29.azurewebsites.net') > -1) {
+      const headers = req.headers
+      .set('x-api-key', environment.Server_Key);
+      authReq = req.clone({ headers });
+    }
 
     // Pass on the cloned request instead of the original request.
     return next.handle(authReq)
