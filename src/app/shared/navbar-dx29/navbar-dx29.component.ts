@@ -33,6 +33,7 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
   isAwardsPage: boolean = false;
   isContactPage: boolean = false;
   isDonatePage: boolean = false;
+  isLabPage: boolean = false;
   
   private subscription: Subscription = new Subscription();
 
@@ -63,87 +64,33 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
 
 
   checkRoute(tempUrl){
+      this.isHomePage = false;
+      this.isiniciativesPage = false;
+      this.isthefoundationPage = false;
+      this.isNewsPage = false;
+      this.isAwardsPage = false;
+      this.isContactPage = false;
+      this.isDonatePage = false;
+      this.isEcosystemPage = false;
+      this.isLabPage = false;
     if (tempUrl.indexOf('/.') != -1 || tempUrl == '/' || tempUrl == '/#home') {
       this.isHomePage = true;
-      this.isiniciativesPage = false;
-      this.isthefoundationPage = false;
-      this.isNewsPage = false;
-      this.isAwardsPage = false;
-      this.isContactPage = false;
-      this.isDonatePage = false;
-      this.isEcosystemPage = false;
     } else if (tempUrl.indexOf('#iniciatives') != -1) {
-      this.isHomePage = false;
       this.isiniciativesPage = true;
-      this.isthefoundationPage = false;
-      this.isNewsPage = false;
-      this.isAwardsPage = false;
-      this.isContactPage = false;
-      this.isDonatePage = false;
-      this.isEcosystemPage = false;
     } else if (tempUrl.indexOf('#thefoundation') != -1) {
-      this.isHomePage = false;
-      this.isiniciativesPage = false;
       this.isthefoundationPage = true;
-      this.isNewsPage = false;
-      this.isAwardsPage = false;
-      this.isContactPage = false;
-      this.isDonatePage = false;
-      this.isEcosystemPage = false;
     } else if (tempUrl.indexOf('/news') != -1) {
-      this.isHomePage = false;
-      this.isiniciativesPage = false;
       this.isNewsPage = true;
-      this.isthefoundationPage = false;
-      this.isAwardsPage = false;
-      this.isContactPage = false;
-      this.isDonatePage = false;
-      this.isEcosystemPage = false;
     } else if (tempUrl.indexOf('#ecosystem') != -1) {
-      this.isHomePage = false;
-      this.isiniciativesPage = false;
-      this.isNewsPage = false;
-      this.isthefoundationPage = false;
-      this.isAwardsPage = false;
-      this.isContactPage = false;
-      this.isDonatePage = false;
       this.isEcosystemPage = true;
     } else if (tempUrl.indexOf('#awards') != -1) {
-      this.isHomePage = false;
-      this.isiniciativesPage = false;
-      this.isNewsPage = false;
-      this.isthefoundationPage = false;
       this.isAwardsPage = true;
-      this.isContactPage = false;
-      this.isDonatePage = false;
-      this.isEcosystemPage = false;
     } else if (tempUrl.indexOf('#contact') != -1) {
-      this.isHomePage = false;
-      this.isiniciativesPage = false;
-      this.isNewsPage = false;
-      this.isthefoundationPage = false;
-      this.isAwardsPage = false;
       this.isContactPage = true;
-      this.isDonatePage = false;
-      this.isEcosystemPage = false;
     } else if (tempUrl.indexOf('/donate') != -1) {
-      this.isHomePage = false;
-      this.isiniciativesPage = false;
-      this.isNewsPage = false;
-      this.isthefoundationPage = false;
-      this.isAwardsPage = false;
-      this.isContactPage = false;
       this.isDonatePage = true;
-      this.isEcosystemPage = false;
-    } else {
-      this.isHomePage = false;
-      this.isiniciativesPage = false;
-      this.isthefoundationPage = false;
-      this.isNewsPage = false;
-      this.isAwardsPage = false;
-      this.isContactPage = false;
-      this.isDonatePage = false;
-      this.isEcosystemPage = false;
+    }else if (tempUrl.indexOf('/lab') != -1) {
+      this.isLabPage = true;
     }
   }
 
