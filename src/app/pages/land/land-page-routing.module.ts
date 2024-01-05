@@ -4,6 +4,7 @@ import { DonatePageComponent } from "./donate/donate-page.component";
 import { NewsPageComponent } from "./news/news-page.component";
 import { OneNewPageComponent } from "./onenew/onenew-page.component";
 import { LandPageComponent } from "./land/land-page.component";
+import { LibroPageComponent } from "./libro/libro-page.component";
 
 const routes: Routes = [
   {
@@ -35,6 +36,13 @@ const routes: Routes = [
         component: OneNewPageComponent,
         data: {
           title: 'f29.News'
+        }
+      },
+      {
+        path: 'libroenfermedadesraras',
+        component: LibroPageComponent,
+        data: {
+          title: 'libroenfermedadesraras'
         }
       }
     ]

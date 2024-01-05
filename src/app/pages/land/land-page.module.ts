@@ -9,6 +9,7 @@ import { LandPageComponent } from "./land/land-page.component";
 import { DonatePageComponent } from "./donate/donate-page.component";
 import { NewsPageComponent } from "./news/news-page.component";
 import { OneNewPageComponent } from "./onenew/onenew-page.component";
+import { LibroPageComponent } from "./libro/libro-page.component";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -28,7 +29,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         LandPageComponent,
         DonatePageComponent,
         NewsPageComponent,
-        OneNewPageComponent
+        OneNewPageComponent,
+        LibroPageComponent
     ]
 })
 export class LandPageModule { }
