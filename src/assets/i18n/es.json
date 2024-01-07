@@ -183,7 +183,8 @@
     "Data saved successfully": "Datos guardados correctamente.",
     "Data saved fail": "Los datos no se han guardado. Inténtalo de nuevo",
     "Yes": "Si",
-    "No": "No"
+    "No": "No",
+    "error try again": "Se ha producido un error, intente de nuevo"
   },
   "errors": {
     "The user does not exist": "El usuario no existe",
