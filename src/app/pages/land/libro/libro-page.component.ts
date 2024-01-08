@@ -26,7 +26,7 @@ export class LibroPageComponent {
 
     constructor(public translate: TranslateService, public toastr: ToastrService, private openAiService: OpenAiService, private eventsService: EventsService) {
         this.lang = sessionStorage.getItem('lang');;
-        this.getQuestions();
+        
     }
 
     ngOnInit() {
@@ -36,6 +36,7 @@ export class LibroPageComponent {
               this.getQuestions();
             }
           }.bind(this));
+          this.getQuestions();
     }
 
     ngOnDestroy() {
