@@ -89,7 +89,7 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
       this.isContactPage = true;
     } else if (tempUrl.indexOf('/donate') != -1) {
       this.isDonatePage = true;
-    }else if (tempUrl.indexOf('/lab') != -1) {
+    }else if (tempUrl.indexOf('#lab') != -1) {
       this.isLabPage = true;
     }
   }
