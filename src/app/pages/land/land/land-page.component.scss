@@ -1,3 +1,7 @@
+.text-lab29{
+  text-align: left !important;
+}
+
 .m--50{
   margin-left: -50px !important;
   margin-right: -50px !important;
@@ -302,7 +306,12 @@
     
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
+
+    .text-lab29{
+      text-align: center !important;
+    }
+
     .element-option{
       margin-bottom: 2.25rem !important;
       margin-top: 2.25rem !important;
