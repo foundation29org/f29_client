@@ -50,7 +50,7 @@ const routes: Routes = [
         path: 'lab',
         component: LabPageComponent,
         data: {
-          title: 'Lab'
+          title: 'Lab 29'
         }
       }
     ]
