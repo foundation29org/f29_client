@@ -182,14 +182,18 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
     eventsLang.broadcast('changelang', language);
   }
 
-  goTo(step) {
+  goTo(step) {    
     if( document.getElementById(step)==null){
       this.router.navigate(['/'], { fragment: step});
     }else{
-      this.router.navigate(['/'], { fragment: step});
-      document.getElementById(step).scrollIntoView({behavior: "smooth"});
+      //this.router.navigate(['/'], { fragment: step});
+      const yOffset = 50; // Ajusta este valor según sea necesario
+      const y = document.getElementById(step).getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({ top: y, behavior: 'smooth' });
+      //document.getElementById(step).scrollIntoView({behavior: "smooth"});
     }
-    this.checkRoute(this.router.url);
+    //this.checkRoute(this.router.url);
   }
 
 }
