@@ -118,6 +118,8 @@ export class LandPageComponent implements OnInit {
         Array.from(elements).forEach((element: HTMLElement) => {
           element.classList.add('shaking');
           element.classList.remove('moveRandomly');
+          //element.style.transform = 'none';
+          //element.style.transition = 'none';
         });
         //set z-index: 1; to <div id="circle" class="circle">
         var circle = document.getElementById("circle");
@@ -148,7 +150,7 @@ export class LandPageComponent implements OnInit {
               window.location.reload();
               
           }, 2000); // Tiempo de duración de la animación de desplazamiento
-        }, 800); // Tiempo de duración de la animación de temblor
+        }, 1300); // Tiempo de duración de la animación de temblor
       }
 
       toggleContainer() {
