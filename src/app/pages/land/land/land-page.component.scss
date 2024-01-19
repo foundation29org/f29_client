@@ -4,6 +4,15 @@
   background-repeat: no-repeat;
   background-size: auto;
 }
+
+.baseb{
+  position: absolute;
+  top: -15px;
+  z-index: -3;
+  left: -30px;
+  width: 375px;
+}
+
 .animation-element {
   position: absolute;
   transition: all 3s ease;
@@ -90,7 +99,7 @@ $size: 18em;
   height: $size;
   width: $size;
   border-radius: 50%;
-  background: #011318;
+  //background: #011318;
   //box-shadow: 0 15px 40px #011318;
   transform: translate(-50%, -50%) rotateX(25deg);
 
