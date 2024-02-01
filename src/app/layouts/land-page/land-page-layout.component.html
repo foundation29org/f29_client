@@ -37,7 +37,7 @@
               <router-outlet></router-outlet>
           </div>
       </div>
-      <app-footer-land></app-footer-land>
+      <app-footer-land *ngIf="!isHomePage"></app-footer-land>
     </div>
   </div>
 </div>

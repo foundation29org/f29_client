@@ -100,8 +100,7 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
       this.isDonatePage = false;
       this.isEcosystemPage = false;
       this.isLabPage = false;
-      console.log(tempUrl)
-    if (tempUrl.indexOf('/.') != -1 || tempUrl == '/' || tempUrl == '/#' || tempUrl =='') {
+    if (tempUrl.indexOf('/.') != -1 || tempUrl == '/' || tempUrl == '/#home') {
       this.isHomePage = true;
     } else if (tempUrl.indexOf('/iniciatives') != -1) {
       this.isiniciativesPage = true;
@@ -117,8 +116,6 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
       this.isDonatePage = true;
     }else if (tempUrl.indexOf('/lab') != -1) {
       this.isLabPage = true;
-    }else{
-      this.isHomePage = true;
     }
   }
 

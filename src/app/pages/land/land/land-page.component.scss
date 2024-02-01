@@ -66,7 +66,7 @@ $size: 18em;
 
 .containerboton {
   width: 100%;
-  height: calc(100vh - 180px);
+  height: calc(100vh - 4.3rem);
   position: relative;
   perspective: 500px;
 }
@@ -120,12 +120,6 @@ $size: 18em;
       /* Sombra más oscura */
     }
   }
-}
-
-
-.below-circle {
-  margin-top: 3em; /* Ajusta esto según el tamaño de .circle y el espacio deseado */
-  text-align: center;
 }
 
 .text-lab29 {
