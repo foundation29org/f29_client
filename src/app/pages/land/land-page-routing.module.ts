@@ -6,6 +6,10 @@ import { OneNewPageComponent } from "./onenew/onenew-page.component";
 import { LandPageComponent } from "./land/land-page.component";
 import { LibroPageComponent } from "./libro/libro-page.component";
 import { LabPageComponent } from "./lab/lab-page.component";
+import { IniciativesPageComponent } from "./iniciatives/iniciatives-page.component";
+import { ThefoundationPageComponent } from "./thefoundation/thefoundation-page.component";
+import { EcosystemPageComponent } from "./ecosystem/ecosystem-page.component";
+import { AwardsPageComponent } from "./awards/awards-page.component";
 
 const routes: Routes = [
   {
@@ -52,7 +56,35 @@ const routes: Routes = [
         data: {
           title: 'Lab 29'
         }
-      }
+      },
+      {
+        path: 'iniciatives',
+        component: IniciativesPageComponent,
+        data: {
+          title: 'f29.Initiatives'
+        }
+      },
+      {
+        path: 'thefoundation',
+        component: ThefoundationPageComponent,
+        data: {
+          title: 'f29.The Foundation'
+        }
+      },
+      {
+        path: 'ecosystem',
+        component: EcosystemPageComponent,
+        data: {
+          title: 'f29.Ecosystem'
+        }
+      },
+      {
+        path: 'awards',
+        component: AwardsPageComponent,
+        data: {
+          title: 'f29.Awards'
+        }
+      },
     ]
   }
 ];

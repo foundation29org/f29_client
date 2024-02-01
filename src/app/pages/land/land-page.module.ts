@@ -11,6 +11,10 @@ import { NewsPageComponent } from "./news/news-page.component";
 import { OneNewPageComponent } from "./onenew/onenew-page.component";
 import { LibroPageComponent } from "./libro/libro-page.component";
 import { LabPageComponent } from "./lab/lab-page.component";
+import { IniciativesPageComponent } from "./iniciatives/iniciatives-page.component";
+import { ThefoundationPageComponent } from "./thefoundation/thefoundation-page.component";
+import { EcosystemPageComponent } from "./ecosystem/ecosystem-page.component";
+import { AwardsPageComponent } from "./awards/awards-page.component";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -32,7 +36,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         NewsPageComponent,
         OneNewPageComponent,
         LibroPageComponent,
-        LabPageComponent
+        LabPageComponent,
+        IniciativesPageComponent,
+        ThefoundationPageComponent,
+        EcosystemPageComponent,
+        AwardsPageComponent
     ]
 })
 export class LandPageModule { }

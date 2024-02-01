@@ -31,7 +31,6 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
   isNewsPage: boolean = false;
   isEcosystemPage: boolean = false;
   isAwardsPage: boolean = false;
-  isContactPage: boolean = false;
   isDonatePage: boolean = false;
   isLabPage: boolean = false;
   
@@ -69,27 +68,24 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
       this.isthefoundationPage = false;
       this.isNewsPage = false;
       this.isAwardsPage = false;
-      this.isContactPage = false;
       this.isDonatePage = false;
       this.isEcosystemPage = false;
       this.isLabPage = false;
     if (tempUrl.indexOf('/.') != -1 || tempUrl == '/' || tempUrl == '/#home') {
       this.isHomePage = true;
-    } else if (tempUrl.indexOf('#iniciatives') != -1) {
+    } else if (tempUrl.indexOf('/iniciatives') != -1) {
       this.isiniciativesPage = true;
-    } else if (tempUrl.indexOf('#thefoundation') != -1) {
+    } else if (tempUrl.indexOf('/thefoundation') != -1) {
       this.isthefoundationPage = true;
     } else if (tempUrl.indexOf('/news') != -1) {
       this.isNewsPage = true;
-    } else if (tempUrl.indexOf('#ecosystem') != -1) {
+    } else if (tempUrl.indexOf('/ecosystem') != -1) {
       this.isEcosystemPage = true;
-    } else if (tempUrl.indexOf('#awards') != -1) {
+    } else if (tempUrl.indexOf('/awards') != -1) {
       this.isAwardsPage = true;
-    } else if (tempUrl.indexOf('#contact') != -1) {
-      this.isContactPage = true;
     } else if (tempUrl.indexOf('/donate') != -1) {
       this.isDonatePage = true;
-    }else if (tempUrl.indexOf('#lab') != -1) {
+    }else if (tempUrl.indexOf('/lab') != -1) {
       this.isLabPage = true;
     }
   }

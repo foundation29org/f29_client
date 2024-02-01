@@ -9,30 +9,35 @@
           <span class="icon-bar"></span>
       </button>
           <span class="ml-2 navbar-header-logos">
-            <img class="logo-img pointer" alt="logo foundation29" src='assets/img/logo-f29.webp' (click)="goTo('home');"/>            
+            <img class="logo-img pointer" alt="logo foundation29" src='assets/img/logo-f29.webp' routerLink="/"/>            
           </span>
 
       </div>
       <div class="d-none d-lg-block">
         <div class="navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav m-r-0">
+              <li class="nav-item mr-2">
+                <a class="nav-link" href="javascript:;" [ngClass]="(!isHomePage)?'black':'black text-bold-500'" routerLink="/">
+                  <span>{{'menu.Dashboard' | translate }}</span>
+                </a>
+              </li>
                 <li class="nav-item mr-2">
-                  <a class="nav-link" href="javascript:;" [ngClass]="(!isLabPage)?'black':'black text-bold-500'" (click)="goTo('lab');">
+                  <a class="nav-link" href="javascript:;" [ngClass]="(!isLabPage)?'black':'black text-bold-500'" routerLink="/lab">
                     <span>Lab 29</span>
                   </a>
                 </li>
                 <li class="nav-item mr-2">
-                    <a class="nav-link" href="javascript:;" [ngClass]="(!isiniciativesPage)?'black':'black text-bold-500'" (click)="goTo('iniciatives');">
+                    <a class="nav-link" href="javascript:;" [ngClass]="(!isiniciativesPage)?'black':'black text-bold-500'" routerLink="/iniciatives">
                       <span>{{'f29.Initiatives' | translate }}</span>
                     </a>
                 </li>
                 <li class="nav-item mr-2">
-                  <a class="nav-link" href="javascript:;" [ngClass]="(!isthefoundationPage)?'black':'black text-bold-500'" (click)="goTo('thefoundation');">
+                  <a class="nav-link" href="javascript:;" [ngClass]="(!isthefoundationPage)?'black':'black text-bold-500'" routerLink="/thefoundation">
                     <span>{{'f29.The Foundation' | translate }}</span>
                   </a>
                 </li>
                 <li class="nav-item mr-2">
-                    <a class="nav-link" href="javascript:;" [ngClass]="(!isEcosystemPage)?'black':'black text-bold-500'" (click)="goTo('ecosystem');">
+                    <a class="nav-link" href="javascript:;" [ngClass]="(!isEcosystemPage)?'black':'black text-bold-500'" routerLink="/ecosystem">
                       <span>{{'f29.Ecosystem' | translate }}</span>
                     </a>
                 </li>
@@ -42,13 +47,8 @@
                     </a>
                 </li>
                 <li class="nav-item mr-2">
-                    <a class="nav-link" href="javascript:;" [ngClass]="(!isAwardsPage)?'black':'black text-bold-500'" (click)="goTo('awards');">
+                    <a class="nav-link" href="javascript:;" [ngClass]="(!isAwardsPage)?'black':'black text-bold-500'" routerLink="/awards">
                       <span>{{'f29.Awards' | translate }}</span>
-                    </a>
-                </li>
-                <li class="nav-item mr-2">
-                    <a class="nav-link" href="javascript:;" [ngClass]="(!isContactPage)?'black':'black text-bold-500'" (click)="goTo('contact');">
-                      <span>{{'f29.Contact' | translate }}</span>
                     </a>
                 </li>
                 <li class="nav-item mr-2">
@@ -59,7 +59,7 @@
               </ul>
           </div>
       </div>
-      <div class="d-block d-lg-none" *ngIf="!isDonatePage">
+      <!--<div class="d-block d-lg-none" *ngIf="!isDonatePage">
         <div class="navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav m-r-0">
                 <li class="nav-item mr-2">
@@ -69,7 +69,7 @@
                 </li>
               </ul>
           </div>
-      </div>
+      </div>-->
         <div class="navbar-container pl-0">
             <div  id="navbarSupportedContent">
                 <ul class="navbar-nav m-r-0">
