@@ -25,16 +25,17 @@
     </div>
   </div>
 </section>-->
-<section class="">
-  <div class="row offset-lg-1 col-lg-10 pt-2 pb-5">
-    <!--*ngFor="let country of countries; let i=index"-->
-    <span class="col-md-4 text-left mb-5" *ngFor="let new of news; let i=index">
+<section class="pt-2 pb-5">
+  <div class="offset-lg-1 col-lg-10">
+    <div class="row">
+      <span class="col-md-4 text-left mb-5" *ngFor="let new of news; let i=index">
         <img [src]="new.img"  alt="" class="imageclass pointer" [routerLink]="['/news/' + new.title, new.id]">
         <p class="text-bold-500 mt-2 pointer" [routerLink]="['/news/' + new.title, new.id]"><strong>{{new.title}}</strong></p>
         <p class="text-muted">{{new.date}}</p>
         <p>{{new.resume}}</p>
         <a [routerLink]="['/news/' + new.title, new.id]">{{'f29.t6.3' | translate }} » </a>
     </span>
+    </div>    
   </div>
 </section>
 <section class="pt-5 pb-5">

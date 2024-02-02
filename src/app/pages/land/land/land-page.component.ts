@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { EventsService } from 'app/shared/services/events.service';
 import { AnimationOptions } from 'ngx-lottie';
 import { AnimationItem } from 'lottie-web';
@@ -14,7 +15,7 @@ export class LandPageComponent implements OnInit {
     lang: string = 'en';
     news: any = [];
     fragment: string;
-    @ViewChild('containerboton', { static: true }) container: ElementRef;
+    @ViewChild('containerboton') containerBoton: ElementRef;
     containerVisible = true;
     private audioIntro = new Audio('assets/img/home/animation/sonido1.mp3');
 
@@ -32,8 +33,12 @@ export class LandPageComponent implements OnInit {
     bottomPosition: string = '0px';
     
 
-    constructor(private eventsService: EventsService, private route: ActivatedRoute, private router: Router) {
-        this.lang = sessionStorage.getItem('lang');
+    constructor(private eventsService: EventsService, private route: ActivatedRoute, private router: Router, public translate: TranslateService) {
+        //this.lang = sessionStorage.getItem('lang');
+        if(sessionStorage.getItem('lang') == null){
+          sessionStorage.setItem('lang', this.translate.store.currentLang);
+        }
+        this.lang = this.translate.store.currentLang;
     }
 
 
@@ -43,24 +48,26 @@ export class LandPageComponent implements OnInit {
     }
 
     async calculateBottomPosition() {
-      await this.delay(200);
-      document.getElementById('home').scrollIntoView({behavior: "smooth"});
+      await this.delay(100);
       setTimeout(() => {
-        // Busca dentro del contenedor de Lottie por el elemento SVG específico
-        // Nota: Este selector puede necesitar ajustes para apuntar al SVG correcto
-        const svgElement = document.querySelector('svg > g[clip-path*="__lottie_element_"]');
-        if (svgElement) {
-          const svgRect = svgElement.getBoundingClientRect();
-          const viewportHeight = window.innerHeight;
-          const viewportWeight = window.innerWidth;
-          // Calcula la posición bottom basada en la altura del viewport y la posición del SVG
-          let additionalSpace = 13*10; // Valor por defecto para pantallas grandes
-          additionalSpace = viewportHeight/additionalSpace;
-          if(viewportWeight>1000){
-            additionalSpace = additionalSpace+10;
+        // Asegúrate de que ya se haya establecido la referencia a containerBoton
+        if (this.containerBoton && this.containerBoton.nativeElement) {
+          const containerRect = this.containerBoton.nativeElement.getBoundingClientRect();
+          // Ahora usamos las dimensiones del contenedor para los cálculos
+          const containerHeight = containerRect.height;
+    
+          const svgElement = document.querySelector('svg > g[clip-path*="__lottie_element_"]');
+          if (svgElement) {
+            const svgRect = svgElement.getBoundingClientRect();
+            // Ya no dependemos de viewportHeight sino de containerHeight
+            let additionalSpace = 13 * 10; // Valor por defecto para pantallas grandes
+            additionalSpace = containerHeight / additionalSpace;
+            if (containerRect.width > 1000) {
+              additionalSpace = additionalSpace + 10;
+            }
+            const bottom = containerHeight - (svgRect.bottom - containerRect.top) + additionalSpace; // Ajustado para usar la altura del contenedor
+            this.bottomPosition = `${bottom}px`;
           }
-          const bottom = viewportHeight - svgRect.bottom + additionalSpace; // 20px por encima del SVG
-          this.bottomPosition = `${bottom}px`;
         }
       });
     }

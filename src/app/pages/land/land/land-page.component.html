@@ -1,4 +1,4 @@
-<div #containerboton class="containerboton">
+<div #containerboton class="containerboton" id="containerboton">
     <div *ngIf="showPart1; else part2">
       <ng-lottie class="ani" [options]="part1Options" (animationCreated)="animationCreated($event)"></ng-lottie>
     </div>
@@ -7,10 +7,11 @@
     </ng-template>
     
     <span *ngIf="showPart1" class="btnaction pointer" [style.bottom]="bottomPosition" (click)="toggleAnimation()">
-        <img src="assets/img/home/animation/btn.png" />
+        <img *ngIf="lang=='en'" src="assets/img/home/animation/btn_en.png" />
+        <img *ngIf="lang!='en'" src="assets/img/home/animation/btn_es.png" />
     </span>
     <div *ngIf="showPart1" class="col-md-12 pt-3 center-elements pl-3">
-        <h1 class="text-bold-700">Pulsa el botón para tomar el control de tus datos</h1>
+        <h1 class="text-bold-700">{{'f29.demot' | translate }}</h1>
       </div>
   </div>
   <a id="home" class="anchor_tags"></a>
