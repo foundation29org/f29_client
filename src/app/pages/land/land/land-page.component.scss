@@ -94,6 +94,12 @@ $size: 18em;
   //min-width: 120px; /* Ajusta esto según el tamaño mínimo deseado */
 }
 
+.btnaction:hover {
+  transform: translateX(-50%) scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 1.5rem;
+}
+
 .btnaction img {
   width: 100%; /* Hace que la imagen escale con el contenedor .btnaction */
   height: auto; /* Mantiene la proporción de la imagen */
