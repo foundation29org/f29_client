@@ -14,7 +14,6 @@ export class LandPageComponent implements OnInit {
     lang: string = 'en';
     news: any = [];
     fragment: string;
-    currentHash:string = 'home';
     @ViewChild('containerboton', { static: true }) container: ElementRef;
     containerVisible = true;
     private audioIntro = new Audio('assets/img/home/animation/sonido1.mp3');
@@ -30,31 +29,13 @@ export class LandPageComponent implements OnInit {
 
     showPart1: boolean = true;
     audioStarted: boolean = false;
-    bottomPosition: string;
+    bottomPosition: string = '0px';
+    
 
     constructor(private eventsService: EventsService, private route: ActivatedRoute, private router: Router) {
         this.lang = sessionStorage.getItem('lang');
     }
 
-    @HostListener('window:scroll', ['$event']) // for window scroll events
-    onScroll(event) {
-      let elements = document.getElementsByClassName("anchor_tags");
-      var found =false;
-      var indexFound = 0;
-      for (var i = 0; i < elements.length; i++) {
-        var top = window.pageYOffset;
-        var distance = top - $(elements[i]).offset().top;
-        if(distance>0 && elements[i].id!= this.currentHash){
-          indexFound = i;
-          this.currentHash = elements[indexFound].id;
-          found = true;
-          
-        }
-      }
-      if(found){
-        this.router.navigate(['/'], { fragment: this.currentHash});
-      }
-    }
 
     @HostListener('window:resize', ['$event'])
     onResize(event) {
@@ -62,11 +43,25 @@ export class LandPageComponent implements OnInit {
     }
 
     calculateBottomPosition() {
-      const width = window.innerWidth;
-      // Usar un factor de escala para hacer el cambio menos pronunciado.
-      const scaleFactor = 0.5; // Ajusta este valor según sea necesario
-      const bottom = Math.max(0, (1300 - width) / 1300 * 100 * scaleFactor);
-      this.bottomPosition = `${bottom}%`;
+
+      setTimeout(() => {
+        // Busca dentro del contenedor de Lottie por el elemento SVG específico
+        // Nota: Este selector puede necesitar ajustes para apuntar al SVG correcto
+        const svgElement = document.querySelector('svg > g[clip-path*="__lottie_element_"]');
+        if (svgElement) {
+          const svgRect = svgElement.getBoundingClientRect();
+          const viewportHeight = window.innerHeight;
+          const viewportWeight = window.innerWidth;
+          // Calcula la posición bottom basada en la altura del viewport y la posición del SVG
+          let additionalSpace = 13*10; // Valor por defecto para pantallas grandes
+          additionalSpace = viewportHeight/additionalSpace;
+          if(viewportWeight>1000){
+            additionalSpace = additionalSpace+10;
+          }
+          const bottom = viewportHeight - svgRect.bottom + additionalSpace; // 20px por encima del SVG
+          this.bottomPosition = `${bottom}px`;
+        }
+      });
     }
 
     ngOnInit() {

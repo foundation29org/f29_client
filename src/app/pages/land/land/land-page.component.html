@@ -1,12 +1,11 @@
-<a id="home" class="anchor_tags"></a>
-
 <div #containerboton class="containerboton">
     <div *ngIf="showPart1; else part2">
-      <ng-lottie [options]="part1Options" (animationCreated)="animationCreated($event)"></ng-lottie>
+      <ng-lottie class="ani" [options]="part1Options" (animationCreated)="animationCreated($event)"></ng-lottie>
     </div>
     <ng-template #part2>
-      <ng-lottie [options]="part2Options" (animationCreated)="animationCreated($event)"></ng-lottie>
+      <ng-lottie class="ani" [options]="part2Options" (animationCreated)="animationCreated($event)"></ng-lottie>
     </ng-template>
+    
     <span *ngIf="showPart1" class="btnaction pointer" [style.bottom]="bottomPosition" (click)="toggleAnimation()">
         <img src="assets/img/home/animation/btn.png" />
     </span>
@@ -14,4 +13,5 @@
         <h1 class="text-bold-700">Pulsa el botón para tomar el control de tus datos</h1>
       </div>
   </div>
+  <a id="home" class="anchor_tags"></a>
   
