@@ -16,7 +16,13 @@ import { ThefoundationPageComponent } from "./thefoundation/thefoundation-page.c
 import { EcosystemPageComponent } from "./ecosystem/ecosystem-page.component";
 import { AwardsPageComponent } from "./awards/awards-page.component";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LottieModule } from 'ngx-lottie';
 
+import player from 'lottie-web';
+
+export function playerFactory() {
+    return import(/* webpackChunkName: 'lottie-web' */ 'lottie-web');
+  }
 
 @NgModule({
     exports: [
@@ -28,7 +34,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         FormsModule,
         TranslateModule,
         CustomFormsModule,
-        NgbModule
+        NgbModule,
+        LottieModule.forRoot({ player: playerFactory })
     ],
     declarations: [
         LandPageComponent,

@@ -1,9 +1,8 @@
 import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EventsService } from 'app/shared/services/events.service';
-import { HttpClient } from '@angular/common/http';
-import { SortService } from 'app/shared/services/sort.service';
-import { Subscription } from 'rxjs/Subscription';
+import { AnimationOptions } from 'ngx-lottie';
+import { AnimationItem } from 'lottie-web';
 
 @Component({
     selector: 'app-land-page',
@@ -16,15 +15,24 @@ export class LandPageComponent implements OnInit {
     news: any = [];
     fragment: string;
     currentHash:string = 'home';
-    private subscription: Subscription = new Subscription();
     @ViewChild('containerboton', { static: true }) container: ElementRef;
     containerVisible = true;
-    private animationInterval: any;
     private audioIntro = new Audio('assets/img/home/animation/sonido1.mp3');
 
-    constructor(private eventsService: EventsService, private http: HttpClient, private sortService: SortService, private route: ActivatedRoute, private router: Router) {
+    part1Options: AnimationOptions = {
+      path: 'assets/img/home/animation/part1.json',
+      loop: true
+    };
+    part2Options: AnimationOptions = {
+      path: 'assets/img/home/animation/part2.json',
+      loop: false
+    };
+
+    showPart1: boolean = true;
+    audioStarted: boolean = false;
+    
+    constructor(private eventsService: EventsService, private route: ActivatedRoute, private router: Router) {
         this.lang = sessionStorage.getItem('lang');
-        this.loadNews();
     }
 
     @HostListener('window:scroll', ['$event']) // for window scroll events
@@ -52,7 +60,6 @@ export class LandPageComponent implements OnInit {
 
         this.eventsService.on('changelang', function (lang) {
             this.lang = lang;
-            this.loadNews();
         }.bind(this));
     }
 
@@ -65,104 +72,27 @@ export class LandPageComponent implements OnInit {
             }.bind(this), 200);
         } catch (e) { }
 
-        this.initAnimation();
     }
 
-    loadNews() {
-        this.news = [];
-        this.subscription.add(this.http.get('assets/jsons/news_' + this.lang + '.json')
-            .subscribe((res: any) => {
-                res.sort(this.sortService.GetSortOrderNumber("id"));
-                for (var i = 0; i < 3; i++) {
-                    this.news.push(res[i])
-                }
-            }));
-    }
-
-    
-
-
-      initAnimation() {
-        const container = this.container.nativeElement;
-        const elements = container.getElementsByClassName('animation-element');
-        Array.from(elements).forEach((element: HTMLElement) => {
-            element.classList.add('moveRandomly');
-          });
-        for (let element of elements) {
-            const x = Math.random() * (container.offsetWidth - element.clientWidth);
-            const y = Math.random() * (container.offsetHeight - element.clientHeight);
-    
-            element.style.left = x + 'px';
-            element.style.top = y + 'px';
-          }
-          this.animationInterval = setInterval(() => {
-            for (let element of elements) {
-              const x = Math.random() * (container.offsetWidth - element.clientWidth);
-              const y = Math.random() * (container.offsetHeight - element.clientHeight);
-        
-              element.style.left = x + 'px';
-              element.style.top = y + 'px';
-            }
-          }, 4000); // Ajusta este intervalo según la velocidad de la animación deseada
-      }
-
-      startAnimation() {
-        this.audioIntro.play().catch(error => console.error("Error al reproducir el audio:", error));
-        if (this.animationInterval) {
-            clearInterval(this.animationInterval);
-        }
-        
-        const elements = this.container.nativeElement.getElementsByClassName('animation-element');
-      
-        // Aplica la animación de temblor
-        Array.from(elements).forEach((element: HTMLElement) => {
-          element.classList.add('shaking');
-          element.classList.remove('moveRandomly');
-          //element.style.transform = 'none';
-          //element.style.transition = 'none';
+    // Handler para el evento de animación completada
+    animationCreated(animationItem: AnimationItem): void {
+      if (!this.showPart1) {
+        animationItem.addEventListener('complete', () => {
+          window.location.href = 'https://nav29.org/'; // URL a la que navegar
+          //window.open("https://nav29.org/", "_blank");
+          //window.location.reload();
+          //this.showPart1 = true;
         });
-        //set z-index: 1; to <div id="circle" class="circle">
-        var circle = document.getElementById("circle");
-        circle.style.zIndex = "1";
-      
-        // Después de un retraso, cambia a la animación de desplazamiento
-        setTimeout(() => {
-          Array.from(elements).forEach((element: HTMLElement) => {
-            element.classList.remove('shaking');
-            
-            // Calcula la posición relativa para cada elemento
-            const buttonPos = this.getButtonPosition();
-            const elementRect = element.getBoundingClientRect();
-            const translateX = buttonPos.x - elementRect.left;
-            const translateY = buttonPos.y - elementRect.top;
-      
-            // Aplica la transformación
-            element.style.transform = `translate(${translateX}px, ${translateY}px)`;
-            element.style.transition = 'transform 2s'; // Asegúrate de ajustar la duración como necesites
-            //wait 2 seconds and this.containerVisible = false;
-            
-          });
-          setTimeout(() => {
-            //this.containerVisible = false;
-            //open web page https://nav29.org/
-              window.open("https://nav29.org/", "_blank");
-              //reload page
-              window.location.reload();
-              
-          }, 2000); // Tiempo de duración de la animación de desplazamiento
-        }, 1300); // Tiempo de duración de la animación de temblor
       }
+    }
 
-      toggleContainer() {
-        this.containerVisible = !this.containerVisible;
+    // Cambiar la animación al hacer clic en el botón
+    toggleAnimation(): void {
+      this.showPart1 = false;
+      if (!this.audioStarted) {
+        this.audioIntro.play().catch(error => console.error("Error al reproducir el audio:", error));
+        this.audioStarted = true;
       }
-      
-      getButtonPosition() {
-        const button = this.container.nativeElement.querySelector('.circle__btn');
-        const rect = button.getBoundingClientRect();
-        return {
-          x: rect.left + rect.width / 2 + window.scrollX,
-          y: rect.top + rect.height / 2 + window.scrollY
-        };
-      }
+    }
+
 }

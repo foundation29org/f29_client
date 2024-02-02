@@ -1,87 +1,17 @@
 <a id="home" class="anchor_tags"></a>
 
 <div #containerboton class="containerboton">
-    <div class="col-md-12 pt-3 center-elements pl-3">
+    <div *ngIf="showPart1; else part2">
+      <ng-lottie [options]="part1Options" (animationCreated)="animationCreated($event)"></ng-lottie>
+    </div>
+    <ng-template #part2>
+      <ng-lottie [options]="part2Options" (animationCreated)="animationCreated($event)"></ng-lottie>
+    </ng-template>
+    <span *ngIf="showPart1" class="btnaction pointer" (click)="toggleAnimation()">
+        <img src="assets/img/home/animation/btn.png" />
+    </span>
+    <div *ngIf="showPart1" class="col-md-12 pt-3 center-elements pl-3">
         <h1 class="text-bold-700">Pulsa el botón para tomar el control de tus datos</h1>
-    </div>
-    <!--<div class="animation-element">
-        <h1 class="text-bold-700">N</h1>
-    </div>
-    <div class="animation-element">
-        <h1 class="text-bold-700">a</h1>
-    </div>
-    <div class="animation-element">
-        <h1 class="text-bold-700">v</h1>
-    </div>-->
-    <div id="circle" class="circle">
-        <button id="btn" class="circle__btn" (click)="startAnimation();">
-            29
-        </button>
-        <img class="baseb" src="assets/img/home/animation/baseb.png" alt="">
-    </div>
-    <div class="animation-element">
-        <img src="assets/img/home/animation/ima1.png" width="60px" alt="" class="">
-    </div>
-    <div class="animation-element">
-        <img src="assets/img/home/animation/ima2.png" width="60px" alt="" class="">
-    </div>
-    <div class="animation-element">
-        <img src="assets/img/home/animation/ima3.png" width="60px" alt="" class="">
-    </div>
-    <div class="animation-element">
-        <img src="assets/img/home/animation/ima4.png" width="55px" alt="" class="">
-    </div>
-    <div class="animation-element">
-        <img src="assets/img/home/animation/ima5.png" width="55px" alt="" class="">
-    </div>
-    <div class="animation-element">
-        <img src="assets/img/home/animation/ima6.png" width="55px" alt="" class="">
-    </div>
-    <div class="animation-element">
-        <img src="assets/img/home/animation/ima7.png" width="50px" alt="" class="">
-    </div>
-    <div class="animation-element">
-        <img src="assets/img/home/animation/ima1copia.png" width="50px" alt="" class="">
-    </div>
-    <div class="animation-element">
-        <img src="assets/img/home/animation/ima2copia.png" width="50px" alt="" class="">
-    </div>
-    <div class="animation-element">
-        <img src="assets/img/home/animation/ima3copia.png" width="45px" alt="" class="">
-    </div>
-    <div class="animation-element">
-        <img src="assets/img/home/animation/ima4copia.png" width="45px" alt="" class="">
-    </div>
-    <div class="animation-element">
-        <img src="assets/img/home/animation/ima5copia.png" width="45px" alt="" class="">
-    </div>
-    <div class="animation-element">
-        <img src="assets/img/home/animation/ima6copia.png" width="40px" alt="" class="">
-    </div>
-    <div class="animation-element">
-        <img src="assets/img/home/animation/ima7copia.png" width="40px" alt="" class="">
-    </div>
-    <div class="animation-element">
-        <img src="assets/img/home/animation/ima1-1.png" width="40px" alt="" class="">
-    </div>
-    <div class="animation-element">
-        <img src="assets/img/home/animation/ima2-1.png" width="35px" alt="" class="">
-    </div>
-    <div class="animation-element">
-        <img src="assets/img/home/animation/ima3-1.png" width="35px" alt="" class="">
-    </div>
-    <div class="animation-element">
-        <img src="assets/img/home/animation/ima4-1.png" width="35px" alt="" class="">
-    </div>
-    <div class="animation-element">
-        <img src="assets/img/home/animation/ima5-1.png" width="30px" alt="" class="">
-    </div>
-    <div class="animation-element">
-        <img src="assets/img/home/animation/ima6-1.png" width="30px" alt="" class="">
-    </div>
-    <div class="animation-element">
-        <img src="assets/img/home/animation/ima7-1.png" width="30px" alt="" class="">
-    </div>
-    
-     
-</div>
+      </div>
+  </div>
+  

@@ -10,18 +10,7 @@ import { EventsService } from 'app/shared/services/events.service';
 @Component({
     selector: 'app-lab-page',
     templateUrl: './lab-page.component.html',
-    styleUrls: ['./lab-page.component.scss'],
-    animations: [
-        trigger('slideInOut', [
-          transition(':enter', [
-            style({ transform: 'translateX(-100%)' }), 
-            animate('1s ease-out', style({ transform: 'translateX(0)' }))
-          ]),
-          transition(':leave', [
-            animate('0.5s ease-in', style({ transform: 'translateX(-100%)' }))
-          ])
-        ])
-      ]
+    styleUrls: ['./lab-page.component.scss']
 })
 
 export class LabPageComponent {
