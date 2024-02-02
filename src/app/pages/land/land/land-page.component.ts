@@ -42,8 +42,9 @@ export class LandPageComponent implements OnInit {
       this.calculateBottomPosition();
     }
 
-    calculateBottomPosition() {
-
+    async calculateBottomPosition() {
+      await this.delay(200);
+      document.getElementById('home').scrollIntoView({behavior: "smooth"});
       setTimeout(() => {
         // Busca dentro del contenedor de Lottie por el elemento SVG específico
         // Nota: Este selector puede necesitar ajustes para apuntar al SVG correcto
@@ -62,6 +63,10 @@ export class LandPageComponent implements OnInit {
           this.bottomPosition = `${bottom}px`;
         }
       });
+    }
+
+    delay(ms: number) {
+      return new Promise(resolve => setTimeout(resolve, ms));
     }
 
     ngOnInit() {
@@ -91,7 +96,7 @@ export class LandPageComponent implements OnInit {
           window.location.href = 'https://nav29.org/'; // URL a la que navegar
           //window.open("https://nav29.org/", "_blank");
           //window.location.reload();
-          //this.showPart1 = true;
+          this.showPart1 = true;
         });
       }
     }
