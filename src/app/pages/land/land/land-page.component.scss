@@ -86,12 +86,12 @@ $size: 18em;
 
 .btnaction {
   position: absolute; /* Posición respecto al contenedor .containerboton */
-  bottom: 0%; /* Ajusta este valor para controlar qué tan abajo quieres la imagen */
+  //top: calc(100vw - 20% ); /* Ajusta este valor para controlar qué tan abajo quieres la imagen */
   left: 50%; /* Centrar horizontalmente */
   transform: translateX(-50%); /* Ajuste fino para el centrado horizontal */
-  width: 50vw; /* Ancho de la imagen basado en el ancho de la ventana */
-  max-width: 280px; /* Ajusta esto según el tamaño máximo deseado */
-  min-width: 120px; /* Ajusta esto según el tamaño mínimo deseado */
+  width: calc(18vw + 60px); /* Ancho de la imagen basado en el ancho de la ventana */
+  //max-width: 280px; /* Ajusta esto según el tamaño máximo deseado */
+  //min-width: 120px; /* Ajusta esto según el tamaño mínimo deseado */
 }
 
 .btnaction img {

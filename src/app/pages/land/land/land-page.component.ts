@@ -30,7 +30,8 @@ export class LandPageComponent implements OnInit {
 
     showPart1: boolean = true;
     audioStarted: boolean = false;
-    
+    bottomPosition: string;
+
     constructor(private eventsService: EventsService, private route: ActivatedRoute, private router: Router) {
         this.lang = sessionStorage.getItem('lang');
     }
@@ -55,12 +56,26 @@ export class LandPageComponent implements OnInit {
       }
     }
 
+    @HostListener('window:resize', ['$event'])
+    onResize(event) {
+      this.calculateBottomPosition();
+    }
+
+    calculateBottomPosition() {
+      const width = window.innerWidth;
+      // Usar un factor de escala para hacer el cambio menos pronunciado.
+      const scaleFactor = 0.5; // Ajusta este valor según sea necesario
+      const bottom = Math.max(0, (1300 - width) / 1300 * 100 * scaleFactor);
+      this.bottomPosition = `${bottom}%`;
+    }
+
     ngOnInit() {
         this.route.fragment.subscribe(fragment => { this.fragment = fragment; });
 
         this.eventsService.on('changelang', function (lang) {
             this.lang = lang;
         }.bind(this));
+        this.calculateBottomPosition();
     }
 
     ngAfterViewInit(): void {

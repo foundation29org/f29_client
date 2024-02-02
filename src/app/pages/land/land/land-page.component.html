@@ -7,7 +7,7 @@
     <ng-template #part2>
       <ng-lottie [options]="part2Options" (animationCreated)="animationCreated($event)"></ng-lottie>
     </ng-template>
-    <span *ngIf="showPart1" class="btnaction pointer" (click)="toggleAnimation()">
+    <span *ngIf="showPart1" class="btnaction pointer" [style.bottom]="bottomPosition" (click)="toggleAnimation()">
         <img src="assets/img/home/animation/btn.png" />
     </span>
     <div *ngIf="showPart1" class="col-md-12 pt-3 center-elements pl-3">
