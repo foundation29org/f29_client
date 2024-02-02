@@ -1,5 +1,5 @@
 <!-- Navbar (Header) Starts -->
-<nav class="navbar navbar-expand-lg navbar-light bg-faded damemarger custom-navbar">
+<nav class="navbar navbar-expand-lg navbar-light bg-faded damemarger custom-navbar" [ngClass]="(isHomePage)?'position-absolute':'position-fixed'">
     <div class="container-fluid">
       <div>
         <button type="button" class="mt-2 d-lg-none navbar-toggle float-left" id="menu" title="menu" data-toggle="collapse" (click)="toggleSidebar()">
