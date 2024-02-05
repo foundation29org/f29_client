@@ -7,8 +7,8 @@
     </ng-template>
     
     <span *ngIf="showPart1" class="btnaction pointer" [style.bottom]="bottomPosition" (click)="toggleAnimation()">
-        <img *ngIf="lang=='en'" src="assets/img/home/animation/btn_en.png" />
-        <img *ngIf="lang!='en'" src="assets/img/home/animation/btn_es.png" />
+        <img *ngIf="lang=='en'" src="assets/img/home/animation/btn_en.png" alt="start bottom"/>
+        <img *ngIf="lang!='en'" src="assets/img/home/animation/btn_es.png" alt="boton para empezar"/>
     </span>
     <div *ngIf="showPart1" class="col-md-12 pt-3 center-elements pl-3">
         <h1 class="text-bold-700">{{'f29.demot' | translate }}</h1>
