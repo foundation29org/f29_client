@@ -1,3 +1,4 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 .text-bold-500 {
   font-weight: 500 !important;
 }

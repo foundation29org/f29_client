@@ -12,6 +12,7 @@ import { OneNewPageComponent } from "./onenew/onenew-page.component";
 import { LibroPageComponent } from "./libro/libro-page.component";
 import { LabPageComponent } from "./lab/lab-page.component";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         FormsModule,
         TranslateModule,
         CustomFormsModule,
-        NgbModule
+        NgbModule,
+        MatSlideToggleModule
     ],
     declarations: [
         LandPageComponent,

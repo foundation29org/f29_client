@@ -7,6 +7,7 @@ import { RouterModule } from "@angular/router";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { PerfectScrollbarModule } from "ngx-perfect-scrollbar";
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 //COMPONENTS
 import { FooterLandComponent } from "./footer-land/footer-land.component";
@@ -39,7 +40,8 @@ import { SidebarToggleDirective } from './directives/sidebartoggle.directive';
         CommonModule,
         NgbModule,
         TranslateModule,
-        PerfectScrollbarModule
+        PerfectScrollbarModule,
+        MatSlideToggleModule
     ],
     declarations: [
         FooterLandComponent,
