@@ -15,6 +15,15 @@
     "sugg3": "Are there therapies for rare diseases?",
     "Write a question to search": "Write a question to search"
   },
+  "guia":{
+    "t1": "Guide to SIGNS and SYMPTOMS OF SUSPECTED 3NRARE DISEASES",
+    "sub1": "Extremadura government",
+    "sub2": "Department of Health and Social Services",
+    "sub3": "General Directorate of Health and Social Health Planning, Training and Quality",
+    "sugg1": "What are the most common signs and symptoms of rare diseases?",
+    "sugg2": "How can I identify the symptoms of a particular rare disease?",
+    "sugg3": "What resources are available for the management and care of rare diseases?"
+  },
   "f29": {
     "Initiatives": "Initiatives",
     "The Foundation": "The Foundation",
@@ -81,8 +90,10 @@
      "p2.d": "Nav29 represents our effort to use intelligent agents to help patients with specific tasks. We understand that healthcare is not limited to hospitals, but is an integral part of a patient's daily life Nav29 is designed to assist in activities such as searching for clinical trials, medication information and up-to-date scientific data, acting as a navigator or companion throughout the illness.",
      "p3.t": "Summary29: Medical Information Summary Tools",
      "p3.d": "Summary29 is a set of tools aimed at summarizing complex medical information. This project seeks to alleviate the burden on medical professionals and patients in understanding and managing medical data, simplifying information from medical reports and conversations. Our goal is to make medical information accessible, reducing the time and resources necessary for its processing.",
-     "p4.t": "Access to Information with Language Models",
+     "p4.t": "Understanding the complexity of rare diseases with language models",
      "p4.d": "This experiment, carried out in collaboration with the prominent Spanish researcher Lluis Montoliu, focuses on the use of language models to facilitate access to relevant information. Through an innovative interface, users can interact directly with a book written by Lluis about rare diseases, allowing them to better understand the complexity of these conditions. This tool seeks to provide value and support to patients and caregivers in the management of rare diseases.",
+     "p5.t": "Guide to signs and symptoms of suspected rare diseases with language models",
+     "p5.d": "It is a tool designed to facilitate access and understanding of the signs and symptoms of rare diseases, based on the 'Guide to Signs and Symptoms of Suspected Rare Diseases' created by the Government of Extremadura. Using artificial intelligence technology, this tool allows users to navigate and interact with content, making the identification of symptoms and suspicion of these diseases more accessible and direct. It is essential for anyone involved in the care and management of rare diseases. , providing key resources to recognize conditions early.",
     "s1.t": "Our Laboratory: A Space for Innovation",
      "s1.d": "At Fundación 29, our laboratory is not just a workplace; it is a space where creativity and innovation meet to generate practical and effective solutions. Each project is a step forward in our goal of improve the lives of patients and citizens through technology.",
      "s2.t": "Join our mission",

@@ -5,6 +5,7 @@ import { NewsPageComponent } from "./news/news-page.component";
 import { OneNewPageComponent } from "./onenew/onenew-page.component";
 import { LandPageComponent } from "./land/land-page.component";
 import { LibroPageComponent } from "./libro/libro-page.component";
+import { GuiaPageComponent } from "./guia/guia-page.component";
 import { LabPageComponent } from "./lab/lab-page.component";
 
 const routes: Routes = [
@@ -44,6 +45,13 @@ const routes: Routes = [
         component: LibroPageComponent,
         data: {
           title: 'libroenfermedadesraras'
+        }
+      },
+      {
+        path: 'guiaenfermedadesraras',
+        component: GuiaPageComponent,
+        data: {
+          title: 'Guia enfermedades raras'
         }
       },
       {

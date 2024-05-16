@@ -32,5 +32,16 @@ export class OpenAiService {
       })
     }
 
+    postCallGuia(info){
+      // return this.http.post('https://langchainraito.azurewebsites.net/api/HttpTrigger2', info)
+      return this.http.post(environment.api + '/api/callguia', info)
+      .map((res: any) => {
+        return res;
+      }, (err) => {
+        console.log(err);
+        return err;
+      })
+    }
+
 
 }

@@ -10,6 +10,7 @@ import { DonatePageComponent } from "./donate/donate-page.component";
 import { NewsPageComponent } from "./news/news-page.component";
 import { OneNewPageComponent } from "./onenew/onenew-page.component";
 import { LibroPageComponent } from "./libro/libro-page.component";
+import { GuiaPageComponent } from "./guia/guia-page.component";
 import { LabPageComponent } from "./lab/lab-page.component";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -34,6 +35,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
         NewsPageComponent,
         OneNewPageComponent,
         LibroPageComponent,
+        GuiaPageComponent,
         LabPageComponent
     ]
 })
