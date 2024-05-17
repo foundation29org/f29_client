@@ -104,6 +104,9 @@ export class GuiaPageComponent {
               const regex = /^```html\n|\n```$/g;
               this.responseLangchain = this.responseLangchain.replace(regex, '');
               this.responseLangchain = this.responseLangchain.replace(/【.*?】/g, "");
+
+              const regex2 = /<a href="([^"]+)"(?!.*target="_blank")>/g;
+              this.responseLangchain = this.responseLangchain.replace(regex2, '<a href="$1" target="_blank">');
               console.log(this.sending)
               this.scrollTo();
               
