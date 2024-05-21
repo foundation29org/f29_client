@@ -48,7 +48,10 @@ export class GuiaPageComponent {
         this.questions = [
             { value: this.translate.instant("guia.sugg1")},
             { value: this.translate.instant("guia.sugg2")},
-            { value: this.translate.instant("guia.sugg3")}
+            { value: this.translate.instant("guia.sugg3")},
+            { value: this.translate.instant("guia.sugg4")},
+            { value: this.translate.instant("guia.sugg5")},
+            { value: this.translate.instant("guia.sugg6")}
           ]
     }
 
