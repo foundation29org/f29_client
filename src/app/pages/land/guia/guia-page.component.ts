@@ -73,7 +73,7 @@ export class GuiaPageComponent {
         this.sending = true;
         this.searchopenai = false;
         let query = { 
-          "question": this.query, "isComplexSearch": this.isComplexSearch
+          "question": this.query, "isComplexSearch": this.isComplexSearch, lang: this.lang
        };
         this.responseLangchain = '';
         this.subscription.add(this.openAiService.postCallGuia(query)
