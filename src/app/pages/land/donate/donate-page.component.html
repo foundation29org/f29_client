@@ -1,13 +1,13 @@
 <section>
-  <div class="row background-img">
-      <div class="container mt-5" style="min-height: 330px;">
+  <div><!--class="background-img"-->
+      <div class="container header-container">
           <div class="row">
-            <div class="col-md-12 mt-3">
-              <div style="position: relative;">
+            <div class="col-md-12 mt-5">
+              <!--<div style="position: relative;">
                 <div class="" style="left: 25px;width: auto;max-width: auto;top: 20px;position: absolute;">
                     <img src="assets/img/home/icon2.png" alt="" class="">
                   </div>
-              </div>
+              </div>-->
               <div class="center-elements">
                 <h1 class="text-bold-300">{{'f29.d1' | translate }}</h1>
               </div>
@@ -19,7 +19,109 @@
         </div>
   </div>
 </section>
-<section>
+<section class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <p class="mb-3">
+        <strong>{{'f29.donate.intro0' | translate }}</strong> {{'f29.donate.intro1' | translate }} <strong>DxGPT</strong>, {{'f29.donate.intro2' | translate }}
+      </p>
+      
+      <p class="mb-4">
+        <strong>{{'f29.donate.users' | translate }}</strong>  {{'f29.donate.purpose' | translate }} <strong>{{'f29.donate.diagnosis' | translate }}</strong> {{'f29.donate.quality' | translate }}
+       
+      </p>
+
+      <div class="mb-4">
+        <button class="btn btn-primary round btn-lg">{{'f29.donate.donateButton' | translate }}</button>
+      </div>
+
+      <div class="row mb-5">
+        <div class="col-md-4">
+          <h5><strong>{{'f29.donate.deduction.title' | translate }}</strong></h5>
+          <p>{{'f29.donate.deduction.intro' | translate }}</p>
+        </div>
+        
+        <div class="col-md-4">
+          <h5 class="mb-0"><strong>{{'f29.donate.deduction.irpf.title' | translate }}</strong></h5>
+          <p>{{'f29.donate.deduction.irpf.subtitle' | translate }}</p>
+          <p>{{'f29.donate.deduction.irpf.description' | translate }}</p>
+        </div>
+
+        <div class="col-md-4">
+          <h5 class="mb-0"><strong>{{'f29.donate.deduction.is.title' | translate }}</strong></h5>
+          <p>{{'f29.donate.deduction.is.subtitle' | translate }}</p>
+          <p>{{'f29.donate.deduction.is.description' | translate }}</p>
+          <button class="btn btn-primary round btn-lg">{{'f29.donate.doItNowButton' | translate }}</button>
+        </div>
+      </div>
+
+      <div class="row mb-2">
+        <div class="col-md-8">
+          <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>{{'f29.donate.deduction.table.amount' | translate }}</th>
+                <th>{{'f29.donate.deduction.table.deduction' | translate }}</th>
+                <th>{{'f29.donate.deduction.table.deductibleAmount' | translate }}</th>
+                <th>{{'f29.donate.deduction.table.realCost' | translate }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="font-weight-bold">
+                <td>100</td>
+                <td>80%</td>
+                <td>80</td>
+                <td>20</td>
+              </tr>
+              <tr>
+                <td>250</td>
+                <td>80%</td>
+                <td>200</td>
+                <td>50</td>
+              </tr>
+              <tr class="font-weight-bold">
+                <td>500</td>
+                <td>{{'f29.donate.deduction.table.firstPart' | translate }}<br>{{'f29.donate.deduction.table.secondPart' | translate }}</td>
+                <td>200 + 100 = 300</td>
+                <td>200</td>
+              </tr>
+              <tr>
+                <td>1000</td>
+                <td>{{'f29.donate.deduction.table.firstPart' | translate }}<br>{{'f29.donate.deduction.table.secondPart' | translate }}</td>
+                <td>200 + 300 = 500</td>
+                <td>500</td>
+              </tr>
+              <tr class="font-weight-bold">
+                <td>2000</td>
+                <td>{{'f29.donate.deduction.table.firstPart' | translate }}<br>{{'f29.donate.deduction.table.secondPart' | translate }}</td>
+                <td>200 + 700 = 900</td>
+                <td>1100</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        </div>
+        <div class="col-md-4">
+          <h3 class="text-danger">
+            {{'f29.donate.impact.title' | translate }}<br>
+            {{'f29.donate.impact.subtitle' | translate }}<br>
+            <strong class="text-bold-500">{{'f29.donate.impact.line1' | translate }}</strong><br>
+            <strong class="text-bold-500">{{'f29.donate.impact.line2' | translate }}</strong><br>
+            <strong class="text-bold-500">{{'f29.donate.impact.line3' | translate }}</strong>
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="pt-2 pb-2" style="background: #FBF6FC;position: relative;">
+  <div class="col-md-12 pt-2 pb-2 text-center">
+    <p class="mb-0">{{'f29.donate.deduction.notification' | translate }}</p>
+  </div>
+  
+</div>
+<!--<section>
   <div class="row pt-5 pb-5">
     <div class="row offset-lg-4 col-lg-4 margin-0 mb-4 mt-4 text-center">
         <div class='col-md-12'>
@@ -36,17 +138,34 @@
         
     </div>
 </div>
-<div class="row pt-5" style="background: #FBF6FC; transform:rotate(2deg);position: relative;">
-  <div class="row offset-lg-4 col-lg-4 mb-4 text-center" style="transform:rotate(-2deg);">
-      <div class="col-lg-12 panelDonation">
-        <script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
-        <iframe allowpaymentrequest="" frameborder="0" height="900px" name="donorbox" scrolling="no" seamless="seamless" src="https://donorbox.org/embed/foundation29-donation" style="max-width: 100%; min-width: 250px; max-height:none!important" width="100%"></iframe>
-      </div>
-    </div>
+</section>-->
+<section>
+<div class="pt-5">
+  <div class="col-12 offset-lg-4 col-lg-4 mb-4 text-center">
+      <script>
+        window.DonorBox = { widgetLinkClassName: 'custom-dbox-popup' };
+      </script>
+      <script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
+      <iframe 
+        allowpaymentrequest="" 
+        frameborder="0" 
+        height="500px" 
+        name="donorbox" 
+        scrolling="no" 
+        seamless="seamless" 
+        src="https://donorbox.org/embed/foundation29-donation?default_interval=o&hide_donation_meter=true" 
+        style="max-width: 100%; min-width: 250px; max-height:none!important" 
+        width="100%"
+        onload="var f = this; window.addEventListener('message', function(e) { if (e.origin === 'https://donorbox.org' && e.data.height) { f.style.height = e.data.height + 'px' } }, false)"
+      ></iframe>
+      <!--<iframe allowpaymentrequest="" frameborder="0" height="900px" name="donorbox" scrolling="no" seamless="seamless" src="https://donorbox.org/embed/foundation29-donation" style="max-width: 100%; min-width: 250px; max-height:none!important" width="100%"></iframe>-->
+
+  </div>
+
 </div>
 </section>
-<section class="row pt-5 pb-5">
-  <div class="col-md-12 mt-5 text-center">
+<section class="pt-5 pb-5">
+  <div class="col-md-12 text-center">
     <img src="assets/img/home/stripes.jpg" alt="" class="">
   </div>
   

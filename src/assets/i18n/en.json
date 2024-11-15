@@ -154,7 +154,48 @@
     "d1": "Make a",
     "d2": "donation",
     "d3": "We envision a time when patients become full and valued partners in collaborative",
-    "d4": "relationships with health professionals to achieve better health and wellbeing."
+    "d4": "relationships with health professionals to achieve better health and wellbeing.",
+    "donate": {
+      "intro0": "Foundation 29",
+      "intro1": "believes in empowering each person, helping them understand and manage their health data. Through",
+      "intro2": "we facilitate faster diagnoses and help patients and their doctors.",
+      "users": "Each month 17,000 people trust DxGPT to get health answers and improve their well-being.",
+      "purpose": "Your donation will directly fund the development costs of this tool and will help patients get an",
+      "diagnosis": "early diagnosis",
+      "quality": "improving their quality of life.",
+      "donateButton": "I WANT TO DONATE",
+      "doItNowButton": "DO IT TODAY!",
+      "deduction": {
+        "title": "How much tax deduction do donations to a Foundation get in the tax return?",
+        "intro": "When making the tax deduction for your donations to Foundation29, you need to differentiate between:",
+        "irpf": {
+          "title": "IRPF Donation Deduction",
+          "subtitle": "(Individual persons)",
+          "description": "For amounts up to the current deduction rate/percentage on the donated amount. Donations up to €250 are deductible at 80%. For the remaining amount, the deduction percentage will be 40%, increasing to 45% if you have donated the same amount or more in the previous two years. For example, if you donate €300, you will deduct €200 (€80 for the first €250 and €20 for the remaining €50)."
+        },
+        "is": {
+          "title": "IS Donation Deduction",
+          "subtitle": "(Legal entities)",
+          "description": "If you make a deduction as a legal entity, you can deduct 40% of the donated amount. If you have been donating to Ayuda en Acción for more than two years and with an equivalent or higher amount, you can deduct up to 50%."
+        },
+        "table": {
+          "amount": "Donated Amount (€)",
+          "deduction": "Applicable Deduction",
+          "deductibleAmount": "Deductible Amount (€)",
+          "realCost": "Real Cost of Donation (€)",
+          "firstPart": "80% on first €250",
+          "secondPart": "40% on remainder"
+        },
+        "notification": "We will notify the Tax Agency so that it appears automatically in your tax return"
+      },
+      "impact": {
+        "title": "Multiply the impact",
+        "subtitle": "of your donation:",
+        "line1": "those who receive",
+        "line2": "advance",
+        "line3": "and you recover"
+      }
+    }
   },
   "policy": {
     "CONTENT": "BASIC DATA PROTECTION INFORMATION",

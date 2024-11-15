@@ -10,14 +10,93 @@ p {
   background-size: auto;
 }
 
-
-@media ( max-width: 991px ){
-    
-  .panelDonation{
-    margin-left: 15px;
-  }
+.header-container{
+  //min-height: 330px;
 }
 
+.table-bold-row {
+  font-weight: bold;
+}
+
+.table th {
+  vertical-align: top !important;
+}
+
+.table td {
+  padding: 0.25rem;
+}
+
+.table thead {
+  border-bottom: 3px solid #000;
+}
+
+.table thead th {
+  border-top: none;
+  font-weight: normal;  /* Para que el texto no esté en negrita como en la imagen */
+  padding-left: 0px;
+}
+
+.table tbody td {
+  border-top: 1px solid #dee2e627;  /* Líneas más finas entre filas del body */
+}
+
+strong {
+  font-weight: 500 !important;
+}
+
+.table-responsive-wrapper {
+  position: relative;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Anchos mínimos para las columnas en móvil */
+.table th,
+.table td {
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+/* Media query para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+  .table {
+    margin-bottom: 0;
+  }
+  
+  /* Opcional: Hacer el texto más pequeño en móvil */
+  .table th,
+  .table td {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  /* Opcional: Ajustar el espaciado del texto en dos líneas */
+  .table td br {
+    display: none;
+  }
+  .table td {
+    white-space: normal;
+  }
+
+  h1{
+    font-size: 2rem !important;
+  }
+
+  h3{
+    font-size: 1.5rem !important;
+  }
+
+  .mt-5{
+    margin-top: 2rem !important;
+  }
+
+  .header-container{
+    //min-height: 200px !important;
+  }
+}
 
   @media ( max-width: 449px ){
     
