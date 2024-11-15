@@ -142,7 +142,8 @@
 <section>
 <div class="pt-5">
   <div class="col-12 offset-lg-4 col-lg-4 mb-4 text-center" #donorboxWidget>
-    <script>
+    <script src="https://donorbox.org/widget.js" paypalExpress="false"></script><iframe src="https://donorbox.org/embed/foundation29-donation?default_interval=m" name="donorbox" allowpaymentrequest="allowpaymentrequest" seamless="seamless" frameborder="0" scrolling="no" height="900px" width="100%" style="max-width: 500px; min-width: 250px; max-height:none!important" allow="payment"></iframe>
+    <!--<script>
       window.DonorBox = { widgetLinkClassName: 'custom-dbox-popup' };
     </script>
     <script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
@@ -162,14 +163,14 @@
              display: inline-block;
              vertical-align: top;"
       onload="var f = this; window.addEventListener('message', function(e) { if (e.origin === 'https://donorbox.org' && e.data.height) { f.style.height = e.data.height + 'px' } }, false)"
-    ></iframe>
+    ></iframe>-->
       <!--<iframe allowpaymentrequest="" frameborder="0" height="900px" name="donorbox" scrolling="no" seamless="seamless" src="https://donorbox.org/embed/foundation29-donation" style="max-width: 100%; min-width: 250px; max-height:none!important" width="100%"></iframe>-->
 
   </div>
 
 </div>
 </section>
-<section class="pt-5 pb-5">
+<section class="pb-5">
   <div class="col-md-12 text-center">
     <img src="assets/img/home/stripes.jpg" alt="" class="">
   </div>
