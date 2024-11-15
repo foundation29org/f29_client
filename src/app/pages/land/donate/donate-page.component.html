@@ -142,22 +142,27 @@
 <section>
 <div class="pt-5">
   <div class="col-12 offset-lg-4 col-lg-4 mb-4 text-center" #donorboxWidget>
-      <script>
-        window.DonorBox = { widgetLinkClassName: 'custom-dbox-popup' };
-      </script>
-      <script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
-      <iframe 
-        allowpaymentrequest="" 
-        frameborder="0" 
-        height="500px" 
-        name="donorbox" 
-        scrolling="no" 
-        seamless="seamless" 
-        src="https://donorbox.org/embed/foundation29-donation?default_interval=o&hide_donation_meter=true" 
-        style="max-width: 100%; min-width: 250px; max-height:none!important" 
-        width="100%"
-        onload="var f = this; window.addEventListener('message', function(e) { if (e.origin === 'https://donorbox.org' && e.data.height) { f.style.height = e.data.height + 'px' } }, false)"
-      ></iframe>
+    <script>
+      window.DonorBox = { widgetLinkClassName: 'custom-dbox-popup' };
+    </script>
+    <script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
+    <iframe 
+      allowpaymentrequest="" 
+      frameborder="0" 
+      height="500px" 
+      name="donorbox" 
+      scrolling="yes"
+      seamless="seamless" 
+      src="https://donorbox.org/embed/foundation29-donation?default_interval=o&hide_donation_meter=true&rendering=inline"
+      style="max-width: 100%; 
+             min-width: 250px; 
+             max-height:none !important;
+             width: 100%;
+             -webkit-overflow-scrolling: touch;
+             display: inline-block;
+             vertical-align: top;"
+      onload="var f = this; window.addEventListener('message', function(e) { if (e.origin === 'https://donorbox.org' && e.data.height) { f.style.height = e.data.height + 'px' } }, false)"
+    ></iframe>
       <!--<iframe allowpaymentrequest="" frameborder="0" height="900px" name="donorbox" scrolling="no" seamless="seamless" src="https://donorbox.org/embed/foundation29-donation" style="max-width: 100%; min-width: 250px; max-height:none!important" width="100%"></iframe>-->
 
   </div>
