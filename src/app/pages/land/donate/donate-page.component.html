@@ -32,7 +32,7 @@
       </p>
 
       <div class="mb-4">
-        <button class="btn btn-primary round btn-lg">{{'f29.donate.donateButton' | translate }}</button>
+        <button class="btn btn-primary round btn-lg" (click)="scrollToWidget()">{{'f29.donate.donateButton' | translate }}</button>
       </div>
 
       <div class="row mb-5">
@@ -51,7 +51,7 @@
           <h5 class="mb-0"><strong>{{'f29.donate.deduction.is.title' | translate }}</strong></h5>
           <p>{{'f29.donate.deduction.is.subtitle' | translate }}</p>
           <p>{{'f29.donate.deduction.is.description' | translate }}</p>
-          <button class="btn btn-primary round btn-lg">{{'f29.donate.doItNowButton' | translate }}</button>
+          <button class="btn btn-primary round btn-lg" (click)="scrollToWidget()">{{'f29.donate.doItNowButton' | translate }}</button>
         </div>
       </div>
 
@@ -141,7 +141,7 @@
 </section>-->
 <section>
 <div class="pt-5">
-  <div class="col-12 offset-lg-4 col-lg-4 mb-4 text-center">
+  <div class="col-12 offset-lg-4 col-lg-4 mb-4 text-center" #donorboxWidget>
       <script>
         window.DonorBox = { widgetLinkClassName: 'custom-dbox-popup' };
       </script>
