@@ -154,7 +154,48 @@
     "d1": "Haz tu",
     "d2": "donación",
     "d3": "Imaginamos un tiempo en que los pacientes se conviertan en socios plenos y valiosos en colaboración",
-    "d4": "con los profesionales de la salud para conseguir Bienestar y Salud."
+    "d4": "con los profesionales de la salud para conseguir Bienestar y Salud.",
+    "donate": {
+      "intro0": "Fundación 29",
+      "intro1": "cree en el empoderamiento de cada persona, ayudándola a entender y gestionar sus datos de salud. A través de",
+      "intro2": "facilitamos diagnósticos más rápidos y ayudamos a los pacientes y a sus médicos.",
+      "users": "Cada mes 17.000 personas confían en DxGPT para obtener respuestas en salud y mejorar su bienestar.",
+      "purpose": "Tu donación va a financiar directamente los costes de desarrollo de esta herramienta y contribuirá a que pacientes tengan un",
+      "diagnosis": "diagnóstico temprano",
+      "quality": "mejorando su calidad de vida.",
+      "donateButton": "QUIERO DONAR",
+      "doItNowButton": "¡HAZLO HOY!",
+      "deduction": {
+        "title": "¿Cuánto desgravan las donaciones a una Fundación en la declaración de la renta?",
+        "intro": "A la hora de hacer la desgravación de tus donaciones a la Fundación29 hay que diferenciar entre:",
+        "irpf": {
+          "title": "Deducción por donaciones IRPF",
+          "subtitle": "(Personas físicas)",
+          "description": "Para las cuotas hasta el importe/porcentaje de desgravación vigente sobre el importe donado. Donaciones de hasta 250€ desgravan un 80%. En el resto de la cantidad, el porcentaje de desgravación será del 40%, aumentando al 45% si has donado igual o más cantidad en los dos años. Por ejemplo, si donas 300€ te desgravarás 200€ (80€ por los primeros 250€ y 20€ por los 50€ restantes)."
+        },
+        "is": {
+          "title": "Deducción por donaciones IS",
+          "subtitle": "(Personas jurídicas)",
+          "description": "Si haces una deducción como persona jurídica, podrás desgravar el 40% del importe donado. Si llevas más de dos años donando a Ayuda en Acción y con un importe equivalente o superior, podrás desgravarte hasta un 50%."
+        },
+        "table": {
+          "amount": "Importe Donado (€)",
+          "deduction": "Deducción Aplicable",
+          "deductibleAmount": "Importe Deducible (€)",
+          "realCost": "Coste Real de la Donación (€)",
+          "firstPart": "80% sobre los primeros 250 €",
+          "secondPart": "40% sobre el resto"
+        },
+        "notification": "Nosotros lo notificaremos a Hacienda para que aparezca automáticamente en tu declaración"
+      },
+      "impact": {
+        "title": "Multiplica el impacto",
+        "subtitle": "de tu donación:",
+        "line1": "quienes reciben",
+        "line2": "avanzan",
+        "line3": "y tú recuperas"
+      }
+    }
   },
   "policy": {
     "CONTENT": "INFORMACIÓN BÁSICA SOBRE PROTECCIÓN DE DATOS",
