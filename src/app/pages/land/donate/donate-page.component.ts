@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -9,9 +9,21 @@ import { TranslateService } from '@ngx-translate/core';
 
 export class DonatePageComponent {
 
-
+    @ViewChild('donorboxWidget') donorboxWidget!: ElementRef;
     constructor(public translate: TranslateService) {
 
     }
 
+    ngAfterViewInit() {
+        // Aquí ya está disponible el elemento
+      }
+    
+      scrollToWidget() {
+        if (this.donorboxWidget) {
+          this.donorboxWidget.nativeElement.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'center'
+          });
+        }
+      }
 }
