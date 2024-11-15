@@ -62,6 +62,10 @@ strong {
 
 /* Media query para pantallas pequeñas */
 @media screen and (max-width: 768px) {
+
+  .center-sm{
+    text-align: center;
+  }
   .table {
     margin-bottom: 0;
   }
