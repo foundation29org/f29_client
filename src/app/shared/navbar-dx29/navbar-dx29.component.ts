@@ -28,12 +28,11 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
   isHomePage: boolean = false;
   isiniciativesPage: boolean = false;
   isthefoundationPage: boolean = false;
-  isNewsPage: boolean = false;
   isEcosystemPage: boolean = false;
   isAwardsPage: boolean = false;
   isContactPage: boolean = false;
   isDonatePage: boolean = false;
-  isLabPage: boolean = false;
+  isDxgptPage: boolean = false;
   
   private subscription: Subscription = new Subscription();
 
@@ -41,12 +40,12 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
 
     this.loadLanguages();
 
-    this.router.events.filter((event: any) => event instanceof NavigationEnd).subscribe(
+    /*this.router.events.filter((event: any) => event instanceof NavigationEnd).subscribe(
       event => {
         var tempUrl = (event.url).toString();
         this.checkRoute(tempUrl);
       }
-    );
+    );*/
 
 
     this.layoutSub = layoutService.changeEmitted$.subscribe(
@@ -60,27 +59,71 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
       });
   }
 
+  // Función para resetear todos los estados de página
+  resetAllPageStates() {
+    this.isHomePage = false;
+    this.isiniciativesPage = false;
+    this.isthefoundationPage = false;
+    this.isEcosystemPage = false;
+    this.isAwardsPage = false;
+    this.isContactPage = false;
+    this.isDonatePage = false;
+    this.isDxgptPage = false;
+  }
 
+  goTo(step) {    
+    // Resetear todos los estados primero
+    this.resetAllPageStates();
+    
+    // Establecer solo el estado correspondiente
+    switch(step) {
+      case 'home':
+        this.isHomePage = true;
+        break;
+      case 'iniciatives':
+        this.isiniciativesPage = true;
+        break;
+      case 'thefoundation':
+        this.isthefoundationPage = true;
+        break;
+      case 'ecosystem':
+        this.isEcosystemPage = true;
+        break;
+      case 'awards':
+        this.isAwardsPage = true;
+        break;
+      case 'contact':
+        this.isContactPage = true;
+        break;
+      case 'donate':
+        this.isDonatePage = true;
+        break;
+      case 'dxgpt':
+        this.isDxgptPage = true;
+        break;
+    }
+    
+    // Realizar el desplazamiento
+    if(document.getElementById(step) == null) {
+      this.router.navigate(['/'], { fragment: step });
+    } else {
+      const yOffset = 50;
+      const y = document.getElementById(step).getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  }
 
-
-  checkRoute(tempUrl){
-      this.isHomePage = false;
-      this.isiniciativesPage = false;
-      this.isthefoundationPage = false;
-      this.isNewsPage = false;
-      this.isAwardsPage = false;
-      this.isContactPage = false;
-      this.isDonatePage = false;
-      this.isEcosystemPage = false;
-      this.isLabPage = false;
+  checkRoute(tempUrl) {
+    // Resetear todos los estados primero
+    this.resetAllPageStates();
+    
+    // Establecer solo el estado correspondiente basado en la URL
     if (tempUrl.indexOf('/.') != -1 || tempUrl == '/' || tempUrl == '/#home') {
       this.isHomePage = true;
     } else if (tempUrl.indexOf('#iniciatives') != -1) {
       this.isiniciativesPage = true;
     } else if (tempUrl.indexOf('#thefoundation') != -1) {
       this.isthefoundationPage = true;
-    } else if (tempUrl.indexOf('/news') != -1) {
-      this.isNewsPage = true;
     } else if (tempUrl.indexOf('#ecosystem') != -1) {
       this.isEcosystemPage = true;
     } else if (tempUrl.indexOf('#awards') != -1) {
@@ -89,8 +132,8 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
       this.isContactPage = true;
     } else if (tempUrl.indexOf('/donate') != -1) {
       this.isDonatePage = true;
-    }else if (tempUrl.indexOf('#lab') != -1) {
-      this.isLabPage = true;
+    } else if (tempUrl.indexOf('#dxgpt') != -1) {
+      this.isDxgptPage = true;
     }
   }
 
@@ -113,10 +156,10 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
     if (this.layoutSub) {
       this.layoutSub.unsubscribe();
     }
+    this.subscription.unsubscribe();
   }
 
   ToggleClass() {
@@ -180,20 +223,6 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
     this.searchLangName(language);
     var eventsLang = this.inj.get(EventsService);
     eventsLang.broadcast('changelang', language);
-  }
-
-  goTo(step) {    
-    if( document.getElementById(step)==null){
-      this.router.navigate(['/'], { fragment: step});
-    }else{
-      //this.router.navigate(['/'], { fragment: step});
-      const yOffset = 50; // Ajusta este valor según sea necesario
-      const y = document.getElementById(step).getBoundingClientRect().top + window.pageYOffset + yOffset;
-
-      window.scrollTo({ top: y, behavior: 'smooth' });
-      //document.getElementById(step).scrollIntoView({behavior: "smooth"});
-    }
-    //this.checkRoute(this.router.url);
   }
 
 }

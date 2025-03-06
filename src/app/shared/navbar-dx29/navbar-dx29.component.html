@@ -17,8 +17,8 @@
         <div class="navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav m-r-0">
                 <li class="nav-item mr-2">
-                  <a class="nav-link" href="javascript:;" [ngClass]="(!isLabPage)?'black':'black text-bold-500'" (click)="goTo('lab');">
-                    <span>Lab 29</span>
+                  <a class="nav-link" href="javascript:;" [ngClass]="(!isDxgptPage)?'black':'black text-bold-500'" (click)="goTo('dxgpt');">
+                    <span>DxGPT</span>
                   </a>
                 </li>
                 <li class="nav-item mr-2">
@@ -34,11 +34,6 @@
                 <li class="nav-item mr-2">
                     <a class="nav-link" href="javascript:;" [ngClass]="(!isEcosystemPage)?'black':'black text-bold-500'" (click)="goTo('ecosystem');">
                       <span>{{'f29.Ecosystem' | translate }}</span>
-                    </a>
-                </li>
-                <li class="nav-item mr-2">
-                    <a class="nav-link" [ngClass]="(!isNewsPage)?'black':'black text-bold-500'" routerLink="/news">
-                      <span>{{'f29.News' | translate }}</span>
                     </a>
                 </li>
                 <li class="nav-item mr-2">

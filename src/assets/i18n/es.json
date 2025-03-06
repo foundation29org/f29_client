@@ -28,7 +28,7 @@
     "sugg6": "¿Qué aspectos debo cuidar en la interacción y comunicación con las familias de pacientes con enfermedades raras?"
   },
   "f29": {
-    "Initiatives": "Iniciativas",
+    "Initiatives": "Experimentos",
     "The Foundation": "La Fundación",
     "Ecosystem": "Ecosistema",
     "News": "Noticias",
@@ -41,17 +41,22 @@
       "description": "Somos una plataforma que impulsa la innovación en investigación y desarrollo de productos, centrándonos en áreas a menudo pasadas por alto por los sistemas sanitarios tradicionales. Nuestra misión va más allá de las enfermedades raras, empoderando a pacientes con condiciones médicas complejas a través de datos y tecnología para transformar sus trayectorias de salud."
     },
     "experiments": {
-      "title": "Nuestros Experimentos",
+      "title": "Nuestras áreas de experimentación",
       "description": "Descubre nuestros proyectos innovadores que están transformando la atención médica a través de datos y tecnología.",
       "nav29": {
         "title": "Nav29 - El poder para impulsar el diagnóstico",
         "subtitle": "Ayuda al diagnóstico para médicos y pacientes",
         "description": "Nav29 es una aplicación gratuita que permite a pacientes y médicos acelerar el proceso de diagnóstico de enfermedades raras. Aplicamos inteligencia artificial para ayudar a pacientes y profesionales a identificar síntomas y predecir diagnósticos precisos."
       },
-      "raito": {
-        "title": "Raito - El poder de impulsar la medicina",
-        "subtitle": "Devolver el poder de los datos a los pacientes",
-        "description": "Los sistemas médicos actuales dispersan la información del paciente. Raito, un proyecto de la Fundación 29, busca consolidar estos datos, facilitando su acceso y movilidad. Utilizamos tecnología descentralizada, garantizando privacidad y cumplimiento del GDPR."
+      "trialgpt": {
+        "title": "TrialGPT - Conectando pacientes con ensayos clínicos",
+        "subtitle": "Simplificando el acceso a la investigación clínica",
+        "description": "TrialGPT es una prueba de concepto desarrollada por Fundación 29 que aprovecha el potencial de los LLM para simplificar la búsqueda de ensayos clínicos. Analiza informes médicos y empareja a los pacientes con ensayos relevantes, haciendo el proceso más rápido y accesible."
+      },
+      "genewise": {
+        "title": "GeneWise - Entendiendo la información genética",
+        "subtitle": "Haciendo la genética accesible para pacientes y familias",
+        "description": "GeneWise es una prueba de concepto desarrollada por Fundación 29. Demuestra cómo la IA generativa puede explicar información genética de manera clara y entendible para pacientes y sus familias."
       },
       "healthdata29": {
         "title": "HealthData29 - El poder para compartir el conocimiento",
