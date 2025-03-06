@@ -35,7 +35,52 @@
     "Awards": "Awards",
     "Contact": "Contact",
     "Donate": "Donate",
-    "t1.1": "It’s time for patients to take control of their health, through their data, to work alongside their doctors and drive research",
+    "header": {
+      "title1": "PATIENTS HAVE <br>THE DATA",
+      "title2": "PATIENTS HAVE THE <br>POWER",
+      "description": "We are a platform driving innovation in research and product development, focusing on areas often overlooked by traditional healthcare systems. Our mission extends beyond rare diseases, empowering patients with complex medical conditions through data and technology to transform their health journeys."
+    },
+    "experiments": {
+      "title": "Our Experiments",
+      "description": "Discover our innovative projects that are transforming healthcare through data and technology.",
+      "nav29": {
+        "title": "Nav29 - The power to drive the diagnosis",
+        "subtitle": "Help diagnosis for doctors and patients",
+        "description": "Nav29 is a free application that allows patients and doctors to speed up the rare disease diagnosis process. We apply artificial intelligence to help patients and professionals identify symptoms and predict accurate diagnoses."
+      },
+      "raito": {
+        "title": "Raito - The power to boost medicine",
+        "subtitle": "Return the power of data to patients",
+        "description": "Current medical systems scatter patient information. Raito, a project by Fundación 29, aims to consolidate this data, ensuring easy access and mobility. We use decentralized technology, guaranteeing privacy and GDPR compliance."
+      },
+      "healthdata29": {
+        "title": "HealthData29 - The power to share the knowledge",
+        "subtitle": "Help diagnosis for doctors and patients",
+        "description": "Sharing medical data for research HealthData29 makes it easy to share health data sets with researchers for use in medical research in a simple and secure way. The initiative includes a guide to good practices in the sharing and processing of this data and has been awarded by the Spanish Agency for Data Protection."
+      }
+    },
+    "dxgpt": {
+      "title": "DxGPT: AI-Powered Medical Diagnosis",
+      "description": "DxGPT is a pioneering experiment that uses large language models to create medical diagnostic support systems. This application explores how AI can assist in the accurate and rapid identification of medical conditions, improving the diagnostic process and patient care.",
+      "interface": {
+        "title": "Enter a brief patient's description and DxGPT will provide a list of possible disease diagnoses",
+        "placeholder": "Type here!",
+        "hint": "For best results, indicate when and why you think the symptoms appeared.",
+        "search": "Search",
+        "help": "Need help?",
+        "p1.title": "Examples",
+        "p1.subtitle": "Click on the text to use it as an example",
+        "p1.1": "The patient is thirteen months old. First focal seizure at three months. Multiple tonic-clonic seizures. Febrile seizures. One status epilepticus at eight months.",
+        "p1.2": "Girl. 11 years. unilateral hemispheric atrophy, associated with drug-resistant focal epilepsy, progressive hemiplegia, and cognitive decline",
+        "p2.title": "Capabilities",
+        "p2.1": "Provide explanation for proposed condition",
+        "p2.2": "Allows user to provide follow-up corrections",
+        "p3.title": "Limitations",
+        "p3.1": "May occasionally generate incorrect information",
+        "p3.2": "Cannot be used for diagnosis without human supervision"
+      }
+    },
+    "t1.1": "It's time for patients to take control of their health, through their data, to work alongside their doctors and drive research",
     "t1.2": "At Foundation 29 we work with all those who share this vision creating the necessary tools and initiatives to achieve it",
     "tlab.0": "Innovating in Health with AI",
     "tlab.1": "At Lab 29, we transform health through artificial intelligence. Discover how our projects like DxGPT and Nav29 are redefining diagnosis and self-care. Join us at the forefront of future medicine.",

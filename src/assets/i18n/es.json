@@ -35,7 +35,52 @@
     "Awards": "Premios",
     "Contact": "Contacto",
     "Donate": "Dona",
-    "t1.1": "Es hora de que los pacientes tomen el control de su salud, gracias a sus datos, para trabajar junto a sus médicos e impulsar la investigación",
+    "header": {
+      "title1": "LOS PACIENTES TIENEN <br>LOS DATOS",
+      "title2": "LOS PACIENTES TIENEN <br>EL PODER",
+      "description": "Somos una plataforma que impulsa la innovación en investigación y desarrollo de productos, centrándonos en áreas a menudo pasadas por alto por los sistemas sanitarios tradicionales. Nuestra misión va más allá de las enfermedades raras, empoderando a pacientes con condiciones médicas complejas a través de datos y tecnología para transformar sus trayectorias de salud."
+    },
+    "experiments": {
+      "title": "Nuestros Experimentos",
+      "description": "Descubre nuestros proyectos innovadores que están transformando la atención médica a través de datos y tecnología.",
+      "nav29": {
+        "title": "Nav29 - El poder para impulsar el diagnóstico",
+        "subtitle": "Ayuda al diagnóstico para médicos y pacientes",
+        "description": "Nav29 es una aplicación gratuita que permite a pacientes y médicos acelerar el proceso de diagnóstico de enfermedades raras. Aplicamos inteligencia artificial para ayudar a pacientes y profesionales a identificar síntomas y predecir diagnósticos precisos."
+      },
+      "raito": {
+        "title": "Raito - El poder de impulsar la medicina",
+        "subtitle": "Devolver el poder de los datos a los pacientes",
+        "description": "Los sistemas médicos actuales dispersan la información del paciente. Raito, un proyecto de la Fundación 29, busca consolidar estos datos, facilitando su acceso y movilidad. Utilizamos tecnología descentralizada, garantizando privacidad y cumplimiento del GDPR."
+      },
+      "healthdata29": {
+        "title": "HealthData29 - El poder para compartir el conocimiento",
+        "subtitle": "Ayuda al diagnóstico para médicos y pacientes",
+        "description": "Compartición de datos médicos para investigación. HealthData29 facilita compartir sets de datos de salud con investigadores para utilizarlos en investigación médica de forma sencilla y segura. La iniciativa incluye una guía de buenas prácticas en la compartición y tratamiento de estos datos y ha sido premiada por la Agencia Española de Protección de Datos."
+      }
+    },
+    "dxgpt": {
+      "title": "DxGPT: Diagnóstico Médico con IA",
+      "description": "DxGPT es un experimento pionero que utiliza grandes modelos de lenguaje para crear sistemas de apoyo al diagnóstico médico. Esta aplicación explora cómo la IA puede asistir en la identificación precisa y rápida de condiciones médicas, mejorando el proceso de diagnóstico y el cuidado del paciente.",
+      "interface": {
+        "title": "Introduce una breve descripción del paciente y DxGPT proporcionará una lista de posibles diagnósticos",
+        "placeholder": "¡Escribe aquí!",
+        "hint": "Para mejores resultados, indica cuándo y por qué crees que aparecieron los síntomas.",
+        "search": "Buscar",
+        "help": "¿Necesitas ayuda?",
+        "p1.title": "Ejemplos",
+        "p1.subtitle": "Pulsa en el texto para usarlo como ejemplo",
+        "p1.1": "El paciente tiene trece meses. Primera convulsión focal a los tres meses. Convulsiones múltiples tónico-clónicas. Convulsiones febriles. Un estado epiléptico a los ocho meses.",
+        "p1.2": "Niña. 11 años. Atrofia hemisférica unilateral, asociada con epilepsia focal resistente a los medicamentos, hemiplejía progresiva y deterioro cognitivo",
+        "p2.title": "Capacidades",
+        "p2.1": "Proporciona una explicación de la enfermedad propuesta",
+        "p2.2": "Permite al usuario proporcionar correcciones",
+        "p3.title": "Limitaciones",
+        "p3.1": "Ocasionalmente puede generar información incorrecta",
+        "p3.2": "No se puede utilizar para el diagnóstico sin supervisión humana"
+      }
+    },
+    "t1.1": "Es hora de que los pacientes tomen el control de su salud, a través de sus datos, para trabajar junto a sus médicos e impulsar la investigación",
     "t1.2": "En Fundacion 29 trabajamos con todos los que comparten esta visión creando las herramientas e iniciativas necesarias para conseguirlo",
     "tlab.0": "Innovando en Salud con IA",
     "tlab.1": "En Lab 29, transformamos la salud mediante la inteligencia artificial. Descubre cómo nuestros proyectos como DxGPT y Nav29 están redefiniendo el diagnóstico y el autocuidado. Únete a nosotros en la vanguardia de la medicina del futuro.",

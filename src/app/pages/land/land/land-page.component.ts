@@ -4,6 +4,8 @@ import { EventsService } from 'app/shared/services/events.service';
 import { HttpClient } from '@angular/common/http';
 import { SortService } from 'app/shared/services/sort.service';
 import { Subscription } from 'rxjs/Subscription';
+import { TranslateService } from '@ngx-translate/core';
+import { NgbModal, NgbModalRef, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'app-land-page',
@@ -16,9 +18,11 @@ export class LandPageComponent implements OnInit {
     news: any = [];
     fragment: string;
     currentHash:string = 'home';
+    summaryDx29: string = '';
+    modalReference: NgbModalRef;
     private subscription: Subscription = new Subscription();
 
-    constructor(private eventsService: EventsService, private http: HttpClient, private sortService: SortService, private route: ActivatedRoute, private router: Router) {
+    constructor(private eventsService: EventsService, private http: HttpClient, private sortService: SortService, private route: ActivatedRoute, private router: Router, private modalService: NgbModal, private translate: TranslateService) {
         this.lang = sessionStorage.getItem('lang');
         this.loadNews();
     }
@@ -73,4 +77,39 @@ export class LandPageComponent implements OnInit {
             }));
     }
 
+    gotoDxGPT(){
+        let url = `https://dxgpt.app/?medicalText=${encodeURIComponent(this.summaryDx29)}`;
+        window.open(url, '_blank');
+    }
+
+    showContentInfoAPP(contentInfoAPP) {
+        let ngbModalOptions: NgbModalOptions = {
+            backdrop: 'static',
+            keyboard: false,
+            windowClass: 'ModalClass-lg'// xl, lg, sm
+        };
+        if (this.modalReference != undefined) {
+            this.modalReference.close();
+            this.modalReference = undefined;
+        }
+        this.modalReference = this.modalService.open(contentInfoAPP, ngbModalOptions);
+    }
+
+    copyText(option: string) {
+        if (option === 'opt1') {
+            this.summaryDx29 = this.translate.instant('f29.dxgpt.interface.p1.1');
+        } else if (option === 'opt2') {
+            this.summaryDx29 = this.translate.instant('f29.dxgpt.interface.p1.2');
+        }
+        
+        if (this.modalReference) {
+            this.modalReference.close();
+            this.modalReference = undefined;
+        }
+    }
+
+    lauchEvent(action: string) {
+        // Puedes implementar aquí la lógica para registrar eventos de analítica
+        console.log('Event:', action);
+    }
 }

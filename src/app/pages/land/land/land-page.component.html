@@ -1,6 +1,13 @@
 <a id="home" class="anchor_tags"></a>
 <section>
-    <div class="row auth-height full-height-vh m-0 grid-hover" [ngClass]="(lang=='en')?'background-img-en':'background-img-es'">
+    <div class="row auth-height full-height-vh m-0 patients-header">
+        <div class="col-md-10 offset-md-1 header-content">
+            <h1 class="header-title" [innerHTML]="'f29.header.title1' | translate "></h1>
+            <h1 class="header-title" [innerHTML]="'f29.header.title2' | translate "></h1>
+            <p class="header-text">
+                {{'f29.header.description' | translate }}
+            </p>
+        </div>
     </div>
 </section>
 <div style="position: relative;" class="hidepanelmd">
@@ -9,6 +16,127 @@
     </div>
 </div>
 
+<!-- Nueva sección DxGPT -->
+<section class="dxgpt-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 dxgpt-info">
+                <h2 class="section-title">{{'f29.dxgpt.title' | translate }}</h2>
+                <p class="section-description">{{'f29.dxgpt.description' | translate }}</p>
+                <a href="https://dxgpt.app/" target="_blank" class="btn btn-primary round mt-3" title="{{'f29.Know more' | translate }}">
+                    <strong class="menu-title">{{'f29.Know more' | translate }}</strong>
+                </a>
+            </div>
+            <div class="col-md-6">
+                <div class="dxgpt-interface">
+                    <h3 class="text-center mb-4">{{'f29.dxgpt.interface.title' | translate }}</h3>
+                    <div class="input-container">
+                        <textarea class="form-control" [(ngModel)]="summaryDx29" rows="6" placeholder="{{'f29.dxgpt.interface.placeholder' | translate }}"></textarea>
+                        <p class="text-center mt-2">{{'f29.dxgpt.interface.hint' | translate }}</p>
+                        <div class="text-center mt-3">
+                            <button class="btn btn-search" (click)="gotoDxGPT()">{{'f29.dxgpt.interface.search' | translate }}</button>
+                        </div>
+                        <p class="text-center mt-3">
+                            <a (click)="showContentInfoAPP(contentInfoAPP)" class="help-link">{{'f29.dxgpt.interface.help' | translate }}</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de Experimentos -->
+<section class="experiments-section">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-12 text-center">
+                <h2 class="section-title">{{'f29.experiments.title' | translate }}</h2>
+                <p class="section-description">{{'f29.experiments.description' | translate }}</p>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <!-- Nav29 -->
+            <div class="col-md-6 mb-4">
+                <div class="experiment-card">
+                    <div class="experiment-header">
+                        <h3 class="experiment-title">{{'f29.experiments.nav29.title' | translate }}</h3>
+                        <h4 class="experiment-subtitle">{{'f29.experiments.nav29.subtitle' | translate }}</h4>
+                    </div>
+                    <div class="experiment-body">
+                        <p>{{'f29.experiments.nav29.description' | translate }}</p>
+                        <a href="https://nav29.org/" target="_blank" class="btn btn-primary round mt-3">
+                            <strong>{{'f29.Know more' | translate }}</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Raito -->
+            <div class="col-md-6 mb-4">
+                <div class="experiment-card">
+                    <div class="experiment-header">
+                        <h3 class="experiment-title">{{'f29.experiments.raito.title' | translate }}</h3>
+                        <h4 class="experiment-subtitle">{{'f29.experiments.raito.subtitle' | translate }}</h4>
+                    </div>
+                    <div class="experiment-body">
+                        <p>{{'f29.experiments.raito.description' | translate }}</p>
+                        <a href="https://raito.care" target="_blank" class="btn btn-primary round mt-3">
+                            <strong>{{'f29.Know more' | translate }}</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HealthData29 -->
+            <div class="col-md-6 mb-4">
+                <div class="experiment-card">
+                    <div class="experiment-header">
+                        <h3 class="experiment-title">{{'f29.experiments.healthdata29.title' | translate }}</h3>
+                        <h4 class="experiment-subtitle">{{'f29.experiments.healthdata29.subtitle' | translate }}</h4>
+                    </div>
+                    <div class="experiment-body">
+                        <p>{{'f29.experiments.healthdata29.description' | translate }}</p>
+                        <a href="https://www.healthdata29.org/" target="_blank" class="btn btn-primary round mt-3">
+                            <strong>{{'f29.Know more' | translate }}</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Libro Enfermedades Raras -->
+            <div class="col-md-6 mb-4">
+                <div class="experiment-card">
+                    <div class="experiment-header">
+                        <h3 class="experiment-title">{{'f29.p4.t' | translate }}</h3>
+                    </div>
+                    <div class="experiment-body">
+                        <p>{{'f29.p4.d' | translate }}</p>
+                        <a routerLink="/libroenfermedadesraras" class="btn btn-primary round mt-3">
+                            <strong>{{'f29.Test it' | translate }}</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guía Enfermedades Raras -->
+            <div class="col-md-6 mb-4">
+                <div class="experiment-card">
+                    <div class="experiment-header">
+                        <h3 class="experiment-title">{{'f29.p5.t' | translate }}</h3>
+                    </div>
+                    <div class="experiment-body">
+                        <p>{{'f29.p5.d' | translate }}</p>
+                        <a routerLink="/guiaenfermedadesraras" class="btn btn-primary round mt-3">
+                            <strong>{{'f29.Test it' | translate }}</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <div>
     <!--class="col-sm-12 mt-0 mb-0 card card-block mx-auto pr-0 pl-0 padding-0" style="z-index: -1 !important;"-->
@@ -482,3 +610,82 @@
         </div>
     </div>
 </div>
+
+<ng-template #contentInfoAPP let-c="close" let-d="dismiss" appendTo="body">
+  <div class="modal-header">
+    <h4 class="modal-title">{{'f29.dxgpt.interface.help' | translate }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body content-wrapper">
+    <div class="row align-items-center">
+      <div class="col-md-4 text-center">
+        <div class="icon-container">
+          <i class="fas fa-gear fa-2x"></i>
+        </div>
+        <h4 class="section-header">{{'f29.dxgpt.interface.p1.title' | translate }}</h4>
+        <p class="section-subheader">{{'f29.dxgpt.interface.p1.subtitle' | translate }}</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <div class="icon-container">
+          <i class="fa fa-rocket fa-2x"></i>
+        </div>
+        <h4 class="section-header">{{'f29.dxgpt.interface.p2.title' | translate }}</h4>
+      </div>
+      <div class="col-md-4 text-center">
+        <div class="icon-container">
+          <i class="fa fa-exclamation-triangle fa-2x"></i>
+        </div>
+        <h4 class="section-header">{{'f29.dxgpt.interface.p3.title' | translate }}</h4>
+      </div>
+    </div>
+    
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <div class="card-container">
+          <div class="example-card pointer" (click)="copyText('opt1');lauchEvent('Copy sample 1');">
+            <p class="mb-0">{{'f29.dxgpt.interface.p1.1' | translate }}</p>
+            <div class="text-right">
+              <i class="fa-solid fa-arrow-right-long"></i>
+            </div>
+          </div>
+        </div>
+        <div class="card-container mt-3">
+          <div class="example-card pointer" (click)="copyText('opt2');lauchEvent('Copy sample 2');">
+            <p class="mb-0">{{'f29.dxgpt.interface.p1.2' | translate }}</p>
+            <div class="text-right">
+              <i class="fa-solid fa-arrow-right-long"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="card-container">
+          <div class="capabilities-card">
+            <p class="mb-0">{{'f29.dxgpt.interface.p2.1' | translate }}</p>
+          </div>
+        </div>
+        <div class="card-container mt-3">
+          <div class="capabilities-card">
+            <p class="mb-0">{{'f29.dxgpt.interface.p2.2' | translate }}</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="card-container">
+          <div class="limitations-card">
+            <p class="mb-0">{{'f29.dxgpt.interface.p3.1' | translate }}</p>
+          </div>
+        </div>
+        <div class="card-container mt-3">
+          <div class="limitations-card">
+            <p class="mb-0">{{'f29.dxgpt.interface.p3.2' | translate }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
