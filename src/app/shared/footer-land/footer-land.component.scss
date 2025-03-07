@@ -1,8 +1,18 @@
-
-
 .empty-padding-left{
   padding-left: 0px;
   margin: 0.5em;
+}
+
+.text-white{
+  color: #ffffff;
+}
+
+.anchor_tags {
+  display: block;
+  position: relative;
+  visibility: hidden;
+  height: 0;
+  pointer-events: none;
 }
 
 @media (max-width: 1091px) {

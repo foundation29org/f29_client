@@ -24,6 +24,10 @@
   font-size: 1rem !important;
 }
 
+.dark-light{
+  color: #333;
+}
+
 .img-responsive{
   max-height: 80px;
     opacity: 0.5;
@@ -35,17 +39,10 @@
 }
 
 .img-responsive-team{
-    opacity: 0.5;
-    filter: brightness( 100% ) contrast( 100% ) saturate( 0% ) blur( 0px ) hue-rotate( 0deg );
     max-width: 100%;
     max-width: -moz-available;          /* For Mozzila */
     max-width: -webkit-fill-available;  /* For Chrome */
     max-width: stretch;
-}
-
-.img-responsive-team:hover{
-  opacity: 1;
-  filter: brightness( 100% ) contrast( 100% ) saturate( 100% ) blur( 0px ) hue-rotate( 0deg );
 }
 
 .img-responsive:hover{
@@ -204,6 +201,34 @@
     margin: auto;
   }
   
+  .patients-header {
+    min-height: 80vh !important;
+    background: linear-gradient(135deg, #ff9a9e 0%, #ff5757 100%);
+    display: flex;
+    align-items: center;
+    padding: 4rem 0;
+    position: relative;
+  }
+
+  .header-content {
+    color: #000;
+    padding: 2rem;
+  }
+
+  .header-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .header-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-top: 2rem;
+  }
+
   .background-img-en{
     min-height: 76vh !important;
     background-image: url("assets/img/home/BANNER-WEB-en.webp");
@@ -307,7 +332,6 @@
   }
 
   @media (max-width: 768px) {
-
     .text-lab29{
       text-align: center !important;
     }
@@ -325,9 +349,113 @@
     .full-height-vh{
       height:initial !important;
     }
+    .patients-header {
+      min-height: 60vh !important;
+      padding: 2rem 0;
+    }
+    
+    .header-title {
+      font-size: 2rem;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    
+    .header-text {
+      font-size: 1rem;
+    }
+
+    body{
+      font-size: 1rem !important;
+    }
+    
+    p{
+      font-size: 1rem !important;
+    }
+    
+    a{
+      font-size: 1rem !important;
+    }
+    
+    span{
+      font-size: 1rem !important;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-description {
+      font-size: 1rem;
+    }
+
+    .experiment-title {
+      font-size: 1.3rem;
+    }
+
+    .experiment-subtitle {
+      font-size: 1rem;
+    }
+    
+    .dxgpt-section {
+      padding: 2rem 0;
+    }
+    
+    .experiments-section {
+      padding: 2rem 0;
+    }
+    
+    .row.mb-4 {
+      margin-bottom: 1rem !important;
+    }
+    
+    .row.mb-5 {
+      margin-bottom: 1rem !important;
+    }
+    
+    .col-md-6.mb-4 {
+      margin-bottom: 1rem !important;
+    }
+    
+    .img-responsive-team {
+      max-width: 120px;
+      height: auto;
+    }
+    
+    .center-elements .col-lg-3.col-sm-6 {
+      width: 50%;
+    }
+    
+    .dxgpt-interface {
+      margin-top: 2rem;
+    }
+
+    .form-control {
+      font-size: 0.9rem;
+    }
+    
+    .experiment-card {
+      margin-bottom: 2rem;
+    }
+
+    .experiment-body p {
+      font-size: 0.9rem !important;
+    }
+
+    .research-section {
+      padding: 2rem 0;
+    }
+    
+    .research-card {
+      margin-bottom: 2rem;
+    }
+
+    .research-body p {
+      font-size: 0.9rem !important;
+    }
   }
 
-    @media (max-width: 575px) {
+  @media (max-width: 575px) {
       .margin-0{
         margin-left: 0 !important;
         margin-right: 0 !important;
@@ -346,6 +474,26 @@
       .hidepanelsm{
         display: none;
       }
+  
+      .header-title {
+        font-size: 1.8rem;
+        line-height: 1.2;
+        margin-bottom: 0.8rem;
+      }
+      
+      .section-title {
+        font-size: 1.6rem;
+        margin-bottom: 0.8rem;
+      }
+      
+      .experiment-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.3rem;
+      }
+      
+      .experiment-subtitle {
+        font-size: 0.9rem;
+      }
    }
 
    @media (max-width: 390px) {
@@ -353,3 +501,339 @@
       margin-left: 20px !important;
     }
   }
+
+/* Estilos para la sección DxGPT */
+.dxgpt-section {
+  padding: 5rem 0;
+  background-color: #f8f9fa;
+}
+
+.dxgpt-info {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.section-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.dxgpt-interface {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.input-container {
+  padding: 1rem;
+}
+
+.form-control {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: none;
+}
+
+.btn-search {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.5rem 2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-search:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.help-link {
+  color: #3498db;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.help-link:hover {
+  color: #2980b9;
+}
+
+/* Estilos para el popup de ayuda */
+.modal-content {
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.modal-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #eee;
+  padding: 1.5rem;
+  position: relative;
+}
+
+.modal-header .close {
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
+  font-size: 1.5rem;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.modal-header .close:hover {
+  opacity: 1;
+}
+
+.content-wrapper {
+  padding: 2rem !important;
+}
+
+.custom-card-1 {
+  margin-top: 1rem;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  transition: all 0.3s ease;
+  background-color: #fff;
+}
+
+.custom-card-2 {
+  cursor: pointer;
+  background-color: #f8f9fa;
+}
+
+.custom-card-1:hover, .custom-card-2:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.custom-card-2:hover {
+  background-color: #ff9a9e;
+  color: white;
+}
+
+.center-elements .fa, .center-elements .fas {
+  color: #e74c3c;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+/* Estilos para la sección de investigación */
+.research-section {
+  padding: 5rem 0;
+  background-color: #fff;
+  position: relative;
+}
+
+.research-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.research-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.research-header {
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #eee;
+}
+
+.research-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.research-subtitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #666;
+  margin-bottom: 0;
+}
+
+.research-body {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.research-body p {
+  flex: 1;
+  margin-bottom: 1.5rem;
+}
+
+.research-body .btn {
+  align-self: flex-start;
+}
+
+/* Colores específicos para cada investigación */
+.research-card:nth-child(1) .research-header {
+  background-color: #e8f4f8;
+}
+
+.research-card:nth-child(2) .research-header {
+  background-color: #f8f4e8;
+}
+
+.research-card:nth-child(3) .research-header {
+  background-color: #f0f8e8;
+}
+
+.research-card:nth-child(4) .research-header {
+  background-color: #f8e8e8;
+}
+
+.research-card:nth-child(5) .research-header {
+  background-color: #e8e8f8;
+}
+
+.anchor_tags {
+  display: block;
+  position: relative;
+  top: -4.3rem;
+  visibility: hidden;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Estilos para el modal de ayuda */
+.modal-body .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.modal-body .col-md-4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon-container {
+  margin-bottom: 0.5rem;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-header {
+  min-height: 160px;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.section-subheader {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.card-container {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.example-card, .capabilities-card, .limitations-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.example-card {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.example-card:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.capabilities-card, .limitations-card {
+  background-color: #4a4a4a;
+  color: white;
+}
+
+.capabilities-card:hover, .limitations-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 767px) {
+  .modal-body .col-md-4 {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+  }
+  
+  .section-header, .section-subheader {
+    min-height: auto;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card-container {
+    margin-top: 0.5rem;
+  }
+  
+  .example-card, .capabilities-card, .limitations-card {
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+  
+  .modal-body {
+    padding: 1rem !important;
+  }
+  
+  .content-wrapper {
+    padding: 1rem !important;
+  }
+  
+  .modal-body .row.align-items-center {
+    flex-direction: column;
+  }
+  
+  .modal-body .row.mt-4 {
+    margin-top: 0 !important;
+  }
+}

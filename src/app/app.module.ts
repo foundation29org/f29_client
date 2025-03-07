@@ -31,11 +31,11 @@ import { SearchService } from 'app/shared/services/search.service';
 import { EventsService } from 'app/shared/services/events.service';
 import { DialogService } from 'app/shared/services/dialog.service';
 import {NgcCookieConsentModule, NgcCookieConsentConfig} from 'ngx-cookieconsent';
-
+import { environment } from 'environments/environment';
 
 const cookieConfig:NgcCookieConsentConfig = {
   cookie: {
-    domain: 'localhost' // or 'your.domain.com' // it is mandatory to set a domain, for cookies to work properly (see https://goo.gl/S2Hy2A)
+    domain:  environment.api// or 'your.domain.com' // it is mandatory to set a domain, for cookies to work properly (see https://goo.gl/S2Hy2A)
   },
   palette: {
     popup: {
