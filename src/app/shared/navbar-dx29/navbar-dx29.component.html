@@ -2,14 +2,14 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-faded damemarger custom-navbar">
     <div class="container-fluid">
       <div>
-        <button type="button" class="mt-2 d-lg-none navbar-toggle float-left" id="menu" title="menu" data-toggle="collapse" (click)="toggleSidebar()">
+        <button type="button" class="white mt-2 d-lg-none navbar-toggle float-left" id="menu" title="menu" data-toggle="collapse" (click)="toggleSidebar()">
           <span class="sr-only"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
       </button>
           <span class="ml-2 navbar-header-logos">
-            <img class="logo-img pointer" alt="logo foundation29" src='assets/img/logo-f29.webp' (click)="goTo('home');"/>            
+            <img class="logo-img pointer" alt="logo foundation29" src='assets/img/logo-f29-white.webp' (click)="goTo('home');"/>            
           </span>
 
       </div>
@@ -17,37 +17,37 @@
         <div class="navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav m-r-0">
                 <li class="nav-item mr-2">
-                  <a class="nav-link" href="javascript:;" [ngClass]="(!isDxgptPage)?'black':'black text-bold-500'" (click)="goTo('dxgpt');">
+                  <a class="nav-link" href="javascript:;" [ngClass]="(!isDxgptPage)?'white':'white text-bold-500'" (click)="goTo('dxgpt');">
                     <span>DxGPT</span>
                   </a>
                 </li>
                 <li class="nav-item mr-2">
-                    <a class="nav-link" href="javascript:;" [ngClass]="(!isiniciativesPage)?'black':'black text-bold-500'" (click)="goTo('iniciatives');">
+                    <a class="nav-link" href="javascript:;" [ngClass]="(!isiniciativesPage)?'white':'white text-bold-500'" (click)="goTo('iniciatives');">
                       <span>{{'f29.Initiatives' | translate }}</span>
                     </a>
                 </li>
                 <li class="nav-item mr-2">
-                  <a class="nav-link" href="javascript:;" [ngClass]="(!isthefoundationPage)?'black':'black text-bold-500'" (click)="goTo('thefoundation');">
+                  <a class="nav-link" href="javascript:;" [ngClass]="(!isthefoundationPage)?'white':'white text-bold-500'" (click)="goTo('thefoundation');">
                     <span>{{'f29.The Foundation' | translate }}</span>
                   </a>
                 </li>
                 <li class="nav-item mr-2">
-                    <a class="nav-link" href="javascript:;" [ngClass]="(!isEcosystemPage)?'black':'black text-bold-500'" (click)="goTo('ecosystem');">
+                    <a class="nav-link" href="javascript:;" [ngClass]="(!isEcosystemPage)?'white':'white text-bold-500'" (click)="goTo('ecosystem');">
                       <span>{{'f29.Ecosystem' | translate }}</span>
                     </a>
                 </li>
                 <li class="nav-item mr-2">
-                    <a class="nav-link" href="javascript:;" [ngClass]="(!isAwardsPage)?'black':'black text-bold-500'" (click)="goTo('awards');">
+                    <a class="nav-link" href="javascript:;" [ngClass]="(!isAwardsPage)?'white':'white text-bold-500'" (click)="goTo('awards');">
                       <span>{{'f29.Awards' | translate }}</span>
                     </a>
                 </li>
                 <li class="nav-item mr-2">
-                    <a class="nav-link" href="javascript:;" [ngClass]="(!isContactPage)?'black':'black text-bold-500'" (click)="goTo('contact');">
+                    <a class="nav-link" href="javascript:;" [ngClass]="(!isContactPage)?'white':'white text-bold-500'" (click)="goTo('contact');">
                       <span>{{'f29.Contact' | translate }}</span>
                     </a>
                 </li>
-                <li class="nav-item mr-2">
-                    <a class="nav-link btn btn-dark round" style="width: 120px;" [ngClass]="(!isDonatePage)?'white':'white text-bold-500'" routerLink="/donate">
+                <li class="nav-item">
+                    <a class="nav-link btn btn-white round mb-0" style="width: 120px;" [ngClass]="(!isDonatePage)?'white':'white text-bold-500'" routerLink="/donate">
                       <span>{{'f29.Donate' | translate }} <em class="ml-1 fa fa-heart"></em></span>
                     </a>
                 </li>
@@ -57,8 +57,8 @@
       <div class="d-block d-lg-none" *ngIf="!isDonatePage">
         <div class="navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav m-r-0">
-                <li class="nav-item mr-2">
-                    <a class="nav-link btn btn-dark round mb-0" style="width: 120px;" [ngClass]="(!isDonatePage)?'white':'white text-bold-500'" routerLink="/donate">
+                <li class="nav-item">
+                    <a class="nav-link btn btn-white round mb-0" style="width: 120px;" [ngClass]="(!isDonatePage)?'white':'white text-bold-500'" routerLink="/donate">
                       <span>{{'f29.Donate' | translate }} <em class="ml-1 fa fa-heart"></em></span>
                     </a>
                 </li>

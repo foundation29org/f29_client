@@ -15,7 +15,6 @@ import { NgbModal, NgbModalRef, NgbModalOptions } from '@ng-bootstrap/ng-bootstr
 
 export class LandPageComponent implements OnInit {
     lang: string = 'en';
-    news: any = [];
     fragment: string;
     currentHash:string = 'home';
     summaryDx29: string = '';
@@ -24,10 +23,9 @@ export class LandPageComponent implements OnInit {
 
     constructor(private eventsService: EventsService, private http: HttpClient, private sortService: SortService, private route: ActivatedRoute, private router: Router, private modalService: NgbModal, private translate: TranslateService) {
         this.lang = sessionStorage.getItem('lang');
-        this.loadNews();
     }
 
-    @HostListener('window:scroll', ['$event']) // for window scroll events
+    /*@HostListener('window:scroll', ['$event']) // for window scroll events
     onScroll(event) {
       let elements = document.getElementsByClassName("anchor_tags");
       var found =false;
@@ -45,14 +43,14 @@ export class LandPageComponent implements OnInit {
       if(found){
         this.router.navigate(['/'], { fragment: this.currentHash});
       }
-    }
+    }*/
 
     ngOnInit() {
         this.route.fragment.subscribe(fragment => { this.fragment = fragment; });
 
         this.eventsService.on('changelang', function (lang) {
             this.lang = lang;
-            this.loadNews();
+          
         }.bind(this));
     }
 
@@ -66,16 +64,6 @@ export class LandPageComponent implements OnInit {
         } catch (e) { }
     }
 
-    loadNews() {
-        this.news = [];
-        this.subscription.add(this.http.get('assets/jsons/news_' + this.lang + '.json')
-            .subscribe((res: any) => {
-                res.sort(this.sortService.GetSortOrderNumber("id"));
-                for (var i = 0; i < 3; i++) {
-                    this.news.push(res[i])
-                }
-            }));
-    }
 
     gotoDxGPT(){
         let url = `https://dxgpt.app/?medicalText=${encodeURIComponent(this.summaryDx29)}`;

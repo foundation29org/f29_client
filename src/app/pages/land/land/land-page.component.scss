@@ -24,6 +24,10 @@
   font-size: 1rem !important;
 }
 
+.dark-light{
+  color: #333;
+}
+
 .img-responsive{
   max-height: 80px;
     opacity: 0.5;
@@ -35,17 +39,10 @@
 }
 
 .img-responsive-team{
-    opacity: 0.5;
-    filter: brightness( 100% ) contrast( 100% ) saturate( 0% ) blur( 0px ) hue-rotate( 0deg );
     max-width: 100%;
     max-width: -moz-available;          /* For Mozzila */
     max-width: -webkit-fill-available;  /* For Chrome */
     max-width: stretch;
-}
-
-.img-responsive-team:hover{
-  opacity: 1;
-  filter: brightness( 100% ) contrast( 100% ) saturate( 100% ) blur( 0px ) hue-rotate( 0deg );
 }
 
 .img-responsive:hover{
@@ -335,7 +332,6 @@
   }
 
   @media (max-width: 768px) {
-
     .text-lab29{
       text-align: center !important;
     }
@@ -355,18 +351,99 @@
     }
     .patients-header {
       min-height: 60vh !important;
+      padding: 2rem 0;
     }
     
     .header-title {
-      font-size: 2.5rem;
+      font-size: 2rem;
+      line-height: 1.2;
+      margin-bottom: 1rem;
     }
     
     .header-text {
       font-size: 1rem;
     }
+
+    body{
+      font-size: 1rem !important;
+    }
+    
+    p{
+      font-size: 1rem !important;
+    }
+    
+    a{
+      font-size: 1rem !important;
+    }
+    
+    span{
+      font-size: 1rem !important;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-description {
+      font-size: 1rem;
+    }
+
+    .experiment-title {
+      font-size: 1.3rem;
+    }
+
+    .experiment-subtitle {
+      font-size: 1rem;
+    }
+    
+    .dxgpt-section {
+      padding: 2rem 0;
+    }
+    
+    .experiments-section {
+      padding: 2rem 0;
+    }
+    
+    .row.mb-4 {
+      margin-bottom: 1rem !important;
+    }
+    
+    .row.mb-5 {
+      margin-bottom: 1rem !important;
+    }
+    
+    .col-md-6.mb-4 {
+      margin-bottom: 1rem !important;
+    }
+    
+    .img-responsive-team {
+      max-width: 120px;
+      height: auto;
+    }
+    
+    .center-elements .col-lg-3.col-sm-6 {
+      width: 50%;
+    }
+    
+    .dxgpt-interface {
+      margin-top: 2rem;
+    }
+
+    .form-control {
+      font-size: 0.9rem;
+    }
+    
+    .experiment-card {
+      margin-bottom: 2rem;
+    }
+
+    .experiment-body p {
+      font-size: 0.9rem !important;
+    }
   }
 
-    @media (max-width: 575px) {
+  @media (max-width: 575px) {
       .margin-0{
         margin-left: 0 !important;
         margin-right: 0 !important;
@@ -384,6 +461,26 @@
       }
       .hidepanelsm{
         display: none;
+      }
+  
+      .header-title {
+        font-size: 1.8rem;
+        line-height: 1.2;
+        margin-bottom: 0.8rem;
+      }
+      
+      .section-title {
+        font-size: 1.6rem;
+        margin-bottom: 0.8rem;
+      }
+      
+      .experiment-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.3rem;
+      }
+      
+      .experiment-subtitle {
+        font-size: 0.9rem;
       }
    }
 
@@ -462,32 +559,6 @@
 
 .help-link:hover {
   color: #2980b9;
-}
-
-@media (max-width: 768px) {
-  .patients-header {
-    min-height: 60vh !important;
-  }
-  
-  .header-title {
-    font-size: 2.5rem;
-  }
-  
-  .header-text {
-    font-size: 1rem;
-  }
-
-  .dxgpt-section {
-    padding: 3rem 0;
-  }
-
-  .section-title {
-    font-size: 2rem;
-  }
-
-  .dxgpt-interface {
-    margin-top: 2rem;
-  }
 }
 
 /* Estilos para el popup de ayuda */
@@ -583,32 +654,6 @@
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 768px) {
-  .patients-header {
-    min-height: 60vh !important;
-  }
-  
-  .header-title {
-    font-size: 2.5rem;
-  }
-  
-  .header-text {
-    font-size: 1rem;
-  }
-
-  .dxgpt-section {
-    padding: 3rem 0;
-  }
-
-  .section-title {
-    font-size: 2rem;
-  }
-
-  .dxgpt-interface {
-    margin-top: 2rem;
-  }
-}
-
 /* Estilos para la sección de experimentos */
 .experiments-section {
   padding: 5rem 0;
@@ -689,12 +734,11 @@
   background-color: #e8e8f8;
 }
 
-@media (max-width: 768px) {
-  .experiments-section {
-    padding: 3rem 0;
-  }
-  
-  .experiment-card {
-    margin-bottom: 2rem;
-  }
+.anchor_tags {
+  display: block;
+  position: relative;
+  top: -4.3rem;
+  visibility: hidden;
+  height: 0;
+  pointer-events: none;
 }
