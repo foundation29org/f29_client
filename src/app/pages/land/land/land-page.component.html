@@ -1,6 +1,13 @@
 <a id="home" class="anchor_tags"></a>
 <section>
-    <div class="row auth-height full-height-vh m-0 grid-hover" [ngClass]="(lang=='en')?'background-img-en':'background-img-es'">
+    <div class="row auth-height full-height-vh m-0 patients-header">
+        <div class="col-md-10 offset-md-1 header-content">
+            <h1 class="header-title" [innerHTML]="'f29.header.title1' | translate "></h1>
+            <h1 class="header-title" [innerHTML]="'f29.header.title2' | translate "></h1>
+            <p class="header-text">
+                {{'f29.header.description' | translate }}
+            </p>
+        </div>
     </div>
 </section>
 <div style="position: relative;" class="hidepanelmd">
@@ -9,220 +16,153 @@
     </div>
 </div>
 
+<!-- Nueva sección DxGPT -->
+<a id="dxgpt" class="anchor_tags"></a>
+<section class="dxgpt-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 dxgpt-info">
+                <h2 class="section-title">{{'f29.dxgpt.title' | translate }}</h2>
+                <p class="section-description">{{'f29.dxgpt.description' | translate }}</p>
+                <a href="https://dxgpt.app/" target="_blank" class="btn btn-primary round mt-3" title="{{'f29.Know more' | translate }}">
+                    <strong class="menu-title">{{'f29.Know more' | translate }}</strong>
+                </a>
+            </div>
+            <div class="col-md-6">
+                <div class="dxgpt-interface">
+                    <h4 class="text-center mb-2">{{'f29.dxgpt.interface.title' | translate }}</h4>
+                    <div class="input-container">
+                        <textarea class="form-control" [(ngModel)]="summaryDx29" rows="6" placeholder="{{'f29.dxgpt.interface.placeholder' | translate }}"></textarea>
+                        <p class="text-center mt-2">{{'f29.dxgpt.interface.hint' | translate }}</p>
+                        <div class="text-center mt-3">
+                            <button class="btn btn-search" (click)="gotoDxGPT()">{{'f29.dxgpt.interface.search' | translate }}</button>
+                        </div>
+                        <p class="text-center mt-3">
+                            <a (click)="showContentInfoAPP(contentInfoAPP)" class="help-link">{{'f29.dxgpt.interface.help' | translate }}</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<a id="iniciatives" class="anchor_tags"></a>
+<!-- Sección de Investigación -->
+<section class="research-section">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-12 text-center">
+                <h2 class="section-title">{{'f29.research.title' | translate }}</h2>
+                <p class="section-description">{{'f29.research.description' | translate }}</p>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <!-- Nav29 -->
+            <div class="col-md-6 mb-4">
+                <div class="research-card">
+                    <div class="research-header">
+                        <h3 class="research-title">{{'f29.research.nav29.title' | translate }}</h3>
+                        <h4 class="research-subtitle">{{'f29.research.nav29.subtitle' | translate }}</h4>
+                    </div>
+                    <div class="research-body">
+                        <p>{{'f29.research.nav29.description' | translate }}</p>
+                        <a href="https://nav29.org/" target="_blank" class="btn btn-primary round mt-3">
+                            <strong>{{'f29.Know more' | translate }}</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TrialGPT -->
+            <div class="col-md-6 mb-4">
+                <div class="research-card">
+                    <div class="research-header">
+                        <h3 class="research-title">{{'f29.research.trialgpt.title' | translate }}</h3>
+                        <h4 class="research-subtitle">{{'f29.research.trialgpt.subtitle' | translate }}</h4>
+                    </div>
+                    <div class="research-body">
+                        <p>{{'f29.research.trialgpt.description' | translate }}</p>
+                        <a href="https://clinicaltrial29.azurewebsites.net/" target="_blank" class="btn btn-primary round mt-3">
+                            <strong>{{'f29.Test it' | translate }}</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GeneWise -->
+            <div class="col-md-6 mb-4">
+                <div class="research-card">
+                    <div class="research-header">
+                        <h3 class="research-title">{{'f29.research.genewise.title' | translate }}</h3>
+                        <h4 class="research-subtitle">{{'f29.research.genewise.subtitle' | translate }}</h4>
+                    </div>
+                    <div class="research-body">
+                        <p>{{'f29.research.genewise.description' | translate }}</p>
+                        <a href="https://genewise.azurewebsites.net/" target="_blank" class="btn btn-primary round mt-3">
+                            <strong>{{'f29.Test it' | translate }}</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HealthData29 -->
+            <div class="col-md-6 mb-4">
+                <div class="research-card">
+                    <div class="research-header">
+                        <h3 class="research-title">{{'f29.research.healthdata29.title' | translate }}</h3>
+                        <h4 class="research-subtitle">{{'f29.research.healthdata29.subtitle' | translate }}</h4>
+                    </div>
+                    <div class="research-body">
+                        <p>{{'f29.research.healthdata29.description' | translate }}</p>
+                        <a href="https://www.healthdata29.org/" target="_blank" class="btn btn-primary round mt-3">
+                            <strong>{{'f29.Know more' | translate }}</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Libro Enfermedades Raras -->
+            <div class="col-md-6 mb-4">
+                <div class="research-card">
+                    <div class="research-header">
+                        <h3 class="research-title">{{'f29.p4.t' | translate }}</h3>
+                    </div>
+                    <div class="research-body">
+                        <p>{{'f29.p4.d' | translate }}</p>
+                        <a routerLink="/libroenfermedadesraras" class="btn btn-primary round mt-3">
+                            <strong>{{'f29.Test it' | translate }}</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guía Enfermedades Raras -->
+            <div class="col-md-6 mb-4">
+                <div class="research-card">
+                    <div class="research-header">
+                        <h3 class="research-title">{{'f29.p5.t' | translate }}</h3>
+                    </div>
+                    <div class="research-body">
+                        <p>{{'f29.p5.d' | translate }}</p>
+                        <a routerLink="/guiaenfermedadesraras" class="btn btn-primary round mt-3">
+                            <strong>{{'f29.Test it' | translate }}</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <div>
     <!--class="col-sm-12 mt-0 mb-0 card card-block mx-auto pr-0 pl-0 padding-0" style="z-index: -1 !important;"-->
-    <div class="card-body no-padding pt-0" style="overflow:hidden;">
-        <div class="row pt-5 pb-5">
-            <div class="row offset-lg-4 col-lg-4 margin-0 mb-4 mt-4 text-center">
-                <div class='col-md-12 pb-3'>
-                    <h4 class="text-bold-500 mt-4"><strong>{{'f29.t1.1' | translate }}</strong></h4>
-                </div>
-                <div class="col-md-12">
-                    <h4 class="m-2">{{'f29.t1.2' | translate }}</h4>
-                </div>
-            </div>
-            
-            <div class="row col-md-12 mt-5 mb-5 text-center">
-                <div class="col-lg-12">
-                    <img src="assets/img/home/down.png" alt="" class="">
-                </div>
-                <a id="lab" class="anchor_tags"></a>
-
-            </div>
-        </div>
-       
-        <div style="position: relative;" class="hidepanelmd">
-            <div class="" style="right:70px;width: auto;max-width: auto;top: -95px;position: absolute;z-index: 1">
-                <img src="assets/img/home/puntos2.png" alt="" class="">
-            </div>
-        </div>
-        
-        <div class="row pt-5 pb-5 m--50"
-            style="background: #FBF6FC; transform:rotate(2deg);position: relative;">
-            <div class="row offset-lg-2 col-lg-8 mb-4 margin-0 text-center m-50" style="transform:rotate(-2deg);">
-                <div class="col-lg-12">
-                    <div class="row col-md-12 mb-5">
-                        <div class="col-md-6">
-                            <img class="round img-fluid mt-1" src="assets/img/home/lab29.webp" alt="lab29">
-                        </div>
-                        <div class="col-md-6 text-lab29">
-                            <h1 class="text-bold-500 pb-1">Lab <span class="primary" style="font-size: inherit !important;"><strong>29</strong></span></h1>
-                            <h4 class="text-bold-500 pb-3"><strong>{{'f29.tlab.0' | translate }}</strong></h4>
-                            <p>
-                                {{'f29.tlab.1' | translate }}
-                            </p>
-                            <p>
-                                {{'f29.tlab.2' | translate }}
-                            </p>
-                            <a id="iniciatives" class="anchor_tags"></a>
-                            <span>
-                                <a routerLink="/lab" class="btn btn-primary round mt-3 mb-5" title="{{'f29.tlab.3' | translate }}">
-                                    <strong class="menu-title">{{'f29.tlab.3' | translate }}</strong>
-                                </a>
-                            </span>
-                        </div>
-                    </div>
-                    
-                    <h1 class="text-bold-500 mt-5 pb-3">{{'f29.t2.1' | translate }} <span class="primary"
-                            style="font-size: inherit !important;"><strong>{{'f29.t2.2' | translate }}</strong></span></h1>
-                    <h4 class="text-bold-500 mt-4 pb-3"><strong>{{'f29.t2.3' | translate }}</strong></h4>
-                    <div class="row mt-3">
-                        <!--<div class="col-md-6 mt-2">
-                            <span class="">{{'f29.t2.4.4.1' | translate }}</span>
-                            <div class="card p-3">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <img class="mt-3 mb-3" src="assets/img/home/logo-Dx29.png" alt="Dxgpt"
-                                            style="max-width: 40%;">
-                                        <h5 class="text-bold-500 mt-2">{{'f29.t2.4.4.2' | translate }}</h5>
-                                        <p class="font-size-sm">{{'f29.t2.4.4.3' | translate }}</p>
-                                        <ol style="text-align: initial;">
-                                            <li class="font-size-sm" [innerHTML]="'f29.t2.4.4.4' | translate "></li>
-                                            <li class="font-size-sm" [innerHTML]="'f29.t2.4.4.5' | translate "></li>
-                                            <li class="font-size-sm" [innerHTML]="'f29.t2.4.4.6' | translate "></li>
-                                        </ol>
-                                        <a href="https://dxgpt.app/" target="_blank" class="btn btn-primary round mt-3" title="{{'f29.Know more' | translate }}">
-                                            <strong class="menu-title">{{'f29.Know more' | translate }}</strong>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mt-2">
-                            <span class="">{{'f29.t2.4.5.1' | translate }}</span>
-                            <div class="card p-3">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <img class="mt-2 mb-3" src="assets/img/home/logo-nav29.png" alt="nav29"
-                                            style="max-width: 40%;">
-                                        <h5 class="text-bold-500 mt-2">{{'f29.t2.4.5.2' | translate }}</h5>
-                                        <p class="font-size-sm">{{'f29.t2.4.5.3' | translate }}</p>
-                                        <ol style="text-align: initial;">
-                                            <li class="font-size-sm" [innerHTML]="'f29.t2.4.5.4' | translate "></li>
-                                            <li class="font-size-sm" [innerHTML]="'f29.t2.4.5.5' | translate "></li>
-                                            <li class="font-size-sm" [innerHTML]="'f29.t2.4.5.6' | translate "></li>
-                                        </ol>
-                                        <p class="font-size-sm">{{'f29.t2.4.5.7' | translate }}</p>
-                                        <a href="https://nav29.org/" target="_blank" class="btn btn-primary round mt-3" title="{{'f29.Know more' | translate }}">
-                                            <strong class="menu-title">{{'f29.Know more' | translate }}</strong>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
-                        <div class="col-md-4 mt-2">
-                            <span class="">{{'f29.t2.4.1.1' | translate }}</span>
-                            <div class="card p-3">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <img class="mt-3 mb-3" src="assets/img/home/Logo_DX29.webp" alt="Dx29"
-                                            style="max-width: 40%;">
-                                        <h5 class="text-bold-500 mt-2">{{'f29.t2.4.1.2' | translate }}</h5>
-                                        <p class="font-size-sm">{{'f29.t2.4.1.3' | translate }}</p>
-                                        <p class="font-size-sm">{{'f29.t2.4.1.4' | translate }}</p>
-
-                                        <a href="https://dx29.ai/" target="_blank" class="btn btn-primary round mt-3" title="{{'f29.Know more' | translate }}">
-                                            <strong class="menu-title">{{'f29.Know more' | translate }}</strong>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mt-2">
-                            <span class="">{{'f29.t2.4.2.1' | translate }}</span>
-                            <div class="card p-3">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <img class="mt-4 mb-3" src="assets/img/home/healthdata29.png" alt="healthdata29" style="width: inherit;">
-                                        <h5 class="text-bold-500 mt-2">{{'f29.t2.4.2.2' | translate }}</h5>
-                                        <p class="font-size-sm">{{'f29.t2.4.2.3' | translate }}</p>
-                                        <p class="font-size-sm">{{'f29.t2.4.2.4' | translate }}</p>
-                                        <a href="https://www.healthdata29.org/" target="_blank" style="background-color: #4942FE;border-color: #4942FE;"
-                                            class="btn btn-primary round mt-3" title="{{'f29.Know more' | translate }}">
-                                            <strong class="menu-title">{{'f29.Know more' | translate }}</strong>
-                                        </a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-md-4 mt-2">
-                            <span class="">{{'f29.t2.4.3.1' | translate }}</span>
-                            <div class="card p-3">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <img class="mt-3 mb-3" src="assets/img/home/logoraito.png" alt="Raito"
-                                            style="max-width: 80%;">
-                                        <h5 class="text-bold-500 mt-2">{{'f29.t2.4.3.2' | translate }}</h5>
-                                        <p class="font-size-sm">{{'f29.t2.4.3.3' | translate }}</p>
-                                        <!--<p class="font-size-sm">{{'f29.t2.4.3.4' | translate }}</p>-->
-                                        <a href="https://raito.care" target="_blank"
-                                            class="btn btn-primary round mt-3" title="{{'f29.Know more' | translate }}">
-                                            <strong class="menu-title">{{'f29.Know more' | translate }}</strong>
-                                        </a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="card-body no-padding pt-0" style="overflow:hidden;">       
         <a id="thefoundation" class="anchor_tags"></a>
-        <div class="row pt-5 offset-lg-1 col-lg-10 mb-4 margin-0 text-center">
-            <div class="col-md-12 pt-5 pb-5 img-cubo">
-                <h1 class="text-bold-500 mt-4 pb-3">{{'f29.t3.1.1' | translate }} <span class="primary"
-                        style="font-size: inherit !important;"><strong>{{'f29.t3.1.2' | translate }}</strong></span></h1>
-                <h4 class="text-bold-500 mt-4 pb-3"><strong>{{'f29.t3.1.3' | translate }}</strong></h4>
-            </div>
-
-
-        </div>
-        <div class="row pb-3 offset-lg-1 col-lg-10 mb-4 margin-0 text-center">
-            <div class="offset-md-1 col-md-4">
-                <img class="" src="assets/img/home/somos.webp" alt="we are foundation29">
-            </div>
-            <div class="col-md-7">
-                <div class="text-left mt-5">
-                    <h2 class="mb-0">{{'f29.t3.2.1' | translate }} /</h2>
-                    <h2 style="color: #FF02FF;"><strong>{{'f29.t3.2.2' | translate }}</strong></h2>
-                    <p>{{'f29.t3.2.3' | translate }}</p>
-                    <div style="border-top: 5px solid #F84239;width: 50px;"></div>
-                </div>
-            </div>
-        </div>
-        <div class="row pb-3 offset-lg-1 col-lg-10 mb-4 margin-0 text-center">
-            <div class="offset-md-1 col-md-7">
-                <div class="text-left mt-5">
-                    <h2 class="mb-0">{{'f29.t3.3.1' | translate }} /</h2>
-                    <h2 style="color: #2EF87C;"><strong>{{'f29.t3.3.2' | translate }}</strong>
-                    </h2>
-                    <div style="border-top: 5px solid #F84239;width: 50px;"></div>
-                </div>
-            </div>
-            <div class=" col-md-4">
-                <img class="" src="assets/img/home/trabajamos.webp" alt="">
-            </div>
-        </div>
-        <div class="row pb-3 offset-lg-1 col-lg-10 mb-4 margin-0 text-center">
-            <div class="offset-md-1 col-md-4">
-                <img class="" src="assets/img/home/nuevo-modelo.webp" alt="">
-            </div>
-            <div class="col-md-7">
-                <div class="text-left mt-5">
-                    <h2 class="mb-0">{{'f29.t3.4.1' | translate }} /</h2>
-                    <h2 style="color: #05E7E7;"><strong>{{'f29.t3.4.2' | translate }}</strong></h2>
-                    <p>{{'f29.t3.4.3' | translate }}</p>
-                    <div style="border-top: 5px solid #F84239;width: 50px;"></div>
-                </div>
-            </div>
-        </div>
-        <div class="row pt-3 pb-3">
+        <div class="row pt-3 pb-3" style="background: #FBF6FC;">
             <div class="row offset-lg-1 col-lg-10 mb-4 margin-0 text-center">
                 <div class="col-md-12">
-                    <h2 class="text-bold-500 mt-4 pb-3" style="color: #33658a;"><strong>{{'f29.t3.5' | translate }}</strong></h2>
+                    <h2 class="text-bold-500 mt-4 pb-3" style="color: #333;"><strong>{{'f29.t3.5' | translate }}</strong></h2>
                 </div>
                 <div class="col-md-12 pb-3 mt-3">
                     <div class="row center-elements">
@@ -279,176 +219,73 @@
                 
             </div>
         </div>
-        <div class="row mb-5" style="background: #F5FCE5; position: relative;">
-            <div class="elementor-background-overlay"></div>
-            <div class="elementor-shape elementor-shape-top" data-negative="false">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
-                    <path class="elementor-shape-fill" d="M0,6V0h1000v100L0,6z"></path>
-                </svg>
-            </div>
-            <div class="elementor-shape elementor-shape-bottom" data-negative="false">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
-                    <path class="elementor-shape-fill" d="M0,6V0h1000v100L0,6z"></path>
-                </svg>
-            </div>
-            <div class="elementor-container">
-                <div class="col-lg-6 elementor-column hidepanellg">
-                    <div class="elementor-background-overlay"></div>
-                    <div class="img-nino"></div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="mt-5 mb-5 pb-5 pt-5 center-elements">
-                        <img *ngIf="lang=='es'" class="" style="width: 70%;" src="assets/img/home/quelos.png" alt="">
-                        <img *ngIf="lang!='es'" class="" style="width: 70%;" src="assets/img/home/let-1.webp" alt="">
-                        <div class="mt-5 text-left offset-md-2 col-md-8">
-                            <p>{{'f29.t4.1' | translate }}</p>
-                            <p>{{'f29.t4.2' | translate }}</p>
-                            <p>{{'f29.t4.3' | translate }}</p>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
 
-        <div class="row mb-5" style="position: relative;display: flex;">
-            <div class="offset-lg-1 col-lg-10 elementor-container" style="border-radius: 10px 0px 0px 10px;">
-                <div class="col-lg-6 p-0 elementor-column">
-                    <div class="img-astro">
-                        <div class="elementor-background-overlayastro" style="background-color: #000000;opacity: 0.13;border-radius: 10px 0px 0px 10px;"></div>
-                    </div>
-                </div>
-                <div class="col-lg-6" style="background-color: #E9453F;border-radius: 0px 10px 10px 0px;">
-                    <div class="mt-5 mb-5 pb-5 pt-5 center-elements white">
-                        <div class="text-left offset-md-2 col-md-8">
-                            <h2 class="text-bold-500">{{'f29.t5.1' | translate }}</h2>
-                        </div>
-                        <div class="mt-3 text-left offset-md-2 col-md-8">
-                            <h4>{{'f29.t5.2' | translate }}</h4>
-                            <h4 class="text-bold-500">{{'f29.t5.3' | translate }}</h4>
-                            <p><a class="nav-link btn btn-white round text-bold-500 mt-3" style="width: 220px;" routerLink="/donate">
-                                <span>{{'f29.t5.4' | translate }}</span>
-                              </a>
-                            </p>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-        <a id="stepnews" class="anchor_tags"></a>
-        <div class="row mb-5">
-            <div class="col-md-12 pr-0 pl-0">
-                <div class="img-noticias">
-                    <div class="center-elements">
-                        <div id="outer" class="container">
-                            <div id="inner">
-                                <div class="" style="left: 125px;position: absolute;" class="hidepanelmd">
-                                    <img src="assets/img/home/icon2.png" alt="" class="">
-                                  </div>
-                                <h2 class="text-bold-500">{{'f29.t6.1' | translate }}</h2>
-                                <h2 class="text-bold-500"><strong>{{'f29.t6.2' | translate }}</strong></h2>
-                            </div>
-                          </div>
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12" style="margin-top: -137px;margin-bottom: 0px;">
-                <div class="row center-elements">
-                    <div class="offset-lg-1 col-lg-10">
-                        <div class="row">
-                            <div class="col-md-4 text-left mb-5" *ngFor="let new of news; let i=index">
-                                <img [src]="new.img"  alt="news foundation29" class="imageclass pointer" [routerLink]="['/news/' + new.title, new.id]">
-                                <p class="text-bold-500 mt-2 pointer" [routerLink]="['/news/' + new.title, new.id]"><strong>{{new.title}}</strong></p>
-                                <p class="text-muted">{{new.date}}</p>
-                                <p>{{new.resume}}</p>
-                                <a [routerLink]="['/news/' + new.title, new.id]">{{'f29.t6.3' | translate }} » </a>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
 
         <a id="ecosystem" class="anchor_tags"></a>
-        <div class="row pt-5 pb-5 m--70"
-            style="background: #FBF6FC; transform:rotate(2deg);position: relative;">
-            <div class="m-70 row offset-lg-1 col-lg-10 mb-4 text-center" style="transform:rotate(-2deg);">
-                <div class="col-md-12 pt-5 pb-5 img-cubo">
-                    <h1 class="text-bold-500 mt-4 pb-3"><span class="primary"
-                            style="font-size: inherit !important;"><strong>{{'f29.t7.1' | translate }}</strong></span></h1>
-                    <h4 class="text-bold-500 mt-4 pb-3"><strong>{{'f29.t7.2' | translate }}</strong></h4>
+        <div class="row pt-3 pb-3 m--70"
+            style="background: #ffffff;">
+            <div class="m-70 row offset-lg-1 col-lg-10 mb-4 text-center">
+                <div class="col-md-12 mt-4 pb-3">
+                    <h2 class="text-bold-500"><span class="dark-light"
+                            style="font-size: inherit !important;"><strong>{{'f29.t7.1' | translate }}</strong></span></h2>
+                    <h4 class="text-bold-500 pb-3"><strong>{{'f29.t7.2' | translate }}</strong></h4>
                 </div>
 
-                <div class="col-12 justify-content-center center-elements col-md-12 mt-5">
+                <div class="col-12 justify-content-center center-elements col-md-12 pb-3 mt-3">
                     <h4 class="text-bold-500 mt-4 pb-3"><strong>{{'f29.t7.3' | translate }}</strong></h4>
                     <div class="row center-elements pad-logos">
-                        <div class="col-6 col-sm-4 mb-3 p-4">
+                        <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
                             <img class="img-responsive" alt="European Medicines Agency (EMA)" src='assets/img/home/institutions/Logo_ema.webp'>
                           </div>
-                      <div class="col-6 col-sm-4 mb-3 p-4">
+                      <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
                         <img class="img-responsive" alt="logo global commission" src='assets/img/home/institutions/header-logo.webp'>
                       </div>
-                      <div class="col-6 col-sm-4 mb-3 p-4">
-                        <img class="img-responsive" alt="logo nhs" src='assets/img/home/institutions/nhs.webp'>
-                      </div>
-                      <div class="col-6 col-sm-4 mb-3 p-4">
+                      <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
                         <img class="img-responsive" alt="logo barrabes" src='assets/img/home/allies/sermas.webp'>
                       </div>
-                      <div class="col-6 col-sm-4 mb-3 p-4">
+                      <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
                         <img class="img-responsive" alt="logo CatSalut" src='assets/img/home/institutions/CatSalut.webp'>
                       </div>
-                      <div class="col-6 col-sm-4 mb-3 p-4">
-                        <img class="img-responsive" alt="logo osakidetza" src='assets/img/home/institutions/osa.webp'>
-                      </div>
-                      <div class="col-6 col-sm-4 mb-3 p-4">
+                      <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
                         <img class="img-responsive" alt="logo monarch" src='assets/img/home/institutions/monarch.webp' style="max-height: 60px !important;">
                       </div>
-                      <div class="col-6 col-sm-4 mb-3 p-4">
+                      <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
                         <img class="img-responsive" alt="logo idiscc" src='assets/img/home/institutions/idiscc.webp'>
                       </div>
-                      <div class="col-6 col-sm-4 mb-3 p-4">
-                        <img class="img-responsive" alt="logo ie" src='assets/img/home/institutions/ie.webp' style="max-height: 100% !important;">
-                      </div>
-                      <div class="offset-sm-2 col-6 col-sm-4 mb-3 p-4">
+                      <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
                         <img class="img-responsive" alt="logo dihbio" src='assets/img/home/institutions/dihbio.webp'>
-                      </div>
-                      <div class="col-6 col-sm-4 mb-3 p-4">
-                        <img class="img-responsive" alt="logo st" src='assets/img/home/institutions/et.webp'>
                       </div>
                     </div>
 
-                    <h4 class="text-bold-500 mt-5 pb-3"><strong>{{'f29.t7.4' | translate }}</strong></h4>
-                    <div class="row center-elements pad-logos">
-                        <div class="col-6 offset-md-4 col-sm-4 mb-3 p-4">
-                          <img class="img-responsive" alt="logo duchenne"  src='assets/img/home/associations/parent.webp'>
-                        </div>
-                      </div>
+                  
 
                       <h4 class="text-bold-500 mt-5 pb-3"><strong>{{'f29.t7.5' | translate }}</strong></h4>
                       <div class="row center-elements pad-logos">
-                          <div class="col-6 col-sm-4 mb-3 p-4">
+                          <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
                             <img class="img-responsive" alt="logo Microsoft" src='assets/img/home/allies/Microsoft-Logo.webp'>
                           </div>
-                          <div class="col-6 col-sm-4 mb-3 p-4">
+                          <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
                             <img class="img-responsive" alt="logo takeda" src='assets/img/home/allies/takeda.webp'>
                           </div>
-                          <div class="col-6 col-sm-4 mb-3 p-4">
+                          <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
                             <img class="img-responsive" alt="logo KyowaKirin" src='assets/img/home/allies/KyowaKirin.webp'>
                           </div>
-                          <div class="col-6 col-sm-4 mb-3 p-4">
+                          <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
                             <img class="img-responsive" alt="logo garrigues" src='assets/img/home/allies/garrigues.webp'>
                           </div>
-                          <div class="col-6 col-sm-4 mb-3 p-4">
+                          <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
                             <img class="img-responsive" alt="logo barrabes" src='assets/img/home/allies/barra.webp'>
                           </div>
-                          <div class="col-6 col-sm-4 mb-3 p-4">
+                          <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
                             <img class="img-responsive" alt="logo italfarmaco" src='assets/img/home/allies/italfarmaco.webp'>
                           </div>
-                          <div class="offset-sm-4 col-6 col-sm-4 mb-3 p-4">
+                          <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
+                            <img class="img-responsive" alt="logo sanofi" src='assets/img/home/allies/sanofi.webp'>
+                          </div>
+                          <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
+                            <img class="img-responsive" alt="logo google" src='assets/img/home/allies/google.webp'>
+                          </div>
+                          <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
                             <img class="img-responsive" alt="logo ucb" src='assets/img/home/allies/ucb.webp'>
                           </div>
                         </div>
@@ -457,11 +294,11 @@
             </div>
         </div>
         <a id="awards" class="anchor_tags"></a>
-        <div class="row pt-5 offset-lg-1 col-lg-10 mb-4 margin-0 text-center">
-            <div class="col-md-12 pt-5 pb-5 img-cubo">
-                <h1 class="text-bold-500 mt-4 pb-3"><span class="primary"
-                        style="font-size: inherit !important;"><strong>{{'f29.t8.1' | translate }}</strong></span></h1>
-                <h4 class="text-bold-500 mt-4 pb-3"><strong>{{'f29.t8.2' | translate }} <span class="d-block">{{'f29.t8.3' | translate }}</span></strong></h4>
+        <div class="row pt-3 pb-3 margin-0 text-center" style="background: #FBF6FC;">
+            <div class="col-md-12 pt-4 pb-3">
+                <h2 class="text-bold-500"><span class="dark-light"
+                        style="font-size: inherit !important;"><strong>{{'f29.t8.1' | translate }}</strong></span></h2>
+                <h4 class="text-bold-500 pb-3"><strong>{{'f29.t8.2' | translate }} <span class="d-block">{{'f29.t8.3' | translate }}</span></strong></h4>
             </div>
             <div class="col-md-12">
                 <div class="row">
@@ -482,3 +319,98 @@
         </div>
     </div>
 </div>
+
+<ng-template #contentInfoAPP let-c="close" let-d="dismiss" appendTo="body">
+    <div class="modal-header">
+      <h4 class="modal-title">{{'f29.dxgpt.interface.help' | translate }}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    
+    <div class="modal-body content-wrapper">
+      <div class="row align-items-start">
+        
+        <!-- COLUMNA 1: EJEMPLOS -->
+        <div class="col-md-4 text-center">
+            <div class="section-header">
+                <!-- Título / icono -->
+                <div class="icon-container">
+                    <i class="fas fa-gear fa-2x"></i>
+                </div>
+                <h4>{{ 'f29.dxgpt.interface.p1.title' | translate }}</h4>
+                <p class="section-subheader">{{ 'f29.dxgpt.interface.p1.subtitle' | translate }}</p>
+            </div>
+          
+          
+          <!-- Contenido inferior (ejemplos) -->
+          <div class="card-container mt-3">
+            <div class="example-card pointer" (click)="copyText('opt1'); lauchEvent('Copy sample 1');">
+              <p class="mb-0">{{'f29.dxgpt.interface.p1.1' | translate }}</p>
+              <div class="text-right">
+                <i class="fa-solid fa-arrow-right-long"></i>
+              </div>
+            </div>
+          </div>
+          <div class="card-container mt-3">
+            <div class="example-card pointer" (click)="copyText('opt2'); lauchEvent('Copy sample 2');">
+              <p class="mb-0">{{'f29.dxgpt.interface.p1.2' | translate }}</p>
+              <div class="text-right">
+                <i class="fa-solid fa-arrow-right-long"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- COLUMNA 2: CAPACIDADES -->
+        <div class="col-md-4 text-center">
+            <div class="section-header">
+                <div class="icon-container">
+                    <i class="fa fa-rocket fa-2x"></i>
+                  </div>
+                  <h4>{{ 'f29.dxgpt.interface.p2.title' | translate }}</h4>
+            </div>
+          <!-- Título / icono -->
+          
+          
+          <!-- Contenido inferior (capacidades) -->
+          <div class="card-container mt-3">
+            <div class="capabilities-card">
+              <p class="mb-0">{{'f29.dxgpt.interface.p2.1' | translate }}</p>
+            </div>
+          </div>
+          <div class="card-container mt-3">
+            <div class="capabilities-card">
+              <p class="mb-0">{{'f29.dxgpt.interface.p2.2' | translate }}</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- COLUMNA 3: LIMITACIONES -->
+        <div class="col-md-4 text-center">
+          <!-- Título / icono -->
+           <div class="section-header">
+            <div class="icon-container">
+                <i class="fa fa-exclamation-triangle fa-2x"></i>
+              </div>
+              <h4 >{{ 'f29.dxgpt.interface.p3.title' | translate }}</h4>
+           </div>
+          
+          
+          <!-- Contenido inferior (limitaciones) -->
+          <div class="card-container mt-3">
+            <div class="limitations-card">
+              <p class="mb-0">{{'f29.dxgpt.interface.p3.1' | translate }}</p>
+            </div>
+          </div>
+          <div class="card-container mt-3">
+            <div class="limitations-card">
+              <p class="mb-0">{{'f29.dxgpt.interface.p3.2' | translate }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </ng-template>
+  

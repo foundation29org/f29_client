@@ -1,39 +1,25 @@
 <section>
-  <div><!--class="background-img"-->
-      <div class="container header-container">
-          <div class="row">
-            <div class="col-md-12 mt-5">
-              <!--<div style="position: relative;">
-                <div class="" style="left: 25px;width: auto;max-width: auto;top: 20px;position: absolute;">
-                    <img src="assets/img/home/icon2.png" alt="" class="">
-                  </div>
-              </div>-->
-              <div class="center-elements">
-                <h1 class="text-bold-300">{{'f29.d1' | translate }}</h1>
-              </div>
-              <div class="center-elements">
-                <h1 class="text-bold-500"><strong>{{'f29.d2' | translate }}</strong></h1>
-              </div>
-            </div>
+  <div class="row auth-height full-height-vh m-0 patients-header">
+      <div class="col-md-10 offset-md-1 header-content">
+          <h1 class="header-title" [innerHTML]="'f29.d1' | translate "></h1>
+          <p class="header-text">
+            <strong>{{'f29.donate.intro0' | translate }}</strong> {{'f29.donate.intro1' | translate }} <strong>DxGPT</strong>, {{'f29.donate.intro2' | translate }}
+          </p>
+          <p class="header-text">
+            <strong>{{'f29.donate.users' | translate }}</strong>  {{'f29.donate.purpose' | translate }} <strong>{{'f29.donate.diagnosis' | translate }}</strong> {{'f29.donate.quality' | translate }}
+          </p>
+          <div class="mt-4 donate-button-container">
+            <button class="btn round btn-lg donate-button-white" (click)="scrollToWidget()">
+              <i class="fa fa-heart mr-2"></i>{{'f29.donate.donateButton' | translate }}
+            </button>
           </div>
-        </div>
+      </div>
   </div>
 </section>
 <section class="container mt-5">
   <div class="row">
     <div class="col-12">
-      <p class="mb-3">
-        <strong>{{'f29.donate.intro0' | translate }}</strong> {{'f29.donate.intro1' | translate }} <strong>DxGPT</strong>, {{'f29.donate.intro2' | translate }}
-      </p>
-      
-      <p class="mb-4">
-        <strong>{{'f29.donate.users' | translate }}</strong>  {{'f29.donate.purpose' | translate }} <strong>{{'f29.donate.diagnosis' | translate }}</strong> {{'f29.donate.quality' | translate }}
-       
-      </p>
 
-      <div class="mb-4 center-sm">
-        <button class="btn btn-primary round btn-lg" (click)="scrollToWidget()">{{'f29.donate.donateButton' | translate }}</button>
-      </div>
 
       <div class="row mb-5">
         <div class="col-md-4">
@@ -52,7 +38,9 @@
           <p>{{'f29.donate.deduction.is.subtitle' | translate }}</p>
           <p>{{'f29.donate.deduction.is.description' | translate }}</p>
           <div class="center-sm">
-            <button class="btn btn-primary round btn-lg" (click)="scrollToWidget()">{{'f29.donate.doItNowButton' | translate }}</button>
+            <button class="btn btn-primary round btn-lg donate-button" (click)="scrollToWidget()">
+              <i class="fa fa-heart mr-2"></i>{{'f29.donate.doItNowButton' | translate }}
+            </button>
           </div>
           
         </div>
@@ -119,7 +107,7 @@
   </div>
 </section>
 <div class="pt-2 pb-2" style="background: #FBF6FC;position: relative;">
-  <div class="col-md-12 pt-2 pb-2 text-center">
+  <div class="col-md-12 pt-2 pb-2 text-center" #donorboxWidget>
     <p class="mb-0">{{'f29.donate.deduction.notification' | translate }}</p>
   </div>
   
@@ -144,7 +132,7 @@
 </section>-->
 <section>
 <div class="pt-5">
-  <div class="col-12 offset-lg-4 col-lg-4 mb-4 text-center" #donorboxWidget>
+  <div class="col-12 offset-lg-4 col-lg-4 mb-4 text-center">
     <script src="https://donorbox.org/widget.js" paypalExpress="false"></script><iframe src="https://donorbox.org/embed/foundation29-donation?default_interval=o" name="donorbox" allowpaymentrequest="allowpaymentrequest" seamless="seamless" frameborder="0" scrolling="no" height="900px" width="100%" style="max-width: 500px; min-width: 250px; max-height:none!important" allow="payment"></iframe>
     <!--<script>
       window.DonorBox = { widgetLinkClassName: 'custom-dbox-popup' };
