@@ -332,80 +332,96 @@
 </div>
 
 <ng-template #contentInfoAPP let-c="close" let-d="dismiss" appendTo="body">
-  <div class="modal-header">
-    <h4 class="modal-title">{{'f29.dxgpt.interface.help' | translate }}</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body content-wrapper">
-    <div class="row align-items-center">
-      <div class="col-md-4 text-center">
-        <div class="icon-container">
-          <i class="fas fa-gear fa-2x"></i>
-        </div>
-        <h4 class="section-header">{{'f29.dxgpt.interface.p1.title' | translate }}</h4>
-        <p class="section-subheader">{{'f29.dxgpt.interface.p1.subtitle' | translate }}</p>
-      </div>
-      <div class="col-md-4 text-center">
-        <div class="icon-container">
-          <i class="fa fa-rocket fa-2x"></i>
-        </div>
-        <h4 class="section-header">{{'f29.dxgpt.interface.p2.title' | translate }}</h4>
-      </div>
-      <div class="col-md-4 text-center">
-        <div class="icon-container">
-          <i class="fa fa-exclamation-triangle fa-2x"></i>
-        </div>
-        <h4 class="section-header">{{'f29.dxgpt.interface.p3.title' | translate }}</h4>
-      </div>
+    <div class="modal-header">
+      <h4 class="modal-title">{{'f29.dxgpt.interface.help' | translate }}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
     
-    <div class="row mt-4">
-      <div class="col-md-4">
-        <div class="card-container">
-          <div class="example-card pointer" (click)="copyText('opt1');lauchEvent('Copy sample 1');">
-            <p class="mb-0">{{'f29.dxgpt.interface.p1.1' | translate }}</p>
-            <div class="text-right">
-              <i class="fa-solid fa-arrow-right-long"></i>
+    <div class="modal-body content-wrapper">
+      <div class="row align-items-start">
+        
+        <!-- COLUMNA 1: EJEMPLOS -->
+        <div class="col-md-4 text-center">
+            <div class="section-header">
+                <!-- Título / icono -->
+                <div class="icon-container">
+                    <i class="fas fa-gear fa-2x"></i>
+                </div>
+                <h4>{{ 'f29.dxgpt.interface.p1.title' | translate }}</h4>
+                <p class="section-subheader">{{ 'f29.dxgpt.interface.p1.subtitle' | translate }}</p>
+            </div>
+          
+          
+          <!-- Contenido inferior (ejemplos) -->
+          <div class="card-container mt-3">
+            <div class="example-card pointer" (click)="copyText('opt1'); lauchEvent('Copy sample 1');">
+              <p class="mb-0">{{'f29.dxgpt.interface.p1.1' | translate }}</p>
+              <div class="text-right">
+                <i class="fa-solid fa-arrow-right-long"></i>
+              </div>
+            </div>
+          </div>
+          <div class="card-container mt-3">
+            <div class="example-card pointer" (click)="copyText('opt2'); lauchEvent('Copy sample 2');">
+              <p class="mb-0">{{'f29.dxgpt.interface.p1.2' | translate }}</p>
+              <div class="text-right">
+                <i class="fa-solid fa-arrow-right-long"></i>
+              </div>
             </div>
           </div>
         </div>
-        <div class="card-container mt-3">
-          <div class="example-card pointer" (click)="copyText('opt2');lauchEvent('Copy sample 2');">
-            <p class="mb-0">{{'f29.dxgpt.interface.p1.2' | translate }}</p>
-            <div class="text-right">
-              <i class="fa-solid fa-arrow-right-long"></i>
+        
+        <!-- COLUMNA 2: CAPACIDADES -->
+        <div class="col-md-4 text-center">
+            <div class="section-header">
+                <div class="icon-container">
+                    <i class="fa fa-rocket fa-2x"></i>
+                  </div>
+                  <h4>{{ 'f29.dxgpt.interface.p2.title' | translate }}</h4>
+            </div>
+          <!-- Título / icono -->
+          
+          
+          <!-- Contenido inferior (capacidades) -->
+          <div class="card-container mt-3">
+            <div class="capabilities-card">
+              <p class="mb-0">{{'f29.dxgpt.interface.p2.1' | translate }}</p>
+            </div>
+          </div>
+          <div class="card-container mt-3">
+            <div class="capabilities-card">
+              <p class="mb-0">{{'f29.dxgpt.interface.p2.2' | translate }}</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- COLUMNA 3: LIMITACIONES -->
+        <div class="col-md-4 text-center">
+          <!-- Título / icono -->
+           <div class="section-header">
+            <div class="icon-container">
+                <i class="fa fa-exclamation-triangle fa-2x"></i>
+              </div>
+              <h4 >{{ 'f29.dxgpt.interface.p3.title' | translate }}</h4>
+           </div>
+          
+          
+          <!-- Contenido inferior (limitaciones) -->
+          <div class="card-container mt-3">
+            <div class="limitations-card">
+              <p class="mb-0">{{'f29.dxgpt.interface.p3.1' | translate }}</p>
+            </div>
+          </div>
+          <div class="card-container mt-3">
+            <div class="limitations-card">
+              <p class="mb-0">{{'f29.dxgpt.interface.p3.2' | translate }}</p>
             </div>
           </div>
         </div>
       </div>
       
-      <div class="col-md-4">
-        <div class="card-container">
-          <div class="capabilities-card">
-            <p class="mb-0">{{'f29.dxgpt.interface.p2.1' | translate }}</p>
-          </div>
-        </div>
-        <div class="card-container mt-3">
-          <div class="capabilities-card">
-            <p class="mb-0">{{'f29.dxgpt.interface.p2.2' | translate }}</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col-md-4">
-        <div class="card-container">
-          <div class="limitations-card">
-            <p class="mb-0">{{'f29.dxgpt.interface.p3.1' | translate }}</p>
-          </div>
-        </div>
-        <div class="card-container mt-3">
-          <div class="limitations-card">
-            <p class="mb-0">{{'f29.dxgpt.interface.p3.2' | translate }}</p>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-</ng-template>
+  </ng-template>
+  
