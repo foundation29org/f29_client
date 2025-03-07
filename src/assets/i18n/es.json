@@ -28,7 +28,7 @@
     "sugg6": "¿Qué aspectos debo cuidar en la interacción y comunicación con las familias de pacientes con enfermedades raras?"
   },
   "f29": {
-    "Initiatives": "Experimentos",
+    "Initiatives": "Investigación",
     "The Foundation": "La Fundación",
     "Ecosystem": "Ecosistema",
     "News": "Noticias",
@@ -40,27 +40,27 @@
       "title2": "LOS PACIENTES TIENEN <br>EL PODER",
       "description": "Somos una plataforma que impulsa la innovación en investigación y desarrollo de productos, centrándonos en áreas a menudo pasadas por alto por los sistemas sanitarios tradicionales. Nuestra misión va más allá de las enfermedades raras, empoderando a pacientes con condiciones médicas complejas a través de datos y tecnología para transformar sus trayectorias de salud."
     },
-    "experiments": {
-      "title": "Nuestras áreas de experimentación",
+    "research": {
+      "title": "Nuestras áreas de investigación",
       "description": "Descubre nuestros proyectos innovadores que están transformando la atención médica a través de datos y tecnología.",
       "nav29": {
-        "title": "Nav29 - El poder para impulsar el diagnóstico",
-        "subtitle": "Ayuda al diagnóstico para médicos y pacientes",
+        "title": "Agentes para gestión médica",
+        "subtitle": "Tu asistente médico personal para el cuidado de la salud",
         "description": "Nav29 es una aplicación gratuita que permite a pacientes y médicos acelerar el proceso de diagnóstico de enfermedades raras. Aplicamos inteligencia artificial para ayudar a pacientes y profesionales a identificar síntomas y predecir diagnósticos precisos."
       },
       "trialgpt": {
-        "title": "TrialGPT - Conectando pacientes con ensayos clínicos",
+        "title": "IA que conecta pacientes con ensayos clínicos",
         "subtitle": "Simplificando el acceso a la investigación clínica",
         "description": "TrialGPT es una prueba de concepto desarrollada por Fundación 29 que aprovecha el potencial de los LLM para simplificar la búsqueda de ensayos clínicos. Analiza informes médicos y empareja a los pacientes con ensayos relevantes, haciendo el proceso más rápido y accesible."
       },
       "genewise": {
-        "title": "GeneWise - Entendiendo la información genética",
+        "title": "Entendiendo la información genética",
         "subtitle": "Haciendo la genética accesible para pacientes y familias",
         "description": "GeneWise es una prueba de concepto desarrollada por Fundación 29. Demuestra cómo la IA generativa puede explicar información genética de manera clara y entendible para pacientes y sus familias."
       },
       "healthdata29": {
-        "title": "HealthData29 - El poder para compartir el conocimiento",
-        "subtitle": "Ayuda al diagnóstico para médicos y pacientes",
+        "title": "El poder de compartir el conocimiento",
+        "subtitle": "Compartiendo datos médicos de forma segura para la investigación",
         "description": "Compartición de datos médicos para investigación. HealthData29 facilita compartir sets de datos de salud con investigadores para utilizarlos en investigación médica de forma sencilla y segura. La iniciativa incluye una guía de buenas prácticas en la compartición y tratamiento de estos datos y ha sido premiada por la Agencia Española de Protección de Datos."
       }
     },
@@ -143,9 +143,9 @@
     "p2.d": "Nav29 representa nuestro esfuerzo por utilizar agentes inteligentes para ayudar a los pacientes en tareas específicas. Entendemos que el cuidado de la salud no se limita a los hospitales, sino que es una parte integral de la vida diaria del paciente. Nav29 está diseñado para asistir en actividades como la búsqueda de ensayos clínicos, información sobre medicamentos y datos científicos actualizados, actuando como un navegador o acompañante a lo largo de la enfermedad.",
     "p3.t": "Summary29: Herramientas de Resumen de Información Médica",
     "p3.d": "Summary29 es un conjunto de herramientas destinadas a resumir información médica compleja. Este proyecto busca aliviar la carga de los profesionales médicos y pacientes en la comprensión y gestión de datos médicos, simplificando la información de informes y conversaciones médicas. Nuestra meta es hacer accesible la información médica, reduciendo el tiempo y los recursos necesarios para su procesamiento.",
-    "p4.t": "Entendiendo la complejidad de las enfermedades raras con modelos de lenguaje",
+    "p4.t": "IA que ayuda a las familias con enfermedades raras",
     "p4.d": "Este experimento, realizado en colaboración con el destacado investigador español Lluis Montoliu, se centra en el uso de modelos de lenguaje para facilitar el acceso a información relevante. A través de una interfaz innovadora, los usuarios pueden interactuar directamente con un libro escrito por Lluis sobre enfermedades raras, permitiéndoles comprender mejor la complejidad de estas condiciones. Esta herramienta busca proporcionar valor y apoyo a pacientes y cuidadores en el manejo de enfermedades raras.",
-    "p5.t": "Guia de signos y síntomas de sospecha de enfermedades raras con modelos de lenguaje",
+    "p5.t": "Automazicación de guías clínicas",
     "p5.d": "Es una herramienta diseñada para facilitar el acceso y la comprensión de los signos y síntomas de enfermedades raras, basada en la 'Guía DE SIGNOS y SÍNTOMAS DE SOSPECHA DE ENFERMEDADES RARAS' creada por la Junta de Extremadura. Utilizando tecnología de inteligencia artificial, esta herramienta permite a los usuarios navegar e interactuar con el contenido, haciendo que la identificación de síntomas y la sospecha de estas enfermedades sean más accesibles y directas. Es esencial para cualquier persona involucrada en el cuidado y manejo de enfermedades raras, proporcionando recursos clave para reconocer condiciones tempranamente.",
     "s1.t": "Nuestro Laboratorio: Un Espacio para la Innovación",
     "s1.d": "En Fundación 29, nuestro laboratorio no es solo un lugar de trabajo; es un espacio donde la creatividad y la innovación se encuentran para generar soluciones prácticas y efectivas. Cada proyecto es un paso hacia adelante en nuestro objetivo de mejorar la vida de los pacientes y ciudadanos a través de la tecnología.",
@@ -193,7 +193,7 @@
     "t7.2": "Quiénes comparten nuestra visión y nos ayudan a hacerla realidad",
     "t7.3": "Instituciones",
     "t7.4": "Asociaciones de pacientes",
-    "t7.5": "Otros aliados",
+    "t7.5": "Gracias al soporte de",
     "t8.1": "Premios",
     "t8.2": "Rompemos barreras",
     "t8.3": "Ganamos premios",

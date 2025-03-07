@@ -441,6 +441,18 @@
     .experiment-body p {
       font-size: 0.9rem !important;
     }
+
+    .research-section {
+      padding: 2rem 0;
+    }
+    
+    .research-card {
+      margin-bottom: 2rem;
+    }
+
+    .research-body p {
+      font-size: 0.9rem !important;
+    }
   }
 
   @media (max-width: 575px) {
@@ -624,14 +636,14 @@
   cursor: pointer;
 }
 
-/* Estilos para la sección de experimentos */
-.experiments-section {
+/* Estilos para la sección de investigación */
+.research-section {
   padding: 5rem 0;
   background-color: #fff;
   position: relative;
 }
 
-.experiment-card {
+.research-card {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -642,65 +654,65 @@
   transition: all 0.3s ease;
 }
 
-.experiment-card:hover {
+.research-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
-.experiment-header {
+.research-header {
   padding: 1.5rem;
   background-color: #f8f9fa;
   border-bottom: 1px solid #eee;
 }
 
-.experiment-title {
+.research-title {
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
   color: #333;
 }
 
-.experiment-subtitle {
+.research-subtitle {
   font-size: 1.1rem;
   font-weight: 500;
   color: #666;
   margin-bottom: 0;
 }
 
-.experiment-body {
+.research-body {
   padding: 1.5rem;
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-.experiment-body p {
+.research-body p {
   flex: 1;
   margin-bottom: 1.5rem;
 }
 
-.experiment-body .btn {
+.research-body .btn {
   align-self: flex-start;
 }
 
-/* Colores específicos para cada experimento */
-.experiment-card:nth-child(1) .experiment-header {
+/* Colores específicos para cada investigación */
+.research-card:nth-child(1) .research-header {
   background-color: #e8f4f8;
 }
 
-.experiment-card:nth-child(2) .experiment-header {
+.research-card:nth-child(2) .research-header {
   background-color: #f8f4e8;
 }
 
-.experiment-card:nth-child(3) .experiment-header {
+.research-card:nth-child(3) .research-header {
   background-color: #f0f8e8;
 }
 
-.experiment-card:nth-child(4) .experiment-header {
+.research-card:nth-child(4) .research-header {
   background-color: #f8e8e8;
 }
 
-.experiment-card:nth-child(5) .experiment-header {
+.research-card:nth-child(5) .research-header {
   background-color: #e8e8f8;
 }
 

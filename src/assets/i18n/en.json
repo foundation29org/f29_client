@@ -28,7 +28,7 @@
     "sugg6": "What aspects should I consider in the interaction and communication with the families of patients with rare diseases?"
   },
   "f29": {
-    "Initiatives": "Experiments",
+    "Initiatives": "Research",
     "The Foundation": "The Foundation",
     "Ecosystem": "Ecosystem",
     "News": "News",
@@ -40,28 +40,28 @@
       "title2": "PATIENTS HAVE THE <br>POWER",
       "description": "We are a platform driving innovation in research and product development, focusing on areas often overlooked by traditional healthcare systems. Our mission extends beyond rare diseases, empowering patients with complex medical conditions through data and technology to transform their health journeys."
     },
-    "experiments": {
-      "title": "Our areas of experimentation",
+    "research": {
+      "title": "Our areas of research",
       "description": "Discover our innovative projects that are transforming healthcare through data and technology.",
       "nav29": {
-        "title": "Nav29 - The power to drive the diagnosis",
-        "subtitle": "Help diagnosis for doctors and patients",
+        "title": "Agents for medical management",
+        "subtitle": "Your personal medical assistant for healthcare",
         "description": "Nav29 is a free application that allows patients and doctors to speed up the rare disease diagnosis process. We apply artificial intelligence to help patients and professionals identify symptoms and predict accurate diagnoses."
       },
       "trialgpt": {
-        "title": "TrialGPT - Connecting patients with clinical trials",
+        "title": "AI that connects patients with clinical trials",
         "subtitle": "Simplifying access to clinical research",
         "description": "TrialGPT is a proof of concept developed by Fundación 29, leveraging the potential of LLMs to simplify the search for available clinical trials. It analyzes medical reports and matches patients with relevant trials, making the process faster and more accessible for everyone."
       },
       "genewise": {
-        "title": "GeneWise - Understanding genetic information",
+        "title": "Understanding genetic information",
         "subtitle": "Making genetics accessible to patients and families",
         "description": "GeneWise is a proof of concept developed by Fundación 29. It demonstrates how generative AI can explain genetic information in a clear and understandable way for patients and their families."
       },
       "healthdata29": {
-        "title": "HealthData29 - The power to share the knowledge",
-        "subtitle": "Help diagnosis for doctors and patients",
-        "description": "Sharing medical data for research HealthData29 makes it easy to share health data sets with researchers for use in medical research in a simple and secure way. The initiative includes a guide to good practices in the sharing and processing of this data and has been awarded by the Spanish Agency for Data Protection."
+        "title": "The power of sharing knowledge",
+        "subtitle": "Sharing medical data securely for research",
+        "description": "Medical data sharing for research. HealthData29 facilitates sharing health datasets with researchers for use in medical research in a simple and secure way. The initiative includes a guide to good practices in the sharing and processing of this data and has been awarded by the Spanish Data Protection Agency."
       }
     },
     "dxgpt": {
@@ -143,9 +143,9 @@
      "p2.d": "Nav29 represents our effort to use intelligent agents to help patients with specific tasks. We understand that healthcare is not limited to hospitals, but is an integral part of a patient's daily life Nav29 is designed to assist in activities such as searching for clinical trials, medication information and up-to-date scientific data, acting as a navigator or companion throughout the illness.",
      "p3.t": "Summary29: Medical Information Summary Tools",
      "p3.d": "Summary29 is a set of tools aimed at summarizing complex medical information. This project seeks to alleviate the burden on medical professionals and patients in understanding and managing medical data, simplifying information from medical reports and conversations. Our goal is to make medical information accessible, reducing the time and resources necessary for its processing.",
-     "p4.t": "Understanding the complexity of rare diseases with language models",
+     "p4.t": "AI that helps families with rare diseases",
      "p4.d": "This experiment, carried out in collaboration with the prominent Spanish researcher Lluis Montoliu, focuses on the use of language models to facilitate access to relevant information. Through an innovative interface, users can interact directly with a book written by Lluis about rare diseases, allowing them to better understand the complexity of these conditions. This tool seeks to provide value and support to patients and caregivers in the management of rare diseases.",
-     "p5.t": "Guide to signs and symptoms of suspected rare diseases with language models",
+     "p5.t": "Automation of clinical guidelines",
      "p5.d": "It is a tool designed to facilitate access and understanding of the signs and symptoms of rare diseases, based on the 'Guide to Signs and Symptoms of Suspected Rare Diseases' created by the Government of Extremadura. Using artificial intelligence technology, this tool allows users to navigate and interact with content, making the identification of symptoms and suspicion of these diseases more accessible and direct. It is essential for anyone involved in the care and management of rare diseases. , providing key resources to recognize conditions early.",
     "s1.t": "Our Laboratory: A Space for Innovation",
      "s1.d": "At Fundación 29, our laboratory is not just a workplace; it is a space where creativity and innovation meet to generate practical and effective solutions. Each project is a step forward in our goal of improve the lives of patients and citizens through technology.",
@@ -193,7 +193,7 @@
     "t7.2": "Those who share our vision and help us make it come true",
     "t7.3": "Institutions",
     "t7.4": "Patient associations",
-    "t7.5": "Other allies",
+    "t7.5": "Thanks to the support of",
     "t8.1": "Awards",
     "t8.2": "We break barriers",
     "t8.3": "We get awards",
