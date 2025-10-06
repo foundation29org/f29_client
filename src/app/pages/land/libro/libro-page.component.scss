@@ -2,6 +2,36 @@
   color: #a69741 !important;
 }
 
+// Breadcrumb styles
+.breadcrumb {
+  background-color: transparent;
+  padding: 0.5rem 0;
+  margin-bottom: 0;
+}
+
+.breadcrumb-item {
+  color: #6c757d;
+}
+
+.breadcrumb-item a {
+  color: #a69741;
+  text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+  color: #9b8d3d;
+  text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+  color: #495057;
+  font-weight: 500;
+}
+
+.breadcrumb-item i {
+  margin-right: 0.25rem;
+}
+
 .btn-outline-primary:hover {
   background-color: #9b8d3d !important;
   color: #fff !important;
