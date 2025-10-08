@@ -61,6 +61,13 @@ export class FooterLandComponent implements OnDestroy, OnInit{
       }
   
       sendMsg(){
+          // Verificar campo honeypot (si está lleno, es un bot)
+          if (this.mainForm.value.website && this.mainForm.value.website.trim() !== '') {
+              console.log('Spam detectado: campo honeypot lleno');
+              this.toastr.error('', 'Spam detectado');
+              return;
+          }
+
           this.sending = true;
   
           //this.mainForm.value.email = (this.mainForm.value.email).toLowerCase();
