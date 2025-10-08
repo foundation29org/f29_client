@@ -63,6 +63,10 @@
                       translate }}</small>
                   </div>
                 </div>
+                <!-- Campo honeypot para detectar bots -->
+                <div class="form-group" style="display: none !important; position: absolute; left: -9999px;">
+                  <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" ngModel>
+                </div>
               </div>
             </div>
             <div *ngIf="!sending" class="">
