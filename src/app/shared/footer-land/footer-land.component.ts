@@ -24,11 +24,19 @@ export class FooterLandComponent implements OnDestroy, OnInit{
     modalReference: NgbModalRef;
     lang: string = 'en';
     private subscription: Subscription = new Subscription();
+    
+    // reCAPTCHA v3
+    private recaptchaLoaded: boolean = false;
+    private readonly RECAPTCHA_SITE_KEY = '6Ld1iuIrAAAAAGHj_7jy-W3_c0DIhivNfF_74FzL';
+    
+    // Variable estática para evitar cargas múltiples
+    private static recaptchaScriptLoaded: boolean = false;
 
     constructor(private http: HttpClient, public translate: TranslateService, public toastr: ToastrService, private modalService: NgbModal, private eventsService: EventsService) {
     }
 
     ngOnInit() {
+      this.loadRecaptcha();
 
       this.eventsService.on('changelang', function (lang) {
           this.lang = lang;
@@ -61,19 +69,49 @@ export class FooterLandComponent implements OnDestroy, OnInit{
       }
   
       sendMsg(){
-          // Verificar campo honeypot (si está lleno, es un bot)
-          if (this.mainForm.value.website && this.mainForm.value.website.trim() !== '') {
-              console.log('Spam detectado: campo honeypot lleno');
-              this.toastr.error('', 'Spam detectado');
+          // Ejecutar reCAPTCHA v3
+          this.executeRecaptcha();
+      }
+
+      private executeRecaptcha(): void {
+          if (!this.recaptchaLoaded) {
+              console.error('reCAPTCHA not loaded');
+              this.toastr.error('', 'reCAPTCHA no se ha cargado correctamente');
               return;
           }
 
+          console.log('Executing reCAPTCHA with site key:', this.RECAPTCHA_SITE_KEY);
+
+          // Verificar que grecaptcha esté disponible
+          if (typeof (window as any).grecaptcha === 'undefined') {
+              console.error('grecaptcha is not defined');
+              this.toastr.error('', 'reCAPTCHA no está disponible');
+              return;
+          }
+
+          (window as any).grecaptcha.ready(() => {
+              console.log('grecaptcha is ready');
+              
+              (window as any).grecaptcha.execute(this.RECAPTCHA_SITE_KEY, { action: 'submit' })
+                  .then((token: string) => {
+                      console.log('reCAPTCHA token generated:', token.substring(0, 20) + '...');
+                      this.submitForm(token);
+                  })
+                  .catch((error: any) => {
+                      console.error('reCAPTCHA error:', error);
+                      this.toastr.error('', 'Error en la verificación de seguridad');
+                  });
+          });
+      }
+
+      private submitForm(recaptchaToken: string): void {
           this.sending = true;
   
-          //this.mainForm.value.email = (this.mainForm.value.email).toLowerCase();
-          //this.mainForm.value.lang=this.translate.store.currentLang;
-  
-          var params = this.mainForm.value;
+          var params = {
+              ...this.mainForm.value,
+              recaptchaToken: recaptchaToken
+          };
+          
           this.subscription.add( this.http.post(environment.api+'/api/homesupport/', params)
           .subscribe( (res : any) => {
             this.sending = false;
@@ -102,10 +140,52 @@ export class FooterLandComponent implements OnDestroy, OnInit{
         this.modalReference = this.modalService.open(panel, ngbModalOptions);
     }
 
-    closeModal() {
-        if (this.modalReference != undefined) {
-            this.modalReference.close()
-        }
-    }  
+      closeModal() {
+          if (this.modalReference != undefined) {
+              this.modalReference.close()
+          }
+      }
+
+      private loadRecaptcha(): void {
+          // Verificar si ya está cargado globalmente
+          if (FooterLandComponent.recaptchaScriptLoaded) {
+              this.recaptchaLoaded = true;
+              return;
+          }
+
+          // Verificar si ya existe el script
+          if (document.querySelector(`script[src*="recaptcha/api.js"]`)) {
+              FooterLandComponent.recaptchaScriptLoaded = true;
+              this.recaptchaLoaded = true;
+              return;
+          }
+
+          console.log('Loading reCAPTCHA with site key:', this.RECAPTCHA_SITE_KEY);
+
+          // Crear script de reCAPTCHA según la documentación oficial
+          const script = document.createElement('script');
+          script.src = `https://www.google.com/recaptcha/api.js?render=${this.RECAPTCHA_SITE_KEY}`;
+          script.async = true;
+          script.defer = true;
+          
+          script.onload = () => {
+              FooterLandComponent.recaptchaScriptLoaded = true;
+              this.recaptchaLoaded = true;
+              console.log('reCAPTCHA v3 loaded successfully');
+              
+              // Verificar que grecaptcha esté disponible
+              if (typeof (window as any).grecaptcha !== 'undefined') {
+                  console.log('grecaptcha object is available');
+              } else {
+                  console.error('grecaptcha object is not available');
+              }
+          };
+          
+          script.onerror = () => {
+              console.error('Failed to load reCAPTCHA v3');
+          };
+          
+          document.head.appendChild(script);
+      }
 
 }
