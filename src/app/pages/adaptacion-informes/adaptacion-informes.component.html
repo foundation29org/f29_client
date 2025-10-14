@@ -1,8 +1,24 @@
-<div class="container-fluid mt-5">
+<div class="container-fluid">
   <div class="row">
     <div class="col-12">
+      <!-- Breadcrumb -->
+      <div class="container mt-3">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="/" class="text-decoration-none">
+                <i class="fa fa-home"></i> {{'menu.Dashboard' | translate }}
+              </a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              <i class="fa fa-file-medical-alt"></i> {{'f29.p6.t' | translate }}
+            </li>
+          </ol>
+        </nav>
+      </div>
+
       <!-- Header -->
-      <div class="text-center">
+      <div class="text-center mt-5">
         <h2 class="section-title">{{'f29.p6.t' | translate }}</h2>
         <p class="lead">{{'adaptacion.header_description' | translate }}</p>
       </div>
@@ -109,7 +125,7 @@
               </div>
 
               <!-- Loading Progress -->
-              <div *ngIf="isLoading">
+              <div *ngIf="isLoading" id="processing-area">
                 <div class="text-center mb-3">
                   <div class="spinner-border text-primary" role="status" aria-label="Procesando informe">
                     <span class="visually-hidden">Procesando...</span>

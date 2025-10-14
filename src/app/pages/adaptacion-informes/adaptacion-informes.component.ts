@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
 import { OpenAiService } from '../../shared/services/openAi.service';
 import { TranslateService } from '@ngx-translate/core';
 import * as marked from 'marked';
@@ -170,8 +169,7 @@ export class AdaptacionInformesComponent implements OnInit {
       this.errorMessage = this.translate.instant('adaptacion.error_no_file');
       return;
     }
-    //scroll hacia arriba
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
     this.isLoading = true;
     this.errorMessage = '';
     this.result = null;
@@ -181,6 +179,22 @@ export class AdaptacionInformesComponent implements OnInit {
     // Iniciar simulación de progreso
     this.simulateUploadProgress();
     
+    // Scroll hacia la sección de procesamiento con delay para que se renderice
+    setTimeout(() => {
+      const processingArea = document.getElementById('processing-area');
+      if (processingArea) {
+        const elementPosition = processingArea.getBoundingClientRect().top;
+        const offsetPosition = elementPosition  - 20; // Margen extra
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      } else {
+        // Fallback: scroll hacia arriba si no encuentra la sección
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, 300); // Delay para dar tiempo a que se renderice
     try {
       console.log('🔄 Iniciando procesamiento...');
       
