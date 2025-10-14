@@ -282,6 +282,13 @@
     "cancel": "Cancelar",
     "edit_placeholder": "Edita el contenido del informe aquí. Puedes usar formato Markdown para títulos, listas, etc.",
     "error_title": "Error al procesar el informe",
+    "privacy": {
+      "title": "Protección de Datos y Privacidad",
+      "no_storage": "No almacenamos tus documentos médicos",
+      "no_retention": "No retenemos información personal",
+      "gdpr_compliant": "Cumplimos con el Reglamento General de Protección de Datos (GDPR)",
+      "european_data": "Tus datos se procesan según la normativa europea de protección de datos"
+    },
     "error_generic": "Ha ocurrido un error al procesar tu informe. Por favor, inténtalo de nuevo.",
     "try_again": "Intentar de nuevo",
     "success_title": "¡Informe procesado!",

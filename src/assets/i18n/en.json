@@ -282,6 +282,13 @@
     "cancel": "Cancel",
     "edit_placeholder": "Edit the report content here. You can use Markdown formatting for titles, lists, etc.",
     "error_title": "Error processing report",
+    "privacy": {
+      "title": "Data Protection and Privacy",
+      "no_storage": "We do not store your medical documents",
+      "no_retention": "We do not retain personal information",
+      "gdpr_compliant": "We comply with the General Data Protection Regulation (GDPR)",
+      "european_data": "Your data is processed according to European data protection regulations"
+    },
     "error_generic": "An error occurred while processing your report. Please try again.",
     "try_again": "Try again",
     "success_title": "Report processed!",
