@@ -43,5 +43,18 @@ export class OpenAiService {
       })
     }
 
+    postCallIaClaro(info){
+      return this.http.post(environment.api + '/api/calliaClaro', info)
+      .pipe(
+        map((res: any) => {
+          return res;
+        }),
+        catchError((err) => {
+          console.log(err);
+          throw err;
+        })
+      )
+    }
+
 
 }

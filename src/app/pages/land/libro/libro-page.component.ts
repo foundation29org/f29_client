@@ -119,8 +119,17 @@ export class LibroPageComponent {
     
       async scrollTo() {
         await this.delay(200);
-        document.getElementById('initcontentIntro').scrollIntoView({ behavior: "smooth" });
-    }
+        const element = document.getElementById('initcontentIntro');
+        if (element) {
+          const elementPosition = element.offsetTop;
+          const offsetPosition = elementPosition  - 30; // 20px extra de margen
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
     
     delay(ms: number) {
       return new Promise(resolve => setTimeout(resolve, ms));

@@ -447,3 +447,54 @@ a{
     border-top: none;
   }
 
+/* Estilos específicos para el informe adaptado */
+.report-body h1 {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  color: #dc3545 !important;
+  margin-top: 1rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.report-body h2 {
+  font-size: 1.3rem !important;
+  font-weight: 600 !important;
+  color: #495057 !important;
+  border-bottom: 1px solid #dee2e6 !important;
+  padding-bottom: 0.5rem !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.report-body h3 {
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+  color: #495057 !important;
+  margin-top: 1.2rem !important;
+  margin-bottom: 0.8rem !important;
+}
+
+.report-body h4 {
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  color: #495057 !important;
+  margin-top: 1rem !important;
+  margin-bottom: 0.6rem !important;
+}
+
+.report-body h5 {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  color: #495057 !important;
+  margin-top: 0.8rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.report-body h6 {
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  color: #495057 !important;
+  margin-top: 0.6rem !important;
+  margin-bottom: 0.4rem !important;
+}
+

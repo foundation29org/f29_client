@@ -1,0 +1,277 @@
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.upload-area {
+  border: 3px dashed #dee2e6;
+  border-radius: 10px;
+  padding: 3rem 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  background-color: #f8f9fa;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    border-color: #007bff;
+    background-color: #e3f2fd;
+  }
+
+  &.dragover {
+    border-color: #28a745;
+    background-color: #d4edda;
+    transform: scale(1.02);
+  }
+
+  &.has-file {
+    border-color: #28a745;
+    background-color: #d4edda;
+  }
+}
+
+.upload-content {
+  width: 100%;
+}
+
+.selected-file {
+  .fa-file-medical {
+    animation: pulse 2s infinite;
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.progress {
+  height: 1.5rem;
+  border-radius: 10px;
+  overflow: hidden;
+
+  .progress-bar {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.card {
+  border: none;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1) !important;
+  }
+}
+
+.btn {
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+  border-width: 0.25em;
+  
+  .visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+}
+
+// Asegurar que el spinner se vea correctamente
+.text-center {
+  .spinner-border {
+    display: inline-block;
+    vertical-align: text-bottom;
+    border: 0.25em solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spinner-border 0.75s linear infinite;
+  }
+}
+
+@keyframes spinner-border {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.fa-3x {
+  font-size: 3em;
+}
+
+// Estilos para el selector de tipo de informe
+.form-check {
+  padding: 1.5rem;
+  border: 2px solid #e9ecef;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+  &:hover {
+    border-color: #007bff;
+    background-color: #f8f9fa;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  }
+
+  &.selected {
+    border-color: #007bff;
+    background-color: #e3f2fd;
+    box-shadow: 0 4px 12px rgba(0,123,255,0.2);
+  }
+}
+
+.form-check-input {
+  display: none; // Ocultar el radio button
+}
+
+.form-check-label {
+  cursor: pointer;
+  width: 100%;
+  margin: 0;
+  
+  strong {
+    color: #495057;
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  small {
+    color: #6c757d;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+}
+
+// Indicador visual de selección
+.form-check-input:checked + .form-check-label::before {
+  content: "✓";
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #007bff;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+// Mejorar la apariencia cuando está seleccionado
+.form-check.selected {
+  .form-check-label {
+    strong {
+      color: #007bff;
+    }
+  }
+}
+
+// Estilos para el editor
+.report-editor {
+  margin-top: 1rem;
+  
+  textarea {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1rem;
+    resize: vertical;
+    min-height: 400px;
+    
+    &:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+  }
+}
+
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  
+  .report-meta {
+    flex: 1;
+  }
+  
+  .text-right {
+    flex-shrink: 0;
+    margin-top: 0.5rem;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .upload-area {
+    padding: 2rem 1rem;
+    min-height: 150px;
+  }
+
+  .report-content {
+    .report-body {
+      font-size: 1rem;
+    }
+  }
+
+  .btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+// Animation for success state
+.report-generated {
+  animation: slideInUp 0.5s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
