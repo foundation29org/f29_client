@@ -124,6 +124,17 @@
                 </button>
               </div>
 
+              <!-- Privacy Notice -->
+              <div class="alert alert-info mt-4" *ngIf="!isLoading && !selectedFile">
+                <h6><i class="fas fa-shield-alt mr-2"></i>{{'adaptacion.privacy.title' | translate }}</h6>
+                <ul class="mb-0 small">
+                  <li>{{'adaptacion.privacy.no_storage' | translate }}</li>
+                  <li>{{'adaptacion.privacy.no_retention' | translate }}</li>
+                  <li>{{'adaptacion.privacy.gdpr_compliant' | translate }}</li>
+                  <li>{{'adaptacion.privacy.european_data' | translate }}</li>
+                </ul>
+              </div>
+
               <!-- Loading Progress -->
               <div *ngIf="isLoading" id="processing-area">
                 <div class="text-center mb-3">
