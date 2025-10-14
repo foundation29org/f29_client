@@ -1,0 +1,251 @@
+<div class="container-fluid mt-5">
+  <div class="row">
+    <div class="col-12">
+      <!-- Header -->
+      <div class="text-center">
+        <h2 class="section-title">{{'f29.p6.t' | translate }}</h2>
+        <p class="lead">{{'adaptacion.header_description' | translate }}</p>
+      </div>
+
+      <!-- Upload Section -->
+      <div class="row justify-content-center" *ngIf="!showNewReportButton">
+        <div class="col-lg-8">
+          <div class="card shadow-lg">
+            <div class="card-body p-5">
+              <!-- File Upload Area -->
+              <div class="upload-area" *ngIf="!isLoading"
+                   [class.dragover]="false"
+                   (dragover)="onDragOver($event)"
+                   (dragleave)="onDragLeave($event)"
+                   (drop)="onFileDropped($event)"
+                   [class.has-file]="selectedFile">
+                
+                <div class="upload-content text-center">
+                  <i *ngIf="!selectedFile" class="fas fa-cloud-upload-alt fa-3x text-primary mb-3"></i>
+                  
+                  <div *ngIf="!selectedFile">
+                    <h4>{{'adaptacion.drag_file' | translate }}</h4>
+                    <p class="text-muted">{{'adaptacion.supported_formats' | translate }}</p>
+                    <button type="button" class="btn btn-primary btn-lg" (click)="openFileSelector()">
+                      <i class="fas fa-file-upload mr-2"></i>{{'adaptacion.select_file' | translate }}
+                    </button>
+                  </div>
+
+                  <div *ngIf="selectedFile" class="selected-file">
+                    <i class="fas fa-file-medical fa-3x text-success mb-3"></i>
+                    <h5 class="text-success">{{ fileName }}</h5>
+                    <p class="text-muted">{{ (selectedFile.size / 1024 / 1024).toFixed(2) }} MB</p>
+                    <button type="button" class="btn btn-outline-danger btn-sm" (click)="removeFile()">
+                      <i class="fas fa-trash mr-1"></i>{{'adaptacion.remove' | translate }}
+                    </button>
+                  </div>
+                </div>
+
+                <input type="file" 
+                       class="d-none" 
+                       accept=".pdf,.docx,.txt"
+                       (change)="onFileSelected($event)">
+              </div>
+
+              <!-- Error Message -->
+              <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+                <i class="fas fa-exclamation-triangle mr-2"></i>{{ errorMessage }}
+              </div>
+
+              <!-- Report Type Selector -->
+              <div class="mt-4" *ngIf="selectedFile && !isLoading">
+                <div class="row justify-content-center">
+                  <div class="col-md-8">
+                    <div class="card">
+                      <div class="card-body">
+                        <h6 class="card-title text-center mb-3">
+                          <i class="fas fa-cog mr-2"></i>{{'adaptacion.select_type' | translate }}
+                        </h6>
+                        <div class="row">
+                          <div class="col-md-6 mb-3">
+                            <div class="form-check" [class.selected]="selectedReportType === 'ia_estandar'" (click)="selectedReportType = 'ia_estandar'">
+                              <input class="form-check-input" 
+                                     type="radio" 
+                                     name="reportType" 
+                                     id="version1" 
+                                     value="ia_estandar" 
+                                     [(ngModel)]="selectedReportType">
+                              <label class="form-check-label" for="version1">
+                                <strong>{{'adaptacion.version1_title' | translate }}</strong>
+                                <br>
+                                <small class="text-muted">{{'adaptacion.version1_desc' | translate }}</small>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-md-6 mb-3">
+                            <div class="form-check" [class.selected]="selectedReportType === 'ia_personalizado'" (click)="selectedReportType = 'ia_personalizado'">
+                              <input class="form-check-input" 
+                                     type="radio" 
+                                     name="reportType" 
+                                     id="version2" 
+                                     value="ia_personalizado" 
+                                     [(ngModel)]="selectedReportType">
+                              <label class="form-check-label" for="version2">
+                                <strong>{{'adaptacion.version2_title' | translate }}</strong>
+                                <br>
+                                <small class="text-muted">{{'adaptacion.version2_desc' | translate }}</small>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Process Button -->
+              <div class="text-center mt-4" *ngIf="selectedFile && !isLoading">
+                <button type="button" 
+                        class="btn btn-success btn-lg px-5" style="color: white !important;" 
+                        (click)="processFile()">
+                  <i class="fas fa-magic mr-2"></i>{{'adaptacion.process_report' | translate }}
+                </button>
+              </div>
+
+              <!-- Loading Progress -->
+              <div *ngIf="isLoading">
+                <div class="text-center mb-3">
+                  <div class="spinner-border text-primary" role="status" aria-label="Procesando informe">
+                    <span class="visually-hidden">Procesando...</span>
+                  </div>
+                  <p class="mt-2">{{'adaptacion.processing' | translate }}</p>
+                </div>
+                
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" 
+                       role="progressbar" 
+                       [style.width.%]="uploadProgress"
+                       [attr.aria-valuenow]="uploadProgress"
+                       aria-valuemin="0" 
+                       aria-valuemax="100">
+                    {{ uploadProgress.toFixed(0) }}%
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- New Report Button -->
+      <div class="row justify-content-center mt-4" *ngIf="showNewReportButton">
+        <div class="col-lg-8">
+          <div class="text-center">
+            <button type="button" 
+                    class="btn btn-outline-primary btn-lg" 
+                    (click)="generateNewReport()">
+              <i class="fas fa-plus mr-2"></i>{{'adaptacion.new_report' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Section -->
+      <div class="row justify-content-center mt-5" *ngIf="result && reportGenerated" id="results-section">
+        <div class="col-lg-10">
+          <div class="card shadow-lg">
+            <div class="p-2 bg-success text-white">
+              <h4 class="mb-0">
+                <i class="fas fa-check-circle mr-2"></i>{{'adaptacion.report_generated' | translate }}
+              </h4>
+            </div>
+            <div class="card-body">
+              <!-- Report Content -->
+              <div class="report-content">
+                <div class="report-header mb-4">
+                  <div class="report-meta text-muted small">
+                    <span class="mr-3">
+                      <i class="fas fa-clock mr-1"></i>
+                      {{'adaptacion.generation_time' | translate }}: {{ (result.generationTime / 1000).toFixed(1) }}s
+                    </span>
+                  </div>
+                  
+                  <!-- Edit Controls -->
+                  <div class="text-right">
+                    <button type="button" 
+                            class="btn btn-outline-secondary btn-sm" 
+                            (click)="toggleEdit()"
+                            *ngIf="!isEditing">
+                      <i class="fas fa-edit mr-1"></i>{{'adaptacion.edit_content' | translate }}
+                    </button>
+                    
+                    <div *ngIf="isEditing" class="btn-group">
+                      <button type="button" 
+                              class="btn btn-success btn-sm" 
+                              (click)="saveEdits()" style="color: white !important;">
+                        <i class="fas fa-save mr-1"></i>{{'adaptacion.save' | translate }}
+                      </button>
+                      <button type="button" 
+                              class="btn btn-secondary btn-sm" 
+                              (click)="cancelEdit()">
+                        <i class="fas fa-times mr-1"></i>{{'adaptacion.cancel' | translate }}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Report Display -->
+                <div class="report-body" 
+                     [innerHTML]="adaptedReportHtml" 
+                     *ngIf="!isEditing"></div>
+                
+                <!-- Report Editor -->
+                <div class="report-editor" *ngIf="isEditing">
+                  <textarea class="form-control" 
+                            rows="20" 
+                            [(ngModel)]="editableContent"
+                            placeholder="{{'adaptacion.edit_placeholder' | translate }}"></textarea>
+                </div>
+              </div>
+
+              <!-- Download Button -->
+              <div class="text-center mt-4">
+                <button type="button" 
+                        class="btn btn-primary btn-lg" 
+                        (click)="downloadReport()">
+                  <i class="fas fa-download mr-2"></i>{{'adaptacion.download_report' | translate }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Information Section -->
+      <div class="row justify-content-center mt-5 mb-5">
+        <div class="col-lg-8">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title mb-3">
+                {{'adaptacion.how_it_works' | translate }}
+              </h5>
+              <div class="row">
+                <div class="col-md-4 text-center mb-3">
+                  <i class="fas fa-upload fa-2x text-primary mb-2"></i>
+                  <h6>{{'adaptacion.step1_title' | translate }}</h6>
+                  <p class="small text-muted">{{'adaptacion.step1_desc' | translate }}</p>
+                </div>
+                <div class="col-md-4 text-center mb-3">
+                  <i class="fas fa-robot fa-2x text-warning mb-2"></i>
+                  <h6>{{'adaptacion.step2_title' | translate }}</h6>
+                  <p class="small text-muted">{{'adaptacion.step2_desc' | translate }}</p>
+                </div>
+                <div class="col-md-4 text-center mb-3">
+                  <i class="fas fa-file-medical-alt fa-2x text-success mb-2"></i>
+                  <h6>{{'adaptacion.step3_title' | translate }}</h6>
+                  <p class="small text-muted">{{'adaptacion.step3_desc' | translate }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

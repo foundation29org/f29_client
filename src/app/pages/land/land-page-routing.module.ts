@@ -7,6 +7,7 @@ import { LandPageComponent } from "./land/land-page.component";
 import { LibroPageComponent } from "./libro/libro-page.component";
 import { GuiaPageComponent } from "./guia/guia-page.component";
 import { LabPageComponent } from "./lab/lab-page.component";
+import { AdaptacionInformesComponent } from "../adaptacion-informes/adaptacion-informes.component";
 
 const routes: Routes = [
   {
@@ -44,14 +45,14 @@ const routes: Routes = [
         path: 'libroenfermedadesraras',
         component: LibroPageComponent,
         data: {
-          title: 'libroenfermedadesraras'
+          title: 'f29.p4.t'
         }
       },
       {
         path: 'guiaenfermedadesraras',
         component: GuiaPageComponent,
         data: {
-          title: 'Guia enfermedades raras'
+          title: 'f29.p5.t'
         }
       },
       {
@@ -59,6 +60,13 @@ const routes: Routes = [
         component: LabPageComponent,
         data: {
           title: 'Lab 29'
+        }
+      },
+      {
+        path: 'adaptacion-informes',
+        component: AdaptacionInformesComponent,
+        data: {
+          title: 'f29.p6.t'
         }
       }
     ]

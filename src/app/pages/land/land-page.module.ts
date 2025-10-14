@@ -12,6 +12,8 @@ import { OneNewPageComponent } from "./onenew/onenew-page.component";
 import { LibroPageComponent } from "./libro/libro-page.component";
 import { GuiaPageComponent } from "./guia/guia-page.component";
 import { LabPageComponent } from "./lab/lab-page.component";
+import { AdaptacionInformesComponent } from "../adaptacion-informes/adaptacion-informes.component";
+import { OpenAiService } from '../../shared/services/openAi.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
@@ -36,7 +38,11 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
         OneNewPageComponent,
         LibroPageComponent,
         GuiaPageComponent,
-        LabPageComponent
+        LabPageComponent,
+        AdaptacionInformesComponent
+    ],
+    providers: [
+        OpenAiService
     ]
 })
 export class LandPageModule { }
