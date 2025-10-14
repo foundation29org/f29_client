@@ -204,23 +204,96 @@
   }
 }
 
-// Estilos para el editor
+// Estilos para el editor ContentEditable
 .report-editor {
   margin-top: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.375rem;
+  overflow: hidden;
   
-  textarea {
-    font-family: 'Courier New', monospace;
+  .editor-toolbar {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ced4da;
+    padding: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    
+    .btn-group {
+      display: flex;
+      border-radius: 0.25rem;
+      overflow: hidden;
+      
+      .btn {
+        border-radius: 0;
+        border-right: 1px solid #ced4da;
+        
+        &:last-child {
+          border-right: none;
+        }
+        
+        &:hover {
+          background-color: #e9ecef;
+        }
+        
+        &.active {
+          background-color: #007bff;
+          color: white;
+        }
+      }
+    }
+  }
+  
+  .editor-content {
+    min-height: 400px;
+    padding: 1rem;
     font-size: 14px;
     line-height: 1.5;
-    border: 2px solid #e9ecef;
-    border-radius: 8px;
-    padding: 1rem;
-    resize: vertical;
-    min-height: 400px;
+    outline: none;
+    border: none;
     
-    &:focus {
-      border-color: #007bff;
-      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    &:empty:before {
+      content: attr(placeholder);
+      color: #6c757d;
+      font-style: italic;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-size: 1.2rem !important;
+      font-weight: 600 !important;
+      margin-top: 1rem !important;
+      margin-bottom: 0.5rem !important;
+    }
+    
+    h1 { font-size: 1.5rem !important; }
+    h2 { font-size: 1.4rem !important; }
+    h3 { font-size: 1.3rem !important; }
+    
+    p {
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+    
+    ul, ol {
+      margin-bottom: 0.5rem;
+      padding-left: 1.5rem;
+    }
+    
+    li {
+      margin-bottom: 0.25rem;
+    }
+    
+    strong, b {
+      font-weight: 600;
+    }
+    
+    em, i {
+      font-style: italic;
+    }
+    
+    u {
+      text-decoration: underline;
     }
   }
 }
