@@ -498,3 +498,76 @@ a{
   margin-bottom: 0.4rem !important;
 }
 
+/* Estilos específicos para el editor ContentEditable */
+.editor-content h1 {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  color: #dc3545 !important;
+  margin-top: 1rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.editor-content h2 {
+  font-size: 1.3rem !important;
+  font-weight: 600 !important;
+  color: #495057 !important;
+  border-bottom: 1px solid #dee2e6 !important;
+  padding-bottom: 0.5rem !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.editor-content h3 {
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+  color: #495057 !important;
+  margin-top: 1.2rem !important;
+  margin-bottom: 0.8rem !important;
+}
+
+.editor-content h4 {
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  color: #495057 !important;
+  margin-top: 1rem !important;
+  margin-bottom: 0.6rem !important;
+}
+
+.editor-content h5 {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  color: #495057 !important;
+  margin-top: 0.8rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.editor-content h6 {
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  color: #495057 !important;
+  margin-top: 0.6rem !important;
+  margin-bottom: 0.4rem !important;
+}
+
+.editor-content p {
+  margin-bottom: 0.5rem !important;
+  line-height: 1.5 !important;
+}
+
+.editor-content ul, .editor-content ol {
+  margin-bottom: 0.5rem !important;
+  padding-left: 1.5rem !important;
+}
+
+.editor-content li {
+  margin-bottom: 0.25rem !important;
+}
+
+.editor-content strong, .editor-content b {
+  font-weight: 600 !important;
+}
+
+.editor-content em, .editor-content i {
+  font-style: italic !important;
+}
+
