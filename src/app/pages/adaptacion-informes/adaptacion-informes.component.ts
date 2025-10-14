@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { OpenAiService } from '../../shared/services/openAi.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -20,7 +20,7 @@ interface ProcessingResult {
   templateUrl: './adaptacion-informes.component.html',
   styleUrls: ['./adaptacion-informes.component.scss']
 })
-export class AdaptacionInformesComponent implements OnInit {
+export class AdaptacionInformesComponent implements OnInit, AfterViewInit {
 
   selectedFile: File | null = null;
   fileName: string = '';
@@ -34,6 +34,8 @@ export class AdaptacionInformesComponent implements OnInit {
   showNewReportButton: boolean = false;
   isEditing: boolean = false;
   editableContent: string = '';
+  
+  @ViewChild('editor', { static: false }) editorElement!: ElementRef;
 
   constructor(
     private http: HttpClient, 
@@ -43,6 +45,10 @@ export class AdaptacionInformesComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('🚀 Adaptación de Informes Médicos iniciado');
+  }
+
+  ngAfterViewInit(): void {
+    // El editor se inicializará cuando se necesite
   }
 
   // ========================
@@ -132,33 +138,6 @@ export class AdaptacionInformesComponent implements OnInit {
     });
   }
 
-  // ========================
-  // Edición de contenido
-  // ========================
-
-  toggleEdit(): void {
-    this.isEditing = !this.isEditing;
-    if (this.isEditing) {
-      // Al entrar en modo edición, usar el contenido markdown original
-      this.editableContent = this.result?.adaptedReport || '';
-    } else {
-      // Al salir del modo edición, convertir a HTML
-      this.adaptedReportHtml = marked.parse(this.editableContent) as string;
-    }
-  }
-
-  saveEdits(): void {
-    // Convertir el contenido editado a HTML
-    this.adaptedReportHtml = marked.parse(this.editableContent) as string;
-    this.result.adaptedReport = this.editableContent;
-    this.isEditing = false;
-  }
-
-  cancelEdit(): void {
-    // Restaurar el contenido original
-    this.editableContent = this.result?.adaptedReport || '';
-    this.isEditing = false;
-  }
 
   // ========================
   // Procesamiento
@@ -269,13 +248,162 @@ export class AdaptacionInformesComponent implements OnInit {
   downloadReport(): void {
     if (!this.result) return;
 
-    const blob = new Blob([this.result.adaptedReport], { type: 'text/plain' });
-    const url = window.URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `informe_adaptado_${new Date().getTime()}.txt`;
-    link.click();
-    window.URL.revokeObjectURL(url);
+    try {
+      // Crear una ventana nueva para imprimir
+      const printWindow = window.open('', '_blank');
+      if (!printWindow) {
+        this.showErrorAlert(this.translate.instant('adaptacion.popup_blocked'));
+        return;
+      }
+
+      // Convertir Markdown a HTML
+      const htmlContent = marked.parse(this.result.adaptedReport) as string;
+      
+      // Crear el contenido HTML para imprimir
+      const printContent = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="utf-8">
+          <title>${this.translate.instant('adaptacion.pdf_title')}</title>
+          <style>
+            @media print {
+              @page {
+                margin: 2cm;
+                size: A4;
+              }
+              body {
+                font-family: Arial, sans-serif;
+                font-size: 12px;
+                line-height: 1.6;
+                color: #333;
+                max-width: 100%;
+              }
+              .header {
+                text-align: center;
+                margin-bottom: 30px;
+                border-bottom: 2px solid #007bff;
+                padding-bottom: 15px;
+              }
+              .header h1 {
+                color: #007bff;
+                font-size: 24px;
+                margin: 0;
+              }
+              .header p {
+                color: #666;
+                font-size: 14px;
+                margin: 5px 0 0 0;
+              }
+              h1, h2, h3, h4, h5, h6 {
+                color: #007bff;
+                margin-top: 20px;
+                margin-bottom: 10px;
+              }
+              h1 { font-size: 20px; }
+              h2 { font-size: 18px; }
+              h3 { font-size: 16px; }
+              p { margin-bottom: 10px; }
+              ul, ol { margin-bottom: 10px; padding-left: 20px; }
+              li { margin-bottom: 5px; }
+              strong, b { font-weight: bold; }
+              em, i { font-style: italic; }
+              .no-print { display: none; }
+            }
+            @media screen {
+              body {
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+                color: #333;
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+              }
+              .header {
+                text-align: center;
+                margin-bottom: 30px;
+                border-bottom: 2px solid #007bff;
+                padding-bottom: 15px;
+              }
+              .header h1 {
+                color: #007bff;
+                font-size: 24px;
+                margin: 0;
+              }
+              .header p {
+                color: #666;
+                font-size: 14px;
+                margin: 5px 0 0 0;
+              }
+              .print-button {
+                background: #007bff;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                margin: 20px 0;
+                font-size: 16px;
+              }
+              .print-button:hover {
+                background: #0056b3;
+              }
+            }
+          </style>
+        </head>
+        <body>
+          <div class="header">
+            <h1>${this.translate.instant('adaptacion.pdf_title')}</h1>
+            <p>${new Date().toLocaleDateString('es-ES', { 
+              year: 'numeric', 
+              month: 'long', 
+              day: 'numeric' 
+            })}</p>
+          </div>
+          
+          <button class="print-button no-print" onclick="window.print()">
+            ${this.translate.instant('adaptacion.print_pdf')}
+          </button>
+          
+          <div class="content">
+            ${htmlContent}
+          </div>
+          
+          <script>
+            // Auto-print en algunos navegadores
+            setTimeout(() => {
+              window.print();
+            }, 500);
+          </script>
+        </body>
+        </html>
+      `;
+
+      // Escribir el contenido en la nueva ventana
+      printWindow.document.write(printContent);
+      printWindow.document.close();
+
+      // Mostrar mensaje de éxito
+      Swal.fire({
+        icon: 'success',
+        title: this.translate.instant('adaptacion.pdf_success_title'),
+        text: this.translate.instant('adaptacion.pdf_success_message'),
+        timer: 2000,
+        showConfirmButton: false
+      });
+
+    } catch (error) {
+      console.error('Error generando PDF:', error);
+      
+      // Mostrar error
+      Swal.fire({
+        icon: 'error',
+        title: this.translate.instant('adaptacion.pdf_error_title'),
+        text: this.translate.instant('adaptacion.pdf_error_message'),
+        confirmButtonText: this.translate.instant('adaptacion.ok')
+      });
+    }
   }
 
   // ========================
@@ -291,5 +419,91 @@ export class AdaptacionInformesComponent implements OnInit {
         clearInterval(interval);
       }
     }, 1500);
+  }
+
+  // ========================
+  // Editor WYSIWYG Simple
+  // ========================
+
+  toggleEdit(): void {
+    if (!this.isEditing) {
+      this.isEditing = true;
+      this.editableContent = this.result?.adaptedReport || '';
+      
+      // Inicializar editor después de que la vista se actualice
+      setTimeout(() => {
+        if (this.editorElement) {
+          // Convertir Markdown a HTML para mostrar en el editor
+          const htmlContent = marked.parse(this.editableContent) as string;
+          this.editorElement.nativeElement.innerHTML = htmlContent;
+        }
+      }, 100);
+    } else {
+      this.isEditing = false;
+    }
+  }
+
+  saveEdits(): void {
+    if (this.editorElement && this.result) {
+      // Obtener contenido HTML del editor
+      this.editableContent = this.editorElement.nativeElement.innerHTML;
+      
+      // Actualizar el resultado con el contenido editado
+      this.result.adaptedReport = this.editableContent;
+      
+      // Convertir a HTML para mostrar
+      this.adaptedReportHtml = this.editableContent;
+      
+      this.isEditing = false;
+      
+      // Mostrar mensaje de éxito
+      Swal.fire({
+        icon: 'success',
+        title: this.translate.instant('adaptacion.save_success_title'),
+        text: this.translate.instant('adaptacion.save_success_message'),
+        timer: 2000,
+        showConfirmButton: false
+      });
+    }
+  }
+
+  cancelEdit(): void {
+    // Restaurar el contenido original (Markdown) y volver a renderizar a HTML
+    this.editableContent = this.result?.adaptedReport || '';
+    this.adaptedReportHtml = marked.parse(this.editableContent) as string;
+    this.isEditing = false;
+  }
+
+  // Métodos para la barra de herramientas del editor
+  formatText(command: string, value?: string): void {
+    document.execCommand(command, false, value);
+    this.editorElement.nativeElement.focus();
+  }
+
+  insertList(type: 'ordered' | 'unordered'): void {
+    if (type === 'ordered') {
+      document.execCommand('insertOrderedList', false);
+    } else {
+      document.execCommand('insertUnorderedList', false);
+    }
+    this.editorElement.nativeElement.focus();
+  }
+
+  insertHeading(level: number): void {
+    document.execCommand('formatBlock', false, `h${level}`);
+    this.editorElement.nativeElement.focus();
+  }
+
+  // ========================
+  // Métodos de utilidad
+  // ========================
+
+  private showErrorAlert(message: string): void {
+    Swal.fire({
+      icon: 'error',
+      title: this.translate.instant('adaptacion.error_title'),
+      text: message,
+      confirmButtonText: this.translate.instant('adaptacion.ok')
+    });
   }
 }
