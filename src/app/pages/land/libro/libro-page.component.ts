@@ -1,11 +1,12 @@
-import { Component} from '@angular/core';
+import { Component, effect, signal } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { OpenAiService } from 'app/shared/services/openAi.service';
 import { EventsService } from 'app/shared/services/events.service';
 
 @Component({
+    standalone: false,
     selector: 'app-libro-page',
     templateUrl: './libro-page.component.html',
     styleUrls: ['./libro-page.component.scss'],
@@ -14,28 +15,29 @@ import { EventsService } from 'app/shared/services/events.service';
 
 export class LibroPageComponent {
 
-    sending: boolean = false;
+    sending = signal(false);
     private subscription: Subscription = new Subscription();
     query: string = '';
-    queryCopy: string = '';
-    responseLangchain: string = '';
-    searchopenai: boolean = false;
+    queryCopy = signal('');
+    responseLangchain = signal('');
+    searchopenai = signal(false);
     isComplexSearch: boolean = false;
-    questions: any = [];
+    questions = signal<any[]>([]);
     lang = 'en';
 
     constructor(public translate: TranslateService, public toastr: ToastrService, private openAiService: OpenAiService, private eventsService: EventsService) {
-        this.lang = sessionStorage.getItem('lang');;
+        this.lang = this.eventsService.currentLanguage();
+        effect(() => {
+          const lang = this.eventsService.currentLanguage();
+          if (lang != this.lang) {
+            this.lang = lang;
+            this.getQuestions();
+          }
+        });
         
     }
 
     ngOnInit() {
-        this.eventsService.on('changelang', function (lang) {
-            if (lang != this.lang) {
-              this.lang = lang;
-              this.getQuestions();
-            }
-          }.bind(this));
           this.getQuestions();
     }
 
@@ -45,11 +47,11 @@ export class LibroPageComponent {
 
     async getQuestions(){
         await this.delay(200);
-        this.questions = [
+        this.questions.set([
             { value: this.translate.instant("book.sugg1")},
             { value: this.translate.instant("book.sugg2")},
             { value: this.translate.instant("book.sugg3")}
-          ]
+          ]);
     }
 
     selectSuggestion(question) {
@@ -67,50 +69,52 @@ export class LibroPageComponent {
         };
         console.log(this.query)
         console.log(this.isComplexSearch)
-        this.sending = true;
-        this.searchopenai = false;
+        this.sending.set(true);
+        this.searchopenai.set(false);
         let query = { 
           "question": this.query, "isComplexSearch": this.isComplexSearch, lang: this.lang
        };
-        this.responseLangchain = '';
+        this.responseLangchain.set('');
         this.subscription.add(this.openAiService.postOpenAi3(query)
           .subscribe((res: any) => {
             console.log(res)
             if(res.data.indexOf("I don't know") !=-1 || res.data.indexOf("No sé") !=-1 ) {
-              this.searchopenai = true;
+              this.searchopenai.set(true);
               let value = { value: this.query, isComplexSearch: this.isComplexSearch };
               this.subscription.add(this.openAiService.postOpenAi(value)
                 .subscribe((res: any) => {
-                  this.queryCopy = this.query;
+                  this.queryCopy.set(this.query);
                   this.query = '';
-                  this.responseLangchain = res.choices[0].message.content;
+                  let response = res.choices[0].message.content || '';
                   const regex = /^```html\n|\n```$/g;
-                  this.responseLangchain = this.responseLangchain.replace(regex, '');
-                  this.responseLangchain = this.responseLangchain.replace(/【.*?】/g, "");
-                  this.sending = false;
+                  response = response.replace(regex, '');
+                  response = response.replace(/【.*?】/g, "");
+                  this.responseLangchain.set(response);
+                  this.sending.set(false);
                   this.scrollTo();
                 }, (err) => {
-                  this.sending = false;
+                  this.sending.set(false);
                   console.log(err);
                   this.toastr.error('', this.translate.instant("generics.error try again"));
     
                 }));
             } else {
-              this.sending = false;
+              this.sending.set(false);
               console.log('entra')
-              this.queryCopy = this.query;
+              this.queryCopy.set(this.query);
               this.query = '';
-              this.responseLangchain = res.data;
+              let response = res.data || '';
               const regex = /^```html\n|\n```$/g;
-              this.responseLangchain = this.responseLangchain.replace(regex, '');
-              this.responseLangchain = this.responseLangchain.replace(/【.*?】/g, "");
-              console.log(this.sending)
+              response = response.replace(regex, '');
+              response = response.replace(/【.*?】/g, "");
+              this.responseLangchain.set(response);
+              console.log(this.sending())
               this.scrollTo();
               
             }
     
           }, (err) => {
-            this.sending = false;
+            this.sending.set(false);
             console.log(err);
             this.toastr.error('', this.translate.instant("generics.error try again"));
           }));

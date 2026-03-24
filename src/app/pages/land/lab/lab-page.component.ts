@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, effect } from '@angular/core';
 import { trigger, transition, animate } from '@angular/animations';
 import { style } from '@angular/animations';
 import { TranslateService } from '@ngx-translate/core';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { SortService} from 'app/shared/services/sort.service';
 import { EventsService } from 'app/shared/services/events.service';
 
 @Component({
+    standalone: false,
     selector: 'app-lab-page',
     templateUrl: './lab-page.component.html',
     styleUrls: ['./lab-page.component.scss'],
@@ -24,24 +25,29 @@ import { EventsService } from 'app/shared/services/events.service';
       ]
 })
 
-export class LabPageComponent {
+export class LabPageComponent implements OnDestroy {
 
     private subscription: Subscription = new Subscription();
     lang = 'en';
 
     constructor(public translate: TranslateService, private http: HttpClient, private eventsService: EventsService, private sortService: SortService) {
-        this.lang = sessionStorage.getItem('lang');;
+        this.lang = this.eventsService.currentLanguage();
+        effect(() => {
+          const lang = this.eventsService.currentLanguage();
+          if (lang != this.lang) {
+            this.lang = lang;
+          }
+        });
     }
 
     ngOnInit() {
-        this.eventsService.on('changelang', function (lang) {
-            if (lang != this.lang) {
-              this.lang = lang;
-            }
-          }.bind(this));
     }
 
     goto(url){
         window.open(url, "_blank");
+    }
+
+    ngOnDestroy(): void {
+      this.subscription.unsubscribe();
     }
 }

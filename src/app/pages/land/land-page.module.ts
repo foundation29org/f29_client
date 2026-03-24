@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import { FormsModule } from '@angular/forms';
-import { CustomFormsModule } from 'ngx-custom-validators';
 import { LandPageRoutingModule } from "./land-page-routing.module";
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -27,7 +26,6 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
         LandPageRoutingModule,
         FormsModule,
         TranslateModule,
-        CustomFormsModule,
         NgbModule,
         MatSlideToggleModule
     ],

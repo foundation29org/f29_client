@@ -1,14 +1,15 @@
-import { Component, OnInit, ViewChild, OnDestroy, ElementRef, Renderer2, AfterViewInit } from "@angular/core";
+import { Component, OnInit, ViewChild, OnDestroy, ElementRef, Renderer2, AfterViewInit, effect } from "@angular/core";
 import { ROUTESHOMEDX} from './sidebar-routes.config';
 import { Router, NavigationEnd } from "@angular/router";
 import { TranslateService } from '@ngx-translate/core';
 import { customAnimations } from "../animations/custom-animations";
 import { ConfigService } from '../services/config.service';
 import { LayoutService } from '../services/layout.service';
-import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 @Component({
-  selector: "app-sidebar",
+    standalone: false,
+    selector: "app-sidebar",
   templateUrl: "./sidebar.component.html",
   animations: customAnimations
 })
@@ -23,7 +24,6 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
   nav_collapsed_open = false;
   logoUrl = 'assets/img/logo.png';
   public config: any = {};
-  layoutSub: Subscription;
   urlLogo: string = 'assets/img/logo-f29-white.webp';
   urlLogo2: string = 'assets/img/logo-f29-white.webp';
   isHomePage: boolean = false;
@@ -49,35 +49,39 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
       this.depth = 0;
       this.expanded = true;
     }
-    this.layoutSub = this.layoutService.customizerChangeEmitted$.subscribe(
-      options => {
-        if (options) {
-          if (options.bgColor) {
-            if (options.bgColor === 'white') {
-              this.logoUrl = 'assets/img/logo-dark.png';
-            }
-            else {
-              this.logoUrl = 'assets/img/logo.png';
-            }
-          }
-          if (options.compactMenu === true) {
-            this.expanded = false;
-            this.renderer.addClass(this.toggleIcon.nativeElement, 'ft-toggle-left');
-            this.renderer.removeClass(this.toggleIcon.nativeElement, 'ft-toggle-right');
-            this.nav_collapsed_open = true;
-          }
-          else if (options.compactMenu === false) {
-            this.expanded = true;
-            this.renderer.removeClass(this.toggleIcon.nativeElement, 'ft-toggle-left');
-            this.renderer.addClass(this.toggleIcon.nativeElement, 'ft-toggle-right');
-            this.nav_collapsed_open = false;
-          }
+    effect(() => {
+      const options = this.layoutService.customizerState();
+      if (!options) {
+        return;
+      }
 
+      if (options.bgColor) {
+        if (options.bgColor === 'white') {
+          this.logoUrl = 'assets/img/logo-dark.png';
+        } else {
+          this.logoUrl = 'assets/img/logo.png';
         }
-      });
+      }
+
+      if (options.compactMenu === true) {
+        this.expanded = false;
+        if (this.toggleIcon?.nativeElement) {
+          this.renderer.addClass(this.toggleIcon.nativeElement, 'ft-toggle-left');
+          this.renderer.removeClass(this.toggleIcon.nativeElement, 'ft-toggle-right');
+        }
+        this.nav_collapsed_open = true;
+      } else if (options.compactMenu === false) {
+        this.expanded = true;
+        if (this.toggleIcon?.nativeElement) {
+          this.renderer.removeClass(this.toggleIcon.nativeElement, 'ft-toggle-left');
+          this.renderer.addClass(this.toggleIcon.nativeElement, 'ft-toggle-right');
+        }
+        this.nav_collapsed_open = false;
+      }
+    });
 
 
-    this.router.events.filter((event: any) => event instanceof NavigationEnd).subscribe(
+    this.router.events.pipe(filter((event: any) => event instanceof NavigationEnd)).subscribe(
 
       event => {
         var tempUrl= (event.url).toString().split('?');
@@ -158,9 +162,6 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.layoutSub) {
-      this.layoutSub.unsubscribe();
-    }
   }
 
   toggleSlideInOut() {

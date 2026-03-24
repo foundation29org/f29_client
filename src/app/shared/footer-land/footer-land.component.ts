@@ -1,14 +1,15 @@
 import { TranslateService } from '@ngx-translate/core';
-import { Component, ViewChild, OnDestroy, OnInit } from '@angular/core';
+import { Component, ViewChild, OnDestroy, OnInit, effect, signal } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { NgForm } from '@angular/forms';
 import { environment } from 'environments/environment';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { EventsService } from 'app/shared/services/events.service';
 import { NgbModal, NgbModalRef, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
+    standalone: false,
     selector: 'app-footer-land',
     templateUrl: './footer-land.component.html',
     styleUrls: ['./footer-land.component.scss']
@@ -19,10 +20,12 @@ export class FooterLandComponent implements OnDestroy, OnInit{
     currentDate : Date = new Date();
     _startTime: any;
     @ViewChild('f') mainForm: NgForm;
-    sending: boolean = false;
+    sending = signal(false);
     email: string;
     modalReference: NgbModalRef;
     lang: string = 'en';
+    iconmoh: string = 'assets/img/land/logos/MoH_en.png';
+    iconjsd: string = 'assets/img/land/logos/sjd_en.png';
     private subscription: Subscription = new Subscription();
     
     // reCAPTCHA v3
@@ -33,24 +36,24 @@ export class FooterLandComponent implements OnDestroy, OnInit{
     private static recaptchaScriptLoaded: boolean = false;
 
     constructor(private http: HttpClient, public translate: TranslateService, public toastr: ToastrService, private modalService: NgbModal, private eventsService: EventsService) {
+      effect(() => {
+        const lang = this.eventsService.currentLanguage();
+        this.lang = lang;
+        if (this.lang == 'uk') {
+          this.iconmoh = 'assets/img/land/logos/MoH_uk.png';
+        } else {
+          this.iconmoh = 'assets/img/land/logos/MoH_en.png';
+        }
+        if (this.lang == 'es') {
+          this.iconjsd = 'assets/img/land/logos/sjd_es.png';
+        } else {
+          this.iconjsd = 'assets/img/land/logos/sjd_en.png';
+        }
+      });
     }
 
     ngOnInit() {
       this.loadRecaptcha();
-
-      this.eventsService.on('changelang', function (lang) {
-          this.lang = lang;
-          if (this.lang == 'uk') {
-              this.iconmoh = 'assets/img/land/logos/MoH_uk.png';
-          }else{
-              this.iconmoh = 'assets/img/land/logos/MoH_en.png';
-          }
-          if (this.lang == 'es') {
-              this.iconjsd = 'assets/img/land/logos/sjd_es.png';
-          } else {
-              this.iconjsd = 'assets/img/land/logos/sjd_en.png';
-          }
-      }.bind(this));
 
   }
 
@@ -105,7 +108,7 @@ export class FooterLandComponent implements OnDestroy, OnInit{
       }
 
       private submitForm(recaptchaToken: string): void {
-          this.sending = true;
+          this.sending.set(true);
   
           var params = {
               ...this.mainForm.value,
@@ -114,12 +117,12 @@ export class FooterLandComponent implements OnDestroy, OnInit{
           
           this.subscription.add( this.http.post(environment.api+'/api/homesupport/', params)
           .subscribe( (res : any) => {
-            this.sending = false;
+            this.sending.set(false);
             this.toastr.success('', this.translate.instant("generics.Data saved successfully"));
             this.mainForm.reset();
            }, (err) => {
              console.log(err);
-             this.sending = false;
+             this.sending.set(false);
              this.toastr.error('', this.translate.instant("generics.error try again"));
            }));
       }
@@ -133,9 +136,13 @@ export class FooterLandComponent implements OnDestroy, OnInit{
     }
 
     openModal(panel) {
+        this.modalService.dismissAll();
         let ngbModalOptions: NgbModalOptions = {
             keyboard: true,
-            windowClass: 'ModalClass-sm'// xl, lg, sm
+            container: 'body',
+            scrollable: true,
+            windowClass: 'ModalClass-sm legal-modal-window',// xl, lg, sm
+            backdropClass: 'legal-modal-backdrop'
         };
         this.modalReference = this.modalService.open(panel, ngbModalOptions);
     }

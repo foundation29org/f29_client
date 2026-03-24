@@ -1,15 +1,16 @@
-import { Component, Output, EventEmitter, OnDestroy, OnInit, AfterViewInit, HostListener, ElementRef, ViewChild } from '@angular/core';
+import { Component, Output, EventEmitter, OnDestroy, OnInit, AfterViewInit, HostListener, ElementRef, ViewChild, effect } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { LayoutService } from '../services/layout.service';
 import { Subscription } from 'rxjs';
 import { ConfigService } from '../services/config.service';
 import { EventsService } from 'app/shared/services/events.service';
-import { Injectable, Injector } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { filter } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-navbar-dx29',
+    standalone: false,
+    selector: 'app-navbar-dx29',
   templateUrl: './navbar-dx29.component.html',
   styleUrls: ['./navbar-dx29.component.scss']
 })
@@ -20,7 +21,6 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
   toggleClass = 'ft-maximize';
   placement = "bottom-right";
   public isCollapsed = true;
-  layoutSub: Subscription;
   @Output()
   toggleHideSidebar = new EventEmitter<Object>();
 
@@ -41,7 +41,7 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
   // Variable para controlar si estamos en medio de un desplazamiento suave
   private isScrolling: boolean = false;
 
-  constructor(public translate: TranslateService, private layoutService: LayoutService, private configService: ConfigService, private router: Router, private inj: Injector) {
+  constructor(public translate: TranslateService, private layoutService: LayoutService, private configService: ConfigService, private router: Router, private eventsService: EventsService) {
 
     this.loadLanguages();
 
@@ -53,15 +53,19 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
     );*/
 
 
-    this.layoutSub = layoutService.changeEmitted$.subscribe(
-      direction => {
-        const dir = direction.direction;
-        if (dir === "rtl") {
-          this.placement = "bottom-left";
-        } else if (dir === "ltr") {
-          this.placement = "bottom-right";
-        }
-      });
+    effect(() => {
+      const direction = this.layoutService.changeState();
+      if (!direction) {
+        return;
+      }
+
+      const dir = direction.direction;
+      if (dir === "rtl") {
+        this.placement = "bottom-left";
+      } else if (dir === "ltr") {
+        this.placement = "bottom-right";
+      }
+    });
   }
 
   // Función para resetear todos los estados de página
@@ -383,9 +387,6 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.layoutSub) {
-      this.layoutSub.unsubscribe();
-    }
     this.subscription.unsubscribe();
   }
 
@@ -430,7 +431,7 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
         }
       }
       if (!foundlang) {
-        sessionStorage.setItem('lang', this.translate.store.currentLang);
+        sessionStorage.setItem('lang', this.translate.currentLang || 'en');
       }
     }
   }
@@ -448,8 +449,7 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
     this.translate.use(language);
     sessionStorage.setItem('lang', language);
     this.searchLangName(language);
-    var eventsLang = this.inj.get(EventsService);
-    eventsLang.broadcast('changelang', language);
+    this.eventsService.setLanguage(language);
   }
 
 }
