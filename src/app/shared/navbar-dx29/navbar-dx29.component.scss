@@ -16,6 +16,29 @@
   min-height: 4.3rem;
 }
 
+/* Accessibility: improve contrast only in header navigation */
+.custom-navbar .navbar-nav .nav-link:not(.btn) {
+  color: #f8fafc !important;
+}
+
+.custom-navbar .navbar-nav .nav-link:not(.btn):hover,
+.custom-navbar .navbar-nav .nav-link:not(.btn):focus {
+  color: #ffffff !important;
+}
+
+.custom-navbar .btn.btn-white {
+  color: #8a201a !important;
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+.custom-navbar .btn.btn-white:hover,
+.custom-navbar .btn.btn-white:focus {
+  color: #ffffff !important;
+  background-color: #8a201a !important;
+  border-color: #8a201a !important;
+}
+
 i{
   font-size: 1rem !important;
 }
