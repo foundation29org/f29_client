@@ -564,9 +564,13 @@
 }
 
 .help-link {
+  background: none;
+  border: 0;
+  padding: 0;
   color: #3498db;
   text-decoration: underline;
   font-weight: 500;
+  cursor: pointer;
 }
 
 .help-link:hover {
