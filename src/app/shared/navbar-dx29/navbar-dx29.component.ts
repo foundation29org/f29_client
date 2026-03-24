@@ -92,8 +92,10 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
       
       // Primero intentamos encontrar la sección actual basada en la posición de scroll
       for (var i = 0; i < elements.length; i++) {
-        var elementPosition = $(elements[i]).offset().top;
-        var elementHeight = $(elements[i]).height();
+        const element = elements[i] as HTMLElement;
+        const elementRect = element.getBoundingClientRect();
+        var elementPosition = elementRect.top + window.pageYOffset;
+        var elementHeight = elementRect.height || element.offsetHeight;
         var viewportHeight = window.innerHeight;
         
         // Calculamos si el elemento está visible en el viewport
@@ -112,7 +114,8 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
             // Verificar si estamos más cerca de awards que de contact
             var contactElement = document.getElementById('contact');
             if (contactElement) {
-              var contactPosition = $(contactElement).offset().top;
+              const contactRect = contactElement.getBoundingClientRect();
+              var contactPosition = contactRect.top + window.pageYOffset;
               // Si estamos más cerca de awards que de contact, seleccionamos awards
               if (Math.abs(currentScrollPosition - elementPosition) < 
                   Math.abs(currentScrollPosition - contactPosition)) {

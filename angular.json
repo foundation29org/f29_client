@@ -36,14 +36,13 @@
             ],
             "styles": [
               "src/assets/fontawesome/css/all.min.css",
+              "src/assets/fontawesome/css/font-display-swap.css",
               "src/assets/sass/app.scss",
               "src/styles.css",
               "node_modules/ngx-toastr/toastr.css",
               "node_modules/cookieconsent/build/cookieconsent.min.css"
             ],
             "scripts": [
-              "src/assets/vendor/pace/pace.min.js",
-              "node_modules/jquery/dist/jquery.min.js",
               "node_modules/cookieconsent/build/cookieconsent.min.js"
             ],
             "allowedCommonJsDependencies": [

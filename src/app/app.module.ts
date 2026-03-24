@@ -1,4 +1,3 @@
-import * as $ from 'jquery';
 import { NgModule ,LOCALE_ID  } from '@angular/core';
 import es from '@angular/common/locales/es'
 import { registerLocaleData } from '@angular/common';
