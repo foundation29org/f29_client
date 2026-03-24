@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { OpenAiService } from '../../shared/services/openAi.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -16,24 +16,25 @@ interface ProcessingResult {
 }
 
 @Component({
-  selector: 'app-adaptacion-informes',
+    standalone: false,
+    selector: 'app-adaptacion-informes',
   templateUrl: './adaptacion-informes.component.html',
   styleUrls: ['./adaptacion-informes.component.scss']
 })
 export class AdaptacionInformesComponent implements OnInit, AfterViewInit {
 
-  selectedFile: File | null = null;
-  fileName: string = '';
-  isLoading: boolean = false;
-  errorMessage: string = '';
-  result: ProcessingResult | null = null;
-  adaptedReportHtml: string = '';
-  uploadProgress: number = 0;
-  reportGenerated: boolean = false;
+  selectedFile = signal<File | null>(null);
+  fileName = signal('');
+  isLoading = signal(false);
+  errorMessage = signal('');
+  result = signal<ProcessingResult | null>(null);
+  adaptedReportHtml = signal('');
+  uploadProgress = signal(0);
+  reportGenerated = signal(false);
   selectedReportType: string = 'ia_estandar';
-  showNewReportButton: boolean = false;
-  isEditing: boolean = false;
-  editableContent: string = '';
+  showNewReportButton = signal(false);
+  isEditing = signal(false);
+  editableContent = signal('');
   
   @ViewChild('editor', { static: false }) editorElement!: ElementRef;
 
@@ -95,37 +96,37 @@ export class AdaptacionInformesComponent implements OnInit, AfterViewInit {
     const maxSize = 10 * 1024 * 1024; // 10MB
 
     if (!allowedTypes.includes(file.type)) {
-      this.errorMessage = this.translate.instant('adaptacion.error_file_type');
+      this.errorMessage.set(this.translate.instant('adaptacion.error_file_type'));
       return;
     }
 
     if (file.size > maxSize) {
-      this.errorMessage = this.translate.instant('adaptacion.error_file_size');
+      this.errorMessage.set(this.translate.instant('adaptacion.error_file_size'));
       return;
     }
 
-    this.selectedFile = file;
-    this.fileName = file.name;
-    this.errorMessage = '';
+    this.selectedFile.set(file);
+    this.fileName.set(file.name);
+    this.errorMessage.set('');
     console.log('📁 Archivo seleccionado:', file.name, `(${file.size} bytes)`);
   }
 
   removeFile(): void {
-    this.selectedFile = null;
-    this.fileName = '';
-    this.errorMessage = '';
-    this.result = null;
-    this.adaptedReportHtml = '';
-    this.uploadProgress = 0;
-    this.reportGenerated = false;
-    this.showNewReportButton = false;
-    this.isEditing = false;
-    this.editableContent = '';
+    this.selectedFile.set(null);
+    this.fileName.set('');
+    this.errorMessage.set('');
+    this.result.set(null);
+    this.adaptedReportHtml.set('');
+    this.uploadProgress.set(0);
+    this.reportGenerated.set(false);
+    this.showNewReportButton.set(false);
+    this.isEditing.set(false);
+    this.editableContent.set('');
   }
 
   private resetState(): void {
     this.removeFile();
-    this.isLoading = false;
+    this.isLoading.set(false);
   }
 
   generateNewReport(): void {
@@ -144,16 +145,17 @@ export class AdaptacionInformesComponent implements OnInit, AfterViewInit {
   // ========================
 
   async processFile(): Promise<void> {
-    if (!this.selectedFile) {
-      this.errorMessage = this.translate.instant('adaptacion.error_no_file');
+    const currentFile = this.selectedFile();
+    if (!currentFile) {
+      this.errorMessage.set(this.translate.instant('adaptacion.error_no_file'));
       return;
     }
     
-    this.isLoading = true;
-    this.errorMessage = '';
-    this.result = null;
-    this.uploadProgress = 0;
-    this.reportGenerated = false;
+    this.isLoading.set(true);
+    this.errorMessage.set('');
+    this.result.set(null);
+    this.uploadProgress.set(0);
+    this.reportGenerated.set(false);
     
     // Iniciar simulación de progreso
     this.simulateUploadProgress();
@@ -178,22 +180,22 @@ export class AdaptacionInformesComponent implements OnInit, AfterViewInit {
       console.log('🔄 Iniciando procesamiento...');
       
       const formData = new FormData();
-      formData.append('file', this.selectedFile);
+      formData.append('file', currentFile);
       formData.append('reportType', this.selectedReportType);
       
-      console.log('📁 Archivo a enviar:', this.selectedFile);
+      console.log('📁 Archivo a enviar:', currentFile);
       console.log('📁 Tipo de informe:', this.selectedReportType);
       console.log('📁 FormData:', formData);
       
       const response = await this.openAiService.postCallIaClaro(formData).toPromise();
       
       if (response && response.success) {
-        this.result = response;
+        this.result.set(response as ProcessingResult);
         // Convertir Markdown a HTML
-        this.adaptedReportHtml = marked.parse(response.adaptedReport) as string;
-        this.editableContent = response.adaptedReport; // Contenido original en markdown para editar
-        this.reportGenerated = true;
-        this.showNewReportButton = true;
+        this.adaptedReportHtml.set(marked.parse(response.adaptedReport) as string);
+        this.editableContent.set(response.adaptedReport); // Contenido original en markdown para editar
+        this.reportGenerated.set(true);
+        this.showNewReportButton.set(true);
         console.log('✅ Procesamiento completado exitosamente');
         
         // Mostrar mensaje de éxito
@@ -237,7 +239,7 @@ export class AdaptacionInformesComponent implements OnInit, AfterViewInit {
         this.resetState();
       });
     } finally {
-      this.isLoading = false;
+      this.isLoading.set(false);
     }
   }
 
@@ -246,7 +248,8 @@ export class AdaptacionInformesComponent implements OnInit, AfterViewInit {
   // ========================
 
   downloadReport(): void {
-    if (!this.result) return;
+    const currentResult = this.result();
+    if (!currentResult) return;
 
     try {
       // Crear una ventana nueva para imprimir
@@ -257,7 +260,7 @@ export class AdaptacionInformesComponent implements OnInit, AfterViewInit {
       }
 
       // Convertir Markdown a HTML
-      const htmlContent = marked.parse(this.result.adaptedReport) as string;
+      const htmlContent = marked.parse(currentResult.adaptedReport) as string;
       
       // Crear el contenido HTML para imprimir
       const printContent = `
@@ -412,10 +415,10 @@ export class AdaptacionInformesComponent implements OnInit, AfterViewInit {
 
   private simulateUploadProgress(): void {
     const interval = setInterval(() => {
-      if (this.uploadProgress < 90) {
-        this.uploadProgress += Math.random() * 10;
-      } else if (this.reportGenerated) {
-        this.uploadProgress = 100;
+      if (this.uploadProgress() < 90) {
+        this.uploadProgress.set(this.uploadProgress() + Math.random() * 10);
+      } else if (this.reportGenerated()) {
+        this.uploadProgress.set(100);
         clearInterval(interval);
       }
     }, 1500);
@@ -426,35 +429,39 @@ export class AdaptacionInformesComponent implements OnInit, AfterViewInit {
   // ========================
 
   toggleEdit(): void {
-    if (!this.isEditing) {
-      this.isEditing = true;
-      this.editableContent = this.result?.adaptedReport || '';
+    if (!this.isEditing()) {
+      this.isEditing.set(true);
+      this.editableContent.set(this.result()?.adaptedReport || '');
       
       // Inicializar editor después de que la vista se actualice
       setTimeout(() => {
         if (this.editorElement) {
           // Convertir Markdown a HTML para mostrar en el editor
-          const htmlContent = marked.parse(this.editableContent) as string;
+          const htmlContent = marked.parse(this.editableContent()) as string;
           this.editorElement.nativeElement.innerHTML = htmlContent;
         }
       }, 100);
     } else {
-      this.isEditing = false;
+      this.isEditing.set(false);
     }
   }
 
   saveEdits(): void {
-    if (this.editorElement && this.result) {
+    const currentResult = this.result();
+    if (this.editorElement && currentResult) {
       // Obtener contenido HTML del editor
-      this.editableContent = this.editorElement.nativeElement.innerHTML;
+      this.editableContent.set(this.editorElement.nativeElement.innerHTML);
       
       // Actualizar el resultado con el contenido editado
-      this.result.adaptedReport = this.editableContent;
+      this.result.set({
+        ...currentResult,
+        adaptedReport: this.editableContent()
+      });
       
       // Convertir a HTML para mostrar
-      this.adaptedReportHtml = this.editableContent;
+      this.adaptedReportHtml.set(this.editableContent());
       
-      this.isEditing = false;
+      this.isEditing.set(false);
       
       // Mostrar mensaje de éxito
       Swal.fire({
@@ -469,9 +476,9 @@ export class AdaptacionInformesComponent implements OnInit, AfterViewInit {
 
   cancelEdit(): void {
     // Restaurar el contenido original (Markdown) y volver a renderizar a HTML
-    this.editableContent = this.result?.adaptedReport || '';
-    this.adaptedReportHtml = marked.parse(this.editableContent) as string;
-    this.isEditing = false;
+    this.editableContent.set(this.result()?.adaptedReport || '');
+    this.adaptedReportHtml.set(marked.parse(this.editableContent()) as string);
+    this.isEditing.set(false);
   }
 
   // Métodos para la barra de herramientas del editor

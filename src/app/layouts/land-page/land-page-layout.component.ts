@@ -6,13 +6,14 @@ import {
   Renderer2,
   AfterViewInit,
   OnDestroy,
-  ViewChild
+  ViewChild,
+  effect
 } from "@angular/core";
 import { Router, NavigationStart } from '@angular/router';
 import { ConfigService } from "app/shared/services/config.service";
 import { DOCUMENT } from "@angular/common";
 import { LayoutService } from "app/shared/services/layout.service";
-import { Subscription } from "rxjs";
+import { filter } from 'rxjs/operators';
 
 var fireRefreshEventOnWindow = function() {
   var evt = document.createEvent("HTMLEvents");
@@ -21,6 +22,7 @@ var fireRefreshEventOnWindow = function() {
 };
 
 @Component({
+    standalone: false,
     selector: 'app-land-page-layout',
     templateUrl: './land-page-layout.component.html',
     styleUrls: ['./land-page-layout.component.scss']
@@ -36,7 +38,6 @@ export class LandPageLayoutComponent implements OnInit, AfterViewInit, OnDestroy
     bgImage: "assets/img/sidebar-bg/01.jpg"
   };
   hideSidebar: boolean;
-  layoutSub: Subscription;
   iscollapsed = false;
   isSidebar_sm = false;
   isSidebar_lg = false;
@@ -61,119 +62,120 @@ export class LandPageLayoutComponent implements OnInit, AfterViewInit, OnDestroy
       this.isHomePage = false;
     }
     //event emitter call from customizer
-    this.layoutSub = layoutService.customizerChangeEmitted$.subscribe(
-      options => {
-        if (options) {
-          if (options.bgColor) {
-            this.bgColor = options.bgColor;
-          }
-          if (options.bgImage) {
-            this.bgImage = options.bgImage;
-          }
+    effect(() => {
+      const options = this.layoutService.customizerState();
+      if (!options) {
+        return;
+      }
 
-          if (options.bgImageDisplay === true) {
-            this.bgImage = options.bgImage;
-          } else if (options.bgImageDisplay === false) {
-            this.bgImage = "";
-          }
+      if (options.bgColor) {
+        this.bgColor = options.bgColor;
+      }
+      if (options.bgImage) {
+        this.bgImage = options.bgImage;
+      }
 
-          if (options.compactMenu === true) {
-            this.renderer.addClass(this.wrapper.nativeElement, "nav-collapsed");
-            this.renderer.addClass(
-              this.wrapper.nativeElement,
-              "menu-collapsed"
-            );
-          } else if (options.compactMenu === false) {
-            if (
-              this.wrapper.nativeElement.classList.contains("nav-collapsed")
-            ) {
-              this.renderer.removeClass(
-                this.wrapper.nativeElement,
-                "nav-collapsed"
-              );
-              this.renderer.removeClass(
-                this.wrapper.nativeElement,
-                "menu-collapsed"
-              );
-            }
-          }
+      if (options.bgImageDisplay === true) {
+        this.bgImage = options.bgImage;
+      } else if (options.bgImageDisplay === false) {
+        this.bgImage = "";
+      }
 
-          if (options.sidebarSize === "sidebar-lg") {
-            this.isSidebar_sm = false;
-            this.isSidebar_lg = true;
-          } else if (options.sidebarSize === "sidebar-sm") {
-            this.isSidebar_sm = true;
-            this.isSidebar_lg = false;
-          } else {
-            this.isSidebar_sm = false;
-            this.isSidebar_lg = false;
-          }
-
-          if (options.layout === "Light") {
-            this.renderer.removeClass(this.document.body, "layout-dark");
-            this.renderer.removeClass(this.document.body, "layout-transparent");
-            this.renderer.removeClass(this.document.body, "bg-hibiscus");
-            this.renderer.removeClass(this.document.body, "bg-purple-pizzazz");
-            this.renderer.removeClass(this.document.body, "bg-blue-lagoon");
-            this.renderer.removeClass(this.document.body, "bg-electric-violet");
-            this.renderer.removeClass(this.document.body, "bg-portage");
-            this.renderer.removeClass(this.document.body, "bg-tundora");
-            this.renderer.removeClass(this.document.body, "bg-glass-1");
-            this.renderer.removeClass(this.document.body, "bg-glass-2");
-            this.renderer.removeClass(this.document.body, "bg-glass-3");
-            this.renderer.removeClass(this.document.body, "bg-glass-4");
-          } else if (options.layout === "Dark") {
-            if (this.document.body.classList.contains("layout-transparent")) {
-              this.renderer.removeClass(
-                this.document.body,
-                "layout-transparent"
-              );
-              this.renderer.removeClass(this.document.body, "bg-hibiscus");
-              this.renderer.removeClass(
-                this.document.body,
-                "bg-purple-pizzazz"
-              );
-              this.renderer.removeClass(this.document.body, "bg-blue-lagoon");
-              this.renderer.removeClass(
-                this.document.body,
-                "bg-electric-violet"
-              );
-              this.renderer.removeClass(this.document.body, "bg-portage");
-              this.renderer.removeClass(this.document.body, "bg-tundora");
-              this.renderer.removeClass(this.document.body, "bg-glass-1");
-              this.renderer.removeClass(this.document.body, "bg-glass-2");
-              this.renderer.removeClass(this.document.body, "bg-glass-3");
-              this.renderer.removeClass(this.document.body, "bg-glass-4");
-
-              this.renderer.addClass(this.document.body, "layout-dark");
-            } else {
-              this.renderer.addClass(this.document.body, "layout-dark");
-            }
-          } else if (options.layout === "Transparent") {
-            this.renderer.addClass(this.document.body, "layout-transparent");
-            this.renderer.addClass(this.document.body, "layout-dark");
-            this.renderer.addClass(this.document.body, "bg-glass-1");
-          }
-
-          if (options.transparentColor) {
-            this.renderer.removeClass(this.document.body, "bg-hibiscus");
-            this.renderer.removeClass(this.document.body, "bg-purple-pizzazz");
-            this.renderer.removeClass(this.document.body, "bg-blue-lagoon");
-            this.renderer.removeClass(this.document.body, "bg-electric-violet");
-            this.renderer.removeClass(this.document.body, "bg-portage");
-            this.renderer.removeClass(this.document.body, "bg-tundora");
-            this.renderer.removeClass(this.document.body, "bg-glass-1");
-            this.renderer.removeClass(this.document.body, "bg-glass-2");
-            this.renderer.removeClass(this.document.body, "bg-glass-3");
-            this.renderer.removeClass(this.document.body, "bg-glass-4");
-            this.renderer.addClass(
-              this.document.body,
-              options.transparentColor
-            );
-          }
+      if (options.compactMenu === true) {
+        this.renderer.addClass(this.wrapper.nativeElement, "nav-collapsed");
+        this.renderer.addClass(
+          this.wrapper.nativeElement,
+          "menu-collapsed"
+        );
+      } else if (options.compactMenu === false) {
+        if (
+          this.wrapper.nativeElement.classList.contains("nav-collapsed")
+        ) {
+          this.renderer.removeClass(
+            this.wrapper.nativeElement,
+            "nav-collapsed"
+          );
+          this.renderer.removeClass(
+            this.wrapper.nativeElement,
+            "menu-collapsed"
+          );
         }
       }
-    );
+
+      if (options.sidebarSize === "sidebar-lg") {
+        this.isSidebar_sm = false;
+        this.isSidebar_lg = true;
+      } else if (options.sidebarSize === "sidebar-sm") {
+        this.isSidebar_sm = true;
+        this.isSidebar_lg = false;
+      } else {
+        this.isSidebar_sm = false;
+        this.isSidebar_lg = false;
+      }
+
+      if (options.layout === "Light") {
+        this.renderer.removeClass(this.document.body, "layout-dark");
+        this.renderer.removeClass(this.document.body, "layout-transparent");
+        this.renderer.removeClass(this.document.body, "bg-hibiscus");
+        this.renderer.removeClass(this.document.body, "bg-purple-pizzazz");
+        this.renderer.removeClass(this.document.body, "bg-blue-lagoon");
+        this.renderer.removeClass(this.document.body, "bg-electric-violet");
+        this.renderer.removeClass(this.document.body, "bg-portage");
+        this.renderer.removeClass(this.document.body, "bg-tundora");
+        this.renderer.removeClass(this.document.body, "bg-glass-1");
+        this.renderer.removeClass(this.document.body, "bg-glass-2");
+        this.renderer.removeClass(this.document.body, "bg-glass-3");
+        this.renderer.removeClass(this.document.body, "bg-glass-4");
+      } else if (options.layout === "Dark") {
+        if (this.document.body.classList.contains("layout-transparent")) {
+          this.renderer.removeClass(
+            this.document.body,
+            "layout-transparent"
+          );
+          this.renderer.removeClass(this.document.body, "bg-hibiscus");
+          this.renderer.removeClass(
+            this.document.body,
+            "bg-purple-pizzazz"
+          );
+          this.renderer.removeClass(this.document.body, "bg-blue-lagoon");
+          this.renderer.removeClass(
+            this.document.body,
+            "bg-electric-violet"
+          );
+          this.renderer.removeClass(this.document.body, "bg-portage");
+          this.renderer.removeClass(this.document.body, "bg-tundora");
+          this.renderer.removeClass(this.document.body, "bg-glass-1");
+          this.renderer.removeClass(this.document.body, "bg-glass-2");
+          this.renderer.removeClass(this.document.body, "bg-glass-3");
+          this.renderer.removeClass(this.document.body, "bg-glass-4");
+
+          this.renderer.addClass(this.document.body, "layout-dark");
+        } else {
+          this.renderer.addClass(this.document.body, "layout-dark");
+        }
+      } else if (options.layout === "Transparent") {
+        this.renderer.addClass(this.document.body, "layout-transparent");
+        this.renderer.addClass(this.document.body, "layout-dark");
+        this.renderer.addClass(this.document.body, "bg-glass-1");
+      }
+
+      if (options.transparentColor) {
+        this.renderer.removeClass(this.document.body, "bg-hibiscus");
+        this.renderer.removeClass(this.document.body, "bg-purple-pizzazz");
+        this.renderer.removeClass(this.document.body, "bg-blue-lagoon");
+        this.renderer.removeClass(this.document.body, "bg-electric-violet");
+        this.renderer.removeClass(this.document.body, "bg-portage");
+        this.renderer.removeClass(this.document.body, "bg-tundora");
+        this.renderer.removeClass(this.document.body, "bg-glass-1");
+        this.renderer.removeClass(this.document.body, "bg-glass-2");
+        this.renderer.removeClass(this.document.body, "bg-glass-3");
+        this.renderer.removeClass(this.document.body, "bg-glass-4");
+        this.renderer.addClass(
+          this.document.body,
+          options.transparentColor
+        );
+      }
+    });
   }
 
   ngOnInit() {
@@ -219,7 +221,7 @@ export class LandPageLayoutComponent implements OnInit, AfterViewInit, OnDestroy
   }
 
   ngAfterViewInit() {
-    this.router.events.filter((event: any) => event instanceof NavigationStart).subscribe(
+    this.router.events.pipe(filter((event: any) => event instanceof NavigationStart)).subscribe(
 
       event => {
         var tempUrl = (event.url).toString();
@@ -261,9 +263,6 @@ export class LandPageLayoutComponent implements OnInit, AfterViewInit, OnDestroy
   }
 
   ngOnDestroy() {
-    if (this.layoutSub) {
-      this.layoutSub.unsubscribe();
-    }
   }
 
   onClick(event) {

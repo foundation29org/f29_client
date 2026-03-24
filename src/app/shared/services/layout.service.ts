@@ -1,39 +1,52 @@
-import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Injectable, signal } from '@angular/core';
+import { toObservable } from '@angular/core/rxjs-interop';
+import { filter } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
 })
 export class LayoutService {
+    private readonly _changeState = signal<any | null>(null);
+    readonly changeState = this._changeState.asReadonly();
+    readonly changeEmitted$ = toObservable(this._changeState).pipe(
+        filter((value): value is any => value !== null)
+    );
 
-    private emitChangeSource = new Subject<any>();
-    changeEmitted$ = this.emitChangeSource.asObservable();
     emitChange(change: any) {
-        this.emitChangeSource.next(change);
+        this._changeState.set(change);
     }
 
 
     //Customizer
+    private readonly _customizerState = signal<any | null>(null);
+    readonly customizerState = this._customizerState.asReadonly();
+    readonly customizerChangeEmitted$ = toObservable(this._customizerState).pipe(
+        filter((value): value is any => value !== null)
+    );
 
-    private emitCustomizerSource = new Subject<any>();
-    customizerChangeEmitted$ = this.emitCustomizerSource.asObservable();
     emitCustomizerChange(change: any) {
-        this.emitCustomizerSource.next(change);
+        this._customizerState.set(change);
     }
 
     //customizer - compact menu
+    private readonly _customizerCMState = signal<any | null>(null);
+    readonly customizerCMState = this._customizerCMState.asReadonly();
+    readonly customizerCMChangeEmitted$ = toObservable(this._customizerCMState).pipe(
+        filter((value): value is any => value !== null)
+    );
 
-    private emitCustomizerCMSource = new Subject<any>();
-    customizerCMChangeEmitted$ = this.emitCustomizerCMSource.asObservable();
     emitCustomizerCMChange(change: any) {
-        this.emitCustomizerCMSource.next(change);
+        this._customizerCMState.set(change);
     }
 
        //customizer - compact menu
+       private readonly _notiSidebarState = signal<any | null>(null);
+       readonly notiSidebarState = this._notiSidebarState.asReadonly();
+       readonly notiSidebarChangeEmitted$ = toObservable(this._notiSidebarState).pipe(
+           filter((value): value is any => value !== null)
+       );
 
-       private emitNotiSidebarSource = new Subject<any>();
-       notiSidebarChangeEmitted$ = this.emitNotiSidebarSource.asObservable();
        emitNotiSidebarChange(change: any) {
-           this.emitNotiSidebarSource.next(change);
+           this._notiSidebarState.set(change);
        }
 }

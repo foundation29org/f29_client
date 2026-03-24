@@ -1,6 +1,8 @@
 import { Directive, HostBinding, Input, HostListener, AfterViewInit, Renderer2 } from '@angular/core';
 
-@Directive({ selector: "[appSidebarToggle]" })
+@Directive({
+    standalone: false,
+    selector: "[appSidebarToggle]" })
 export class SidebarToggleDirective implements AfterViewInit {
   @HostBinding("attr.data-toggle")
   @Input()

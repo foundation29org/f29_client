@@ -1,39 +1,43 @@
-import { Injectable } from '@angular/core';
-import * as Rx from 'rxjs/Rx';
+import { Injectable, signal } from '@angular/core';
 
 @Injectable()
 export class EventsService {
-  listeners: any;
-  eventsSubject: any;
-  events: any;
-    constructor() {
-        this.listeners = {};
-        this.eventsSubject = new Rx.Subject();
+  private readonly listeners = new Map<string, Array<(msg: any) => void>>();
+  private readonly _lastEvent = signal<{ name: string; msg: any } | null>(null);
+  readonly lastEvent = this._lastEvent.asReadonly();
+  private readonly _currentLanguage = signal<string>(sessionStorage.getItem('lang') || 'en');
+  readonly currentLanguage = this._currentLanguage.asReadonly();
 
-        this.events = Rx.Observable.from(this.eventsSubject);
-
-        this.events.subscribe(
-            ({name, msg}) => {
-                if (this.listeners[name]) {
-                    for (let listener of this.listeners[name]) {
-                        listener(msg);
-                    }
-                }
-            });
-    }
-
-    on(name, listener) {
-        if (!this.listeners[name]) {
-            this.listeners[name] = [];
+    on(name: string, listener: (msg: any) => void): () => void {
+        if (!this.listeners.has(name)) {
+            this.listeners.set(name, []);
         }
 
-        this.listeners[name].push(listener);
+        this.listeners.get(name)!.push(listener);
+
+        // Return unsubscribe callback for gradual cleanup at call sites.
+        return () => {
+            const current = this.listeners.get(name) || [];
+            this.listeners.set(
+                name,
+                current.filter((registered) => registered !== listener)
+            );
+        };
     }
 
-    broadcast(name, msg) {
-        this.eventsSubject.next({
-            name,
-            msg
-        });
+    broadcast(name: string, msg: any): void {
+        if (name === 'changelang' && typeof msg === 'string') {
+            this._currentLanguage.set(msg);
+        }
+        this._lastEvent.set({ name, msg });
+        const registered = this.listeners.get(name) || [];
+        for (const listener of registered) {
+            listener(msg);
+        }
+    }
+
+    setLanguage(language: string): void {
+        this._currentLanguage.set(language);
+        this.broadcast('changelang', language);
     }
 }

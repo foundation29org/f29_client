@@ -1,19 +1,20 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener, effect } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EventsService } from 'app/shared/services/events.service';
 import { HttpClient } from '@angular/common/http';
 import { SortService } from 'app/shared/services/sort.service';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { NgbModal, NgbModalRef, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
+    standalone: false,
     selector: 'app-land-page',
     templateUrl: './land-page.component.html',
     styleUrls: ['./land-page.component.scss'],
 })
 
-export class LandPageComponent implements OnInit {
+export class LandPageComponent implements OnInit, OnDestroy {
     lang: string = 'en';
     fragment: string;
     currentHash:string = 'home';
@@ -22,7 +23,10 @@ export class LandPageComponent implements OnInit {
     private subscription: Subscription = new Subscription();
 
     constructor(private eventsService: EventsService, private http: HttpClient, private sortService: SortService, private route: ActivatedRoute, private router: Router, private modalService: NgbModal, private translate: TranslateService) {
-        this.lang = sessionStorage.getItem('lang');
+        this.lang = this.eventsService.currentLanguage();
+        effect(() => {
+          this.lang = this.eventsService.currentLanguage();
+        });
     }
 
     /*@HostListener('window:scroll', ['$event']) // for window scroll events
@@ -46,12 +50,8 @@ export class LandPageComponent implements OnInit {
     }*/
 
     ngOnInit() {
-        this.route.fragment.subscribe(fragment => { this.fragment = fragment; });
+        this.subscription.add(this.route.fragment.subscribe(fragment => { this.fragment = fragment; }));
 
-        this.eventsService.on('changelang', function (lang) {
-            this.lang = lang;
-          
-        }.bind(this));
     }
 
     ngAfterViewInit(): void {
@@ -74,12 +74,12 @@ export class LandPageComponent implements OnInit {
         let ngbModalOptions: NgbModalOptions = {
             backdrop: 'static',
             keyboard: false,
-            windowClass: 'ModalClass-lg'// xl, lg, sm
+            container: 'body',
+            scrollable: true,
+            windowClass: 'ModalClass-lg dxgpt-help-modal-window',// xl, lg, sm
+            backdropClass: 'dxgpt-help-modal-backdrop'
         };
-        if (this.modalReference != undefined) {
-            this.modalReference.close();
-            this.modalReference = undefined;
-        }
+        this.modalService.dismissAll();
         this.modalReference = this.modalService.open(contentInfoAPP, ngbModalOptions);
     }
 
@@ -99,5 +99,9 @@ export class LandPageComponent implements OnInit {
     lauchEvent(action: string) {
         // Puedes implementar aquí la lógica para registrar eventos de analítica
         console.log('Event:', action);
+    }
+
+    ngOnDestroy(): void {
+      this.subscription.unsubscribe();
     }
 }

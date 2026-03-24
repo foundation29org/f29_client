@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import { FormsModule } from '@angular/forms';
-import { CustomFormsModule } from 'ngx-custom-validators';
 import { ContentPagesRoutingModule } from "./content-pages-routing.module";
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -19,14 +18,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         ContentPagesRoutingModule,
         FormsModule,
         TranslateModule,
-        CustomFormsModule,
         NgbModule
     ],
     declarations: [
         ErrorPageComponent,
         TermsConditionsPageComponent,
         PrivacyPolicyPageComponent
-    ],
-    entryComponents:[TermsConditionsPageComponent]
+    ]
 })
 export class ContentPagesModule { }

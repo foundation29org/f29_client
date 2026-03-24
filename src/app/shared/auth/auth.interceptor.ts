@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest} from '@angular/common/http';
-import { Observable } from 'rxjs/Rx';
-import 'rxjs/add/observable/throw'
-import 'rxjs/add/operator/catch';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { environment } from 'environments/environment';
 
 @Injectable()
@@ -22,23 +21,10 @@ export class AuthInterceptor implements HttpInterceptor {
       authReq = req.clone({ headers });
 
     // Pass on the cloned request instead of the original request.
-    return next.handle(authReq)
-      .catch((error, caught) => {
-
-        if (error.status === 401) {
-          return Observable.throw(error);
-        }
-
-        if (error.status === 404 || error.status === 0) {
-          return Observable.throw(error);
-        }
-
-        if (error.status === 419) {
-          return Observable.throw(error);
-        }
-
-        //return all others errors
-        return Observable.throw(error);
-      }) as any;
+    return next.handle(authReq).pipe(
+      catchError((error) => {
+        return throwError(() => error);
+      })
+    ) as any;
   }
 }

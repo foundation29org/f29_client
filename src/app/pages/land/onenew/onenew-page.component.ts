@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, effect } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
 import { TranslateService } from '@ngx-translate/core';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { EventsService } from 'app/shared/services/events.service';
 import { SearchService } from 'app/shared/services/search.service';
@@ -9,12 +9,13 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Meta } from '@angular/platform-browser';
 
 @Component({
+    standalone: false,
     selector: 'app-onenew-page',
     templateUrl: './onenew-page.component.html',
     styleUrls: ['./onenew-page.component.scss'],
 })
 
-export class OneNewPageComponent {
+export class OneNewPageComponent implements OnDestroy {
 
     private subscription: Subscription = new Subscription();
     lang = 'en';
@@ -25,26 +26,24 @@ export class OneNewPageComponent {
     news: any = [];
 
     constructor(public translate: TranslateService, private http: HttpClient, private eventsService: EventsService, private route: ActivatedRoute, private searchService: SearchService, protected sanitizer: DomSanitizer, private meta: Meta) {
-        this.lang = sessionStorage.getItem('lang');;
+        this.lang = this.eventsService.currentLanguage();
+        effect(() => {
+          const lang = this.eventsService.currentLanguage();
+          if (lang != this.lang) {
+            this.lang = lang;
+            this.loadNew();
+          }
+        });
         
     }
 
     ngOnInit() {
-
-        this.eventsService.on('changelang', function (lang) {
-            if (lang != this.lang) {
-              this.lang = lang;
-              this.loadNew();
-            }
-      
-          }.bind(this));
-
-        this.route.params.subscribe((params) => {
+        this.subscription.add(this.route.params.subscribe((params) => {
             this.title = params?.title
             this.id = params?.id
             document.getElementById('init').scrollIntoView({behavior: "smooth"});
             this.loadNew();
-        })
+        }))
 
     }
 
@@ -70,6 +69,10 @@ export class OneNewPageComponent {
 
     openNew(actualNew){
 
+    }
+
+    ngOnDestroy(): void {
+      this.subscription.unsubscribe();
     }
 
 }

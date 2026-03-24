@@ -1,4 +1,4 @@
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 .text-bold-500 {
   font-weight: 500 !important;
 }
@@ -145,7 +145,7 @@ body {
   font: inherit;
 }
 
-:host /deep/ a{
+:host ::ng-deep a{
   color: #F84239 !important;
 }
 
@@ -368,6 +368,22 @@ a{
 
   .ModalClass-sm .modal-dialog {
     max-width: 45% !important;
+  }
+
+  .legal-modal-window {
+    z-index: 2055 !important;
+  }
+
+  .legal-modal-backdrop {
+    z-index: 2050 !important;
+  }
+
+  .dxgpt-help-modal-window {
+    z-index: 2065 !important;
+  }
+
+  .dxgpt-help-modal-backdrop {
+    z-index: 2060 !important;
   }
 
   @media ( max-width: 900px ){

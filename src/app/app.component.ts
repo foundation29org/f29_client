@@ -1,11 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, effect } from '@angular/core';
 import { environment } from 'environments/environment';
 import { ToastrService } from 'ngx-toastr';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/mergeMap'
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
+import { filter, map, mergeMap } from 'rxjs/operators';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
@@ -15,13 +12,14 @@ import { EventsService } from 'app/shared/services/events.service';
 import {
   NgcCookieConsentService,
   NgcNoCookieLawEvent,
-  NgcInitializeEvent,
+  NgcInitializingEvent,
   NgcStatusChangeEvent,
 } from "ngx-cookieconsent";
 
 
 @Component({
-  selector: 'app-root',
+    standalone: false,
+    selector: 'app-root',
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit, OnDestroy {
@@ -57,6 +55,21 @@ export class AppComponent implements OnInit, OnDestroy {
     this.loadLanguages();
     this.loadCultures();
 
+    effect(() => {
+      const lang = this.eventsService.currentLanguage();
+      if (!lang) {
+        return;
+      }
+      this.applyLanguageChange(lang);
+    });
+    effect(() => {
+      const event = this.eventsService.lastEvent();
+      if (!event || event.name !== 'http-error') {
+        return;
+      }
+      this.handleHttpError(event.msg);
+    });
+
   }
 
   loadLanguages() {
@@ -71,7 +84,7 @@ export class AppComponent implements OnInit, OnDestroy {
         if (browserLang.match(lang.code)) {
           this.translate.use(lang.code);
           sessionStorage.setItem('lang', lang.code);
-          this.eventsService.broadcast('changelang', lang.code);
+          this.eventsService.setLanguage(lang.code);
         }
       }
     }
@@ -92,65 +105,16 @@ export class AppComponent implements OnInit, OnDestroy {
       { name: 'robots', content: 'index, follow' }
     ]);
 
-    //evento que escucha si ha habido un error de conexión
-    this.eventsService.on('http-error', function (error) {
-      var msg1 = 'No internet connection';
-      var msg2 = 'Trying to connect ...';
-
-      if (sessionStorage.getItem('lang')) {
-        var actuallang = sessionStorage.getItem('lang');
-        if (actuallang == 'es') {
-          msg1 = 'Sin conexión a Internet';
-          msg2 = 'Intentando conectar ...';
-        } else if (actuallang == 'pt') {
-          msg1 = 'Sem conexão à internet';
-          msg2 = 'Tentando se conectar ...';
-        } else if (actuallang == 'de') {
-          msg1 = 'Keine Internetverbindung';
-          msg2 = 'Versucht zu verbinden ...';
-        } else if (actuallang == 'nl') {
-          msg1 = 'Geen internet verbinding';
-          msg2 = 'Proberen te verbinden ...';
-        }
-      }
-      if (error.message) {
-        if (error == 'The user does not exist') {
-          Swal.fire({
-            icon: 'warning',
-            title: this.translate.instant("errors.The user does not exist"),
-            html: this.translate.instant("errors.The session has been closed")
-          })
-        }
-      } else {
-
-        Swal.fire({
-          title: msg1,
-          text: msg2,
-          icon: 'warning',
-          showCancelButton: false,
-          confirmButtonColor: '#33658a',
-          confirmButtonText: 'OK',
-          showLoaderOnConfirm: true,
-          allowOutsideClick: false,
-          reverseButtons: true
-        }).then((result) => {
-          if (result.value) {
-            location.reload();
-          }
-
-        });
-      }
-    }.bind(this));
-
-    this.subscription = this.router.events
-      .filter((event) => event instanceof NavigationEnd)
-      .map(() => this.activatedRoute)
-      .map((route) => {
+    this.subscription = this.router.events.pipe(
+      filter((event) => event instanceof NavigationEnd),
+      map(() => this.activatedRoute),
+      map((route) => {
         while (route.firstChild) route = route.firstChild;
         return route;
-      })
-      .filter((route) => route.outlet === 'primary')
-      .mergeMap((route) => route.data)
+      }),
+      filter((route) => route.outlet === 'primary'),
+      mergeMap((route) => route.data)
+    )
       .subscribe((event) => {
         (async () => {
           await this.delay(500);
@@ -167,37 +131,6 @@ export class AppComponent implements OnInit, OnDestroy {
         this.actualPage = event['title'];
       });
 
-
-    this.eventsService.on('changelang', function (lang) {
-      
-      (async () => {
-        await this.delay(500);
-        var titulo = this.translate.instant(this.tituloEvent);
-        this.titleService.setTitle(titulo);
-        sessionStorage.setItem('lang', lang);
-        this.changeMeta();
-      })();
-
-      this.translate
-      .get(['cookie.header', 'cookie.message', 'cookie.dismiss', 'cookie.allow', 'cookie.deny', 'cookie.link', 'cookie.policy'])
-      .subscribe(data => {
-
-        this.ccService.getConfig().content = this.ccService.getConfig().content || {} ;
-        // Override default messages with the translated ones
-        this.ccService.getConfig().content.header = data['cookie.header'];
-        this.ccService.getConfig().content.message = data['cookie.message'];
-        this.ccService.getConfig().content.dismiss = data['cookie.dismiss'];
-        this.ccService.getConfig().content.allow = data['cookie.allow'];
-        this.ccService.getConfig().content.deny = data['cookie.deny'];
-        this.ccService.getConfig().content.link = data['cookie.link'];
-        this.ccService.getConfig().content.policy = data['cookie.policy'];
-        this.ccService.getConfig().content.href = environment.api+'/privacy-policy';
-        this.ccService.destroy();//remove previous cookie bar (with default messages)
-        this.ccService.init(this.ccService.getConfig()); // update config with translated messages
-      });
-
-    }.bind(this));
-
     this.ccService.getConfig().cookie.domain = window.location.hostname;
 
     // subscribe to cookieconsent observables to react to main events
@@ -209,8 +142,8 @@ export class AppComponent implements OnInit, OnDestroy {
       // you can use this.ccService.getConfig() to do stuff...
     });
 
-    this.initializeSubscription = this.ccService.initialize$.subscribe(
-      (event: NgcInitializeEvent) => {
+    this.initializeSubscription = this.ccService.initializing$.subscribe(
+      (event: NgcInitializingEvent) => {
         // you can use this.ccService.getConfig() to do stuff...
       }
     );
@@ -280,6 +213,82 @@ export class AppComponent implements OnInit, OnDestroy {
     this.statusChangeSubscription.unsubscribe();
     this.revokeChoiceSubscription.unsubscribe();
     this.noCookieLawSubscription.unsubscribe();
+  }
+
+  private applyLanguageChange(lang: string): void {
+    (async () => {
+      await this.delay(500);
+      if (this.tituloEvent && this.tituloEvent.trim() !== '') {
+        var titulo = this.translate.instant(this.tituloEvent);
+        this.titleService.setTitle(titulo);
+      }
+      sessionStorage.setItem('lang', lang);
+      this.changeMeta();
+    })();
+
+    this.translate
+      .get(['cookie.header', 'cookie.message', 'cookie.dismiss', 'cookie.allow', 'cookie.deny', 'cookie.link', 'cookie.policy'])
+      .subscribe(data => {
+        this.ccService.getConfig().content = this.ccService.getConfig().content || {};
+        // Override default messages with the translated ones
+        this.ccService.getConfig().content.header = data['cookie.header'];
+        this.ccService.getConfig().content.message = data['cookie.message'];
+        this.ccService.getConfig().content.dismiss = data['cookie.dismiss'];
+        this.ccService.getConfig().content.allow = data['cookie.allow'];
+        this.ccService.getConfig().content.deny = data['cookie.deny'];
+        this.ccService.getConfig().content.link = data['cookie.link'];
+        this.ccService.getConfig().content.policy = data['cookie.policy'];
+        this.ccService.getConfig().content.href = environment.api + '/privacy-policy';
+        this.ccService.destroy();//remove previous cookie bar (with default messages)
+        this.ccService.init(this.ccService.getConfig()); // update config with translated messages
+      });
+  }
+
+  private handleHttpError(error: any): void {
+    var msg1 = 'No internet connection';
+    var msg2 = 'Trying to connect ...';
+
+    if (sessionStorage.getItem('lang')) {
+      var actuallang = sessionStorage.getItem('lang');
+      if (actuallang == 'es') {
+        msg1 = 'Sin conexión a Internet';
+        msg2 = 'Intentando conectar ...';
+      } else if (actuallang == 'pt') {
+        msg1 = 'Sem conexão à internet';
+        msg2 = 'Tentando se conectar ...';
+      } else if (actuallang == 'de') {
+        msg1 = 'Keine Internetverbindung';
+        msg2 = 'Versucht zu verbinden ...';
+      } else if (actuallang == 'nl') {
+        msg1 = 'Geen internet verbinding';
+        msg2 = 'Proberen te verbinden ...';
+      }
+    }
+    if (error?.message) {
+      if (error == 'The user does not exist') {
+        Swal.fire({
+          icon: 'warning',
+          title: this.translate.instant("errors.The user does not exist"),
+          html: this.translate.instant("errors.The session has been closed")
+        })
+      }
+    } else {
+      Swal.fire({
+        title: msg1,
+        text: msg2,
+        icon: 'warning',
+        showCancelButton: false,
+        confirmButtonColor: '#33658a',
+        confirmButtonText: 'OK',
+        showLoaderOnConfirm: true,
+        allowOutsideClick: false,
+        reverseButtons: true
+      }).then((result) => {
+        if (result.value) {
+          location.reload();
+        }
+      });
+    }
   }
 
   changeMeta() {

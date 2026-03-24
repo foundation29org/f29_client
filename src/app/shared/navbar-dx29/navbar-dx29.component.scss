@@ -25,6 +25,19 @@ i{
   vertical-align: 0.055em;
 }
 
+#dropdownLang,
+#dropdownLang u {
+  color: #fff !important;
+}
+
+#dropdownLang:hover,
+#dropdownLang:focus,
+#dropdownLang:hover u,
+#dropdownLang:focus u {
+  color: #fff !important;
+  text-decoration: none;
+}
+
 .text-logo{
   position: absolute;
   top: 2em;

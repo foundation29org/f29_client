@@ -11,13 +11,7 @@ import { ToastrModule } from "ngx-toastr";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HTTP_INTERCEPTORS, HttpClientModule, HttpClient } from "@angular/common/http";
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
-import { TranslateHttpLoader } from "@ngx-translate/http-loader";
-
-import {
-    PerfectScrollbarModule,
-    PERFECT_SCROLLBAR_CONFIG,
-    PerfectScrollbarConfigInterface
-  } from 'ngx-perfect-scrollbar';
+import { TranslateHttpLoader, provideTranslateHttpLoader } from "@ngx-translate/http-loader";
 
 import { AppComponent } from './app.component';
 import { LandPageLayoutComponent } from "./layouts/land-page/land-page-layout.component";
@@ -49,16 +43,6 @@ const cookieConfig:NgcCookieConsentConfig = {
   type: 'opt-out'
 };
 
-const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
-    suppressScrollX: true,
-    wheelPropagation: false
-  };
-
-  export function createTranslateLoader(http: HttpClient) {
-    return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
-  }
-
-
   @NgModule({
     declarations: [AppComponent, LandPageLayoutComponent, LocalizedDatePipe],
     imports: [
@@ -72,11 +56,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       TranslateModule.forRoot({
         loader: {
           provide: TranslateLoader,
-          useFactory: createTranslateLoader,
-          deps: [HttpClient]
+          useClass: TranslateHttpLoader
         }
       }),
-      PerfectScrollbarModule,
       NgcCookieConsentModule.forRoot(cookieConfig)
     ],
     providers: [
@@ -93,11 +75,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       SearchService,
       EventsService,
       DialogService,
-      {
-        provide: PERFECT_SCROLLBAR_CONFIG,
-        useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-      },
-      { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG }
+      ...provideTranslateHttpLoader({
+        prefix: './assets/i18n/',
+        suffix: '.json'
+      })
     ],
     bootstrap: [AppComponent]
   })
