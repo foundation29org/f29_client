@@ -41,6 +41,9 @@ export class AppComponent implements OnInit, OnDestroy {
   private statusChangeSubscription: Subscription;
   private revokeChoiceSubscription: Subscription;
   private noCookieLawSubscription: Subscription;
+  private analyticsLoaded = false;
+  private static analyticsLoadPromise: Promise<void> | null = null;
+  private readonly GA_MEASUREMENT_ID = 'G-617MVGQPGC';
   constructor(public toastr: ToastrService, private router: Router, private activatedRoute: ActivatedRoute, private titleService: Title, public translate: TranslateService, private eventsService: EventsService, private ccService: NgcCookieConsentService, private meta: Meta) {
 
     if (sessionStorage.getItem('lang')) {
@@ -150,7 +153,9 @@ export class AppComponent implements OnInit, OnDestroy {
 
     this.statusChangeSubscription = this.ccService.statusChange$.subscribe(
       (event: NgcStatusChangeEvent) => {
-        // you can use this.ccService.getConfig() to do stuff...
+        if (event.status === 'allow') {
+          void this.loadAnalyticsIfAllowed();
+        }
       }
     );
 
@@ -165,6 +170,10 @@ export class AppComponent implements OnInit, OnDestroy {
         // you can use this.ccService.getConfig() to do stuff...
       }
     );
+
+    if (this.ccService.hasConsented()) {
+      void this.loadAnalyticsIfAllowed();
+    }
 
     this.translate
       .get(['cookie.header', 'cookie.message', 'cookie.dismiss', 'cookie.allow', 'cookie.deny', 'cookie.link', 'cookie.policy'])
@@ -183,6 +192,34 @@ export class AppComponent implements OnInit, OnDestroy {
         this.ccService.destroy();//remove previous cookie bar (with default messages)
         this.ccService.init(this.ccService.getConfig()); // update config with translated messages
       });
+  }
+
+  private async loadAnalyticsIfAllowed(): Promise<void> {
+    if (this.analyticsLoaded || !this.ccService.hasConsented()) {
+      return;
+    }
+
+    if (!AppComponent.analyticsLoadPromise) {
+      AppComponent.analyticsLoadPromise = new Promise<void>((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${this.GA_MEASUREMENT_ID}`;
+        script.async = true;
+        script.addEventListener('load', () => {
+          (window as any).dataLayer = (window as any).dataLayer || [];
+          (window as any).gtag = function () {
+            (window as any).dataLayer.push(arguments);
+          };
+          (window as any).gtag('js', new Date());
+          (window as any).gtag('config', this.GA_MEASUREMENT_ID);
+          resolve();
+        }, { once: true });
+        script.addEventListener('error', () => reject(new Error('Failed to load Google Analytics')), { once: true });
+        document.head.appendChild(script);
+      });
+    }
+
+    await AppComponent.analyticsLoadPromise;
+    this.analyticsLoaded = true;
   }
 
   delay(ms: number) {
