@@ -45,7 +45,9 @@ Thumbs.db
 
 # Secret keys
 /env_files/*
-.env 
+.env
+.env.*
+!.env.example
 /src/environments/environment.dev.ts
 /src/environments/environment.staging.ts
 /src/environments/environment.prod.ts

@@ -37,6 +37,7 @@
     "@ng-select/ng-select": "^21.5.2",
     "@ngx-translate/core": "^17.0.0",
     "@ngx-translate/http-loader": "^17.0.0",
+    "@popperjs/core": "^2.11.8",
     "@types/jquery": "^3.5.32",
     "@types/node": "^22.14.1",
     "bootstrap": "^4.6.2",
