@@ -34,6 +34,7 @@ export class FooterLandComponent implements OnDestroy, OnInit{
     
     // Variable estática para evitar cargas múltiples
     private static recaptchaScriptLoaded: boolean = false;
+    private static recaptchaLoadPromise: Promise<void> | null = null;
 
     constructor(private http: HttpClient, public translate: TranslateService, public toastr: ToastrService, private modalService: NgbModal, private eventsService: EventsService) {
       effect(() => {
@@ -53,9 +54,7 @@ export class FooterLandComponent implements OnDestroy, OnInit{
     }
 
     ngOnInit() {
-      this.loadRecaptcha();
-
-  }
+    }
 
       ngOnDestroy() {
         this.subscription.unsubscribe();
@@ -72,36 +71,29 @@ export class FooterLandComponent implements OnDestroy, OnInit{
       }
   
       sendMsg(){
-          // Ejecutar reCAPTCHA v3
-          this.executeRecaptcha();
+          void this.executeRecaptcha();
       }
 
-      private executeRecaptcha(): void {
-          if (!this.recaptchaLoaded) {
-              console.error('reCAPTCHA not loaded');
+      private async executeRecaptcha(): Promise<void> {
+          try {
+              await this.loadRecaptcha();
+          } catch (error) {
               this.toastr.error('', 'reCAPTCHA no se ha cargado correctamente');
               return;
           }
 
-          console.log('Executing reCAPTCHA with site key:', this.RECAPTCHA_SITE_KEY);
-
           // Verificar que grecaptcha esté disponible
           if (typeof (window as any).grecaptcha === 'undefined') {
-              console.error('grecaptcha is not defined');
               this.toastr.error('', 'reCAPTCHA no está disponible');
               return;
           }
 
           (window as any).grecaptcha.ready(() => {
-              console.log('grecaptcha is ready');
-              
               (window as any).grecaptcha.execute(this.RECAPTCHA_SITE_KEY, { action: 'submit' })
                   .then((token: string) => {
-                      console.log('reCAPTCHA token generated:', token.substring(0, 20) + '...');
                       this.submitForm(token);
                   })
                   .catch((error: any) => {
-                      console.error('reCAPTCHA error:', error);
                       this.toastr.error('', 'Error en la verificación de seguridad');
                   });
           });
@@ -153,46 +145,53 @@ export class FooterLandComponent implements OnDestroy, OnInit{
           }
       }
 
-      private loadRecaptcha(): void {
-          // Verificar si ya está cargado globalmente
-          if (FooterLandComponent.recaptchaScriptLoaded) {
-              this.recaptchaLoaded = true;
-              return;
+      private loadRecaptcha(): Promise<void> {
+          if (this.recaptchaLoaded && typeof (window as any).grecaptcha !== 'undefined') {
+              return Promise.resolve();
           }
 
-          // Verificar si ya existe el script
-          if (document.querySelector(`script[src*="recaptcha/api.js"]`)) {
-              FooterLandComponent.recaptchaScriptLoaded = true;
-              this.recaptchaLoaded = true;
-              return;
+          if (FooterLandComponent.recaptchaLoadPromise) {
+              return FooterLandComponent.recaptchaLoadPromise.then(() => {
+                  this.recaptchaLoaded = true;
+              });
           }
 
-          console.log('Loading reCAPTCHA with site key:', this.RECAPTCHA_SITE_KEY);
+          FooterLandComponent.recaptchaLoadPromise = new Promise<void>((resolve, reject) => {
+              const resolveWhenReady = () => {
+                  if (typeof (window as any).grecaptcha !== 'undefined') {
+                      FooterLandComponent.recaptchaScriptLoaded = true;
+                      this.recaptchaLoaded = true;
+                      resolve();
+                      return;
+                  }
+                  reject(new Error('grecaptcha is not available'));
+              };
 
-          // Crear script de reCAPTCHA según la documentación oficial
-          const script = document.createElement('script');
-          script.src = `https://www.google.com/recaptcha/api.js?render=${this.RECAPTCHA_SITE_KEY}`;
-          script.async = true;
-          script.defer = true;
-          
-          script.onload = () => {
-              FooterLandComponent.recaptchaScriptLoaded = true;
-              this.recaptchaLoaded = true;
-              console.log('reCAPTCHA v3 loaded successfully');
-              
-              // Verificar que grecaptcha esté disponible
-              if (typeof (window as any).grecaptcha !== 'undefined') {
-                  console.log('grecaptcha object is available');
-              } else {
-                  console.error('grecaptcha object is not available');
+              const existingScript = document.querySelector(`script[src*="recaptcha/api.js"]`) as HTMLScriptElement | null;
+              if (existingScript) {
+                  if (FooterLandComponent.recaptchaScriptLoaded || typeof (window as any).grecaptcha !== 'undefined') {
+                      resolveWhenReady();
+                      return;
+                  }
+
+                  existingScript.addEventListener('load', resolveWhenReady, { once: true });
+                  existingScript.addEventListener('error', () => reject(new Error('Failed to load reCAPTCHA script')), { once: true });
+                  return;
               }
-          };
-          
-          script.onerror = () => {
-              console.error('Failed to load reCAPTCHA v3');
-          };
-          
-          document.head.appendChild(script);
+
+              const script = document.createElement('script');
+              script.src = `https://www.google.com/recaptcha/api.js?render=${this.RECAPTCHA_SITE_KEY}`;
+              script.async = true;
+              script.defer = true;
+              script.addEventListener('load', resolveWhenReady, { once: true });
+              script.addEventListener('error', () => reject(new Error('Failed to load reCAPTCHA script')), { once: true });
+              document.head.appendChild(script);
+          }).catch((error) => {
+              FooterLandComponent.recaptchaLoadPromise = null;
+              throw error;
+          });
+
+          return FooterLandComponent.recaptchaLoadPromise;
       }
 
 }
