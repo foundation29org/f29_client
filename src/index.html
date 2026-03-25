@@ -26,6 +26,21 @@
    
   <base href="/">
   <link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
+  <script>
+    (function preloadInitialI18n() {
+      var savedLang = sessionStorage.getItem('lang');
+      var browserLang = (navigator.language || 'en').toLowerCase();
+      var selectedLang = savedLang || (browserLang.indexOf('es') === 0 ? 'es' : 'en');
+      var i18nHref = 'assets/i18n/' + selectedLang + '.json';
+      var link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'fetch';
+      link.type = 'application/json';
+      link.crossOrigin = 'anonymous';
+      link.href = i18nHref;
+      document.head.appendChild(link);
+    })();
+  </script>
   <!--<link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href='https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Montserrat:300,400,500,600,700,800,900&display=swap'

@@ -119,13 +119,10 @@ export class AppComponent implements OnInit, OnDestroy {
       mergeMap((route) => route.data)
     )
       .subscribe((event) => {
-        (async () => {
-          await this.delay(500);
-          this.tituloEvent = event['title'];
-          var titulo = this.translate.instant(this.tituloEvent);
-          this.titleService.setTitle(titulo);
-          this.changeMeta();
-        })();
+        this.tituloEvent = event['title'];
+        var titulo = this.translate.instant(this.tituloEvent);
+        this.titleService.setTitle(titulo);
+        this.changeMeta();
 
         //para los anchor de la misma páginano hacer scroll hasta arriba
         if (this.actualPage != event['title']) {
@@ -222,9 +219,6 @@ export class AppComponent implements OnInit, OnDestroy {
     this.analyticsLoaded = true;
   }
 
-  delay(ms: number) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
   // when the component is destroyed, unsubscribe to prevent memory leaks
   ngOnDestroy() {
     if (this.loggerSubscription) {
@@ -253,15 +247,12 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   private applyLanguageChange(lang: string): void {
-    (async () => {
-      await this.delay(500);
-      if (this.tituloEvent && this.tituloEvent.trim() !== '') {
-        var titulo = this.translate.instant(this.tituloEvent);
-        this.titleService.setTitle(titulo);
-      }
-      sessionStorage.setItem('lang', lang);
-      this.changeMeta();
-    })();
+    if (this.tituloEvent && this.tituloEvent.trim() !== '') {
+      var titulo = this.translate.instant(this.tituloEvent);
+      this.titleService.setTitle(titulo);
+    }
+    sessionStorage.setItem('lang', lang);
+    this.changeMeta();
 
     this.translate
       .get(['cookie.header', 'cookie.message', 'cookie.dismiss', 'cookie.allow', 'cookie.deny', 'cookie.link', 'cookie.policy'])
