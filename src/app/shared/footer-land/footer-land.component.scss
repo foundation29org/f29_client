@@ -15,6 +15,52 @@
   pointer-events: none;
 }
 
+/* Footer-specific contrast rules for Lighthouse accessibility checks. */
+.color-footer {
+  color: #111827;
+}
+
+.color-footer p,
+.color-footer h2,
+.color-footer span {
+  color: #111827;
+}
+
+.color-footer a {
+  color: #8a201a;
+  text-decoration: underline;
+}
+
+.color-footer a:hover,
+.color-footer a:focus {
+  color: #6e1a15;
+}
+
+.color-footer .form-control {
+  color: #111827;
+  background-color: #ffffff;
+  border-color: #6b7280;
+}
+
+.color-footer .form-control::placeholder {
+  color: #4b5563;
+  opacity: 1;
+}
+
+.color-footer .danger {
+  color: #b42318 !important;
+}
+
+.footer-legal a {
+  color: #f8fafc !important;
+  text-decoration: underline;
+}
+
+.footer-legal a:hover,
+.footer-legal a:focus {
+  color: #ffffff !important;
+}
+
 @media (max-width: 1091px) {
   .btn-about{
     display: block !important;
