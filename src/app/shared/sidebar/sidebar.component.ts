@@ -25,7 +25,7 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnDestroy {
   logoUrl = 'assets/img/logo.png';
   public config: any = {};
   urlLogo: string = 'assets/img/logo-f29-white.webp';
-  urlLogo2: string = 'assets/img/logo-f29-white.webp';
+  urlLogo2: string = 'assets/img/logo-f29-white-sidebar.webp';
   isHomePage: boolean = false;
   isiniciativesPage: boolean = false;
   isthefoundationPage: boolean = false;
