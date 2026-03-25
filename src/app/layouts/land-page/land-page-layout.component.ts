@@ -198,19 +198,17 @@ export class LandPageLayoutComponent implements OnInit, AfterViewInit, OnDestroy
       }
     }
 
-    setTimeout(() => {
-      if (this.config.layout.sidebar.size === "sidebar-lg") {
-        this.isSidebar_sm = false;
-        this.isSidebar_lg = true;
-      } else if (this.config.layout.sidebar.size === "sidebar-sm") {
-        this.isSidebar_sm = true;
-        this.isSidebar_lg = false;
-      } else {
-        this.isSidebar_sm = false;
-        this.isSidebar_lg = false;
-      }
-      this.iscollapsed = this.config.layout.sidebar.collapsed;
-    }, 0);
+    if (this.config.layout.sidebar.size === "sidebar-lg") {
+      this.isSidebar_sm = false;
+      this.isSidebar_lg = true;
+    } else if (this.config.layout.sidebar.size === "sidebar-sm") {
+      this.isSidebar_sm = true;
+      this.isSidebar_lg = false;
+    } else {
+      this.isSidebar_sm = false;
+      this.isSidebar_lg = false;
+    }
+    this.iscollapsed = this.config.layout.sidebar.collapsed;
 
     //emit event to customizer
     this.options.bgColor = this.bgColor;

@@ -38,6 +38,7 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
   currentHash:string = 'home';
   
   private subscription: Subscription = new Subscription();
+  private lastScrollEvaluation = 0;
 
   // Variable para controlar si estamos en medio de un desplazamiento suave
   private isScrolling: boolean = false;
@@ -85,6 +86,10 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
     onScroll(event) {
       // Evitar procesamiento innecesario si estamos en medio de un desplazamiento suave
       if (this.isScrolling) return;
+      // Throttle to reduce forced reflows from continuous geometry reads.
+      const now = performance.now();
+      if (now - this.lastScrollEvaluation < 80) return;
+      this.lastScrollEvaluation = now;
       
       let elements = document.getElementsByClassName("anchor_tags");
       var found = false;

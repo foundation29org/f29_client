@@ -213,6 +213,7 @@
   .header-content {
     color: #000;
     padding: 2rem;
+    min-height: 26rem;
   }
 
   .header-title {
@@ -227,6 +228,7 @@
     line-height: 1.6;
     max-width: 800px;
     margin-top: 2rem;
+    min-height: 10rem;
   }
 
   .background-img-en{
@@ -353,6 +355,10 @@
       min-height: 60vh !important;
       padding: 2rem 0;
     }
+
+    .header-content {
+      min-height: 20rem;
+    }
     
     .header-title {
       font-size: 2rem;
@@ -362,6 +368,7 @@
     
     .header-text {
       font-size: 1rem;
+      min-height: 8rem;
     }
 
     body{

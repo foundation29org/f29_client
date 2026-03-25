@@ -133,6 +133,11 @@
     //height: calc(100vh - 90px);
     overflow: auto;
     z-index: 4;
+    min-height: calc(100vh - 72px);
+  }
+
+  .nav-container {
+    min-height: calc(100vh - 112px);
   }
 
   .logo-img {
