@@ -131,7 +131,7 @@ $bd-light:   rgba(0, 0, 0, 0.08);
 
   &__desc {
     font-size: 1.05rem !important;
-    color: rgba(245, 244, 241, 0.52) !important;
+    color: rgba(245, 244, 241, 0.72) !important;
     max-width: 540px;
     line-height: 1.85;
     margin-bottom: 2.5rem;
@@ -224,10 +224,67 @@ $bd-light:   rgba(0, 0, 0, 0.08);
 
   &__stat-l {
     font-size: 0.7rem !important;
-    color: rgba(245, 244, 241, 0.32);
+    color: rgba(245, 244, 241, 0.52);
     text-transform: uppercase;
     letter-spacing: 0.18em;
   }
+
+  &__grid {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+    background-size: 42px 42px;
+    animation: grid-pan 35s linear infinite;
+  }
+
+  &__stat-unit {
+    font-size: 1.6rem !important;
+    font-weight: 900;
+    color: $red;
+  }
+}
+
+// glitch animation on hero title
+.glitch-title {
+  animation: glitch-shadow 7s step-end infinite;
+}
+
+@keyframes glitch-shadow {
+  0%, 88%, 100% {
+    text-shadow: none;
+    transform: none;
+  }
+  89% {
+    text-shadow: 3px 1px 0 rgba(0, 245, 255, 0.7), -3px -1px 0 rgba(255, 0, 80, 0.5);
+    transform: skewX(1deg) translateX(2px);
+  }
+  90% {
+    text-shadow: none;
+    transform: none;
+  }
+  91% {
+    text-shadow: -4px 0 0 rgba(0, 245, 255, 0.6), 4px 0 0 rgba(255, 0, 80, 0.4);
+    transform: skewX(-0.8deg) translateX(-3px);
+  }
+  92% {
+    text-shadow: none;
+    transform: none;
+  }
+  93% {
+    text-shadow: 2px 0 0 rgba(0, 245, 255, 0.5);
+    transform: skewX(0.4deg);
+  }
+  94% {
+    text-shadow: none;
+    transform: none;
+  }
+}
+
+@keyframes grid-pan {
+  0%   { background-position: 0 0; }
+  100% { background-position: 42px 42px; }
 }
 
 @keyframes blob1 {
@@ -331,31 +388,31 @@ $bd-light:   rgba(0, 0, 0, 0.08);
 
   &__input {
     width: 100%;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 8px;
-    color: $cream;
-    font-size: 0.95rem;
-    line-height: 1.6;
+    color: #F5F4F1;
+    font-size: 1rem;
+    line-height: 1.65;
     padding: 1rem 1.2rem;
     resize: none;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, background 0.2s;
     font-family: inherit;
 
     &::placeholder {
-      color: rgba(255, 255, 255, 0.28);
+      color: rgba(255, 255, 255, 0.58);
     }
 
     &:focus {
       outline: none;
-      border-color: rgba($red, 0.55);
-      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba($red, 0.6);
+      background: rgba(255, 255, 255, 0.09);
     }
   }
 
   &__hint {
     font-size: 0.78rem !important;
-    color: rgba(255, 255, 255, 0.28) !important;
+    color: rgba(255, 255, 255, 0.48) !important;
     text-align: center;
     margin: 0.85rem 0;
   }
@@ -420,6 +477,43 @@ $bd-light:   rgba(0, 0, 0, 0.08);
     line-height: 1.25;
   }
 
+  &__sub-note {
+    font-size: 0.9rem !important;
+    color: rgba(245, 244, 241, 0.38) !important;
+    margin-top: 0.75rem;
+    font-weight: 400;
+
+    strong {
+      color: rgba(245, 244, 241, 0.65);
+      font-weight: 700;
+    }
+  }
+
+  &__footer {
+    margin-top: 3rem;
+    text-align: right;
+  }
+
+  &__viewall {
+    display: inline-block;
+    font-size: 0.88rem !important;
+    font-weight: 700;
+    color: rgba(245, 244, 241, 0.35) !important;
+    text-decoration: none;
+    border: 1px solid rgba(245, 244, 241, 0.12);
+    padding: 0.65rem 1.6rem;
+    border-radius: 50px;
+    letter-spacing: 0.04em;
+    transition: all 0.25s ease;
+
+    &:hover {
+      color: $white !important;
+      border-color: rgba(245, 244, 241, 0.5);
+      background: rgba(255, 255, 255, 0.05);
+      text-decoration: none;
+    }
+  }
+
   &__list {
     border-top: 1px solid $bd-dark;
   }
@@ -480,7 +574,7 @@ $bd-light:   rgba(0, 0, 0, 0.08);
 
   &__text {
     font-size: 0.92rem !important;
-    color: rgba(245, 244, 241, 0.46) !important;
+    color: rgba(245, 244, 241, 0.62) !important;
     line-height: 1.72;
     max-width: 620px;
     margin: 0;
@@ -771,48 +865,124 @@ $bd-light:   rgba(0, 0, 0, 0.08);
 }
 
 // ════════════════════════════════════════
-// MODAL (legacy — unchanged internals)
+// METRICS STRIP — Bloomberg ticker
+// ════════════════════════════════════════
+.metrics-strip {
+  background: $dark-2;
+  border-top: 1px solid rgba($red, 0.35);
+  border-bottom: 1px solid rgba($red, 0.12);
+  overflow: hidden;
+  padding: 0.7rem 0;
+
+  &__track {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    width: max-content;
+    animation: metrics-scroll 25s linear infinite;
+    white-space: nowrap;
+  }
+}
+
+.ms-item {
+  font-size: 0.82rem !important;
+  font-weight: 500;
+  color: rgba(245, 244, 241, 0.65);
+  letter-spacing: 0.02em;
+
+  strong {
+    font-size: 0.9rem !important;
+    font-weight: 800;
+    color: $cream;
+  }
+}
+
+.ms-sep {
+  font-size: 0.5rem !important;
+  color: $red;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+@keyframes metrics-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+// ════════════════════════════════════════
+// MODAL — dark theme redesign
 // ════════════════════════════════════════
 .modal-content {
-  border-radius: 15px;
-  border: none;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background: $dark-2;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.65);
   overflow: hidden;
 }
 
 .modal-header {
-  background-color: #f8f9fa;
-  border-bottom: 1px solid #eee;
-  padding: 1.5rem;
+  background: $dark;
+  border-bottom: 1px solid rgba($red, 0.25);
+  padding: 1.4rem 1.6rem;
   position: relative;
+
+  .modal-title {
+    color: $cream;
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
 
   .close {
     position: absolute;
     right: 1.5rem;
-    top: 1.5rem;
-    font-size: 1.5rem;
-    opacity: 0.7;
-    transition: all 0.3s ease;
+    top: 1.3rem;
+    font-size: 1.4rem;
+    color: rgba(245, 244, 241, 0.4);
+    opacity: 1;
+    transition: color 0.2s;
+    background: none;
+    border: none;
 
-    &:hover { opacity: 1; }
+    &:hover { color: $cream; }
+
+    span { color: inherit; }
   }
 }
 
-.content-wrapper { padding: 2rem !important; }
+.modal-body {
+  background: $dark-2;
+
+  .row { display: flex; flex-wrap: wrap; }
+  .col-md-4 { display: flex; flex-direction: column; align-items: center; }
+}
+
+.content-wrapper {
+  padding: 2rem !important;
+  background: $dark-2;
+}
 
 .icon-container {
   margin-bottom: 0.5rem;
-  height: 50px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  i { color: $red !important; }
 }
 
 .section-header {
-  min-height: 160px;
+  min-height: 150px;
   justify-content: center;
   text-align: center;
   width: 100%;
+
+  h4 {
+    color: $cream;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
 }
 
 .section-subheader {
@@ -822,49 +992,61 @@ $bd-light:   rgba(0, 0, 0, 0.08);
   justify-content: center;
   text-align: center;
   width: 100%;
+  color: rgba(245, 244, 241, 0.42) !important;
+  font-size: 0.82rem !important;
 }
 
 .card-container {
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 0.85rem;
 }
 
 .example-card,
 .capabilities-card,
 .limitations-card {
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  transition: all 0.3s ease;
+  padding: 1.1rem 1.2rem;
+  border-radius: 10px;
+  margin-bottom: 0.85rem;
+  transition: all 0.25s ease;
+
+  p {
+    font-size: 0.86rem !important;
+    line-height: 1.6;
+    margin: 0;
+  }
 }
 
 .example-card {
-  background-color: #e74c3c;
-  color: white;
+  background: linear-gradient(135deg, $red 0%, darken($red, 8%) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: $white;
   cursor: pointer;
 
+  .fa-arrow-right-long { color: rgba(255, 255, 255, 0.55); }
+
   &:hover {
-    background-color: #c0392b;
+    background: linear-gradient(135deg, $red-light 0%, $red 100%);
     transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba($red, 0.38);
   }
 }
 
 .capabilities-card,
 .limitations-card {
-  background-color: #4a4a4a;
-  color: white;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(245, 244, 241, 0.72);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.14);
+  }
 }
 
 .pointer { cursor: pointer; }
-
-.modal-body {
-  .row { display: flex; flex-wrap: wrap; }
-  .col-md-4 { display: flex; flex-direction: column; align-items: center; }
-}
 
 // ════════════════════════════════════════
 // RESPONSIVE

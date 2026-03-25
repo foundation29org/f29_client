@@ -1,329 +1,212 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-12">
-      <!-- Breadcrumb -->
-      <div class="container mt-3">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-              <a href="/" class="text-decoration-none">
-                <i class="fa fa-home"></i> {{'menu.Dashboard' | translate }}
-              </a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">
-              <i class="fa fa-file-medical-alt"></i> {{'f29.p6.t' | translate }}
-            </li>
-          </ol>
-        </nav>
+<div class="ai-page">
+
+  <!-- Back nav -->
+  <div class="ai-back">
+    <a routerLink="/" class="ai-back__link">{{ 'ui.back' | translate }}</a>
+  </div>
+
+  <!-- Hero -->
+  <header class="ai-hero">
+    <p class="ai-hero__eyebrow">{{ 'ui.eyebrow' | translate }}</p>
+    <h1 class="ai-hero__title">{{'f29.p6.t' | translate }}</h1>
+    <p class="ai-hero__desc">{{'adaptacion.header_description' | translate }}</p>
+  </header>
+
+  <!-- Upload card -->
+  <section class="ai-section" *ngIf="!showNewReportButton()">
+    <div class="ai-card">
+
+      <!-- Drop zone -->
+      <div class="ai-dropzone"
+           *ngIf="!isLoading()"
+           (dragover)="onDragOver($event)"
+           (dragleave)="onDragLeave($event)"
+           (drop)="onFileDropped($event)"
+           [class.ai-dropzone--has-file]="selectedFile()">
+
+        <div *ngIf="!selectedFile()" class="ai-dropzone__empty">
+          <i class="fas fa-cloud-upload-alt ai-dropzone__icon"></i>
+          <h4 class="ai-dropzone__label">{{'adaptacion.drag_file' | translate }}</h4>
+          <p class="ai-dropzone__sub">{{'adaptacion.supported_formats' | translate }}</p>
+          <button type="button" class="ai-btn ai-btn--primary" (click)="openFileSelector()">
+            <i class="fas fa-file-upload"></i>&nbsp;{{'adaptacion.select_file' | translate }}
+          </button>
+        </div>
+
+        <div *ngIf="selectedFile()" class="ai-dropzone__file">
+          <i class="fas fa-file-medical ai-dropzone__icon ai-dropzone__icon--green"></i>
+          <h5 class="ai-dropzone__filename">{{ fileName() }}</h5>
+          <p class="ai-dropzone__filesize">{{ ((selectedFile()?.size || 0) / 1024 / 1024).toFixed(2) }} MB</p>
+          <button type="button" class="ai-btn ai-btn--danger-sm" (click)="removeFile()">
+            <i class="fas fa-trash"></i>&nbsp;{{'adaptacion.remove' | translate }}
+          </button>
+        </div>
+
+        <input type="file" class="d-none" accept=".pdf,.docx,.txt" (change)="onFileSelected($event)">
       </div>
 
-      <!-- Header -->
-      <div class="text-center mt-5">
-        <h2 class="section-title">{{'f29.p6.t' | translate }}</h2>
-        <p class="lead">{{'adaptacion.header_description' | translate }}</p>
+      <!-- Error -->
+      <div *ngIf="errorMessage()" class="ai-alert ai-alert--error">
+        <i class="fas fa-exclamation-triangle"></i>&nbsp;{{ errorMessage() }}
       </div>
 
-      <!-- Upload Section -->
-      <div class="row justify-content-center" *ngIf="!showNewReportButton()">
-        <div class="col-lg-8">
-          <div class="card shadow-lg">
-            <div class="card-body p-5">
-              <!-- File Upload Area -->
-              <div class="upload-area" *ngIf="!isLoading()"
-                   [class.dragover]="false"
-                   (dragover)="onDragOver($event)"
-                   (dragleave)="onDragLeave($event)"
-                   (drop)="onFileDropped($event)"
-                   [class.has-file]="selectedFile()">
-                
-                <div class="upload-content text-center">
-                  <i *ngIf="!selectedFile()" class="fas fa-cloud-upload-alt fa-3x text-primary mb-3"></i>
-                  
-                  <div *ngIf="!selectedFile()">
-                    <h4>{{'adaptacion.drag_file' | translate }}</h4>
-                    <p class="text-muted">{{'adaptacion.supported_formats' | translate }}</p>
-                    <button type="button" class="btn btn-primary btn-lg" (click)="openFileSelector()">
-                      <i class="fas fa-file-upload mr-2"></i>{{'adaptacion.select_file' | translate }}
-                    </button>
-                  </div>
-
-                  <div *ngIf="selectedFile()" class="selected-file">
-                    <i class="fas fa-file-medical fa-3x text-success mb-3"></i>
-                    <h5 class="text-success">{{ fileName() }}</h5>
-                    <p class="text-muted">{{ ((selectedFile()?.size || 0) / 1024 / 1024).toFixed(2) }} MB</p>
-                    <button type="button" class="btn btn-outline-danger btn-sm" (click)="removeFile()">
-                      <i class="fas fa-trash mr-1"></i>{{'adaptacion.remove' | translate }}
-                    </button>
-                  </div>
-                </div>
-
-                <input type="file" 
-                       class="d-none" 
-                       accept=".pdf,.docx,.txt"
-                       (change)="onFileSelected($event)">
-              </div>
-
-              <!-- Error Message -->
-              <div *ngIf="errorMessage()" class="alert alert-danger mt-3">
-                <i class="fas fa-exclamation-triangle mr-2"></i>{{ errorMessage() }}
-              </div>
-
-              <!-- Report Type Selector -->
-              <div class="mt-4" *ngIf="selectedFile() && !isLoading()">
-                <div class="row justify-content-center">
-                  <div class="col-md-8">
-                    <div class="card">
-                      <div class="card-body">
-                        <h6 class="card-title text-center mb-3">
-                          <i class="fas fa-cog mr-2"></i>{{'adaptacion.select_type' | translate }}
-                        </h6>
-                        <div class="row">
-                          <div class="col-md-6 mb-3">
-                            <div class="form-check" [class.selected]="selectedReportType === 'ia_estandar'" (click)="selectedReportType = 'ia_estandar'">
-                              <input class="form-check-input" 
-                                     type="radio" 
-                                     name="reportType" 
-                                     id="version1" 
-                                     value="ia_estandar" 
-                                     [(ngModel)]="selectedReportType">
-                              <label class="form-check-label" for="version1">
-                                <strong>{{'adaptacion.version1_title' | translate }}</strong>
-                                <br>
-                                <small class="text-muted">{{'adaptacion.version1_desc' | translate }}</small>
-                              </label>
-                            </div>
-                          </div>
-                          <div class="col-md-6 mb-3">
-                            <div class="form-check" [class.selected]="selectedReportType === 'ia_personalizado'" (click)="selectedReportType = 'ia_personalizado'">
-                              <input class="form-check-input" 
-                                     type="radio" 
-                                     name="reportType" 
-                                     id="version2" 
-                                     value="ia_personalizado" 
-                                     [(ngModel)]="selectedReportType">
-                              <label class="form-check-label" for="version2">
-                                <strong>{{'adaptacion.version2_title' | translate }}</strong>
-                                <br>
-                                <small class="text-muted">{{'adaptacion.version2_desc' | translate }}</small>
-                              </label>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Process Button -->
-              <div class="text-center mt-4" *ngIf="selectedFile() && !isLoading()">
-                <button type="button" 
-                        class="btn btn-success btn-lg px-5" style="color: white !important;" 
-                        (click)="processFile()">
-                  <i class="fas fa-magic mr-2"></i>{{'adaptacion.process_report' | translate }}
-                </button>
-              </div>
-
-              <!-- Privacy Notice -->
-              <div class="alert alert-info mt-4" *ngIf="!isLoading() && !selectedFile()" style="background-color: #e3f2fd !important;">
-                <h6><i class="fas fa-shield-alt mr-2"></i>{{'adaptacion.privacy.title' | translate }}</h6>
-                <ul class="mb-0 small">
-                  <li>{{'adaptacion.privacy.no_storage' | translate }}</li>
-                  <li>{{'adaptacion.privacy.no_retention' | translate }}</li>
-                  <li>{{'adaptacion.privacy.gdpr_compliant' | translate }}</li>
-                  <li>{{'adaptacion.privacy.european_data' | translate }}</li>
-                </ul>
-              </div>
-
-              <!-- Loading Progress -->
-              <div *ngIf="isLoading()" id="processing-area">
-                <div class="text-center mb-3">
-                  <div class="spinner-border text-primary" role="status" aria-label="Procesando informe">
-                    <span class="visually-hidden">Procesando...</span>
-                  </div>
-                  <p class="mt-2">{{'adaptacion.processing' | translate }}</p>
-                </div>
-                
-                <div class="progress">
-                  <div class="progress-bar progress-bar-striped progress-bar-animated" 
-                       role="progressbar" 
-                       [style.width.%]="uploadProgress()"
-                       [attr.aria-valuenow]="uploadProgress()"
-                       aria-valuemin="0" 
-                       aria-valuemax="100">
-                    {{ uploadProgress().toFixed(0) }}%
-                  </div>
-                </div>
-              </div>
-            </div>
+      <!-- Report type selector -->
+      <div class="ai-type-selector" *ngIf="selectedFile() && !isLoading()">
+        <p class="ai-type-selector__label">
+          <i class="fas fa-cog"></i>&nbsp;{{'adaptacion.select_type' | translate }}
+        </p>
+        <div class="ai-type-grid">
+          <div class="ai-type-card"
+               [class.ai-type-card--active]="selectedReportType === 'ia_estandar'"
+               (click)="selectedReportType = 'ia_estandar'">
+            <input class="d-none" type="radio" name="reportType" id="version1"
+                   value="ia_estandar" [(ngModel)]="selectedReportType">
+            <strong>{{'adaptacion.version1_title' | translate }}</strong>
+            <small>{{'adaptacion.version1_desc' | translate }}</small>
+          </div>
+          <div class="ai-type-card"
+               [class.ai-type-card--active]="selectedReportType === 'ia_personalizado'"
+               (click)="selectedReportType = 'ia_personalizado'">
+            <input class="d-none" type="radio" name="reportType" id="version2"
+                   value="ia_personalizado" [(ngModel)]="selectedReportType">
+            <strong>{{'adaptacion.version2_title' | translate }}</strong>
+            <small>{{'adaptacion.version2_desc' | translate }}</small>
           </div>
         </div>
       </div>
 
-      <!-- New Report Button -->
-      <div class="row justify-content-center mt-4" *ngIf="showNewReportButton()">
-        <div class="col-lg-8">
-          <div class="text-center">
-            <button type="button" 
-                    class="btn btn-outline-primary btn-lg" 
-                    (click)="generateNewReport()">
-              <i class="fas fa-plus mr-2"></i>{{'adaptacion.new_report' | translate }}
+      <!-- Process button -->
+      <div class="ai-actions" *ngIf="selectedFile() && !isLoading()">
+        <button type="button" class="ai-btn ai-btn--primary ai-btn--lg" (click)="processFile()">
+          <i class="fas fa-magic"></i>&nbsp;{{'adaptacion.process_report' | translate }}
+        </button>
+      </div>
+
+      <!-- Privacy notice -->
+      <div class="ai-privacy" *ngIf="!isLoading() && !selectedFile()">
+        <p class="ai-privacy__title"><i class="fas fa-shield-alt"></i>&nbsp;{{'adaptacion.privacy.title' | translate }}</p>
+        <ul class="ai-privacy__list">
+          <li>{{'adaptacion.privacy.no_storage' | translate }}</li>
+          <li>{{'adaptacion.privacy.no_retention' | translate }}</li>
+          <li>{{'adaptacion.privacy.gdpr_compliant' | translate }}</li>
+          <li>{{'adaptacion.privacy.european_data' | translate }}</li>
+        </ul>
+      </div>
+
+      <!-- Loading -->
+      <div class="ai-loading" *ngIf="isLoading()" id="processing-area">
+        <div class="ai-loading__spinner">
+          <div class="spinner-border" role="status" aria-label="Procesando informe"></div>
+        </div>
+        <p class="ai-loading__label">{{'adaptacion.processing' | translate }}</p>
+        <div class="ai-progress">
+          <div class="ai-progress__bar"
+               [style.width.%]="uploadProgress()"
+               [attr.aria-valuenow]="uploadProgress()">
+            {{ uploadProgress().toFixed(0) }}%
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- New report button -->
+  <div class="ai-new-report" *ngIf="showNewReportButton()">
+    <button type="button" class="ai-btn ai-btn--outline" (click)="generateNewReport()">
+      <i class="fas fa-plus"></i>&nbsp;{{'adaptacion.new_report' | translate }}
+    </button>
+  </div>
+
+  <!-- Results -->
+  <section class="ai-section ai-section--result" *ngIf="result() && reportGenerated()" id="results-section">
+    <div class="ai-result">
+      <div class="ai-result__header">
+        <span class="ai-result__badge">
+          <i class="fas fa-check-circle"></i>&nbsp;{{'adaptacion.report_generated' | translate }}
+        </span>
+        <div class="ai-result__meta">
+          <i class="fas fa-clock"></i>&nbsp;
+          {{'adaptacion.generation_time' | translate }}: {{ ((result()?.generationTime || 0) / 1000).toFixed(1) }}s
+        </div>
+        <div class="ai-result__edit-controls">
+          <button type="button" class="ai-btn ai-btn--ghost-sm" (click)="toggleEdit()" *ngIf="!isEditing()">
+            <i class="fas fa-edit"></i>&nbsp;{{'adaptacion.edit_content' | translate }}
+          </button>
+          <div *ngIf="isEditing()" class="ai-result__edit-group">
+            <button type="button" class="ai-btn ai-btn--success-sm" (click)="saveEdits()">
+              <i class="fas fa-save"></i>&nbsp;{{'adaptacion.save' | translate }}
+            </button>
+            <button type="button" class="ai-btn ai-btn--ghost-sm" (click)="cancelEdit()">
+              <i class="fas fa-times"></i>&nbsp;{{'adaptacion.cancel' | translate }}
             </button>
           </div>
         </div>
       </div>
 
-      <!-- Results Section -->
-      <div class="row justify-content-center mt-5" *ngIf="result() && reportGenerated()" id="results-section">
-        <div class="col-lg-10">
-          <div class="card shadow-lg">
-            <div class="p-2 bg-success text-white">
-              <h4 class="mb-0">
-                <i class="fas fa-check-circle mr-2"></i>{{'adaptacion.report_generated' | translate }}
-              </h4>
-            </div>
-            <div class="card-body">
-              <!-- Report Content -->
-              <div class="report-content">
-                <div class="report-header mb-4">
-                  <div class="report-meta text-muted small">
-                    <span class="mr-3">
-                      <i class="fas fa-clock mr-1"></i>
-                      {{'adaptacion.generation_time' | translate }}: {{ ((result()?.generationTime || 0) / 1000).toFixed(1) }}s
-                    </span>
-                  </div>
-                  
-                  <!-- Edit Controls -->
-                  <div class="text-right">
-                    <button type="button" 
-                            class="btn btn-outline-secondary btn-sm" 
-                            (click)="toggleEdit()"
-                            *ngIf="!isEditing()">
-                      <i class="fas fa-edit mr-1"></i>{{'adaptacion.edit_content' | translate }}
-                    </button>
-                    
-                    <div *ngIf="isEditing()" class="btn-group">
-                      <button type="button" 
-                              class="btn btn-success btn-sm" 
-                              (click)="saveEdits()" style="color: white !important;">
-                        <i class="fas fa-save mr-1"></i>{{'adaptacion.save' | translate }}
-                      </button>
-                      <button type="button" 
-                              class="btn btn-secondary btn-sm" 
-                              (click)="cancelEdit()">
-                        <i class="fas fa-times mr-1"></i>{{'adaptacion.cancel' | translate }}
-                      </button>
-                    </div>
-                  </div>
-                </div>
+      <!-- Report display -->
+      <div class="ai-report-body" [innerHTML]="adaptedReportHtml()" *ngIf="!isEditing()"></div>
 
-                <!-- Report Display -->
-                <div class="report-body" 
-                     [innerHTML]="adaptedReportHtml()" 
-                     *ngIf="!isEditing()"></div>
-                
-                <!-- Report Editor -->
-                <div class="report-editor" *ngIf="isEditing()">
-                  <!-- Toolbar -->
-                  <div class="editor-toolbar">
-                    <div class="btn-group" role="group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary" (click)="formatText('bold')" title="Negrita">
-                        <i class="fas fa-bold"></i>
-                      </button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary" (click)="formatText('italic')" title="Cursiva">
-                        <i class="fas fa-italic"></i>
-                      </button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary" (click)="formatText('underline')" title="Subrayado">
-                        <i class="fas fa-underline"></i>
-                      </button>
-                    </div>
-                    
-                    <div class="btn-group" role="group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary" (click)="insertHeading(1)" title="Título 1">
-                        H1
-                      </button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary" (click)="insertHeading(2)" title="Título 2">
-                        H2
-                      </button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary" (click)="insertHeading(3)" title="Título 3">
-                        H3
-                      </button>
-                    </div>
-                    
-                    <div class="btn-group" role="group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary" (click)="insertList('unordered')" title="Lista con viñetas">
-                        <i class="fas fa-list-ul"></i>
-                      </button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary" (click)="insertList('ordered')" title="Lista numerada">
-                        <i class="fas fa-list-ol"></i>
-                      </button>
-                    </div>
-                    
-                    <div class="btn-group" role="group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary" (click)="formatText('justifyLeft')" title="Alinear izquierda">
-                        <i class="fas fa-align-left"></i>
-                      </button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary" (click)="formatText('justifyCenter')" title="Centrar">
-                        <i class="fas fa-align-center"></i>
-                      </button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary" (click)="formatText('justifyRight')" title="Alinear derecha">
-                        <i class="fas fa-align-right"></i>
-                      </button>
-                    </div>
-                  </div>
-                  
-                  <!-- Editor Content -->
-                  <div #editor 
-                       class="editor-content" 
-                       contenteditable="true"
-                       [innerHTML]="editableContent()"
-                       placeholder="{{'adaptacion.edit_placeholder' | translate }}">
-                  </div>
-                </div>
-              </div>
-
-              <!-- Download Button -->
-              <div class="text-center mt-4">
-                <button type="button" 
-                        class="btn btn-primary btn-lg" 
-                        (click)="downloadReport()">
-                  <i class="fas fa-download mr-2"></i>{{'adaptacion.download_report' | translate }}
-                </button>
-              </div>
-            </div>
+      <!-- Editor -->
+      <div class="ai-editor" *ngIf="isEditing()">
+        <div class="ai-editor__toolbar">
+          <div class="ai-editor__group">
+            <button class="ai-editor__btn" (click)="formatText('bold')" title="Negrita"><i class="fas fa-bold"></i></button>
+            <button class="ai-editor__btn" (click)="formatText('italic')" title="Cursiva"><i class="fas fa-italic"></i></button>
+            <button class="ai-editor__btn" (click)="formatText('underline')" title="Subrayado"><i class="fas fa-underline"></i></button>
           </div>
+          <div class="ai-editor__group">
+            <button class="ai-editor__btn" (click)="insertHeading(1)">H1</button>
+            <button class="ai-editor__btn" (click)="insertHeading(2)">H2</button>
+            <button class="ai-editor__btn" (click)="insertHeading(3)">H3</button>
+          </div>
+          <div class="ai-editor__group">
+            <button class="ai-editor__btn" (click)="insertList('unordered')" title="Lista"><i class="fas fa-list-ul"></i></button>
+            <button class="ai-editor__btn" (click)="insertList('ordered')" title="Lista num."><i class="fas fa-list-ol"></i></button>
+          </div>
+          <div class="ai-editor__group">
+            <button class="ai-editor__btn" (click)="formatText('justifyLeft')"><i class="fas fa-align-left"></i></button>
+            <button class="ai-editor__btn" (click)="formatText('justifyCenter')"><i class="fas fa-align-center"></i></button>
+            <button class="ai-editor__btn" (click)="formatText('justifyRight')"><i class="fas fa-align-right"></i></button>
+          </div>
+        </div>
+        <div #editor
+             class="ai-editor__content"
+             contenteditable="true"
+             [innerHTML]="editableContent()"
+             [attr.placeholder]="'adaptacion.edit_placeholder' | translate">
         </div>
       </div>
 
-      <!-- Information Section -->
-      <div class="row justify-content-center mt-5 mb-5">
-        <div class="col-lg-8">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title mb-3">
-                {{'adaptacion.how_it_works' | translate }}
-              </h5>
-              <div class="row">
-                <div class="col-md-4 text-center mb-3">
-                  <i class="fas fa-upload fa-2x text-primary mb-2"></i>
-                  <h6>{{'adaptacion.step1_title' | translate }}</h6>
-                  <p class="small text-muted">{{'adaptacion.step1_desc' | translate }}</p>
-                </div>
-                <div class="col-md-4 text-center mb-3">
-                  <i class="fas fa-robot fa-2x text-warning mb-2"></i>
-                  <h6>{{'adaptacion.step2_title' | translate }}</h6>
-                  <p class="small text-muted">{{'adaptacion.step2_desc' | translate }}</p>
-                </div>
-                <div class="col-md-4 text-center mb-3">
-                  <i class="fas fa-file-medical-alt fa-2x text-success mb-2"></i>
-                  <h6>{{'adaptacion.step3_title' | translate }}</h6>
-                  <p class="small text-muted">{{'adaptacion.step3_desc' | translate }}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <!-- Download -->
+      <div class="ai-actions ai-actions--center pb-4">
+        <button type="button" class="ai-btn ai-btn--primary ai-btn--lg" (click)="downloadReport()">
+          <i class="fas fa-download"></i>&nbsp;{{'adaptacion.download_report' | translate }}
+        </button>
       </div>
     </div>
-  </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="ai-section ai-how">
+    <h2 class="ai-how__title">{{'adaptacion.how_it_works' | translate }}</h2>
+    <div class="ai-how__grid">
+      <div class="ai-how__step">
+        <i class="fas fa-upload ai-how__icon"></i>
+        <h6 class="ai-how__step-title">{{'adaptacion.step1_title' | translate }}</h6>
+        <p class="ai-how__step-desc">{{'adaptacion.step1_desc' | translate }}</p>
+      </div>
+      <div class="ai-how__step">
+        <i class="fas fa-robot ai-how__icon ai-how__icon--amber"></i>
+        <h6 class="ai-how__step-title">{{'adaptacion.step2_title' | translate }}</h6>
+        <p class="ai-how__step-desc">{{'adaptacion.step2_desc' | translate }}</p>
+      </div>
+      <div class="ai-how__step">
+        <i class="fas fa-file-medical-alt ai-how__icon ai-how__icon--green"></i>
+        <h6 class="ai-how__step-title">{{'adaptacion.step3_title' | translate }}</h6>
+        <p class="ai-how__step-desc">{{'adaptacion.step3_desc' | translate }}</p>
+      </div>
+    </div>
+  </section>
+
 </div>

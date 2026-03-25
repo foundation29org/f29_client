@@ -466,6 +466,71 @@
     "link": "Learn more",
     "policy": "Cookie Policy"
   },
+  "ui": {
+    "back": "← Back to Foundation 29",
+    "eyebrow": "Foundation Twenty Nine"
+  },
+  "tools": {
+    "title_arsenal": "Our AI Arsenal.",
+    "title_built": "23 tools built to",
+    "title_behind": "leave no one behind.",
+    "desc": "From diagnostic AI to patient data platforms, from clinical trial matching to humanitarian response — every tool we build tears down a barrier that excludes millions of people from healthcare.",
+    "stat_tools": "AI Tools",
+    "stat_users": "Users",
+    "stat_diagnoses": "Diagnoses",
+    "stat_categories": "Categories",
+    "open_tool": "Open tool",
+    "preview": "Preview",
+    "website_closed": "Website closed",
+    "institutional_access": "Institutional access only",
+    "badge_dev": "In development",
+    "badge_archived": "Project ended",
+    "badge_restricted": "Restricted access",
+    "empty": "No tools in this category yet.",
+    "cta_title": "Want to build together?",
+    "cta_sub": "We're always looking for collaborators, institutions, and technologists who share our mission.",
+    "cta_btn": "Get in touch →",
+    "filter": {
+      "all": "All Tools",
+      "diagnosis": "Diagnosis",
+      "data": "Patient Data",
+      "research": "Research",
+      "information": "Information",
+      "humanitarian": "Humanitarian"
+    },
+    "cat": {
+      "diagnosis": "Diagnosis",
+      "data": "Patient Data",
+      "research": "Research",
+      "information": "Information",
+      "humanitarian": "Humanitarian"
+    },
+    "t": {
+      "dxgpt":                { "tagline": "AI-powered diagnostic decision support", "desc": "Helps doctors and patients identify possible rare-disease diagnoses by describing symptoms in plain language. Powered by GPT-4, used 1,500+ times daily worldwide." },
+      "trialgpt":             { "tagline": "AI matching for clinical trials", "desc": "Analyzes medical reports and matches patients with relevant clinical trials worldwide, breaking down the barriers to trial access." },
+      "nav29":                { "tagline": "Take control of your medical data", "desc": "Free personalized health assistant: secure medical data storage, smart summaries, and intelligent navigation of your health journey." },
+      "rare_diseases_book":   { "tagline": "Comprehensive rare disease guide", "desc": "An accessible, in-depth reference covering hundreds of rare diseases — for patients, families, and clinicians navigating undiagnosed conditions." },
+      "rare_diseases_protocol": { "tagline": "Clinical protocols made accessible", "desc": "Complete clinical protocols and recommendations for rare disease management, adapted for patient and caregiver understanding." },
+      "medical_reports":      { "tagline": "Reports patients can understand", "desc": "Transforms complex medical reports into clear language that patients can actually read and understand, using AI-powered simplification." },
+      "collaborare":          { "tagline": "Patient experience data for EMA", "desc": "AI project to systematically collect patient experience data in collaboration with the European Medicines Agency (EMA) and EURORDIS." },
+      "healthdata29":         { "tagline": "Open health datasets for research", "desc": "Platform enabling health providers and institutions to share open datasets for research securely, promoting standardization and data exchange." },
+      "dx29":                 { "tagline": "Rare disease diagnosis support tool", "desc": "Provides valuable diagnostic information to patients and healthcare professionals navigating the rare-disease journey." },
+      "genewise":             { "tagline": "Genetics explained for patients", "desc": "Uses AI to translate complex genetic information into plain language that patients and their families can understand and act on." },
+      "gestaltmatcher":       { "tagline": "AI facial pattern analysis", "desc": "Analyzes and compares medical facial patterns using AI, assisting in the diagnosis of rare diseases with a visual phenotype component." },
+      "summary29":            { "tagline": "Predecessor to Nav29", "desc": "Early version of Nav29 that pioneered medical report summarization and health data navigation. Its functionalities are now fully integrated into Nav29." },
+      "consentgpt":           { "tagline": "Understand your informed consents", "desc": "AI tool that breaks down complex informed consent documents into clear explanations, empowering patients to make truly informed decisions." },
+      "orphacare":            { "tagline": "Resources for rare disease patients", "desc": "Platform dedicated to connecting rare disease patients with care resources, specialists, and treatment information." },
+      "rarescope":            { "tagline": "Rare disease information hub", "desc": "Comprehensive application providing curated information and resources about rare diseases for patients and healthcare professionals." },
+      "raito_network":        { "tagline": "Patient data for research, securely", "desc": "Platform for patients to manage health data and share it for research. Includes tools for patient-group administrators to run questionnaires and track health statistics." },
+      "health29":             { "tagline": "Patient-driven health registries", "desc": "System for creating patient registries and generating knowledge from patient-reported health variables. Gives patients real ownership of their data." },
+      "raito_open":           { "tagline": "Open health data for science", "desc": "Open, decentralized tool that lets patients share their medical data to accelerate research and the development of new treatments." },
+      "raito":                { "tagline": "Decentralized health data wallet", "desc": "Decentralized platform for patients to securely own, control, and selectively share their medical data." },
+      "iasalut":              { "tagline": "AI diagnosis support in Catalan", "desc": "Catalan-language diagnostic support application using advanced language models for disease identification. Deployed for a regional health service." },
+      "sermasgpt":            { "tagline": "AI diagnosis for SERMAS network", "desc": "Diagnostic support tool deployed within the Madrid Health Service (SERMAS) network. Access restricted to SERMAS healthcare professionals." },
+      "ayudamos_valencia":    { "tagline": "Healthcare access for Valencia", "desc": "Platform deployed after the Valencia floods providing rapid healthcare assistance and resource coordination for affected patients." },
+      "conectamos_valencia":  { "tagline": "Connecting patients and professionals", "desc": "Application connecting patients with healthcare professionals in Valencia, facilitating collaboration and information exchange." }
+    }
+  },
   "seo":{
     "home":{
       "keywords": "Foundation 29, Rare Diseases, Diagnosis, Decentralization, Web3, patient registries",

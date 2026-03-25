@@ -8,6 +8,7 @@ import { LibroPageComponent } from "./libro/libro-page.component";
 import { GuiaPageComponent } from "./guia/guia-page.component";
 import { LabPageComponent } from "./lab/lab-page.component";
 import { AdaptacionInformesComponent } from "../adaptacion-informes/adaptacion-informes.component";
+import { ToolsPageComponent } from "./tools/tools-page.component";
 
 const routes: Routes = [
   {
@@ -67,6 +68,13 @@ const routes: Routes = [
         component: AdaptacionInformesComponent,
         data: {
           title: 'f29.p6.t'
+        }
+      },
+      {
+        path: 'tools',
+        component: ToolsPageComponent,
+        data: {
+          title: 'Foundation 29 · AI Tools'
         }
       }
     ]

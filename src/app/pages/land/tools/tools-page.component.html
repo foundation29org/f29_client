@@ -1,0 +1,110 @@
+<!-- ════════════════════════════════════════
+     HERO
+     ════════════════════════════════════════ -->
+<section class="tp-hero">
+  <div class="tp-hero__blobs" aria-hidden="true">
+    <div class="tp-hero__blob tp-hero__blob--1"></div>
+    <div class="tp-hero__blob tp-hero__blob--2"></div>
+  </div>
+  <div class="tp-hero__grid" aria-hidden="true"></div>
+
+  <div class="container">
+    <a routerLink="/" class="tp-back">{{ 'ui.back' | translate }}</a>
+    <div class="tp-hero__content">
+      <span class="tp-eyebrow">{{ 'ui.eyebrow' | translate }}</span>
+      <h1 class="tp-hero__title">
+        <span class="tp-hero__title-line tp-hero__title-line--red">{{ 'tools.title_arsenal' | translate }}</span>
+        <span class="tp-hero__title-line">{{ 'tools.title_built' | translate }}</span>
+        <span class="tp-hero__title-line">{{ 'tools.title_behind' | translate }}</span>
+      </h1>
+      <p class="tp-hero__desc">{{ 'tools.desc' | translate }}</p>
+    </div>
+
+    <div class="tp-hero__stats">
+      <div class="tp-stat"><span class="tp-stat__n">23</span><span class="tp-stat__l">{{ 'tools.stat_tools' | translate }}</span></div>
+      <div class="tp-stat__sep"></div>
+      <div class="tp-stat"><span class="tp-stat__n">1M+</span><span class="tp-stat__l">{{ 'tools.stat_users' | translate }}</span></div>
+      <div class="tp-stat__sep"></div>
+      <div class="tp-stat"><span class="tp-stat__n">836K</span><span class="tp-stat__l">{{ 'tools.stat_diagnoses' | translate }}</span></div>
+      <div class="tp-stat__sep"></div>
+      <div class="tp-stat"><span class="tp-stat__n">5</span><span class="tp-stat__l">{{ 'tools.stat_categories' | translate }}</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     FILTER TABS
+     ════════════════════════════════════════ -->
+<div class="tp-filters">
+  <div class="container">
+    <div class="tp-filters__inner">
+      <button
+        *ngFor="let f of filters"
+        class="tp-filter-btn"
+        [class.tp-filter-btn--active]="activeFilter === f.key"
+        (click)="setFilter(f.key)">
+        {{ ('tools.filter.' + f.key) | translate }}
+        <span class="tp-filter-btn__count">{{ f.count }}</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     TOOLS GRID
+     ════════════════════════════════════════ -->
+<section class="tp-grid-section">
+  <div class="container">
+    <div class="tp-grid">
+
+      <div class="tp-card" *ngFor="let tool of filteredTools"
+           [class.tp-card--archived]="tool.status === 'archived'"
+           (click)="open(tool)">
+        <div class="tp-card__top">
+          <span class="tp-card__num">{{ tool.id }}</span>
+          <span class="tp-card__cat" [style.color]="categoryColor(tool)" [style.border-color]="categoryColor(tool) + '33'">
+            {{ ('tools.cat.' + tool.category) | translate }}
+          </span>
+          <span *ngIf="tool.status === 'dev'" class="tp-card__dev-badge">{{ 'tools.badge_dev' | translate }}</span>
+          <span *ngIf="tool.status === 'archived'" class="tp-card__archived-badge">{{ 'tools.badge_archived' | translate }}</span>
+          <span *ngIf="tool.status === 'restricted'" class="tp-card__restricted-badge">{{ 'tools.badge_restricted' | translate }}</span>
+        </div>
+
+        <h3 class="tp-card__name">{{ tool.name }}</h3>
+        <p class="tp-card__tagline">{{ ('tools.t.' + tool.key + '.tagline') | translate }}</p>
+        <p class="tp-card__desc">{{ ('tools.t.' + tool.key + '.desc') | translate }}</p>
+
+        <div class="tp-card__footer">
+          <span class="tp-card__cta"
+                *ngIf="tool.status === 'live' || (tool.status === 'dev' && (tool.url || tool.routerLink))">
+            {{ (tool.status === 'dev' ? 'tools.preview' : 'tools.open_tool') | translate }}&nbsp;→
+          </span>
+          <span class="tp-card__cta tp-card__cta--archived" *ngIf="tool.status === 'archived'">
+            {{ 'tools.website_closed' | translate }}
+          </span>
+          <span class="tp-card__cta tp-card__cta--restricted" *ngIf="tool.status === 'restricted'">
+            <i class="fa fa-lock"></i>&nbsp;{{ 'tools.institutional_access' | translate }}
+          </span>
+          <span class="tp-card__arrow" aria-hidden="true"
+                *ngIf="tool.status !== 'archived' && tool.status !== 'restricted' && (tool.url || tool.routerLink)">↗</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div *ngIf="filteredTools.length === 0" class="tp-empty">
+      {{ 'tools.empty' | translate }}
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     FOOTER CTA
+     ════════════════════════════════════════ -->
+<section class="tp-cta-section">
+  <div class="container text-center">
+    <h2 class="tp-cta-title">{{ 'tools.cta_title' | translate }}</h2>
+    <p class="tp-cta-sub">{{ 'tools.cta_sub' | translate }}</p>
+    <a routerLink="/" fragment="contact" class="tp-cta-btn">{{ 'tools.cta_btn' | translate }}</a>
+  </div>
+</section>

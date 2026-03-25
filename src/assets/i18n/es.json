@@ -466,6 +466,71 @@
     "link": "Más información",
     "policy": "Política de cookies"
   },
+  "ui": {
+    "back": "← Volver a Fundación 29",
+    "eyebrow": "Fundación Veintinueve"
+  },
+  "tools": {
+    "title_arsenal": "Nuestro Arsenal de IA.",
+    "title_built": "23 herramientas creadas para",
+    "title_behind": "no dejar a nadie atrás.",
+    "desc": "Desde IA diagnóstica a plataformas de datos de pacientes, desde ensayos clínicos hasta respuesta humanitaria — cada herramienta que construimos derriba una barrera que excluye a millones de personas del sistema sanitario.",
+    "stat_tools": "Herramientas IA",
+    "stat_users": "Usuarios",
+    "stat_diagnoses": "Diagnósticos",
+    "stat_categories": "Categorías",
+    "open_tool": "Abrir herramienta",
+    "preview": "Vista previa",
+    "website_closed": "Web cerrada",
+    "institutional_access": "Solo acceso institucional",
+    "badge_dev": "En desarrollo",
+    "badge_archived": "Proyecto finalizado",
+    "badge_restricted": "Acceso restringido",
+    "empty": "No hay herramientas en esta categoría.",
+    "cta_title": "¿Quieres construir con nosotros?",
+    "cta_sub": "Siempre buscamos colaboradores, instituciones y tecnólogos que compartan nuestra misión.",
+    "cta_btn": "Contáctanos →",
+    "filter": {
+      "all": "Todas",
+      "diagnosis": "Diagnóstico",
+      "data": "Datos del paciente",
+      "research": "Investigación",
+      "information": "Información",
+      "humanitarian": "Humanitario"
+    },
+    "cat": {
+      "diagnosis": "Diagnóstico",
+      "data": "Datos del paciente",
+      "research": "Investigación",
+      "information": "Información",
+      "humanitarian": "Humanitario"
+    },
+    "t": {
+      "dxgpt":                { "tagline": "Diagnóstico clínico asistido por IA", "desc": "Ayuda a médicos y pacientes a identificar posibles diagnósticos de enfermedades raras describiendo síntomas en lenguaje natural. Impulsado por GPT-4, usado más de 1.500 veces al día en todo el mundo." },
+      "trialgpt":             { "tagline": "IA para conectar pacientes con ensayos clínicos", "desc": "Analiza informes médicos y empareja a los pacientes con ensayos clínicos relevantes en todo el mundo, eliminando las barreras de acceso a la investigación clínica." },
+      "nav29":                { "tagline": "Toma el control de tus datos médicos", "desc": "Asistente de salud personalizado y gratuito: almacenamiento seguro de datos médicos, resúmenes inteligentes y navegación guiada por tu historial de salud." },
+      "rare_diseases_book":   { "tagline": "Guía completa sobre enfermedades raras", "desc": "Referencia accesible y en profundidad que cubre cientos de enfermedades raras, pensada para pacientes, familias y clínicos que buscan orientarse en diagnósticos sin resolver." },
+      "rare_diseases_protocol": { "tagline": "Protocolos clínicos al alcance de todos", "desc": "Protocolos y recomendaciones clínicas completas para el manejo de enfermedades raras, adaptados para que pacientes y cuidadores puedan comprenderlos." },
+      "medical_reports":      { "tagline": "Informes médicos que los pacientes pueden entender", "desc": "Transforma informes médicos complejos en lenguaje claro que los pacientes puedan leer y comprender realmente, usando simplificación impulsada por IA." },
+      "collaborare":          { "tagline": "Datos de experiencia de pacientes para la EMA", "desc": "Proyecto de IA para recopilar sistemáticamente datos de experiencia de pacientes en colaboración con la Agencia Europea de Medicamentos (EMA) y EURORDIS." },
+      "healthdata29":         { "tagline": "Conjuntos de datos de salud abiertos para investigación", "desc": "Plataforma que permite a proveedores sanitarios e instituciones compartir conjuntos de datos abiertos de forma segura, promoviendo la estandarización y el intercambio de datos." },
+      "dx29":                 { "tagline": "Herramienta de apoyo al diagnóstico de enfermedades raras", "desc": "Proporciona información diagnóstica valiosa a pacientes y profesionales sanitarios que navegan por el camino de las enfermedades raras." },
+      "genewise":             { "tagline": "Genética explicada para pacientes", "desc": "Usa IA para traducir información genética compleja a un lenguaje claro que pacientes y sus familias puedan entender y aplicar." },
+      "gestaltmatcher":       { "tagline": "Análisis de patrones faciales con IA", "desc": "Analiza y compara patrones faciales médicos mediante IA, asistiendo en el diagnóstico de enfermedades raras con componente fenotípico visual." },
+      "summary29":            { "tagline": "Predecesor de Nav29", "desc": "Versión preliminar de Nav29 que pionereó el resumen de informes médicos y la navegación de datos de salud. Sus funcionalidades están ahora completamente integradas en Nav29." },
+      "consentgpt":           { "tagline": "Entiende tus consentimientos informados", "desc": "Herramienta de IA que desglosa documentos complejos de consentimiento informado en explicaciones claras, capacitando a los pacientes para tomar decisiones realmente informadas." },
+      "orphacare":            { "tagline": "Recursos para pacientes con enfermedades raras", "desc": "Plataforma dedicada a conectar a pacientes con enfermedades raras con recursos de atención, especialistas e información sobre tratamientos." },
+      "rarescope":            { "tagline": "Centro de información sobre enfermedades raras", "desc": "Aplicación integral que proporciona información y recursos seleccionados sobre enfermedades raras para pacientes y profesionales sanitarios." },
+      "raito_network":        { "tagline": "Datos de pacientes para investigación, de forma segura", "desc": "Plataforma para que los pacientes gestionen sus datos de salud y los compartan para investigación. Incluye herramientas para administradores de grupos de pacientes." },
+      "health29":             { "tagline": "Registros de salud impulsados por pacientes", "desc": "Sistema para crear registros de pacientes y generar conocimiento a partir de variables de salud reportadas por ellos mismos. Da a los pacientes la verdadera propiedad de sus datos." },
+      "raito_open":           { "tagline": "Datos de salud abiertos para la ciencia", "desc": "Herramienta abierta y descentralizada que permite a los pacientes compartir sus datos médicos para acelerar la investigación y el desarrollo de nuevos tratamientos." },
+      "raito":                { "tagline": "Cartera descentralizada de datos de salud", "desc": "Plataforma descentralizada para que los pacientes posean, controlen y compartan selectivamente sus datos médicos de forma segura." },
+      "iasalut":              { "tagline": "Apoyo diagnóstico con IA en catalán", "desc": "Aplicación de soporte diagnóstico en lengua catalana que usa modelos de lenguaje avanzados para la identificación de enfermedades. Desplegada para un servicio regional de salud." },
+      "sermasgpt":            { "tagline": "Diagnóstico con IA para la red SERMAS", "desc": "Herramienta de apoyo diagnóstico desplegada en la red del Servicio Madrileño de Salud (SERMAS). Acceso restringido a profesionales sanitarios del SERMAS." },
+      "ayudamos_valencia":    { "tagline": "Acceso sanitario para Valencia", "desc": "Plataforma desplegada tras las inundaciones de Valencia para proporcionar asistencia sanitaria rápida y coordinación de recursos para los pacientes afectados." },
+      "conectamos_valencia":  { "tagline": "Conectando pacientes y profesionales", "desc": "Aplicación que conecta a pacientes con profesionales sanitarios en Valencia, facilitando la colaboración y el intercambio de información." }
+    }
+  },
   "seo":{
     "home":{
       "keywords": "Fundación 29, Enfermedades Raras, Diagnóstico, Descentralización, Web3, registros de pacientes",

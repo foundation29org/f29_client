@@ -13,10 +13,11 @@
   height: auto;
 }
 
-.custom-navbar{
+.custom-navbar {
   min-height: 4.3rem;
+  background: #0c0c0e !important;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
 }
-
 /* Accessibility: improve contrast only in header navigation */
 .custom-navbar .navbar-nav .nav-link:not(.btn) {
   color: #f8fafc !important;

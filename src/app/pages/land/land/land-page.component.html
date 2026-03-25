@@ -8,6 +8,7 @@
     <div class="hero-v2__blob hero-v2__blob--2"></div>
     <div class="hero-v2__blob hero-v2__blob--3"></div>
   </div>
+  <div class="hero-v2__grid" aria-hidden="true"></div>
 
   <div class="container-fluid">
     <div class="row">
@@ -15,7 +16,7 @@
         <div class="hero-v2__content">
           <span class="hero-v2__eyebrow">Foundation Twenty-Nine &nbsp;·&nbsp; AI &amp; Rare Diseases</span>
           <h1 class="hero-v2__title">
-            <span class="hero-v2__line hero-v2__line--red" [innerHTML]="'f29.header.title1' | translate"></span>
+            <span class="hero-v2__line hero-v2__line--red glitch-title" [innerHTML]="'f29.header.title1' | translate"></span>
             <span class="hero-v2__line" [innerHTML]="'f29.header.title2' | translate"></span>
           </h1>
           <p class="hero-v2__desc" [innerHTML]="'f29.header.description' | translate"></p>
@@ -32,28 +33,69 @@
     <div class="container-fluid">
       <div class="hero-v2__stats">
         <div class="hero-v2__stat">
-          <span class="hero-v2__stat-n">7+</span>
+          <span class="hero-v2__stat-n">23</span>
           <span class="hero-v2__stat-l">AI Tools Built</span>
         </div>
         <div class="hero-v2__sep"></div>
         <div class="hero-v2__stat">
-          <span class="hero-v2__stat-n">150K+</span>
-          <span class="hero-v2__stat-l">Patients Reached</span>
+          <span class="hero-v2__stat-n">751K+</span>
+          <span class="hero-v2__stat-l">Users Worldwide</span>
         </div>
         <div class="hero-v2__sep"></div>
         <div class="hero-v2__stat">
-          <span class="hero-v2__stat-n">16+</span>
-          <span class="hero-v2__stat-l">Global Partners</span>
+          <span class="hero-v2__stat-n">836K</span>
+          <span class="hero-v2__stat-l">Diagnoses Made</span>
         </div>
         <div class="hero-v2__sep"></div>
         <div class="hero-v2__stat">
-          <span class="hero-v2__stat-n">2</span>
-          <span class="hero-v2__stat-l">AI Awards</span>
+          <span class="hero-v2__stat-n">4.51<span class="hero-v2__stat-unit">★</span></span>
+          <span class="hero-v2__stat-l">Average Rating</span>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- ════════════════════════════════════════
+     LIVE METRICS STRIP
+     ════════════════════════════════════════ -->
+<div class="metrics-strip" aria-label="Platform statistics">
+  <div class="metrics-strip__track">
+    <span class="ms-item"><strong>836K</strong>&thinsp;Diagnoses</span>
+    <span class="ms-sep">◆</span>
+    <span class="ms-item"><strong>1.2M</strong>&thinsp;Sessions</span>
+    <span class="ms-sep">◆</span>
+    <span class="ms-item"><strong>751K+</strong>&thinsp;Users Worldwide</span>
+    <span class="ms-sep">◆</span>
+    <span class="ms-item"><strong>4.51</strong>&thinsp;★ Rating</span>
+    <span class="ms-sep">◆</span>
+    <span class="ms-item"><strong>89.9%</strong>&thinsp;Positive Votes</span>
+    <span class="ms-sep">◆</span>
+    <span class="ms-item"><strong>1,500+</strong>&thinsp;Daily Uses</span>
+    <span class="ms-sep">◆</span>
+    <span class="ms-item"><strong>12.1K</strong>&thinsp;Reviews</span>
+    <span class="ms-sep">◆</span>
+    <span class="ms-item"><strong>20+</strong>&thinsp;AI Tools</span>
+    <span class="ms-sep">◆</span>
+    <!-- duplicate for seamless loop -->
+    <span class="ms-item" aria-hidden="true"><strong>836K</strong>&thinsp;Diagnoses</span>
+    <span class="ms-sep" aria-hidden="true">◆</span>
+    <span class="ms-item" aria-hidden="true"><strong>1.2M</strong>&thinsp;Sessions</span>
+    <span class="ms-sep" aria-hidden="true">◆</span>
+    <span class="ms-item" aria-hidden="true"><strong>751K+</strong>&thinsp;Users Worldwide</span>
+    <span class="ms-sep" aria-hidden="true">◆</span>
+    <span class="ms-item" aria-hidden="true"><strong>4.51</strong>&thinsp;★ Rating</span>
+    <span class="ms-sep" aria-hidden="true">◆</span>
+    <span class="ms-item" aria-hidden="true"><strong>89.9%</strong>&thinsp;Positive Votes</span>
+    <span class="ms-sep" aria-hidden="true">◆</span>
+    <span class="ms-item" aria-hidden="true"><strong>1,500+</strong>&thinsp;Daily Uses</span>
+    <span class="ms-sep" aria-hidden="true">◆</span>
+    <span class="ms-item" aria-hidden="true"><strong>12.1K</strong>&thinsp;Reviews</span>
+    <span class="ms-sep" aria-hidden="true">◆</span>
+    <span class="ms-item" aria-hidden="true"><strong>20+</strong>&thinsp;AI Tools</span>
+    <span class="ms-sep" aria-hidden="true">◆</span>
+  </div>
+</div>
 
 <!-- ════════════════════════════════════════
      DxGPT — Terminal card
@@ -104,6 +146,7 @@
     <div class="research-v2__head">
       <span class="tag-pill tag-pill--ghost">{{'f29.research.title' | translate }}</span>
       <h2 class="research-v2__headline">{{'f29.research.description' | translate }}</h2>
+      <p class="research-v2__sub-note">A selection of our <strong>23 AI tools</strong> built to transform access to healthcare.</p>
     </div>
 
     <div class="research-v2__list">
@@ -175,6 +218,12 @@
         <a routerLink="/adaptacion-informes" class="research-v2__cta">{{'f29.Test it' | translate }}&nbsp;→</a>
       </div>
 
+    </div><!-- end research-v2__list -->
+
+    <div class="research-v2__footer">
+      <a routerLink="/tools" class="research-v2__viewall">
+        Explore all 23 tools &nbsp;→
+      </a>
     </div>
   </div>
 </section>

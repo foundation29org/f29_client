@@ -12,6 +12,7 @@ import { LibroPageComponent } from "./libro/libro-page.component";
 import { GuiaPageComponent } from "./guia/guia-page.component";
 import { LabPageComponent } from "./lab/lab-page.component";
 import { AdaptacionInformesComponent } from "../adaptacion-informes/adaptacion-informes.component";
+import { ToolsPageComponent } from "./tools/tools-page.component";
 import { OpenAiService } from '../../shared/services/openAi.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -37,7 +38,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
         LibroPageComponent,
         GuiaPageComponent,
         LabPageComponent,
-        AdaptacionInformesComponent
+        AdaptacionInformesComponent,
+        ToolsPageComponent
     ],
     providers: [
         OpenAiService

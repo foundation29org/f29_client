@@ -46,6 +46,7 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
   constructor(public translate: TranslateService, private layoutService: LayoutService, private configService: ConfigService, private router: Router, private eventsService: EventsService) {
 
     this.loadLanguages();
+    this.checkRoute(this.router.url);
 
     /*this.router.events.filter((event: any) => event instanceof NavigationEnd).subscribe(
       event => {
