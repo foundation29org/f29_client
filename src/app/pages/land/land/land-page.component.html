@@ -1,428 +1,445 @@
+<!-- ════════════════════════════════════════
+     HERO — Dark kinetic
+     ════════════════════════════════════════ -->
 <a id="home" class="anchor_tags"></a>
-<section>
-    <div class="row auth-height full-height-vh m-0 patients-header">
-        <div class="col-md-10 offset-md-1 header-content">
-            <h1 class="header-title" [innerHTML]="'f29.header.title1' | translate "></h1>
-            <h1 class="header-title" [innerHTML]="'f29.header.title2' | translate "></h1>
-            <p class="header-text" [innerHTML]="'f29.header.description' | translate "></p>
-        </div>
-    </div>
-</section>
-<div style="position: relative;" class="hidepanelmd">
-    <div class="" style="left:150px;width: auto;max-width: auto;top: -138px;position: absolute;">
-        <img src="assets/img/home/puntos1.png" alt="" class="" fetchpriority="high" decoding="async">
-    </div>
-</div>
+<section class="hero-v2">
+  <div class="hero-v2__blobs" aria-hidden="true">
+    <div class="hero-v2__blob hero-v2__blob--1"></div>
+    <div class="hero-v2__blob hero-v2__blob--2"></div>
+    <div class="hero-v2__blob hero-v2__blob--3"></div>
+  </div>
 
-<!-- Nueva sección DxGPT -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-9 col-lg-11 col-12">
+        <div class="hero-v2__content">
+          <span class="hero-v2__eyebrow">Foundation Twenty-Nine &nbsp;·&nbsp; AI &amp; Rare Diseases</span>
+          <h1 class="hero-v2__title">
+            <span class="hero-v2__line hero-v2__line--red" [innerHTML]="'f29.header.title1' | translate"></span>
+            <span class="hero-v2__line" [innerHTML]="'f29.header.title2' | translate"></span>
+          </h1>
+          <p class="hero-v2__desc" [innerHTML]="'f29.header.description' | translate"></p>
+          <div class="hero-v2__cta">
+            <a href="https://dxgpt.app/" target="_blank" class="hero-v2__btn-fill">Try DxGPT &nbsp;→</a>
+            <a href="#iniciatives" class="hero-v2__btn-line">Our Research</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-v2__stats-bar">
+    <div class="container-fluid">
+      <div class="hero-v2__stats">
+        <div class="hero-v2__stat">
+          <span class="hero-v2__stat-n">7+</span>
+          <span class="hero-v2__stat-l">AI Tools Built</span>
+        </div>
+        <div class="hero-v2__sep"></div>
+        <div class="hero-v2__stat">
+          <span class="hero-v2__stat-n">150K+</span>
+          <span class="hero-v2__stat-l">Patients Reached</span>
+        </div>
+        <div class="hero-v2__sep"></div>
+        <div class="hero-v2__stat">
+          <span class="hero-v2__stat-n">16+</span>
+          <span class="hero-v2__stat-l">Global Partners</span>
+        </div>
+        <div class="hero-v2__sep"></div>
+        <div class="hero-v2__stat">
+          <span class="hero-v2__stat-n">2</span>
+          <span class="hero-v2__stat-l">AI Awards</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     DxGPT — Terminal card
+     ════════════════════════════════════════ -->
 <a id="dxgpt" class="anchor_tags"></a>
-<section class="dxgpt-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 dxgpt-info">
-                <h2 class="section-title">{{'f29.dxgpt.title' | translate }}</h2>
-                <p class="section-description">{{'f29.dxgpt.description' | translate }}</p>
-                <a href="https://dxgpt.app/" target="_blank" class="btn btn-primary round mt-3" title="{{'f29.Know more' | translate }}">
-                    <strong class="menu-title">{{'f29.Know more' | translate }}</strong>
-                </a>
-            </div>
-            <div class="col-md-6">
-                <div class="dxgpt-interface">
-                    <h3 class="text-center mb-2 dxgpt-interface-title">{{'f29.dxgpt.interface.title' | translate }}</h3>
-                    <div class="input-container">
-                        <textarea class="form-control" [(ngModel)]="summaryDx29" rows="6" placeholder="{{'f29.dxgpt.interface.placeholder' | translate }}"></textarea>
-                        <p class="text-center mt-2">{{'f29.dxgpt.interface.hint' | translate }}</p>
-                        <div class="text-center mt-3">
-                            <button class="btn btn-search" (click)="gotoDxGPT()">{{'f29.dxgpt.interface.search' | translate }}</button>
-                        </div>
-                        <p class="text-center mt-3">
-                            <button type="button" (click)="showContentInfoAPP(contentInfoAPP)" class="help-link">{{'f29.dxgpt.interface.help' | translate }}</button>
-                        </p>
-                    </div>
-                </div>
-            </div>
+<section class="dxgpt-v2">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-5">
+        <div class="dxgpt-v2__info">
+          <span class="tag-pill">Featured Tool</span>
+          <h2 class="dxgpt-v2__title">{{'f29.dxgpt.title' | translate }}</h2>
+          <p class="dxgpt-v2__desc">{{'f29.dxgpt.description' | translate }}</p>
+          <a href="https://dxgpt.app/" target="_blank" class="dxgpt-v2__link">
+            {{'f29.Know more' | translate }}&nbsp;→
+          </a>
         </div>
-    </div>
-</section>
-<a id="iniciatives" class="anchor_tags"></a>
-<!-- Sección de Investigación -->
-<section class="research-section">
-    <div class="container">
-        <div class="row mb-4">
-            <div class="col-md-12 text-center">
-                <h2 class="section-title">{{'f29.research.title' | translate }}</h2>
-                <p class="section-description">{{'f29.research.description' | translate }}</p>
-            </div>
-        </div>
-
-        <div class="row mb-5">
-            <!-- Nav29 -->
-            <div class="col-md-6 mb-4">
-                <div class="research-card">
-                    <div class="research-header">
-                        <h3 class="research-title">{{'f29.research.nav29.title' | translate }}</h3>
-                        <h4 class="research-subtitle">{{'f29.research.nav29.subtitle' | translate }}</h4>
-                    </div>
-                    <div class="research-body">
-                        <p>{{'f29.research.nav29.description' | translate }}</p>
-                        <a href="https://nav29.org/" target="_blank" class="btn btn-primary round mt-3">
-                            <strong>{{'f29.Know more' | translate }}</strong>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- TrialGPT -->
-            <div class="col-md-6 mb-4">
-                <div class="research-card">
-                    <div class="research-header">
-                        <h3 class="research-title">{{'f29.research.trialgpt.title' | translate }}</h3>
-                        <h4 class="research-subtitle">{{'f29.research.trialgpt.subtitle' | translate }}</h4>
-                    </div>
-                    <div class="research-body">
-                        <p>{{'f29.research.trialgpt.description' | translate }}</p>
-                        <a href="https://trialgpt.app" target="_blank" class="btn btn-primary round mt-3">
-                            <strong>{{'f29.Test it' | translate }}</strong>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- GeneWise -->
-            <div class="col-md-6 mb-4">
-                <div class="research-card">
-                    <div class="research-header">
-                        <h3 class="research-title">{{'f29.research.genewise.title' | translate }}</h3>
-                        <h4 class="research-subtitle">{{'f29.research.genewise.subtitle' | translate }}</h4>
-                    </div>
-                    <div class="research-body">
-                        <p>{{'f29.research.genewise.description' | translate }}</p>
-                        <a href="https://genewise.azurewebsites.net/" target="_blank" class="btn btn-primary round mt-3">
-                            <strong>{{'f29.Test it' | translate }}</strong>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- HealthData29 -->
-            <div class="col-md-6 mb-4">
-                <div class="research-card">
-                    <div class="research-header">
-                        <h3 class="research-title">{{'f29.research.healthdata29.title' | translate }}</h3>
-                        <h4 class="research-subtitle">{{'f29.research.healthdata29.subtitle' | translate }}</h4>
-                    </div>
-                    <div class="research-body">
-                        <p>{{'f29.research.healthdata29.description' | translate }}</p>
-                        <a href="https://www.healthdata29.org/" target="_blank" class="btn btn-primary round mt-3">
-                            <strong>{{'f29.Know more' | translate }}</strong>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Libro Enfermedades Raras -->
-            <div class="col-md-6 mb-4">
-                <div class="research-card">
-                    <div class="research-header">
-                        <h3 class="research-title">{{'f29.p4.t' | translate }}</h3>
-                    </div>
-                    <div class="research-body">
-                        <p>{{'f29.p4.d' | translate }}</p>
-                        <a routerLink="/libroenfermedadesraras" class="btn btn-primary round mt-3">
-                            <strong>{{'f29.Test it' | translate }}</strong>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Guía Enfermedades Raras -->
-            <div class="col-md-6 mb-4">
-                <div class="research-card">
-                    <div class="research-header">
-                        <h3 class="research-title">{{'f29.p5.t' | translate }}</h3>
-                    </div>
-                    <div class="research-body">
-                        <p>{{'f29.p5.d' | translate }}</p>
-                        <a routerLink="/guiaenfermedadesraras" class="btn btn-primary round mt-3">
-                            <strong>{{'f29.Test it' | translate }}</strong>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Informes médicos que puedas entender -->
-            <div class="col-md-6 mb-4">
-                <div class="research-card">
-                    <div class="research-header">
-                        <h3 class="research-title">{{'f29.p6.t' | translate }}</h3>
-                    </div>
-                    <div class="research-body">
-                        <p>{{'f29.p6.d' | translate }}</p>
-                        <a routerLink="/adaptacion-informes" class="btn btn-primary round mt-3">
-                            <strong>{{'f29.Test it' | translate }}</strong>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div>
-    <!--class="col-sm-12 mt-0 mb-0 card card-block mx-auto pr-0 pl-0 padding-0" style="z-index: -1 !important;"-->
-    <div class="card-body no-padding pt-0" style="overflow:hidden;">       
-        <a id="thefoundation" class="anchor_tags"></a>
-        <div class="row pt-3 pb-3" style="background: #FBF6FC;">
-            <div class="row offset-lg-1 col-lg-10 mb-4 margin-0 text-center">
-                <div class="col-md-12">
-                    <h2 class="text-bold-500 mt-4 pb-3" style="color: #333;"><strong>{{'f29.t3.5' | translate }}</strong></h2>
-                </div>
-                <div class="col-md-12 pb-3 mt-3">
-                    <div class="row center-elements">
-                      <div class="col-lg-3 col-sm-6 mb-3 p-4">
-                        <img class="img-responsive-team rounded-circle" width="150px" height="158px" alt="sarah harmon" src='assets/img/home/team/sarah_harmon.webp'>
-                        <span class="d-block mt-2"><strong>Sarah Harmon</strong></span>
-                        <span class="d-block font-size-sm">{{'f29.t3.5.1' | translate }}, {{'f29.t3.5.3' | translate }}</span>
-                        <a href="https://www.linkedin.com/in/sarahmharmon/" aria-label="linkedin sarah harmon" target="_blank" class="btn info round p-0"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                        <div class="col-lg-3 col-sm-6 mb-3 p-4">
-                            <img class="img-responsive-team rounded-circle" width="150px" height="158px" alt="carlos mascias" src='assets/img/home/team/carlos_mascias.webp'>
-                            <span class="d-block mt-2"><strong>Carlos Mascias</strong></span>
-                            <span class="d-block font-size-sm">{{'f29.t3.5.1' | translate }}</span>
-                            <a href="https://www.linkedin.com/in/carlos-masc%C3%ADas-cadavid/" aria-label="linkedin carlos mascias" target="_blank" class="btn info round p-0"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 mb-3 p-4">
-                            <img class="img-responsive-team rounded-circle" width="150px" height="158px" alt="aurora berra" src='assets/img/home/team/aurora_berra.webp'>
-                            <span class="d-block mt-2"><strong>Aurora Berra</strong></span>
-                            <span class="d-block font-size-sm">{{'f29.t3.5.1' | translate }}</span>
-                            <a href="https://www.linkedin.com/in/aurora-berra-md-phd-b0946a18" aria-label="linkedin aurora berra" target="_blank" class="btn info round p-0"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 mb-3 p-4">
-                            <img class="img-responsive-team rounded-circle" width="150px" height="158px" alt="david carmona" src='assets/img/home/team/david_carmona.webp'>
-                            <span class="d-block mt-2"><strong>David Carmona</strong></span>
-                            <span class="d-block font-size-sm">{{'f29.t3.5.1' | translate }}</span>
-                            <a href="https://www.linkedin.com/in/david-carmona/" aria-label="linkedin david carmona" target="_blank" class="btn info round p-0"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 mb-3 p-4">
-                            <img class="img-responsive-team rounded-circle" width="150px" height="158px" alt="jose fdez ranada" src='assets/img/home/team/jose_fdez_ranada.webp'>
-                            <span class="d-block mt-2"><strong>José Fdez-Rañada</strong></span>
-                            <span class="d-block font-size-sm">{{'f29.t3.5.2' | translate }}</span>
-                            <a href="https://www.linkedin.com/in/jos%C3%A9-fernandez-ra%C3%B1ada-l%C3%B3pez-d%C3%B3riga-39b8255/" aria-label="linkedin jose fdez ranada" target="_blank" class="btn info round p-0"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 mb-3 p-4">
-                          <img class="img-responsive-team rounded-circle" width="150px" height="158px" alt="julian isla" src='assets/img/home/team/julian_isla.webp'>
-                          <span class="d-block mt-2"><strong>Julián Isla</strong></span>
-                          <span class="d-block font-size-sm">{{'f29.t3.5.1' | translate }}</span>
-                          <a href="https://www.linkedin.com/in/julianig/" aria-label="linkedin julian isla" target="_blank" class="btn info round p-0"><i class="fab fa-linkedin"></i></a>
-                      </div>
-                        <div class="col-lg-3 col-sm-6 mb-3 p-4">
-                            <img class="img-responsive-team rounded-circle" width="150px" height="158px" alt="alvaro moron" src='assets/img/home/team/alvaro_moron.webp'>
-                            <span class="d-block mt-2"><strong>Álvaro Morón</strong></span>
-                            <span class="d-block font-size-sm">{{'f29.t3.5.1' | translate }}</span>
-                            <a href="https://www.linkedin.com/in/alvaromo/" aria-label="linkedin alvaro moron" target="_blank" class="btn info round p-0"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 mb-3 p-4">
-                            <img class="img-responsive-team rounded-circle" width="150px" height="158px" alt="Gabriel Porqueras" src='assets/img/home/team/gabriel_porqueras.webp'>
-                            <span class="d-block mt-2"><strong>Gabriel Porqueras</strong></span>
-                            <span class="d-block font-size-sm">{{'f29.t3.5.1' | translate }}</span>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-
-
-        <a id="ecosystem" class="anchor_tags"></a>
-        <div class="row pt-3 pb-3 m--70"
-            style="background: #ffffff;">
-            <div class="m-70 row offset-lg-1 col-lg-10 mb-4 text-center">
-                <div class="col-md-12 mt-4 pb-3">
-                    <h2 class="text-bold-500"><span class="dark-light"
-                            style="font-size: inherit !important;"><strong>{{'f29.t7.1' | translate }}</strong></span></h2>
-                    <h3 class="text-bold-500 pb-3 section-subtitle-custom"><strong>{{'f29.t7.2' | translate }}</strong></h3>
-                </div>
-
-                <div class="col-12 justify-content-center center-elements col-md-12 pb-3 mt-3">
-                    <h4 class="text-bold-500 mt-4 pb-3"><strong>{{'f29.t7.3' | translate }}</strong></h4>
-                    <div class="row center-elements pad-logos">
-                        <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
-                            <img class="img-responsive" alt="European Medicines Agency (EMA)" src='assets/img/home/institutions/Logo_ema.webp' loading="lazy" decoding="async" fetchpriority="low">
-                          </div>
-                      <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
-                        <img class="img-responsive" alt="logo global commission" src='assets/img/home/institutions/header-logo.webp' loading="lazy" decoding="async" fetchpriority="low">
-                      </div>
-                      <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
-                        <img class="img-responsive" alt="logo barrabes" src='assets/img/home/allies/sermas.webp' loading="lazy" decoding="async" fetchpriority="low">
-                      </div>
-                      <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
-                        <img class="img-responsive" alt="logo CatSalut" src='assets/img/home/institutions/CatSalut.webp' loading="lazy" decoding="async" fetchpriority="low">
-                      </div>
-                      <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
-                        <img class="img-responsive" alt="logo monarch" src='assets/img/home/institutions/monarch.webp' style="max-height: 60px !important;" loading="lazy" decoding="async" fetchpriority="low">
-                      </div>
-                      <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
-                        <img class="img-responsive" alt="logo idiscc" src='assets/img/home/institutions/idiscc.webp' loading="lazy" decoding="async" fetchpriority="low">
-                      </div>
-                      <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
-                        <img class="img-responsive" alt="logo dihbio" src='assets/img/home/institutions/dihbio.webp' loading="lazy" decoding="async" fetchpriority="low">
-                      </div>
-                    </div>
-
-                  
-
-                      <h4 class="text-bold-500 mt-5 pb-3"><strong>{{'f29.t7.5' | translate }}</strong></h4>
-                      <div class="row center-elements pad-logos">
-                          <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
-                            <img class="img-responsive" alt="logo Microsoft" src='assets/img/home/allies/Microsoft-Logo.webp' loading="lazy" decoding="async" fetchpriority="low">
-                          </div>
-                          <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
-                            <img class="img-responsive" alt="logo takeda" src='assets/img/home/allies/takeda.webp' loading="lazy" decoding="async" fetchpriority="low">
-                          </div>
-                          <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
-                            <img class="img-responsive" alt="logo KyowaKirin" src='assets/img/home/allies/KyowaKirin.webp' loading="lazy" decoding="async" fetchpriority="low">
-                          </div>
-                          <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
-                            <img class="img-responsive" alt="logo garrigues" src='assets/img/home/allies/garrigues.webp' loading="lazy" decoding="async" fetchpriority="low">
-                          </div>
-                          <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
-                            <img class="img-responsive" alt="logo barrabes" src='assets/img/home/allies/barra.webp' loading="lazy" decoding="async" fetchpriority="low">
-                          </div>
-                          <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
-                            <img class="img-responsive" alt="logo italfarmaco" src='assets/img/home/allies/italfarmaco.webp' loading="lazy" decoding="async" fetchpriority="low">
-                          </div>
-                          <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
-                            <img class="img-responsive" alt="logo sanofi" src='assets/img/home/allies/sanofi.webp' loading="lazy" decoding="async" fetchpriority="low">
-                          </div>
-                          <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
-                            <img class="img-responsive" alt="logo google" src='assets/img/home/allies/google.webp' loading="lazy" decoding="async" fetchpriority="low">
-                          </div>
-                          <div class="col-6 col-sm-4 col-md-3 mb-3 p-4">
-                            <img class="img-responsive" alt="logo ucb" src='assets/img/home/allies/ucb.webp' loading="lazy" decoding="async" fetchpriority="low">
-                          </div>
-                        </div>
-
-                  </div>
-            </div>
-        </div>
-        <a id="awards" class="anchor_tags"></a>
-        <div class="row pt-3 pb-3 margin-0 text-center" style="background: #FBF6FC;">
-            <div class="col-md-12 pt-4 pb-3">
-                <h2 class="text-bold-500"><span class="dark-light"
-                        style="font-size: inherit !important;"><strong>{{'f29.t8.1' | translate }}</strong></span></h2>
-                <h3 class="text-bold-500 pb-3 section-subtitle-custom"><strong>{{'f29.t8.2' | translate }} <span class="d-block">{{'f29.t8.3' | translate }}</span></strong></h3>
-            </div>
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-6 mb-3 p-4">
-                        <img class="" style="max-width: 200px;" alt="premio-AEPD" src='assets/img/home/awards/premio-AEPD_transparente.webp' loading="lazy" decoding="async" fetchpriority="low">
-                        <h3 class="text-bold-500 mt-3 mb-0">AEPD</h3>
-                        <p class="text-bold-500 mb-0"><strong>{{'f29.t9.1.1' | translate }}</strong></p>
-                        <p>{{'f29.t9.1.2' | translate }}</p>
-                      </div>
-                      <div class="col-md-6 mb-3 p-4">
-                        <img class="" style="max-width: 200px;" alt="Premio-AMETIC" src='assets/img/home/awards/Premio-AMETIC-transparente.webp' loading="lazy" decoding="async" fetchpriority="low">
-                        <h3 class="text-bold-500 mt-3 mb-0">Ametic</h3>
-                        <p class="text-bold-500 mb-0"><strong>Artificial Intelligence Summit</strong></p>
-                        <p>R+D+I Ametic IA Award</p>
-                      </div>
-                </div>
-              </div>
-        </div>
-    </div>
-</div>
-
-<ng-template #contentInfoAPP let-c="close" let-d="dismiss" appendTo="body">
-    <div class="modal-header">
-      <h4 class="modal-title">{{'f29.dxgpt.interface.help' | translate }}</h4>
-      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    
-    <div class="modal-body content-wrapper">
-      <div class="row align-items-start">
-        
-        <!-- COLUMNA 1: EJEMPLOS -->
-        <div class="col-md-4 text-center">
-            <div class="section-header">
-                <!-- Título / icono -->
-                <div class="icon-container">
-                    <i class="fas fa-gear fa-2x"></i>
-                </div>
-                <h4>{{ 'f29.dxgpt.interface.p1.title' | translate }}</h4>
-                <p class="section-subheader">{{ 'f29.dxgpt.interface.p1.subtitle' | translate }}</p>
-            </div>
-          
-          
-          <!-- Contenido inferior (ejemplos) -->
-          <div class="card-container mt-3">
-            <div class="example-card pointer" (click)="copyText('opt1'); lauchEvent('Copy sample 1');">
-              <p class="mb-0">{{'f29.dxgpt.interface.p1.1' | translate }}</p>
-              <div class="text-right">
-                <i class="fa-solid fa-arrow-right-long"></i>
-              </div>
-            </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="demo-terminal">
+          <div class="demo-terminal__bar">
+            <span class="demo-terminal__dot demo-terminal__dot--r"></span>
+            <span class="demo-terminal__dot demo-terminal__dot--y"></span>
+            <span class="demo-terminal__dot demo-terminal__dot--g"></span>
+            <span class="demo-terminal__wintitle">{{'f29.dxgpt.interface.title' | translate }}</span>
           </div>
-          <div class="card-container mt-3">
-            <div class="example-card pointer" (click)="copyText('opt2'); lauchEvent('Copy sample 2');">
-              <p class="mb-0">{{'f29.dxgpt.interface.p1.2' | translate }}</p>
-              <div class="text-right">
-                <i class="fa-solid fa-arrow-right-long"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- COLUMNA 2: CAPACIDADES -->
-        <div class="col-md-4 text-center">
-            <div class="section-header">
-                <div class="icon-container">
-                    <i class="fa fa-rocket fa-2x"></i>
-                  </div>
-                  <h4>{{ 'f29.dxgpt.interface.p2.title' | translate }}</h4>
-            </div>
-          <!-- Título / icono -->
-          
-          
-          <!-- Contenido inferior (capacidades) -->
-          <div class="card-container mt-3">
-            <div class="capabilities-card">
-              <p class="mb-0">{{'f29.dxgpt.interface.p2.1' | translate }}</p>
-            </div>
-          </div>
-          <div class="card-container mt-3">
-            <div class="capabilities-card">
-              <p class="mb-0">{{'f29.dxgpt.interface.p2.2' | translate }}</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- COLUMNA 3: LIMITACIONES -->
-        <div class="col-md-4 text-center">
-          <!-- Título / icono -->
-           <div class="section-header">
-            <div class="icon-container">
-                <i class="fa fa-exclamation-triangle fa-2x"></i>
-              </div>
-              <h4 >{{ 'f29.dxgpt.interface.p3.title' | translate }}</h4>
-           </div>
-          
-          
-          <!-- Contenido inferior (limitaciones) -->
-          <div class="card-container mt-3">
-            <div class="limitations-card">
-              <p class="mb-0">{{'f29.dxgpt.interface.p3.1' | translate }}</p>
-            </div>
-          </div>
-          <div class="card-container mt-3">
-            <div class="limitations-card">
-              <p class="mb-0">{{'f29.dxgpt.interface.p3.2' | translate }}</p>
+          <div class="demo-terminal__body">
+            <textarea class="demo-terminal__input" [(ngModel)]="summaryDx29" rows="5"
+              placeholder="{{'f29.dxgpt.interface.placeholder' | translate }}"></textarea>
+            <p class="demo-terminal__hint">{{'f29.dxgpt.interface.hint' | translate }}</p>
+            <div class="demo-terminal__actions">
+              <button class="demo-terminal__search" (click)="gotoDxGPT()">{{'f29.dxgpt.interface.search' | translate }}</button>
+              <button type="button" class="demo-terminal__help" (click)="showContentInfoAPP(contentInfoAPP)">{{'f29.dxgpt.interface.help' | translate }}</button>
             </div>
           </div>
         </div>
       </div>
-      
     </div>
-  </ng-template>
-  
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     RESEARCH — Editorial numbered list
+     ════════════════════════════════════════ -->
+<a id="iniciatives" class="anchor_tags"></a>
+<section class="research-v2">
+  <div class="container">
+    <div class="research-v2__head">
+      <span class="tag-pill tag-pill--ghost">{{'f29.research.title' | translate }}</span>
+      <h2 class="research-v2__headline">{{'f29.research.description' | translate }}</h2>
+    </div>
+
+    <div class="research-v2__list">
+
+      <div class="research-v2__item">
+        <span class="research-v2__num">01</span>
+        <div class="research-v2__body">
+          <h3 class="research-v2__name">{{'f29.research.nav29.title' | translate }}</h3>
+          <p class="research-v2__sub">{{'f29.research.nav29.subtitle' | translate }}</p>
+          <p class="research-v2__text">{{'f29.research.nav29.description' | translate }}</p>
+        </div>
+        <a href="https://nav29.org/" target="_blank" class="research-v2__cta">{{'f29.Know more' | translate }}&nbsp;→</a>
+      </div>
+
+      <div class="research-v2__item">
+        <span class="research-v2__num">02</span>
+        <div class="research-v2__body">
+          <h3 class="research-v2__name">{{'f29.research.trialgpt.title' | translate }}</h3>
+          <p class="research-v2__sub">{{'f29.research.trialgpt.subtitle' | translate }}</p>
+          <p class="research-v2__text">{{'f29.research.trialgpt.description' | translate }}</p>
+        </div>
+        <a href="https://trialgpt.app" target="_blank" class="research-v2__cta">{{'f29.Test it' | translate }}&nbsp;→</a>
+      </div>
+
+      <div class="research-v2__item">
+        <span class="research-v2__num">03</span>
+        <div class="research-v2__body">
+          <h3 class="research-v2__name">{{'f29.research.genewise.title' | translate }}</h3>
+          <p class="research-v2__sub">{{'f29.research.genewise.subtitle' | translate }}</p>
+          <p class="research-v2__text">{{'f29.research.genewise.description' | translate }}</p>
+        </div>
+        <a href="https://genewise.azurewebsites.net/" target="_blank" class="research-v2__cta">{{'f29.Test it' | translate }}&nbsp;→</a>
+      </div>
+
+      <div class="research-v2__item">
+        <span class="research-v2__num">04</span>
+        <div class="research-v2__body">
+          <h3 class="research-v2__name">{{'f29.research.healthdata29.title' | translate }}</h3>
+          <p class="research-v2__sub">{{'f29.research.healthdata29.subtitle' | translate }}</p>
+          <p class="research-v2__text">{{'f29.research.healthdata29.description' | translate }}</p>
+        </div>
+        <a href="https://www.healthdata29.org/" target="_blank" class="research-v2__cta">{{'f29.Know more' | translate }}&nbsp;→</a>
+      </div>
+
+      <div class="research-v2__item">
+        <span class="research-v2__num">05</span>
+        <div class="research-v2__body">
+          <h3 class="research-v2__name">{{'f29.p4.t' | translate }}</h3>
+          <p class="research-v2__text">{{'f29.p4.d' | translate }}</p>
+        </div>
+        <a routerLink="/libroenfermedadesraras" class="research-v2__cta">{{'f29.Test it' | translate }}&nbsp;→</a>
+      </div>
+
+      <div class="research-v2__item">
+        <span class="research-v2__num">06</span>
+        <div class="research-v2__body">
+          <h3 class="research-v2__name">{{'f29.p5.t' | translate }}</h3>
+          <p class="research-v2__text">{{'f29.p5.d' | translate }}</p>
+        </div>
+        <a routerLink="/guiaenfermedadesraras" class="research-v2__cta">{{'f29.Test it' | translate }}&nbsp;→</a>
+      </div>
+
+      <div class="research-v2__item">
+        <span class="research-v2__num">07</span>
+        <div class="research-v2__body">
+          <h3 class="research-v2__name">{{'f29.p6.t' | translate }}</h3>
+          <p class="research-v2__text">{{'f29.p6.d' | translate }}</p>
+        </div>
+        <a routerLink="/adaptacion-informes" class="research-v2__cta">{{'f29.Test it' | translate }}&nbsp;→</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     BOARD OF TRUSTEES
+     ════════════════════════════════════════ -->
+<a id="thefoundation" class="anchor_tags"></a>
+<section class="team-v2">
+  <div class="container">
+    <div class="team-v2__head text-center">
+      <h2 class="team-v2__title">{{'f29.t3.5' | translate }}</h2>
+    </div>
+    <div class="team-v2__grid">
+
+      <div class="team-v2__card">
+        <img src='assets/img/home/team/sarah_harmon.webp' alt="Sarah Harmon" class="team-v2__photo" loading="lazy">
+        <div class="team-v2__info">
+          <strong class="team-v2__name">Sarah Harmon</strong>
+          <span class="team-v2__role">{{'f29.t3.5.1' | translate }}, {{'f29.t3.5.3' | translate }}</span>
+          <a href="https://www.linkedin.com/in/sarahmharmon/" target="_blank" aria-label="linkedin sarah harmon" class="team-v2__li"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="team-v2__card">
+        <img src='assets/img/home/team/carlos_mascias.webp' alt="Carlos Mascias" class="team-v2__photo" loading="lazy">
+        <div class="team-v2__info">
+          <strong class="team-v2__name">Carlos Mascias</strong>
+          <span class="team-v2__role">{{'f29.t3.5.1' | translate }}</span>
+          <a href="https://www.linkedin.com/in/carlos-masc%C3%ADas-cadavid/" target="_blank" aria-label="linkedin carlos mascias" class="team-v2__li"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="team-v2__card">
+        <img src='assets/img/home/team/aurora_berra.webp' alt="Aurora Berra" class="team-v2__photo" loading="lazy">
+        <div class="team-v2__info">
+          <strong class="team-v2__name">Aurora Berra</strong>
+          <span class="team-v2__role">{{'f29.t3.5.1' | translate }}</span>
+          <a href="https://www.linkedin.com/in/aurora-berra-md-phd-b0946a18" target="_blank" aria-label="linkedin aurora berra" class="team-v2__li"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="team-v2__card">
+        <img src='assets/img/home/team/david_carmona.webp' alt="David Carmona" class="team-v2__photo" loading="lazy">
+        <div class="team-v2__info">
+          <strong class="team-v2__name">David Carmona</strong>
+          <span class="team-v2__role">{{'f29.t3.5.1' | translate }}</span>
+          <a href="https://www.linkedin.com/in/david-carmona/" target="_blank" aria-label="linkedin david carmona" class="team-v2__li"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="team-v2__card">
+        <img src='assets/img/home/team/jose_fdez_ranada.webp' alt="José Fdez-Rañada" class="team-v2__photo" loading="lazy">
+        <div class="team-v2__info">
+          <strong class="team-v2__name">José Fdez-Rañada</strong>
+          <span class="team-v2__role">{{'f29.t3.5.2' | translate }}</span>
+          <a href="https://www.linkedin.com/in/jos%C3%A9-fernandez-ra%C3%B1ada-l%C3%B3pez-d%C3%B3riga-39b8255/" target="_blank" aria-label="linkedin jose fdez ranada" class="team-v2__li"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="team-v2__card">
+        <img src='assets/img/home/team/julian_isla.webp' alt="Julián Isla" class="team-v2__photo" loading="lazy">
+        <div class="team-v2__info">
+          <strong class="team-v2__name">Julián Isla</strong>
+          <span class="team-v2__role">{{'f29.t3.5.1' | translate }}</span>
+          <a href="https://www.linkedin.com/in/julianig/" target="_blank" aria-label="linkedin julian isla" class="team-v2__li"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="team-v2__card">
+        <img src='assets/img/home/team/alvaro_moron.webp' alt="Álvaro Morón" class="team-v2__photo" loading="lazy">
+        <div class="team-v2__info">
+          <strong class="team-v2__name">Álvaro Morón</strong>
+          <span class="team-v2__role">{{'f29.t3.5.1' | translate }}</span>
+          <a href="https://www.linkedin.com/in/alvaromo/" target="_blank" aria-label="linkedin alvaro moron" class="team-v2__li"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="team-v2__card">
+        <img src='assets/img/home/team/gabriel_porqueras.webp' alt="Gabriel Porqueras" class="team-v2__photo" loading="lazy">
+        <div class="team-v2__info">
+          <strong class="team-v2__name">Gabriel Porqueras</strong>
+          <span class="team-v2__role">{{'f29.t3.5.1' | translate }}</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     ECOSYSTEM — Infinite marquee
+     ════════════════════════════════════════ -->
+<a id="ecosystem" class="anchor_tags"></a>
+<section class="eco-v2">
+  <div class="container">
+    <div class="eco-v2__head text-center">
+      <h2 class="eco-v2__title">{{'f29.t7.1' | translate }}</h2>
+      <p class="eco-v2__sub">{{'f29.t7.2' | translate }}</p>
+    </div>
+  </div>
+
+  <div class="marquee-block">
+    <p class="marquee-block__label">{{'f29.t7.3' | translate }}</p>
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <img src='assets/img/home/institutions/Logo_ema.webp' alt="EMA" loading="lazy">
+        <img src='assets/img/home/institutions/header-logo.webp' alt="Global Commission" loading="lazy">
+        <img src='assets/img/home/allies/sermas.webp' alt="Sermas" loading="lazy">
+        <img src='assets/img/home/institutions/CatSalut.webp' alt="CatSalut" loading="lazy">
+        <img src='assets/img/home/institutions/monarch.webp' alt="Monarch" loading="lazy">
+        <img src='assets/img/home/institutions/idiscc.webp' alt="IDISCC" loading="lazy">
+        <img src='assets/img/home/institutions/dihbio.webp' alt="Dihbio" loading="lazy">
+        <!-- duplicate for seamless loop -->
+        <img src='assets/img/home/institutions/Logo_ema.webp' alt="" loading="lazy" aria-hidden="true">
+        <img src='assets/img/home/institutions/header-logo.webp' alt="" loading="lazy" aria-hidden="true">
+        <img src='assets/img/home/allies/sermas.webp' alt="" loading="lazy" aria-hidden="true">
+        <img src='assets/img/home/institutions/CatSalut.webp' alt="" loading="lazy" aria-hidden="true">
+        <img src='assets/img/home/institutions/monarch.webp' alt="" loading="lazy" aria-hidden="true">
+        <img src='assets/img/home/institutions/idiscc.webp' alt="" loading="lazy" aria-hidden="true">
+        <img src='assets/img/home/institutions/dihbio.webp' alt="" loading="lazy" aria-hidden="true">
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee-block marquee-block--mt">
+    <p class="marquee-block__label">{{'f29.t7.5' | translate }}</p>
+    <div class="marquee-wrap">
+      <div class="marquee-track marquee-track--rev">
+        <img src='assets/img/home/allies/Microsoft-Logo.webp' alt="Microsoft" loading="lazy">
+        <img src='assets/img/home/allies/takeda.webp' alt="Takeda" loading="lazy">
+        <img src='assets/img/home/allies/KyowaKirin.webp' alt="KyowaKirin" loading="lazy">
+        <img src='assets/img/home/allies/garrigues.webp' alt="Garrigues" loading="lazy">
+        <img src='assets/img/home/allies/barra.webp' alt="Barrabes" loading="lazy">
+        <img src='assets/img/home/allies/italfarmaco.webp' alt="Italfarmaco" loading="lazy">
+        <img src='assets/img/home/allies/sanofi.webp' alt="Sanofi" loading="lazy">
+        <img src='assets/img/home/allies/google.webp' alt="Google" loading="lazy">
+        <img src='assets/img/home/allies/ucb.webp' alt="UCB" loading="lazy">
+        <!-- duplicate -->
+        <img src='assets/img/home/allies/Microsoft-Logo.webp' alt="" loading="lazy" aria-hidden="true">
+        <img src='assets/img/home/allies/takeda.webp' alt="" loading="lazy" aria-hidden="true">
+        <img src='assets/img/home/allies/KyowaKirin.webp' alt="" loading="lazy" aria-hidden="true">
+        <img src='assets/img/home/allies/garrigues.webp' alt="" loading="lazy" aria-hidden="true">
+        <img src='assets/img/home/allies/barra.webp' alt="" loading="lazy" aria-hidden="true">
+        <img src='assets/img/home/allies/italfarmaco.webp' alt="" loading="lazy" aria-hidden="true">
+        <img src='assets/img/home/allies/sanofi.webp' alt="" loading="lazy" aria-hidden="true">
+        <img src='assets/img/home/allies/google.webp' alt="" loading="lazy" aria-hidden="true">
+        <img src='assets/img/home/allies/ucb.webp' alt="" loading="lazy" aria-hidden="true">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     AWARDS — Bold red section
+     ════════════════════════════════════════ -->
+<a id="awards" class="anchor_tags"></a>
+<section class="awards-v2">
+  <div class="container">
+    <div class="awards-v2__head">
+      <h2 class="awards-v2__title">{{'f29.t8.1' | translate }}</h2>
+      <p class="awards-v2__sub">{{'f29.t8.2' | translate }} {{'f29.t8.3' | translate }}</p>
+    </div>
+    <div class="awards-v2__grid">
+
+      <div class="awards-v2__card">
+        <img src='assets/img/home/awards/premio-AEPD_transparente.webp' alt="AEPD" class="awards-v2__img" loading="lazy">
+        <div class="awards-v2__info">
+          <h3 class="awards-v2__name">AEPD</h3>
+          <p class="awards-v2__award-title"><strong>{{'f29.t9.1.1' | translate }}</strong></p>
+          <p class="awards-v2__award-sub">{{'f29.t9.1.2' | translate }}</p>
+        </div>
+      </div>
+
+      <div class="awards-v2__card">
+        <img src='assets/img/home/awards/Premio-AMETIC-transparente.webp' alt="Ametic" class="awards-v2__img" loading="lazy">
+        <div class="awards-v2__info">
+          <h3 class="awards-v2__name">Ametic</h3>
+          <p class="awards-v2__award-title"><strong>Artificial Intelligence Summit</strong></p>
+          <p class="awards-v2__award-sub">R+D+I Ametic IA Award</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     MODAL (unchanged)
+     ════════════════════════════════════════ -->
+<ng-template #contentInfoAPP let-c="close" let-d="dismiss" appendTo="body">
+  <div class="modal-header">
+    <h4 class="modal-title">{{'f29.dxgpt.interface.help' | translate }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body content-wrapper">
+    <div class="row align-items-start">
+
+      <div class="col-md-4 text-center">
+        <div class="section-header">
+          <div class="icon-container">
+            <i class="fas fa-gear fa-2x"></i>
+          </div>
+          <h4>{{ 'f29.dxgpt.interface.p1.title' | translate }}</h4>
+          <p class="section-subheader">{{ 'f29.dxgpt.interface.p1.subtitle' | translate }}</p>
+        </div>
+        <div class="card-container mt-3">
+          <div class="example-card pointer" (click)="copyText('opt1'); lauchEvent('Copy sample 1');">
+            <p class="mb-0">{{'f29.dxgpt.interface.p1.1' | translate }}</p>
+            <div class="text-right">
+              <i class="fa-solid fa-arrow-right-long"></i>
+            </div>
+          </div>
+        </div>
+        <div class="card-container mt-3">
+          <div class="example-card pointer" (click)="copyText('opt2'); lauchEvent('Copy sample 2');">
+            <p class="mb-0">{{'f29.dxgpt.interface.p1.2' | translate }}</p>
+            <div class="text-right">
+              <i class="fa-solid fa-arrow-right-long"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 text-center">
+        <div class="section-header">
+          <div class="icon-container">
+            <i class="fa fa-rocket fa-2x"></i>
+          </div>
+          <h4>{{ 'f29.dxgpt.interface.p2.title' | translate }}</h4>
+        </div>
+        <div class="card-container mt-3">
+          <div class="capabilities-card">
+            <p class="mb-0">{{'f29.dxgpt.interface.p2.1' | translate }}</p>
+          </div>
+        </div>
+        <div class="card-container mt-3">
+          <div class="capabilities-card">
+            <p class="mb-0">{{'f29.dxgpt.interface.p2.2' | translate }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 text-center">
+        <div class="section-header">
+          <div class="icon-container">
+            <i class="fa fa-exclamation-triangle fa-2x"></i>
+          </div>
+          <h4>{{ 'f29.dxgpt.interface.p3.title' | translate }}</h4>
+        </div>
+        <div class="card-container mt-3">
+          <div class="limitations-card">
+            <p class="mb-0">{{'f29.dxgpt.interface.p3.1' | translate }}</p>
+          </div>
+        </div>
+        <div class="card-container mt-3">
+          <div class="limitations-card">
+            <p class="mb-0">{{'f29.dxgpt.interface.p3.2' | translate }}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</ng-template>
