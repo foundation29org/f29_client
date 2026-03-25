@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, OnDestroy, OnInit, AfterViewInit, HostListener, ElementRef, ViewChild, effect } from '@angular/core';
+import { Component, Output, EventEmitter, OnDestroy, OnInit, AfterViewInit, HostListener, ElementRef, ViewChild, effect, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { LayoutService } from '../services/layout.service';
@@ -21,6 +21,7 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
   toggleClass = 'ft-maximize';
   placement = "bottom-right";
   public isCollapsed = true;
+  @Input() sidebarHidden = true;
   @Output()
   toggleHideSidebar = new EventEmitter<Object>();
 
@@ -405,13 +406,9 @@ export class NavbarD29Component implements OnInit, AfterViewInit, OnDestroy {
     this.layoutService.emitNotiSidebarChange(true);
   }
 
-  toggleSidebar() {
-    const appSidebar = document.getElementsByClassName("app-sidebar")[0];
-    if (appSidebar.classList.contains("hide-sidebar")) {
-      this.toggleHideSidebar.emit(false);
-    } else {
-      this.toggleHideSidebar.emit(true);
-    }
+  toggleSidebar(event?: Event) {
+    event?.stopPropagation();
+    this.toggleHideSidebar.emit(!this.sidebarHidden);
   }
 
   loadLanguages() {

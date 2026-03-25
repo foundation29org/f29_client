@@ -37,7 +37,7 @@ export class LandPageLayoutComponent implements OnInit, AfterViewInit, OnDestroy
     bgColor: "black",
     bgImage: "assets/img/sidebar-bg/01.jpg"
   };
-  hideSidebar: boolean;
+  hideSidebar = window.innerWidth < 992;
   iscollapsed = false;
   isSidebar_sm = false;
   isSidebar_lg = false;
@@ -273,9 +273,7 @@ export class LandPageLayoutComponent implements OnInit, AfterViewInit, OnDestroy
   }
 
   toggleHideSidebar($event: boolean): void {
-    setTimeout(() => {
-      this.hideSidebar = $event;
-    }, 0);
+    this.hideSidebar = $event;
   }
 
 }
