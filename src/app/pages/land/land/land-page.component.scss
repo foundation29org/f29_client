@@ -96,8 +96,8 @@ $bd-light:   rgba(0, 0, 0, 0.08);
   &__content {
     position: relative;
     z-index: 1;
-    padding: 7rem 5rem 3rem;
-    max-width: 960px;
+    padding: 8rem 2rem 3rem;
+    max-width: 1100px;
   }
 
   &__eyebrow {
@@ -117,9 +117,9 @@ $bd-light:   rgba(0, 0, 0, 0.08);
   }
 
   &__line {
-    font-size: clamp(2.8rem, 5.5vw, 5.6rem);
+    font-size: clamp(3rem, 7.5vw, 8rem);
     font-weight: 900;
-    line-height: 1.02;
+    line-height: 1.0;
     text-transform: uppercase;
     letter-spacing: -0.03em;
     color: $cream;
@@ -193,7 +193,7 @@ $bd-light:   rgba(0, 0, 0, 0.08);
   &__stats {
     display: flex;
     align-items: center;
-    padding: 2rem 5rem;
+    padding: 2rem 2rem;
   }
 
   &__stat {
@@ -309,7 +309,7 @@ $bd-light:   rgba(0, 0, 0, 0.08);
 // ════════════════════════════════════════
 .dxgpt-v2 {
   padding: 7rem 0;
-  background: $cream;
+  background: $dark;
 
   &__info {
     padding: 2rem;
@@ -318,14 +318,14 @@ $bd-light:   rgba(0, 0, 0, 0.08);
   &__title {
     font-size: 2.5rem !important;
     font-weight: 800;
-    color: $dark;
+    color: $cream;
     line-height: 1.15;
     margin-bottom: 1.2rem;
   }
 
   &__desc {
     font-size: 1rem !important;
-    color: #555 !important;
+    color: rgba(245, 244, 241, 0.62) !important;
     line-height: 1.78;
     margin-bottom: 2rem;
   }
@@ -602,11 +602,72 @@ $bd-light:   rgba(0, 0, 0, 0.08);
 }
 
 // ════════════════════════════════════════
+// FOUNDATION IDENTITY
+// ════════════════════════════════════════
+.identity-v2 {
+  padding: 7rem 0;
+  background: $dark-2;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem 3rem;
+
+    @media (max-width: 992px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 575px) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 1.25rem;
+    border-top: 2px solid rgba(232, 48, 42, 0.4);
+    transition: border-color 0.3s;
+
+    &:hover {
+      border-color: $red;
+    }
+  }
+
+  &__prefix {
+    font-size: 0.72rem !important;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: $red;
+  }
+
+  &__title {
+    font-size: 1.55rem !important;
+    font-weight: 800;
+    color: $cream;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  &__desc {
+    font-size: 0.88rem !important;
+    color: rgba(245, 244, 241, 0.52) !important;
+    line-height: 1.72;
+    margin: 0.35rem 0 0;
+  }
+}
+
+// ════════════════════════════════════════
 // TEAM
 // ════════════════════════════════════════
 .team-v2 {
   padding: 7rem 0;
-  background: $white;
+  background: $dark;
 
   &__head {
     margin-bottom: 4rem;
@@ -615,7 +676,7 @@ $bd-light:   rgba(0, 0, 0, 0.08);
   &__title {
     font-size: 2.4rem !important;
     font-weight: 800;
-    color: $dark;
+    color: $cream;
   }
 
   &__grid {
@@ -629,7 +690,7 @@ $bd-light:   rgba(0, 0, 0, 0.08);
 
     &:hover .team-v2__photo {
       transform: scale(1.05);
-      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.14);
+      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.4);
       filter: grayscale(0%);
     }
   }
@@ -642,7 +703,8 @@ $bd-light:   rgba(0, 0, 0, 0.08);
     display: block;
     margin: 0 auto 1.1rem;
     transition: all 0.35s ease;
-    filter: grayscale(25%);
+    filter: grayscale(30%);
+    border: 2px solid rgba(255, 255, 255, 0.07);
   }
 
   &__info {
@@ -655,13 +717,13 @@ $bd-light:   rgba(0, 0, 0, 0.08);
   &__name {
     font-size: 1rem !important;
     font-weight: 700;
-    color: $dark;
+    color: $cream;
     display: block;
   }
 
   &__role {
     font-size: 0.8rem !important;
-    color: $muted;
+    color: rgba(245, 244, 241, 0.42);
     display: block;
     line-height: 1.4;
   }
@@ -672,16 +734,17 @@ $bd-light:   rgba(0, 0, 0, 0.08);
     justify-content: center;
     width: 28px;
     height: 28px;
-    background: $dark;
-    color: $white !important;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(245, 244, 241, 0.55) !important;
     border-radius: 50%;
     font-size: 0.72rem !important;
     text-decoration: none;
     margin-top: 0.5rem;
-    transition: background 0.2s;
+    transition: background 0.2s, color 0.2s;
 
     &:hover {
       background: #0077B5;
+      color: $white !important;
       text-decoration: none;
     }
   }
@@ -1057,8 +1120,8 @@ $bd-light:   rgba(0, 0, 0, 0.08);
 
 @media (max-width: 992px) {
   .hero-v2 {
-    &__content { padding: 5rem 2.5rem 2rem; }
-    &__stats { padding: 1.5rem 2.5rem; }
+    &__content { padding: 5rem 2rem 2rem; }
+    &__stats { padding: 1.5rem 2rem; }
     &__stat { padding: 0 1.2rem; }
   }
 
@@ -1069,8 +1132,8 @@ $bd-light:   rgba(0, 0, 0, 0.08);
 
 @media (max-width: 768px) {
   .hero-v2 {
-    &__content { padding: 5rem 1.5rem 2rem; max-width: 100%; }
-    &__line { font-size: clamp(2rem, 9vw, 3.5rem); }
+    &__content { padding: 5rem 2rem 2rem; max-width: 100%; }
+    &__line { font-size: clamp(2.2rem, 9vw, 3.8rem); }
     &__desc { font-size: 0.95rem !important; }
     &__stats {
       flex-direction: row;
@@ -1107,7 +1170,6 @@ $bd-light:   rgba(0, 0, 0, 0.08);
   }
 
   .eco-v2 { padding: 4rem 0 3rem; }
-
   .awards-v2 {
     padding: 4rem 0;
     &__grid { grid-template-columns: 1fr; max-width: 380px; }
